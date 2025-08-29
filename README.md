@@ -6,11 +6,11 @@ Version: 0.0.1
 
 ## Requirements
 
-- Python 
+- Python >=3.10
 
 ## Dependencies
 
-
+- pydantic>=2,<3
 
 ## Installation
 
