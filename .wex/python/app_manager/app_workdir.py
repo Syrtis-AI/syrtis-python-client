@@ -15,13 +15,10 @@ class AppWorkdir(PythonPackageWorkdir):
         raw_value = super().prepare_value(raw_value=raw_value)
 
         def _build_remote_github(target: AppWorkdir) -> str:
-            print(target.get_project_name())
-            print(f"s{string_to_kebab_case(target.get_vendor_name())}-{string_to_kebab_case(target.get_project_name())}.git")
-            exit()
-            return f"git@github.com:Syrtis-AI/{string_to_kebab_case(target.get_project_name())}.git"
+            return f"git@github.com:Syrtis-AI/{string_to_kebab_case(target.get_vendor_name())}-{string_to_kebab_case(target.get_project_name())}.git"
 
         def _build_remote_gitlab(target: AppWorkdir) -> str:
-            return f"ssh://git@gitlab.syrtis.ai:4567/syrtis-suite-python/{string_to_kebab_case(target.get_project_name())}.git"
+            return f"ssh://git@gitlab.syrtis.ai:4567/syrtis-suite-python/{string_to_kebab_case(target.get_vendor_name())}-{string_to_kebab_case(target.get_project_name())}.git"
 
         raw_value["git"] = {
             "main_branch": "main",
