@@ -1,3 +1,9 @@
-name: syrtis-client-python
-version: 0.0.1
-visibility: public
+git:
+  main_deployment_remote_name: github
+global:
+  authors:
+    email: contact@syrtis.ai
+    name: weeger
+  name: python_client
+  vendor: syrtis
+  version: 0.0.6
