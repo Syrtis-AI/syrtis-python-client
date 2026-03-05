@@ -1,4 +1,4 @@
-from syrtis_python_client.Entity.AbstractApiEntity import AbstractApiEntity
+from syrtis_python_client.Entity.abstract_api_entity import AbstractApiEntity
 
 
 class Uesr(AbstractApiEntity):
