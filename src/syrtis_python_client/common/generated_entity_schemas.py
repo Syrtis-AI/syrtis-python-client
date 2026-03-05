@@ -5,7 +5,11 @@ from importlib.resources import files
 from typing import Any
 
 ENTITY_SCHEMA_FILES = [
-    "uesr.json",
+    "message.json",
+    "message_stamp.json",
+    "request.json",
+    "session.json",
+    "user.json",
 ]
 
 
