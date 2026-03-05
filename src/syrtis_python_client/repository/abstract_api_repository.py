@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Generic, TypeVar
 
-from syrtis_python_client.Entity.abstract_api_entity import AbstractApiEntity
+from syrtis_python_client.entity.abstract_api_entity import AbstractApiEntity
 
 EntityType = TypeVar("EntityType", bound=AbstractApiEntity)
 

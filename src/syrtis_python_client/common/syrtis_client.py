@@ -4,8 +4,8 @@ from typing import Any
 from urllib import parse, request
 import json
 
-from syrtis_python_client.Common.entity_schemas import get_entity_schemas
-from syrtis_python_client.Common.generated_repositories import generated_repositories
+from syrtis_python_client.common.entity_schemas import get_entity_schemas
+from syrtis_python_client.common.generated_repositories import generated_repositories
 
 
 class SyrtisClient:
