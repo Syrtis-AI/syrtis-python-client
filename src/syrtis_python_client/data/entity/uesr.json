@@ -1,0 +1,10 @@
+{
+  "name": "uesr",
+  "properties": [
+    {
+      "name": "id",
+      "type": "mixed",
+      "default": null
+    }
+  ]
+}
