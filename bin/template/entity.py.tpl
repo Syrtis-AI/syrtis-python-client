@@ -1,4 +1,4 @@
-from {{PACKAGE_NAME}}.entity.abstract_api_entity import AbstractApiEntity
+from {{BASE_PACKAGE_NAME}}.entity.abstract_api_entity import AbstractApiEntity
 
 
 class {{CLASS_NAME}}(AbstractApiEntity):

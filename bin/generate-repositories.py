@@ -51,6 +51,11 @@ def main() -> int:
     root_dir = Path(__file__).resolve().parent.parent
     src_dir = root_dir / "src"
     package_name = detect_package_name(src_dir)
+    base_package_name = (
+        "syrtis_python_client"
+        if package_name.endswith("_internal")
+        else package_name
+    )
     package_dir = src_dir / package_name
     data_dir = package_dir / "data" / "entity"
     repository_dir = package_dir / "repository"
@@ -92,6 +97,7 @@ def main() -> int:
 
         content = (
             template.replace("{{PACKAGE_NAME}}", package_name)
+            .replace("{{BASE_PACKAGE_NAME}}", base_package_name)
             .replace("{{CLASS_NAME}}", class_name)
             .replace("{{ENTITY_MODULE_NAME}}", module_name)
         )

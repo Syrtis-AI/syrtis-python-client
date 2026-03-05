@@ -1,5 +1,5 @@
 from {{PACKAGE_NAME}}.entity.{{ENTITY_MODULE_NAME}} import {{CLASS_NAME}}
-from {{PACKAGE_NAME}}.repository.abstract_api_repository import AbstractApiRepository
+from {{BASE_PACKAGE_NAME}}.repository.abstract_api_repository import AbstractApiRepository
 
 
 class {{CLASS_NAME}}Repository(AbstractApiRepository[{{CLASS_NAME}}]):
