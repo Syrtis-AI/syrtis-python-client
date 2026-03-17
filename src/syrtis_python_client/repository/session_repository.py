@@ -26,3 +26,21 @@ class SessionRepository(AbstractApiRepository[Session]):
                 "timeZone": time_zone,
             },
         )
+
+    def continue_session_sync(
+        self,
+        session_id: str,
+        messages: list[dict[str, Any]],
+        *,
+        file_stamps: dict[str, Any] | None = None,
+        time_zone: str = "UTC",
+    ) -> Any:
+        return self.client.request_multipart(
+            "POST",
+            f"session/continue/{session_id}/sync",
+            data={
+                "messages": messages,
+                "fileStamps": file_stamps or {},
+                "timeZone": time_zone,
+            },
+        )
