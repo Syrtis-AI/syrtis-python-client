@@ -62,3 +62,33 @@ class SyrtisClient:
             if not raw:
                 return None
             return json.loads(raw)
+
+    def request_multipart(
+        self,
+        method: str,
+        path: str,
+        *,
+        data: dict[str, Any],
+    ) -> Any:
+        url = self.base_url + path.lstrip("/")
+        boundary = "----PythonClientBoundary"
+        body = (
+            f"--{boundary}\r\n"
+            f'Content-Disposition: form-data; name="data"\r\n\r\n'
+            f"{json.dumps(data)}\r\n"
+            f"--{boundary}--\r\n"
+        ).encode("utf-8")
+
+        headers = {
+            "Accept": "application/json",
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+        }
+        if self.api_key:
+            headers["Authorization"] = f"Bearer {self.api_key}"
+
+        req = request.Request(url=url, method=method.upper(), data=body, headers=headers)
+        with request.urlopen(req) as response:
+            raw = response.read().decode("utf-8")
+            if not raw:
+                return None
+            return json.loads(raw)
