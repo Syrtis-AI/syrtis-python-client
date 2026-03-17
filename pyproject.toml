@@ -8,9 +8,7 @@ version = "0.0.6"
 authors = [{name = "weeger", email = "contact@syrtis.ai"}]
 requires-python = ">=3.10"
 classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent"]
-dependencies = [
-    "pydantic>=2,<3",
-]
+dependencies = []
 
 [project.readme]
 file = "README.md"
