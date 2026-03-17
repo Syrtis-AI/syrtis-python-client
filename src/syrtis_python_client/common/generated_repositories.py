@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from syrtis_python_client.repository.message_repository import MessageRepository
 from syrtis_python_client.repository.message_stamp_repository import MessageStampRepository
 from syrtis_python_client.repository.request_repository import RequestRepository

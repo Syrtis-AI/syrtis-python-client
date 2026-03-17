@@ -29,7 +29,9 @@ class AbstractApiRepository(Generic[EntityType]):
         return self.client.request_json("POST", self._entity_path(), payload=payload)
 
     def update(self, item_id: str | int, payload: dict[str, Any]) -> Any:
-        return self.client.request_json("PUT", f"{self._entity_path()}/{item_id}", payload=payload)
+        return self.client.request_json(
+            "PUT", f"{self._entity_path()}/{item_id}", payload=payload
+        )
 
     def delete(self, item_id: str | int) -> Any:
         return self.client.request_json("DELETE", f"{self._entity_path()}/{item_id}")

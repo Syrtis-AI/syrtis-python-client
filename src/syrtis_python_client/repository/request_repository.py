@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from syrtis_python_client.entity.request import Request
 from syrtis_python_client.repository.abstract_api_repository import AbstractApiRepository
 

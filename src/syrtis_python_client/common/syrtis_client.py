@@ -32,7 +32,9 @@ class SyrtisClient:
                 self._repositories[entity_type] = repository
                 return repository
 
-        raise LookupError(f"No repository found for entity type: {entity_type.__name__}")
+        raise LookupError(
+            f"No repository found for entity type: {entity_type.__name__}"
+        )
 
     def request_json(
         self,
@@ -56,7 +58,9 @@ class SyrtisClient:
             body = json.dumps(payload).encode("utf-8")
             headers["Content-Type"] = "application/json"
 
-        req = request.Request(url=url, method=method.upper(), data=body, headers=headers)
+        req = request.Request(
+            url=url, method=method.upper(), data=body, headers=headers
+        )
         with request.urlopen(req) as response:
             raw = response.read().decode("utf-8")
             if not raw:
@@ -86,7 +90,9 @@ class SyrtisClient:
         if self.api_key:
             headers["Authorization"] = f"Bearer {self.api_key}"
 
-        req = request.Request(url=url, method=method.upper(), data=body, headers=headers)
+        req = request.Request(
+            url=url, method=method.upper(), data=body, headers=headers
+        )
         with request.urlopen(req) as response:
             raw = response.read().decode("utf-8")
             if not raw:

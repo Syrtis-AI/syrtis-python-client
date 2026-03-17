@@ -18,7 +18,7 @@ class AbstractApiEntity:
         return name.lower()
 
     @classmethod
-    def from_payload(cls, payload: dict[str, Any]) -> "AbstractApiEntity":
+    def from_payload(cls, payload: dict[str, Any]) -> AbstractApiEntity:
         return cls(data=payload)
 
     def to_dict(self) -> dict[str, Any]:
