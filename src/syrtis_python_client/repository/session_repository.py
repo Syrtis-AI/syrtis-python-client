@@ -3,7 +3,9 @@ from __future__ import annotations
 from typing import Any
 
 from syrtis_python_client.entity.session import Session
-from syrtis_python_client.repository.abstract_api_repository import AbstractApiRepository
+from syrtis_python_client.repository.abstract_api_repository import (
+    AbstractApiRepository,
+)
 
 
 class SessionRepository(AbstractApiRepository[Session]):

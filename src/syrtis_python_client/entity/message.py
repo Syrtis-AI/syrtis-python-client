@@ -9,7 +9,6 @@ class Message(AbstractApiEntity):
         return "message"
 
     def is_chat_message_from_assistant(self) -> bool:
-        return (
-            self.data.get("origin") != "user"
-            and any(s.get("name") == "chat" for s in self.data.get("messageStamp", []))
+        return self.data.get("origin") != "user" and any(
+            s.get("name") == "chat" for s in self.data.get("messageStamp", [])
         )

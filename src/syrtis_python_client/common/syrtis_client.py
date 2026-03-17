@@ -81,7 +81,7 @@ class SyrtisClient:
             f'Content-Disposition: form-data; name="data"\r\n\r\n'
             f"{json.dumps(data)}\r\n"
             f"--{boundary}--\r\n"
-        ).encode("utf-8")
+        ).encode()
 
         headers = {
             "Accept": "application/json",
