@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import json
 from typing import Any
 from urllib import parse, request
-import json
 
 from syrtis_python_client.common.entity_schemas import get_entity_schemas
 from syrtis_python_client.common.generated_repositories import generated_repositories
@@ -15,9 +15,6 @@ class SyrtisClient:
         self.base_url = (base_url or self.DEFAULT_BASE_URL).rstrip("/") + "/"
         self.api_key = api_key
         self._repositories: dict[type[Any], Any] = {}
-
-    def get_repository_classes(self) -> list[type[Any]]:
-        return list(generated_repositories)
 
     def get_entity_schemas(self) -> dict[str, dict[str, Any]]:
         return get_entity_schemas()
@@ -35,6 +32,9 @@ class SyrtisClient:
         raise LookupError(
             f"No repository found for entity type: {entity_type.__name__}"
         )
+
+    def get_repository_classes(self) -> list[type[Any]]:
+        return list(generated_repositories)
 
     def request_json(
         self,

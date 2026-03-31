@@ -1,6 +1,6 @@
 # syrtis-python-client
 
-Version: 0.0.8
+Version: 0.0.10
 
 ## Table of Contents
 
@@ -8,7 +8,6 @@ Version: 0.0.8
 - [Tests](#tests)
 - [Roadmap](#roadmap)
 - [Useful Links](#useful-links)
-- [Suite Signature](#suite-signature)
 
 
 ## Status & Compatibility
@@ -83,12 +82,4 @@ See the [project roadmap](https://github.com/wexample/python-python_client/issue
 - **Issue Tracker**: https://github.com/wexample/python-python-client/issues
 - **Discussions**: https://github.com/wexample/python-python-client/discussions
 - **PyPI**: [pypi.org/project/syrtis-python-client](https://pypi.org/project/syrtis-python-client/)
-
-# About us
-
-[Syrtis AI](https://syrtis.ai) helps organizations turn artificial intelligence from an idea into reliable, measurable systems. We are a team of engineers and practitioners focused on implementing AI services inside real businesses — from strategy and architecture to deployment, integration, and long-term operations. Our goal is simple: deliver AI that works in production, fits your constraints, and earns its keep.
-
-We build practical solutions that connect to existing tools, data, and processes, with an emphasis on security, performance, and governance. Whether it’s automating workflows, enhancing decision-making, or creating new product capabilities, Syrtis AI designs implementations that are maintainable, scalable, and aligned with business outcomes — not demos.
-
-Syrtis AI promotes a culture of rigor and responsibility. Every delivery reflects a commitment to clear engineering, transparent communication, and trustworthy AI practices, so teams can adopt, operate, and evolve their AI services with confidence.
 
