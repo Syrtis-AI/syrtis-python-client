@@ -1,6 +1,6 @@
 # syrtis-python-client
 
-Version: 0.0.19
+Version: 0.0.20
 
 ## Table of Contents
 
