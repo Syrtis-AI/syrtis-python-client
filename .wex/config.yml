@@ -6,4 +6,9 @@ global:
     name: weeger
   name: python_client
   vendor: syrtis
-  version: 0.0.13
+  version: 0.0.15
+pdm:
+  repository:
+    token: ${GITLAB_API_TOKEN}
+    url: https://gitlab.syrtis.ai/api/v4/projects/38/packages/pypi
+    username: ${NPM_USERNAME}
