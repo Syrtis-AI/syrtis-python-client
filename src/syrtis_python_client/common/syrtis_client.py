@@ -9,7 +9,12 @@ from syrtis_python_client.common.generated_repositories import generated_reposit
 
 
 class SyrtisClient:
-    DEFAULT_BASE_URL = "https://api.syrtis.ai/api/"
+    API_VERSION_2025_3 = "2025-3"
+    API_VERSION_2026_1 = "2026-1"
+    API_VERSION_DEFAULT = API_VERSION_2026_1
+
+    BASE_URL = "https://api.syrtis.ai/api/"
+    DEFAULT_BASE_URL = BASE_URL + API_VERSION_DEFAULT + "/"
 
     def __init__(self, base_url: str | None = None, api_key: str | None = None) -> None:
         self.base_url = (base_url or self.DEFAULT_BASE_URL).rstrip("/") + "/"
