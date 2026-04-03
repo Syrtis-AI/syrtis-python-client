@@ -12,7 +12,6 @@ class SyrtisClient:
     API_VERSION_2025_3 = "2025-3"
     API_VERSION_2026_1 = "2026-1"
     API_VERSION_DEFAULT = API_VERSION_2026_1
-
     BASE_URL = "https://api.syrtis.ai/api/"
     DEFAULT_BASE_URL = BASE_URL + API_VERSION_DEFAULT + "/"
 
