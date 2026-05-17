@@ -12,3 +12,5 @@ global:
   type: app
   vendor: syrtis
   version: 6.0.28
+wex:
+  version: 6.0.28
