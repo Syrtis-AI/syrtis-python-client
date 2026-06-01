@@ -1,6 +1,6 @@
 # python_client
 
-Version: 6.2.0
+Version: 6.3.0
 
 ## Table of Contents
 
