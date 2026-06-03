@@ -11,7 +11,7 @@ global:
   name: python_client
   type: app
   vendor: syrtis
-  version: 6.3.0
+  version: 7.0.0
 wex:
   migration: 1
-  version: 6.0.104
+  version: 6.0.112
