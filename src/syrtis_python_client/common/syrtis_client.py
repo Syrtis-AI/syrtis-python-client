@@ -12,11 +12,16 @@ class SyrtisClient:
     API_VERSION_2025_3 = "2025-3"
     API_VERSION_2026_1 = "2026-1"
     API_VERSION_DEFAULT = API_VERSION_2026_1
-    BASE_URL = "https://api.syrtis.ai/api/"
-    DEFAULT_BASE_URL = BASE_URL + API_VERSION_DEFAULT + "/"
 
-    def __init__(self, base_url: str | None = None, api_key: str | None = None) -> None:
-        self.base_url = (base_url or self.DEFAULT_BASE_URL).rstrip("/") + "/"
+    def __init__(
+        self,
+        host: str,
+        api_key: str | None = None,
+        api_version: str | None = None,
+    ) -> None:
+        version = api_version or self.API_VERSION_DEFAULT
+        normalized_host = host.rstrip("/") + "/"
+        self.base_url = f"{normalized_host}api/{version}/"
         self.api_key = api_key
         self._repositories: dict[type[Any], Any] = {}
 
