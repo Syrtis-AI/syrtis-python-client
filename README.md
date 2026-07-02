@@ -1,6 +1,6 @@
 # python_client
 
-Version: 7.0.0
+Version: 8.0.0
 
 ## Table of Contents
 

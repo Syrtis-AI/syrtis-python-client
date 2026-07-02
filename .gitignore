@@ -58,3 +58,11 @@ coverage*.lcov
 *.pid.lock
 /coverage.json
 /.pdm-build/
+/logs/
+/log/
+/.cache/
+/cache/
+/tmp/
+/temp/
+/out/
+/coverage/
