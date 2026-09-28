@@ -19,6 +19,7 @@ class SessionRepository(AbstractApiRepository[Session]):
         messages: list[dict[str, Any]],
         *,
         file_stamps: dict[str, Any] | None = None,
+        parent_request_secure_id: str | None = None,
         time_zone: str = "UTC",
     ) -> Any:
         return self.client.request_multipart(
@@ -27,6 +28,7 @@ class SessionRepository(AbstractApiRepository[Session]):
             data={
                 "messages": messages,
                 "fileStamps": file_stamps or {},
+                "parentRequestSecureId": parent_request_secure_id,
                 "timeZone": time_zone,
             },
         )
@@ -37,6 +39,7 @@ class SessionRepository(AbstractApiRepository[Session]):
         messages: list[dict[str, Any]],
         *,
         file_stamps: dict[str, Any] | None = None,
+        parent_request_secure_id: str | None = None,
         time_zone: str = "UTC",
     ) -> Any:
         return self.client.request_multipart(
@@ -45,6 +48,7 @@ class SessionRepository(AbstractApiRepository[Session]):
             data={
                 "messages": messages,
                 "fileStamps": file_stamps or {},
+                "parentRequestSecureId": parent_request_secure_id,
                 "timeZone": time_zone,
             },
         )
