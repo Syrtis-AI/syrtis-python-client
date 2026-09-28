@@ -33,3 +33,10 @@ class Scenario(ScenarioGenerated, AbstractEntity):
             if card.id == card_id:
                 return card
         return None
+
+    def find_job(self, job_id: int):
+        """A job of the scenario, its own or one of its cards'."""
+        for job in [*self.jobs, *(card.job for card in self.cards if card.job is not None)]:
+            if job.id == job_id:
+                return job
+        return None
