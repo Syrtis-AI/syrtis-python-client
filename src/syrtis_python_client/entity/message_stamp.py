@@ -1,9 +1,13 @@
 from __future__ import annotations
 
-from syrtis_python_client.entity.abstract_api_entity import AbstractApiEntity
+from wexample_orm.entity.abstract_entity import AbstractEntity
+
+from syrtis_python_client.entity.generated.message_stamp_generated import (
+    MessageStampGenerated,
+)
+
+__all__ = ["MessageStamp", "MessageStampGenerated"]
 
 
-class MessageStamp(AbstractApiEntity):
-    @classmethod
-    def get_entity_name(cls) -> str:
-        return "message_stamp"
+class MessageStamp(MessageStampGenerated, AbstractEntity):
+    pass

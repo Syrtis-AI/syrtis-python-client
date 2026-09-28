@@ -1,9 +1,13 @@
 from __future__ import annotations
 
-from syrtis_python_client.entity.abstract_api_entity import AbstractApiEntity
+from wexample_orm.entity.abstract_entity import AbstractEntity
+
+from syrtis_python_client.entity.generated.user_generated import (
+    UserGenerated,
+)
+
+__all__ = ["User", "UserGenerated"]
 
 
-class User(AbstractApiEntity):
-    @classmethod
-    def get_entity_name(cls) -> str:
-        return "user"
+class User(UserGenerated, AbstractEntity):
+    pass
