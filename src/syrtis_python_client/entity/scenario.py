@@ -13,3 +13,23 @@ class Scenario(ScenarioGenerated, AbstractEntity):
             if card.scope == card.SCOPE_GLOBAL:
                 return card
         return None
+
+    def get_end_cards(self) -> list:
+        """Cards no relation leaves, by id."""
+        return sorted(
+            (card for card in self.cards if not card.cardRelationsSources),
+            key=lambda card: card.id,
+        )
+
+    def get_entrypoint_cards(self) -> list:
+        """Cards no relation reaches, by id."""
+        return sorted(
+            (card for card in self.cards if not card.cardRelationsTarget),
+            key=lambda card: card.id,
+        )
+
+    def find_card(self, card_id: int):
+        for card in self.cards:
+            if card.id == card_id:
+                return card
+        return None
