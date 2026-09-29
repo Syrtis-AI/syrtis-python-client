@@ -1,0 +1,144 @@
+{
+  "data": {
+    "_ref": "687b9ce892e2a",
+    "scenario": {
+      "_ref": "687b9ce8932c3",
+      "card": [
+        {
+          "_ref": "687b9ce893361",
+          "job": {
+            "_ref": "687b9ce8ba61b",
+            "slot": [
+              {
+                "_ref": "687b9ce8ba682",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ce8bac90",
+                "node_type": "null",
+                "positionX": 470,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "end"
+              },
+              {
+                "_ref": "687b9ce8bb2b9",
+                "node_type": "message_chunk",
+                "positionX": 190,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce8bb7e5",
+                    "expression": false,
+                    "name": "mode",
+                    "slot_ref": "687b9ce8bb2b9",
+                    "value": "regex"
+                  },
+                  {
+                    "_ref": "687b9ce8bb8a7",
+                    "expression": false,
+                    "name": "options",
+                    "slot_ref": "687b9ce8bb2b9",
+                    "value": "{\n  \"pattern\": \"https?://[^\\\\s]+\"\n}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce8c106d",
+                    "collection": "default",
+                    "contentType": "info",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce8c12ee",
+                        "name": "extracted_url",
+                        "slotMessage_ref": "687b9ce8c106d"
+                      }
+                    ],
+                    "slot_ref": "687b9ce8bb2b9",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce8c13d1",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce8bb2b9",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "message_chunk",
+                "type": "default"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ce8c1aa0",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce8ba682",
+                "slotTarget_ref": "687b9ce8bb2b9"
+              },
+              {
+                "_ref": "687b9ce8c1b26",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce8bb2b9",
+                "slotTarget_ref": "687b9ce8bac90"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "687b9ce8932c3",
+          "scope": "default",
+          "title": "Test Node Message Chunk"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "687b9ce893361",
+      "description": "This scenario is a test case designed to validate data-extraction workflows that rely on the `message_chunk` node.\nThe node exposes a rich set of *chunker* options that let you:\n\n1. **Split long messages into manageable chunks** (by length, sentence, paragraph, etc.).\n2. **Apply a regular-expression filter** so that only the text fragments relevant to subsequent steps are retained.\n\nIn short, a scenario demonstrates both message segmentation *and* targeted extraction, providing a concise dataset for the rest of the job pipeline.\n\n---\n\n### Sample Lorem-Ipsum text containing a few URLs\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Visit **[https://example.org/docs](https://example.org/docs)** for the full documentation; for troubleshooting tips, see **[http://help.example.com/faq](http://help.example.com/faq)**.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Check out our blog at **[https://blog.example.net](https://blog.example.net)** for updates. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Message Chunk",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-message-chunk",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-message-chunk"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

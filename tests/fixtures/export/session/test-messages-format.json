@@ -1,0 +1,854 @@
+{
+  "data": {
+    "_ref": "68f6016b7ac20",
+    "scenario": {
+      "_ref": "68f6016b7b32a",
+      "card": [
+        {
+          "_ref": "68f6016b7b39e",
+          "job": null,
+          "message": [],
+          "scenario_ref": "68f6016b7b32a",
+          "scope": "global",
+          "title": "Test messages format"
+        },
+        {
+          "_ref": "68f6016b7b531",
+          "job": {
+            "_ref": "68f6016c3499c",
+            "slot": [
+              {
+                "_ref": "68f6016c349f1",
+                "node_type": "null",
+                "positionX": -640,
+                "positionY": -30,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016c34e23",
+                "node_type": "null",
+                "positionX": 2290,
+                "positionY": -20,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c35206",
+                "node_type": "message",
+                "positionX": -350,
+                "positionY": -90,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c3583d",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c358ab",
+                      "content": "This is a simple message",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c35206",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "SIMPLE_MESSAGE",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c35ec2",
+                "node_type": "message",
+                "positionX": -330,
+                "positionY": 30,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c365e5",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c366b3",
+                      "content": "This is a chat message",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c36b02",
+                          "message_ref": "68f6016c366b3",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c35ec2",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "CHAT_MESSAGE",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c36d3c",
+                "node_type": "message",
+                "positionX": 330,
+                "positionY": -190,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c372f7",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c3739d",
+                      "content": "{\n  \"message\": \"This is an info notification.\"\n}",
+                      "contentType": "info",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c37820",
+                          "message_ref": "68f6016c3739d",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c36d3c",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "NOTIFICATION_INFO",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c379eb",
+                "node_type": "message",
+                "positionX": 330,
+                "positionY": -90,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c3812c",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c381a3",
+                      "content": "{\n\"message\": \"This is a warning message\"\n}",
+                      "contentType": "warning",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c385c6",
+                          "message_ref": "68f6016c381a3",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c379eb",
+                    "source": "node",
+                    "type": "specific"
+                  }
+                ],
+                "title": "NOTIFICATION_WARNING",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c387bb",
+                "node_type": "message",
+                "positionX": 330,
+                "positionY": 20,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c38df0",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c38ec4",
+                      "content": "{\n\"message\": \"This is an error message\"\n}",
+                      "contentType": "error",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c39380",
+                          "message_ref": "68f6016c38ec4",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c387bb",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "NOTIFICATION_ERROR",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c395a7",
+                "node_type": "message",
+                "positionX": 660,
+                "positionY": -120,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c39b6e",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c39bf0",
+                      "content": "{\n  \"options\": {\n    \"choice_1\": \"First choice\",\n    \"choice_2\": \"Second choice\",\n    \"choice_3\": \"Third choice\"\n  },\n  \"name\":\"chosen_action\"\n}",
+                      "contentType": "actions",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c3a12c",
+                          "message_ref": "68f6016c39bf0",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c395a7",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "ACTIONS",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c3a3b2",
+                "node_type": "message",
+                "positionX": 990,
+                "positionY": -120,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c3a9c6",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c3aae0",
+                      "content": "{\n  \"total\": 100,\n  \"current\": 0,\n  \"label\": \"Progress starts...\"\n}",
+                      "contentType": "progress",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c3aed9",
+                          "message_ref": "68f6016c3aae0",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c3a3b2",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "PROGRESS_START",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c3b0e5",
+                "node_type": "message",
+                "positionX": 990,
+                "positionY": -20,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c3b675",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c3b6dd",
+                      "content": "{\n  \"total\": 100,\n  \"current\": 50,\n  \"label\": \"Half Progress\"\n}",
+                      "contentType": "progress",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c3babf",
+                          "message_ref": "68f6016c3b6dd",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c3b0e5",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "PROGRESS_HALF",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c3bcaa",
+                "node_type": "message",
+                "positionX": 990,
+                "positionY": 80,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c3c219",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c3c27e",
+                      "content": "{\n  \"total\": 100,\n  \"current\": 100,\n  \"label\": \"Progress completed!\"\n}",
+                      "contentType": "progress",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c3c634",
+                          "message_ref": "68f6016c3c27e",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c3bcaa",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "PROGRESS_END",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c3c8cf",
+                "node_type": "message",
+                "positionX": 660,
+                "positionY": -20,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c3ce40",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c3cec1",
+                      "content": "{\n  \"data\": [\n    {\n      \"label\": \"Server status is healthy\",\n      \"icon\": \"\ud83d\udfe2\"\n    },\n    {\n      \"label\": \"Database connection established\", \n      \"icon\": \"\u2705\"\n    },\n    {\n      \"label\": \"Cache service unavailable\",\n      \"icon\": \"\ud83d\udd34\"\n    },\n    {\n      \"label\": \"Backup completed successfully\",\n      \"icon\": \"\ud83d\udcbe\"\n    },\n    {\n      \"label\": \"Security scan in progress\",\n      \"icon\": \"\ud83d\udd0d\"\n    },\n    {\n      \"label\": \"User authentication active\",\n      \"icon\": \"\ud83d\udd10\"\n    }\n  ]\n}",
+                      "contentType": "list",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c3d219",
+                          "message_ref": "68f6016c3cec1",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c3c8cf",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "LIST",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c3d3a3",
+                "node_type": "message",
+                "positionX": 660,
+                "positionY": 80,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c3d8ff",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c3d969",
+                      "content": "{\n  \"data\": [\n    {\n      \"label\": \"Deploy application to production server\",\n      \"icon\": \"\u2713\",\n      \"type\": \"success\"\n    },\n    {\n      \"label\": \"Update database schema migration\", \n      \"icon\": \"\u2713\",\n      \"type\": \"success\"\n    },\n    {\n      \"label\": \"Configure SSL certificates for domain\",\n      \"icon\": \"\u2717\"\n    },\n    {\n      \"label\": \"Set up automated backup system\",\n      \"icon\": \"\u2717\"\n    }\n  ]\n}",
+                      "contentType": "list",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c3dd0e",
+                          "message_ref": "68f6016c3d969",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c3d3a3",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "TASKS",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c3de95",
+                "node_type": "message",
+                "positionX": 1310,
+                "positionY": -40,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c3e31a",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c3e381",
+                      "content": "{\n  \"fields\": [\n    {\n      \"name\": \"username\",\n      \"type\": \"text\",\n      \"label\": \"Username\",\n      \"placeholder\": \"Enter your username\",\n      \"required\": true,\n      \"value\": \"\"\n    },\n    {\n      \"name\": \"email\",\n      \"type\": \"email\", \n      \"label\": \"Email Address\",\n      \"placeholder\": \"your@email.com\",\n      \"required\": true\n    },\n    {\n      \"name\": \"message\",\n      \"type\": \"textarea\",\n      \"label\": \"Message\",\n      \"placeholder\": \"Your message here...\",\n      \"required\": false\n    },\n    {\n      \"name\": \"category\",\n      \"type\": \"select\",\n      \"label\": \"Category\",\n      \"placeholder\": \"Choose a category\",\n      \"options\": [\n        {\"value\": \"bug\", \"label\": \"Bug Report\"},\n        {\"value\": \"feature\", \"label\": \"Feature Request\"}\n      ]\n    },\n    {\n      \"name\": \"newsletter\",\n      \"type\": \"checkbox\",\n      \"label\": \"Subscribe\",\n      \"description\": \"Subscribe to newsletter\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"name\": \"submit\",\n      \"label\": \"Submit Form\",\n      \"type\": \"primary\"\n    },\n    {\n      \"name\": \"cancel\", \n      \"label\": \"Cancel\",\n      \"type\": \"secondary\"\n    }\n  ]\n}",
+                      "contentType": "form",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c3e6e4",
+                          "message_ref": "68f6016c3e381",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c3de95",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "FORM",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c3e8bf",
+                "node_type": "message",
+                "positionX": 1620,
+                "positionY": -40,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c3ed99",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c3ee03",
+                      "content": "This is a success message! Congratulations!",
+                      "contentType": "success",
+                      "format": "text",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c3f1c1",
+                          "message_ref": "68f6016c3ee03",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c3e8bf",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "SUCCESS",
+                "type": "end"
+              },
+              {
+                "_ref": "68f6016c3f378",
+                "node_type": "message",
+                "positionX": -10,
+                "positionY": -90,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c3f95e",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c3f9cf",
+                      "content": "{\n  \"url\": \"https://picsum.photos/id/237/300/100\",\n  \"alt\": \"A dog\"\n}",
+                      "contentType": "image",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c3fd8d",
+                          "message_ref": "68f6016c3f9cf",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c3f378",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "IMAGE",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c3ff6c",
+                "node_type": "message",
+                "positionX": -10,
+                "positionY": 20,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016c4046b",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016c404e1",
+                      "content": "{\"url\" : \"https://www.youtube.com/watch?v=L7i7LtPiOZg\"}",
+                      "contentType": "video",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016c408c3",
+                          "message_ref": "68f6016c404e1",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016c3ff6c",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "VIDEO",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016c40aa7",
+                "node_type": "navigate",
+                "positionX": 330,
+                "positionY": 130,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016c40dae",
+                    "expression": false,
+                    "name": "destination_card_shortcut",
+                    "slot_ref": "68f6016c40aa7",
+                    "value": "first"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "NAVIGATE",
+                "type": "default"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016d7cca4",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c349f1",
+                "slotTarget_ref": "68f6016c35206"
+              },
+              {
+                "_ref": "68f6016d7cd37",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c36d3c",
+                "slotTarget_ref": "68f6016c379eb"
+              },
+              {
+                "_ref": "68f6016d7cda2",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c379eb",
+                "slotTarget_ref": "68f6016c387bb"
+              },
+              {
+                "_ref": "68f6016d7ce0b",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c3a3b2",
+                "slotTarget_ref": "68f6016c3b0e5"
+              },
+              {
+                "_ref": "68f6016d7ce77",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c3b0e5",
+                "slotTarget_ref": "68f6016c3bcaa"
+              },
+              {
+                "_ref": "68f6016d7cee4",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c395a7",
+                "slotTarget_ref": "68f6016c3c8cf"
+              },
+              {
+                "_ref": "68f6016d7cf51",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c3c8cf",
+                "slotTarget_ref": "68f6016c3d3a3"
+              },
+              {
+                "_ref": "68f6016d7cfc0",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c3d3a3",
+                "slotTarget_ref": "68f6016c3a3b2"
+              },
+              {
+                "_ref": "68f6016d7d02e",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c3bcaa",
+                "slotTarget_ref": "68f6016c3de95"
+              },
+              {
+                "_ref": "68f6016d7d0c6",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c3de95",
+                "slotTarget_ref": "68f6016c3e8bf"
+              },
+              {
+                "_ref": "68f6016d7d138",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c3f378",
+                "slotTarget_ref": "68f6016c3ff6c"
+              },
+              {
+                "_ref": "68f6016d7d1ab",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c3ff6c",
+                "slotTarget_ref": "68f6016c36d3c"
+              },
+              {
+                "_ref": "68f6016d7d21a",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c35206",
+                "slotTarget_ref": "68f6016c35ec2"
+              },
+              {
+                "_ref": "68f6016d7d285",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c35ec2",
+                "slotTarget_ref": "68f6016c3f378"
+              },
+              {
+                "_ref": "68f6016d7d307",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c387bb",
+                "slotTarget_ref": "68f6016c40aa7"
+              },
+              {
+                "_ref": "68f6016d7d385",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016c40aa7",
+                "slotTarget_ref": "68f6016c395a7"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "68f6016b7b32a",
+          "scope": "default",
+          "title": "Test messages format"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016b7b531",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test messages format",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-messages-format",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-messages-format"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

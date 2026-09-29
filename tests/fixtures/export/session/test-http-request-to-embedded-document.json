@@ -1,0 +1,232 @@
+{
+  "data": {
+    "_ref": "68f771e49cec1",
+    "scenario": {
+      "_ref": "68f771e49df9c",
+      "card": [
+        {
+          "_ref": "68f771e49e592",
+          "job": null,
+          "message": [],
+          "scenario_ref": "68f771e49df9c",
+          "scope": "global",
+          "title": "Test http request to embedded document"
+        },
+        {
+          "_ref": "68f771e49eda0",
+          "job": {
+            "_ref": "68f771e4b79f6",
+            "slot": [
+              {
+                "_ref": "68f771e4b7ef4",
+                "node_type": "null",
+                "positionX": -290,
+                "positionY": -170,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "start",
+                "type": "start"
+              },
+              {
+                "_ref": "68f771e4b9444",
+                "node_type": "null",
+                "positionX": 220,
+                "positionY": -170,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "end",
+                "type": "end"
+              },
+              {
+                "_ref": "68f771e4b97f7",
+                "node_type": "http_request",
+                "positionX": -200,
+                "positionY": -70,
+                "slotConfig": [
+                  {
+                    "_ref": "68f771e4bcb94",
+                    "expression": false,
+                    "name": "output_type",
+                    "slot_ref": "68f771e4b97f7",
+                    "value": "document"
+                  },
+                  {
+                    "_ref": "68f771e4bcbef",
+                    "expression": false,
+                    "name": "url",
+                    "slot_ref": "68f771e4b97f7",
+                    "value": "https://dummyjson.com/comments?limit=3"
+                  },
+                  {
+                    "_ref": "68f771e4bcc1c",
+                    "expression": false,
+                    "name": "method",
+                    "slot_ref": "68f771e4b97f7",
+                    "value": "GET"
+                  },
+                  {
+                    "_ref": "68f771e4bcc4d",
+                    "expression": false,
+                    "name": "output_document_secure_id",
+                    "slot_ref": "68f771e4b97f7",
+                    "value": "doc_test_http_request_to_embedded_document"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "http_request",
+                "type": "default"
+              },
+              {
+                "_ref": "68f771e4bce6f",
+                "node_type": "document_embedding",
+                "positionX": 110,
+                "positionY": -70,
+                "slotConfig": [
+                  {
+                    "_ref": "68f771e4bd227",
+                    "expression": false,
+                    "name": "embed_strategy",
+                    "slot_ref": "68f771e4bce6f",
+                    "value": "replace_all"
+                  },
+                  {
+                    "_ref": "68f771e4bd250",
+                    "expression": false,
+                    "name": "document_secure_id",
+                    "slot_ref": "68f771e4bce6f",
+                    "value": "doc_test_http_request_to_embedded_document"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f771e4bd7b8",
+                    "collection": "default",
+                    "contentType": "info",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f771e4bce6f",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "document_embedding",
+                "type": "default"
+              },
+              {
+                "_ref": "68f771e4bdc0a",
+                "node_type": "document_chunk",
+                "positionX": -40,
+                "positionY": 40,
+                "slotConfig": [
+                  {
+                    "_ref": "68f771e4be054",
+                    "expression": false,
+                    "name": "mode",
+                    "slot_ref": "68f771e4bdc0a",
+                    "value": "json"
+                  },
+                  {
+                    "_ref": "68f771e4be07f",
+                    "expression": false,
+                    "name": "options",
+                    "slot_ref": "68f771e4bdc0a",
+                    "value": "{\n  \"mode\": \"json\",\n  \"split_type\": \"dict\",\n  \"children\": {\n    \"comments\": {\n      \"mode\": \"json\",\n      \"split_type\": \"array\",\n      \"child\": {\n        \"mode\": \"json\",\n        \"split_type\": \"dict\"\n      }\n    },\n    \"users\": {\n      \"mode\": \"json\",\n      \"split_type\": \"array\"\n    }\n  }\n}"
+                  },
+                  {
+                    "_ref": "68f771e4be0aa",
+                    "expression": false,
+                    "name": "document_secure_id",
+                    "slot_ref": "68f771e4bdc0a",
+                    "value": "doc_test_http_request_to_embedded_document"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f771e4be3e3",
+                    "collection": "default",
+                    "contentType": "info",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f771e4bdc0a",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "document_chunk",
+                "type": "default"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f771e4c9a44",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f771e4b7ef4",
+                "slotTarget_ref": "68f771e4b97f7"
+              },
+              {
+                "_ref": "68f771e4c9a60",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f771e4b97f7",
+                "slotTarget_ref": "68f771e4bdc0a"
+              },
+              {
+                "_ref": "68f771e4c9a74",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f771e4bdc0a",
+                "slotTarget_ref": "68f771e4bce6f"
+              },
+              {
+                "_ref": "68f771e4c9a86",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f771e4bce6f",
+                "slotTarget_ref": "68f771e4b9444"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "68f771e49df9c",
+          "scope": "default",
+          "title": "Test http request to embedded document"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f771e49eda0",
+      "description": null,
+      "environment": {
+        "_ref": "68f771e4ca147",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test http request to embedded document",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-http-request-to-embedded-document",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "fbc28d52a891cf9ab8f8f63b2a3c33461b3f08ab"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.14\n"
+}

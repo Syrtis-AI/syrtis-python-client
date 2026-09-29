@@ -1,0 +1,12 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "format": "text",
+    "origin": "user",
+    "contentType": "default",
+    "content": "This is a test message",
+    "_ref": "9e6a5d27db814"
+  },
+  "type": "single",
+  "entity": "message"
+}

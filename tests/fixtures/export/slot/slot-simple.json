@@ -1,0 +1,16 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "job_title": "TEST_SIMPLE_JOB",
+    "node_type": "null",
+    "positionX": 0,
+    "positionY": 0,
+    "slotConfig": [],
+    "slotMessage": [],
+    "title": "Simple slot",
+    "type": "end",
+    "_ref": "7a2c3dc4bcb44"
+  },
+  "type": "single",
+  "entity": "slot"
+}

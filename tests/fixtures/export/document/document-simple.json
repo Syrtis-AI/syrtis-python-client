@@ -1,0 +1,13 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "title": "Test Document",
+    "type": "text",
+    "secureId": "doc_123456",
+    "mimeType": "text/plain",
+    "content": "This is a test document content",
+    "_ref": "63b8f7baefe44"
+  },
+  "type": "single",
+  "entity": "document"
+}

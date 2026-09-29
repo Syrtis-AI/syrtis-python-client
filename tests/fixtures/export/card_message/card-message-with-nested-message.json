@@ -1,0 +1,16 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "card_id": 1,
+    "message": {
+      "format": "text",
+      "origin": "card",
+      "contentType": "default",
+      "content": "This is a nested message for a card",
+      "_ref": "7d5cb446064b4"
+    },
+    "_ref": "e0ab3bdccb204"
+  },
+  "type": "single",
+  "entity": "card_message"
+}

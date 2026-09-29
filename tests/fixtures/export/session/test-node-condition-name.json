@@ -1,0 +1,424 @@
+{
+  "data": {
+    "_ref": "68f6016e978b1",
+    "scenario": {
+      "_ref": "68f6016e983d7",
+      "card": [
+        {
+          "_ref": "68f6016e9846e",
+          "job": {
+            "_ref": "68f6016ed97ee",
+            "slot": [
+              {
+                "_ref": "68f6016ed984a",
+                "node_type": "condition",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016ed9b11",
+                    "expression": false,
+                    "name": "input_message_matches",
+                    "slot_ref": "68f6016ed984a",
+                    "value": 1
+                  },
+                  {
+                    "_ref": "68f6016ed9b98",
+                    "expression": false,
+                    "name": "operator",
+                    "slot_ref": "68f6016ed984a",
+                    "value": "AND"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016eda130",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "end.session.message",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016ed984a",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Condition",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016eda349",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016eda6ea",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f6016eda349",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f6016eda840",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f6016eda349",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f6016eda9cb",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f6016eda349",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016edaecd",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016edb0f5",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f6016edaecd"
+                      }
+                    ],
+                    "slot_ref": "68f6016eda349",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016edb179",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016edb38f",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016edb179"
+                      }
+                    ],
+                    "slot_ref": "68f6016eda349",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016edb411",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016edb649",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016edb411"
+                      }
+                    ],
+                    "slot_ref": "68f6016eda349",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016edb6ca",
+                "node_type": "navigate",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016edb918",
+                    "expression": false,
+                    "name": "destination_card_shortcut",
+                    "slot_ref": "68f6016edb6ca",
+                    "value": "next"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "Navigate",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016edbb63",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016edbf3e",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f6016edbb63",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f6016edc12b",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f6016edbb63",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f6016edc27f",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f6016edbb63",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016edc763",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016edc9b0",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f6016edc763"
+                      }
+                    ],
+                    "slot_ref": "68f6016edbb63",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016edca34",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016edcc43",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016edca34"
+                      }
+                    ],
+                    "slot_ref": "68f6016edbb63",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016edccc4",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016edcec7",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016edccc4"
+                      }
+                    ],
+                    "slot_ref": "68f6016edbb63",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016edd77b",
+                "portSource": "false",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016ed984a",
+                "slotTarget_ref": "68f6016eda349"
+              },
+              {
+                "_ref": "68f6016edd82e",
+                "portSource": "true",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016ed984a",
+                "slotTarget_ref": "68f6016edb6ca"
+              },
+              {
+                "_ref": "68f6016edd8ba",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016eda349",
+                "slotTarget_ref": "68f6016edbb63"
+              },
+              {
+                "_ref": "68f6016edd954",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016edb6ca",
+                "slotTarget_ref": "68f6016edbb63"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f6016eddbe9",
+              "content": "This card will test if a message with a specific name.\nAsk the user to send a message named \"end.session.message\" using the \u2699\ufe0f icon below to terminate this scenario",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016ede12c",
+                  "message_ref": "68f6016eddbe9",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016e983d7",
+          "scope": "default",
+          "title": "First card"
+        },
+        {
+          "_ref": "68f6016e984b0",
+          "job": {
+            "_ref": "68f6016f04353",
+            "slot": [
+              {
+                "_ref": "68f6016f043ad",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016f04771",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016f04ca4",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016f043ad",
+                "slotTarget_ref": "68f6016f04771"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f6016f04ef9",
+              "content": "This is the end of this scenario",
+              "contentType": "conversation",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016f05419",
+                  "message_ref": "68f6016f04ef9",
+                  "name": "chat"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016e983d7",
+          "scope": "default",
+          "title": "Final card"
+        }
+      ],
+      "cardRelation": [
+        {
+          "_ref": "68f6016e98424",
+          "cardSource_ref": "68f6016e9846e",
+          "cardTarget_ref": "68f6016e984b0"
+        }
+      ],
+      "defaultEntrypoint_ref": "68f6016e9846e",
+      "description": "Test scenario to verify message in bag has given name. You should send a message named \"end.session.message\" to terminate this scenario",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Condition Name",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-condition-name",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-condition-name"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

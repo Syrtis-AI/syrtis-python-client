@@ -1,0 +1,54 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "scenario": {
+      "card": [
+        {
+          "job": null,
+          "message": [],
+          "scope": "default",
+          "title": "First card",
+          "_ref": "a588350ada9c4"
+        },
+        {
+          "job": null,
+          "message": [],
+          "scope": "default",
+          "title": "Second card",
+          "_ref": "537a3d3029a94"
+        },
+        {
+          "job": null,
+          "message": [],
+          "scope": "global",
+          "title": "Global card",
+          "_ref": "6c232ec813014"
+        }
+      ],
+      "cardRelation": [],
+      "description": "Test simple scenario",
+      "environment": {
+        "name": "production",
+        "_ref": "fbff74ec2a194"
+      },
+      "job": [
+        {
+          "slot": [],
+          "slotRelation": [],
+          "title": "TEST_SIMPLE_JOB",
+          "_ref": "630ee429241c4"
+        }
+      ],
+      "title": "ENTITY_IMPORT_SCENARIO",
+      "_ref": "7d13d78990f34",
+      "project_secureId": "test_project"
+    },
+    "_ref": "514f7aa6f23c4",
+    "secureId": "session_secureId_123456789",
+    "title": "session_secureId_123456789",
+    "sessionGroup_name": "default",
+    "status": "opened"
+  },
+  "type": "single",
+  "entity": "session"
+}

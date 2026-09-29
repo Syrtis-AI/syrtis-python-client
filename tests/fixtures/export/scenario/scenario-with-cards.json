@@ -1,0 +1,39 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "title": "Scenario with Cards",
+    "description": "This is a scenario with cards and card relations",
+    "card": [
+      {
+        "_ref": "first_card",
+        "title": "Card 1",
+        "scope": "default",
+        "job": null,
+        "message": []
+      },
+      {
+        "_ref": "last_card",
+        "title": "Card 2",
+        "scope": "default",
+        "job": null,
+        "message": []
+      }
+    ],
+    "cardRelation": [
+      {
+        "cardSource_ref": "first_card",
+        "cardTarget_ref": "last_card",
+        "_ref": "7cc3dac893f14"
+      }
+    ],
+    "environment": {
+      "name": "production",
+      "_ref": "a7979483d65d4"
+    },
+    "job": [],
+    "_ref": "0c99a7edcc334",
+    "project_secureId": "test_project"
+  },
+  "type": "single",
+  "entity": "scenario"
+}

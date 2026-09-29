@@ -1,0 +1,146 @@
+{
+  "data": {
+    "_ref": "68f6016ab9251",
+    "scenario": {
+      "_ref": "68f6016ab9703",
+      "card": [
+        {
+          "_ref": "68f6016ab978f",
+          "job": {
+            "_ref": "68f6016ae0b0c",
+            "slot": [
+              {
+                "_ref": "68f6016ae0b67",
+                "node_type": "message",
+                "positionX": 70,
+                "positionY": -10,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016ae1033",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016ae1094",
+                      "content": "{%- if messages_bag.find_message_by_name('COUNTER') -%}\n  {{ (messages_bag.find_message_by_name('COUNTER').raw | int) + 1 }}\n{%- else -%}\n1\n{%- endif -%}",
+                      "contentType": "default",
+                      "format": "integer",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": "COUNTER",
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016ae0b67",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "COUNT",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016ae1504",
+                "node_type": "condition",
+                "positionX": 70,
+                "positionY": -190,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016ae16ea",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f6016ae1504",
+                    "value": "{{ (messages_bag.find_message_by_name('COUNTER').raw | int) >= 3 }}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "condition",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016ae18bd",
+                "node_type": "null",
+                "positionX": 280,
+                "positionY": -200,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "END",
+                "type": "end"
+              },
+              {
+                "_ref": "68f6016ae1bfc",
+                "node_type": "null",
+                "positionX": -100,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "START",
+                "type": "start"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016b15e26",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016ae0b67",
+                "slotTarget_ref": "68f6016ae1504"
+              },
+              {
+                "_ref": "68f6016b15e92",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016ae1bfc",
+                "slotTarget_ref": "68f6016ae0b67"
+              },
+              {
+                "_ref": "68f6016b15eef",
+                "portSource": "false",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016ae1504",
+                "slotTarget_ref": "68f6016ae0b67"
+              },
+              {
+                "_ref": "68f6016b15f4b",
+                "portSource": "true",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016ae1504",
+                "slotTarget_ref": "68f6016ae18bd"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "68f6016ab9703",
+          "scope": "default",
+          "title": "Test Job Loop"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016ab978f",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Job Nodes Loop",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-job-nodes-loop",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-job-nodes-loop"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

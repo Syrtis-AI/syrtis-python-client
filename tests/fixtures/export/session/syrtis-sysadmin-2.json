@@ -1,0 +1,1673 @@
+{
+  "data": {
+    "_ref": "68f601675ca7b",
+    "scenario": {
+      "_ref": "68f601675dec6",
+      "card": [
+        {
+          "_ref": "68f601675e311",
+          "job": null,
+          "message": [
+            {
+              "_ref": "68f601675edb0",
+              "content": "Your name is Syrtis SSH Test Agent.\n\n## Mission\nExecute the USER\u2019s requests on the current machine: run tasks, gather information, and perform system operations as needed.\n\n## Context\n- You are operating on a Linux-based system.",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [],
+              "metadata": null,
+              "name": "AGENT_GLOBAL_CONTEXT",
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f601675dec6",
+          "scope": "global",
+          "title": "syrtis-sysadmin"
+        },
+        {
+          "_ref": "68f6016760282",
+          "job": {
+            "_ref": "68f60167b3443",
+            "slot": [
+              {
+                "_ref": "68f60167b3835",
+                "node_type": "null",
+                "positionX": 1790,
+                "positionY": -1690,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "START",
+                "type": "start"
+              },
+              {
+                "_ref": "68f60167b437b",
+                "node_type": "null",
+                "positionX": 2880,
+                "positionY": -1690,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "END",
+                "type": "end"
+              },
+              {
+                "_ref": "68f60167b4702",
+                "node_type": "model_structured",
+                "positionX": 1100,
+                "positionY": -370,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167b6318",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f60167b4702",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f60167b6452",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f60167b4702",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f60167b657f",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f60167b4702",
+                    "value": 256
+                  },
+                  {
+                    "_ref": "68f60167b66b3",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60167b4702",
+                    "value": "{\n  \"name\": \"_reasoning\",\n  \"type\": \"string\",\n  \"description\": \"In one sentence, justify your decision. If the USER\u2019s request asks about the server\u2019s current state, configuration, or requires running any command, you MUST explain why planning actions is needed. If the USER only asks for a theoretical clarification or conversational reply, explain why answering directly is enough.\"\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "68f60167b67dc",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60167b4702",
+                    "value": "{\n  \"name\": \"direct_answer\",\n  \"type\": \"string\",\n  \"description\": \"Only if you chose answer_directly: provide a concise 1\u20133 sentence reply. This is strictly for clarifications or general technical knowledge. Never use this for questions about the actual server state, because those require planning actions.\",\n  \"nullable\": true\n}"
+                  },
+                  {
+                    "_ref": "68f60167b6905",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60167b4702",
+                    "value": "{\n  \"name\": \"decision\",\n  \"type\": \"string\",\n\"description\": \"Choose your next step. If the USER\u2019s request requires any inspection of the server, running commands, or interacting with system state, you MUST select plan_actions. Only use answer_directly for clarifications or knowledge that does not depend on the server.\",\n  \"enum\": [\n    \"answer_directly\",\n    \"plan_actions\"\n  ],\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "68f60167b6a2e",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60167b4702",
+                    "value": "{\n  \"name\": \"actions_plan_instruction\",\n  \"type\": \"string\",\n  \"description\": \"If you chose plan_actions, provide a clear 1\u20133 sentence instruction for the planner. The instruction must describe the USER\u2019s request in terms of what needs to be checked or done on the server. Do not give a full plan yourself, only the instruction.\",\n  \"nullable\": true\n}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167b7133",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "TOPIC_ANALYSIS",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167b4702",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167b75a9",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 2,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167b77b5",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167b75a9"
+                      }
+                    ],
+                    "slot_ref": "68f60167b4702",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167b77df",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 3,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167b79be",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167b77df"
+                      }
+                    ],
+                    "slot_ref": "68f60167b4702",
+                    "source": "history",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167b79f5",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167b7a1f",
+                      "content": "Your name is Syrtis SSH Test Agent.\nYour mission is to assist users in the administration of their servers using an SSH connection. \nYou utilize various tools to explore server content and execute changes. \nYou are not allowed to discuss anything unrelated to this current conversation: the data from this prompt, the server administration, technical subjects, but try to be flexible in your reactions to keep the interaction natural. While you can engage in technical discussions, if a user asks you something not related to computing, you should kindly inform them that they may have asked their question to the wrong agent.\n\n---\n\nAnalyze the USER\u2019s last message in the context of the full conversation.  \n- If the message requires checking, modifying, or interacting with the server via SSH, you must choose plan_actions.  \n- If the message only requires a clarification or a purely conversational/technical reply that does not involve server interaction, you may choose answer_directly.  \n- Never ignore the conversation context, but always base your decision on the USER\u2019s last message.\n- Consider that your role is to execute tasks for the USER.  \n- If the USER says they want something, and it is within the context of system administration, assume they expect **you** to perform the action on their behalf.\n- If the USER asks about the server\u2019s current state (e.g., disk usage, system type, running services), this always requires planning actions, because it can only be answered by checking the server.\n",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167b4702",
+                    "source": "node",
+                    "type": "specific"
+                  }
+                ],
+                "title": "TOPIC_ANALYSIS",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167b800e",
+                "node_type": "condition",
+                "positionX": 1100,
+                "positionY": -30,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167b8553",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f60167b800e",
+                    "value": "{%- set analysis_msg = messages_bag.find_message_by_name('TOPIC_ANALYSIS') -%}\n{%- if analysis_msg is not none -%}\n  {%- set decision = analysis_msg.data_search('decision') -%}\n  {{- decision is not none and decision.get_str() == 'answer_directly' -}}\n{%- endif -%}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "DECIDED_ANSWER_DIRECTLY",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167b874f",
+                "node_type": "model_structured",
+                "positionX": 2150,
+                "positionY": -1430,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167b8ad2",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f60167b874f",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f60167b8c07",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f60167b874f",
+                    "value": 1
+                  },
+                  {
+                    "_ref": "68f60167b8d34",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f60167b874f",
+                    "value": 10000
+                  },
+                  {
+                    "_ref": "68f60167b8ebd",
+                    "expression": false,
+                    "name": "instruction",
+                    "slot_ref": "68f60167b874f",
+                    "value": "Regarding the conversation, your mission is to generate an action plan."
+                  },
+                  {
+                    "_ref": "68f60167b8fe9",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60167b874f",
+                    "value": "{\n  \"name\": \"_reasoning\",\n  \"type\": \"string\",\n  \"description\": \"In one or two sentences, explain why planning these actions is necessary at this point.\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "68f60167b9112",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60167b874f",
+                    "value": "{\n  \"name\": \"termination_reason\",\n  \"type\": \"string\",\n  \"description\": \"Set this only if the current iteration should end and a user-facing response must be produced. When this is set, do NOT propose actions.\",\n  \"enum\": [\n    \"mission_complete\",\n    \"unexpected_error\",\n    \"need_clarification\",\n    \"no_safe_action\",\n    \"not_applicable\"\n  ],\n  \"nullable\": true\n}\n"
+                  },
+                  {
+                    "_ref": "68f60167b924b",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60167b874f",
+                    "value": "{\n  \"name\": \"actions\",\n  \"type\": \"array\",\n  \"description\": \"An ordered list of simple, safe textual steps (e.g., do/check). Keep steps minimal. Never suggest unnecessary or extreme actions. One action is enough if sufficient. Maximum: 3 distinct actions, or up to 5 only if some are very similar.\",\n  \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"properties\": {\n      \"description\": {\n        \"type\": \"string\",\n        \"description\": \"Human-readable explanation of the step.\"\n      },\n      \"tool\": {\n        \"type\": \"string\",\n        \"enum\": [\"shell\", \"http_request\"],\n        \"description\": \"Tool to use for this action.\"\n      },\n      \"arguments\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"description\": \"Tool-specific arguments. Provide only the field required by the selected tool.\",\n        \"properties\": {\n          \"argv\": {\n            \"type\": \"array\",\n            \"description\": \"Only when tool = shell. Command as a list of tokens (e.g., [\\\"ls\\\",\\\"-la\\\"]). Executed in Python with subprocess.run(command, shell=False). Do NOT use shell metacharacters because no shell is involved.\",\n            \"items\": {\n              \"type\": \"string\",\n              \"pattern\": \"^[^|><;&\\\\s]+$\",\n              \"description\": \"Single token (no spaces). Forbidden characters: | > < ; &\"\n            },\n            \"minItems\": 1,\n            \"maxItems\": 256,\n            \"nullable\": true\n          },\n          \"url\": {\n            \"type\": \"string\",\n            \"format\": \"uri\",\n            \"description\": \"Only when tool = http_request. HTTP/HTTPS URL to fetch.\",\n            \"nullable\": true\n          }\n        }\n      }\n    },\n    \"required\": [\"description\", \"tool\", \"arguments\"]\n  },\n  \"minItems\": 1,\n  \"maxItems\": 5,\n  \"nullable\": false\n}\n"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167b9772",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "ACTIONS_PLAN",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167b874f",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167b9938",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 5,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 2,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167b874f",
+                    "source": "full-history",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167b9b19",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167b9b60",
+                      "content": "## Instructions for Action Planning\n\n{%- set iteration_count = messages_bag.find_message_by_name('ACTION_PLANS_COUNTER').data().to_int() -%}\n{% if iteration_count == 1 -%}\n- This is the first planning iteration\n{%- endif %}\n- You should decide the next actions to do as a iteration pass.\n- This is the planification number {{ iteration_count }}\n- Each planification is made from actions or termination decition\n\n## Decision process\n\n* If you can safely advance with a **self-contained one-pass plan** based on the current information, output an action plan (`actions`) and **do NOT set `termination_reason`**.\n* If, for any reason, execution should stop and a user-facing response must be produced, set `termination_reason` (choose the most appropriate value) and **do NOT output any actions**.\n\n### Valid termination reasons\n\n* **mission_complete**: the user\u2019s goal has been achieved.\n* **direct_reply**: the user\u2019s question can be answered with any planification.\n* **unexpected_error**: a blocking, unplanned error occurred; explain briefly in `_reasoning` why it blocks progress.\n* **need_clarification**: only the USER can answer a question or make a decision that changes planning.\n* **no_safe_action**: the next steps would be risky, destructive, or non-reversible without explicit approval.\n* **not_applicable**: the request is out of scope (not related to system administration or the defined mission).\n\n## Core rules for action plans\n\n- Each action plan must be **self-contained and fully executable in one pass**. Do not include conditional branches or steps that depend on unknown results.\n- After a plan has been executed, you will receive its results. At that point, you may create a new plan or end with a termination reason.\n- If the mission can be completed directly and safely with the information available, plan the full set of steps.\n- If the mission is too broad or lacks information, reduce the scope to a smaller, safe set of steps (\u201cscope down\u201d).\n- Keep actions progressive: when the task is complex, plan only safe incremental steps, then reassess after execution.\n\n### Illustrative examples (for understanding only \u2014 do not copy literally)\n\n* If the mission is to retrieve the content of `x.txt`, the plan should only check whether `x.txt` exists. After execution, depending on the result, the next plan could read the file or report that it does not exist.\n* If the mission is to address climate change, the plan should only identify key stakeholders or gather initial data, not attempt to solve the entire problem.\n\n{% set last_plan_report = messages_bag.find_message_by_name('PLAN_REPORT') %}\n{%- if last_plan_report -%}\n## Previous iteration report\n> This is the first iteration so no result is available.\n{{- last_plan_report.raw -}}\n{% endif %}",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167b874f",
+                    "source": "node",
+                    "type": "specific"
+                  },
+                  {
+                    "_ref": "68f60167ba10e",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "AGENT_GLOBAL_CONTEXT",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167b874f",
+                    "source": "global-card",
+                    "type": "selector"
+                  }
+                ],
+                "title": "ACTIONS_PLANNER",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167ba2da",
+                "node_type": "message",
+                "positionX": 1100,
+                "positionY": -290,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167baa18",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167baa42",
+                      "content": "{\n  \"options\": {\n    \"accept_shell_execution\": \"Accept\"\n  },\n  \"name\":\"decide_shell_execution\"\n}",
+                      "contentType": "actions",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f60167bae31",
+                          "message_ref": "68f60167baa42",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": "BUTTON_EXECUTE",
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167ba2da",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "BUTTON_NEXT",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167baff9",
+                "node_type": "condition",
+                "positionX": 1100,
+                "positionY": -210,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167bb23d",
+                    "expression": true,
+                    "name": "expression",
+                    "slot_ref": "68f60167baff9",
+                    "value": "{{ (request.find_message_by_name('decide_shell_execution') != None) and request.find_message_by_name('decide_shell_execution').data_search('action').get_str_or_none() == 'accept_shell_execution' }}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "HAS_CLICKED_NEXT",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167bb415",
+                "node_type": "message",
+                "positionX": 1100,
+                "positionY": -110,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167bba11",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167bba60",
+                      "content": "{{ messages_bag.find_message_by_name('TOPIC_ANALYSIS').data_search('direct_answer').to_str() }}",
+                      "contentType": "conversation",
+                      "format": "text",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f60167bbe8e",
+                          "message_ref": "68f60167bba60",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167bb415",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "message",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167bc03d",
+                "node_type": "condition",
+                "positionX": 1600,
+                "positionY": -410,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167bc252",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f60167bc03d",
+                    "value": "{%- set analysis_msg = messages_bag.find_message_by_name('TOPIC_ANALYSIS') -%}\n{%- if analysis_msg is not none -%}\n  {%- set decision = analysis_msg.data_search('decision') -%}\n  {{- decision is not none and decision.get_str() == 'plan_actions' -}}\n{%- endif -%}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "DECIDED_PLAN_ACTIONS",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167bc404",
+                "node_type": "iterator",
+                "positionX": 2620,
+                "positionY": -1360,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167bc7c6",
+                    "expression": false,
+                    "name": "iterate_on",
+                    "slot_ref": "68f60167bc404",
+                    "value": "expression"
+                  },
+                  {
+                    "_ref": "68f60167bc7f5",
+                    "expression": false,
+                    "name": "max_job_loop_iteration",
+                    "slot_ref": "68f60167bc404",
+                    "value": 10
+                  },
+                  {
+                    "_ref": "68f60167bc828",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f60167bc404",
+                    "value": "{{ messages_bag.find_message_by_name('ACTIONS_PLAN').data_search('actions').get_list() }}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167bcc64",
+                    "collection": "default",
+                    "contentType": "reference",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "ACTION_ITERATOR_MESSAGE",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167bc404",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167bce02",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167bcfc4",
+                        "name": "action",
+                        "slotMessage_ref": "68f60167bce02"
+                      }
+                    ],
+                    "slot_ref": "68f60167bc404",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "iterator",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167bd001",
+                "node_type": "message",
+                "positionX": 1450,
+                "positionY": -130,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167bd238",
+                    "expression": false,
+                    "name": "input_list_expression",
+                    "slot_ref": "68f60167bd001",
+                    "value": "{{ messages_bag.find_message_by_name('ACTIONS_PLAN').data_search('actions').get_list() }}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167bd5ed",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167bd7c1",
+                        "name": "action",
+                        "slotMessage_ref": "68f60167bd5ed"
+                      }
+                    ],
+                    "slot_ref": "68f60167bd001",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "ACTIONS_SPLIT",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167bd805",
+                "node_type": "chat",
+                "positionX": 1350,
+                "positionY": -290,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167bdcbb",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f60167bd805",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f60167bddf8",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f60167bd805",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f60167bdf2c",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f60167bd805",
+                    "value": 256
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167be3d9",
+                    "collection": "history",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": null,
+                    "max": 10,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167be5c8",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167be3d9"
+                      }
+                    ],
+                    "slot_ref": "68f60167bd805",
+                    "source": "history",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167be5f7",
+                    "collection": "input",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167be7a6",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167be5f7"
+                      }
+                    ],
+                    "slot_ref": "68f60167bd805",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167be7d4",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167be9ca",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167be7d4"
+                      }
+                    ],
+                    "slot_ref": "68f60167bd805",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167bea2d",
+                    "collection": "global_context",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167bea61",
+                      "content": "Your name is Syrtis SSH Test Agent.\nYour mission is to assist users in the administration of their servers using an SSH connection. \nYou utilize various tools to explore server content and execute changes. \nYou are not allowed to discuss anything unrelated to this current conversation: the data from this prompt, the server administration, technical subjects, but try to be flexible in your reactions to keep the interaction natural. While you can engage in technical discussions, if a user asks you something not related to computing, you should kindly inform them that they may have asked their question to the wrong agent.\n\n---\n\nYou are writing the final message to the USER.\n## Instructions\n- Start from the USER\u2019s original request that led to the execution of these commands.  \n- Do NOT blindly repeat all commands and outputs \u2014 the USER already saw them in the terminal.  \n  * Only mention a command or output if it helps explain the result or reasoning.  \n- Write a clear and concise summary of what was learned or achieved from the executed commands.  \n- Connect your summary back to the USER\u2019s goal, showing how the result relates to their initial request.  \n- Write your answer from your own perspective as the agent: explain what **you** did and what result you obtained for the USER.  \n- If useful, include a short interpretation or reasoning (e.g., what the result means).  \n- If the goal is not fully accomplished, politely ask the USER if they want you to continue with complementary actions.  \n- If the goal is fully achieved, simply provide the final result and close naturally. \n\n## Style guidelines\n- Write naturally, as if you are explaining to a colleague.  \n- Keep it short and fluid.  \n- Do not use unnecessary filler phrases.  ",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167bd805",
+                    "source": "node",
+                    "type": "specific"
+                  },
+                  {
+                    "_ref": "68f60167bf01f",
+                    "collection": "local_context",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167bf1ca",
+                        "name": "shell_response",
+                        "slotMessage_ref": "68f60167bf01f"
+                      }
+                    ],
+                    "slot_ref": "68f60167bd805",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "chat",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167bf1fc",
+                "node_type": "shell",
+                "positionX": 2480,
+                "positionY": -740,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167bf5a5",
+                    "expression": true,
+                    "name": "command",
+                    "slot_ref": "68f60167bf1fc",
+                    "value": "{{- messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict()['arguments']['argv'] -}}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167bf98c",
+                    "collection": "default",
+                    "contentType": "default",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "ACTION_RESPONSE",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167bfb28",
+                        "name": "action_response",
+                        "slotMessage_ref": "68f60167bf98c"
+                      }
+                    ],
+                    "slot_ref": "68f60167bf1fc",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167bfb5b",
+                    "collection": "error",
+                    "contentType": "error",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167bf1fc",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "shell",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167bfcdb",
+                "node_type": "message",
+                "positionX": 1780,
+                "positionY": -1230,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167c022a",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167c025c",
+                      "content": "{%- set counter = messages_bag.find_message_by_name('ACTION_EXECUTION_COUNTER') -%}\n{{- counter.raw | int + 1 if counter else 1 -}}",
+                      "contentType": "default",
+                      "format": "integer",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": "ACTION_EXECUTION_COUNTER",
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167bfcdb",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "ACTION_EXECUTION_COUNTER",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c0800",
+                "node_type": "condition",
+                "positionX": 1700,
+                "positionY": -210,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167c09f4",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f60167c0800",
+                    "value": "{{ messages_bag.find_message_by_name('ACTIONS_PLAN').data_search('actions').get_list() }}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "MISSION_COMPLETED",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c0bb1",
+                "node_type": "chat",
+                "positionX": 2580,
+                "positionY": -1690,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167c0f55",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f60167c0bb1",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f60167c1094",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f60167c0bb1",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f60167c11c9",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f60167c0bb1",
+                    "value": 256
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167c16b6",
+                    "collection": "history",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": null,
+                    "max": 10,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167c18ab",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167c16b6"
+                      }
+                    ],
+                    "slot_ref": "68f60167c0bb1",
+                    "source": "history",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167c18e1",
+                    "collection": "input",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167c1ac8",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167c18e1"
+                      }
+                    ],
+                    "slot_ref": "68f60167c0bb1",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167c1b01",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167c1d0a",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167c1b01"
+                      }
+                    ],
+                    "slot_ref": "68f60167c0bb1",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167c1d83",
+                    "collection": "local_context",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167c1de1",
+                      "content": "{%- set iteration_count = messages_bag.find_message_by_name('ACTION_PLANS_COUNTER').data().to_int() -%}\n{%- set last_action_plan = messages_bag.find_message_by_name('ACTIONS_PLAN') -%}\n \nYou are now writing the final message to the USER.\n\n## Process reports\nThis is the end of the process of USER message analysis and execution.  \n\nLast reasoning that justified the termination:  \n{{ last_action_plan.data_search('_reasoning', default=\"No reason provided\").get_str_or_none() }}\n\nBelow are the executed commands and collected responses.  \n\u26a0\ufe0f These outputs were already shown to the USER in their terminal, so you don\u2019t need to reword or repeat them unless necessary for clarity.  \nThis trace is here only to help you provide an accurate reply.\n\n__EXECUTION_TRACE_BEGINS__\n{%- for plan_report in messages_bag.find_messages_by_stamp_name('plan_report').get_messages() -%}\n{{- plan_report.raw -}}\n{%- endfor -%}\n___EXECUTION_TRACE_ENDS___\n\n## Instructions\n- Start from the USER\u2019s original request that triggered this process.  \n- Do NOT blindly repeat all commands and outputs. Mention them only if they are useful for your explanation or reasoning.  \n- Write a clear and concise summary of what was learned or achieved from the executed commands.  \n- Connect your summary back to the USER\u2019s goal, showing how the results relate to their request.  \n- Write from your own perspective as the agent: explain what **you** did and what result you obtained for the USER.  \n- If useful, include short reasoning or interpretation (e.g., what the result means).  \n- If the USER\u2019s goal is not fully accomplished, politely ask if they want you to continue with complementary actions.  \n- If the goal is fully achieved, provide the final result and close naturally.  \n\n## Style guidelines\n- Write naturally, as if you are explaining to a colleague.  \n- Keep it short and fluid.  \n- Do not use unnecessary filler phrases.  \n- Only ask follow-up questions if they make sense.  \n",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167c0bb1",
+                    "source": "node",
+                    "type": "specific"
+                  },
+                  {
+                    "_ref": "68f60167c2389",
+                    "collection": "global_context",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "AGENT_GLOBAL_CONTEXT",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167c0bb1",
+                    "source": "global-card",
+                    "type": "selector"
+                  }
+                ],
+                "title": "WRITE_REPORT",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c2572",
+                "node_type": "iterator",
+                "positionX": 1600,
+                "positionY": -310,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167c2794",
+                    "expression": false,
+                    "name": "iterate_on",
+                    "slot_ref": "68f60167c2572",
+                    "value": "input_messages"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167c2bfe",
+                    "collection": "default",
+                    "contentType": "reference",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "current_iterator_message",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167c2572",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167c2dae",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167c2572",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "iterator",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c2f4c",
+                "node_type": "iterator",
+                "positionX": 2140,
+                "positionY": -1700,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167c31a1",
+                    "expression": false,
+                    "name": "iterate_on",
+                    "slot_ref": "68f60167c2f4c",
+                    "value": "expression"
+                  },
+                  {
+                    "_ref": "68f60167c31d7",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f60167c2f4c",
+                    "value": "{%- set last_action_plan = messages_bag.find_message_by_name('ACTIONS_PLAN') %}\n{%- set has_no_terminate_reason = not last_action_plan or last_action_plan.data_search('termination_reason').is_none() -%}\n{%- if has_no_terminate_reason: -%}\n  [\"CONTINUE_PLANNING\"]\n{%- else -%}\n  []\n{%- endif -%}"
+                  },
+                  {
+                    "_ref": "68f60167c3207",
+                    "expression": false,
+                    "name": "max_job_loop_iteration",
+                    "slot_ref": "68f60167c2f4c",
+                    "value": 10
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167c35a7",
+                    "collection": "default",
+                    "contentType": "reference",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "PLANNING_ITERATOR_MESSAGE",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167c2f4c",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "PROCESS_ACTIONS",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c3745",
+                "node_type": "message",
+                "positionX": 1810,
+                "positionY": -1490,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167c3d45",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167c3d7d",
+                      "content": "{% set counter = messages_bag.find_message_by_name('ACTION_PLANS_COUNTER') %}\n{{ counter.raw | int + 1 if counter else 1 }}",
+                      "contentType": "default",
+                      "format": "integer",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": "ACTION_PLANS_COUNTER",
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167c3745",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "ACTION_PLANS_COUNTER",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c42cb",
+                "node_type": "chat",
+                "positionX": 1450,
+                "positionY": -210,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167c4637",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f60167c42cb",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f60167c4778",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f60167c42cb",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f60167c48b0",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f60167c42cb",
+                    "value": 256
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167c4d44",
+                    "collection": "history",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": null,
+                    "max": 10,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167c4f24",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167c4d44"
+                      }
+                    ],
+                    "slot_ref": "68f60167c42cb",
+                    "source": "history",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167c4f61",
+                    "collection": "input",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167c511b",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167c4f61"
+                      }
+                    ],
+                    "slot_ref": "68f60167c42cb",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60167c5157",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60167c5314",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60167c5157"
+                      }
+                    ],
+                    "slot_ref": "68f60167c42cb",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "chat",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c534f",
+                "node_type": "message",
+                "positionX": 2590,
+                "positionY": -1540,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167c58f3",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167c5928",
+                      "content": "{%- for message in messages_bag.find_messages_by_stamp_name('action_response_formatted').get_messages() -%}\n{{- message.raw -}}\n{%- endfor -%}",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f60167c5d16",
+                          "message_ref": "68f60167c5928",
+                          "name": "plan_report"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": "PLAN_REPORT",
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167c534f",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "CONCAT_PLAN_REPORT",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c5edb",
+                "node_type": "message",
+                "positionX": 2790,
+                "positionY": -810,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167c645f",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167c6497",
+                      "content": "{%- set response = messages_bag.find_message_by_name('ACTION_RESPONSE').data().get_dict() -%}\n{%- set host = response.get('host') -%}\n{%- set rc = response.get('returncode') -%}\n{%- set status = 'SUCCESS' if rc == 0 else 'FAIL' -%}\n### \u25b6 Action Result {{ '- ' + host if host else '' }}\n**Status:** {{ status }}  \u00b7  **Return code:** {{ rc }}\n**Command:**\n```bash\n{{ response.get('command', '') }}\n```bash\n{{ response.get('command', '') }}\n````\n{% if response.get('stderr') %}\n**Stderr:**\n\n```text\n{{ response.get('stderr') }}\n```\n{% endif %}\n{% if response.get('stdout') %}\n**Stdout:**\n\n```text\n{{ response.get('stdout') }}\n```\n\n{%- elif rc == 0 %}\n**Stdout:** *(no output)*\n{% endif -%}\n---",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f60167c682f",
+                          "message_ref": "68f60167c6497",
+                          "name": "action_response_formatted"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167c5edb",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "FORMAT_COMMAND_RESPONSE",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c69e4",
+                "node_type": "condition",
+                "positionX": 2060,
+                "positionY": -910,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167c6c04",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f60167c69e4",
+                    "value": "{{ messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict()['tool'] == 'shell' }}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "IS_SHELL",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c6dee",
+                "node_type": "condition",
+                "positionX": 2100,
+                "positionY": -1160,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167c701b",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f60167c6dee",
+                    "value": "{{ messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict()['tool'] == 'http_request' }}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "IS_HTTP",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c7201",
+                "node_type": "http_request",
+                "positionX": 2620,
+                "positionY": -940,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60167c894e",
+                    "expression": false,
+                    "name": "url",
+                    "slot_ref": "68f60167c7201",
+                    "value": "https://syrtis.ai"
+                  },
+                  {
+                    "_ref": "68f60167c8996",
+                    "expression": false,
+                    "name": "method",
+                    "slot_ref": "68f60167c7201",
+                    "value": "GET"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "http_request",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c8bb7",
+                "node_type": "message",
+                "positionX": 2830,
+                "positionY": -1140,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167c917c",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167c91b0",
+                      "content": "Http Request report\nURL: https://wexample.com\nResponse:\nYahah !",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f60167c9561",
+                          "message_ref": "68f60167c91b0",
+                          "name": "action_response_formatted"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167c8bb7",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "FORMAT_HTTP_RESPONSE",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60167c9711",
+                "node_type": "message",
+                "positionX": 1630,
+                "positionY": -1050,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60167c9c30",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60167c9c64",
+                      "content": "- {{ messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict() is none }}\n- {{ messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict()['tool'] }}\n- {{ messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict()['tool'] == 'http_request' }}",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60167c9711",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "TEMP_DEBUG",
+                "type": "default"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016852e9e",
+                "portSource": "continue",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167bc404",
+                "slotTarget_ref": "68f60167bfcdb"
+              },
+              {
+                "_ref": "68f6016852ec3",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167b3835",
+                "slotTarget_ref": "68f60167c2f4c"
+              },
+              {
+                "_ref": "68f6016852edb",
+                "portSource": "continue",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c2f4c",
+                "slotTarget_ref": "68f60167c3745"
+              },
+              {
+                "_ref": "68f6016852ef7",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c3745",
+                "slotTarget_ref": "68f60167b874f"
+              },
+              {
+                "_ref": "68f6016852f0f",
+                "portSource": "complete",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c2f4c",
+                "slotTarget_ref": "68f60167c0bb1"
+              },
+              {
+                "_ref": "68f6016852f2b",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167b874f",
+                "slotTarget_ref": "68f60167bc404"
+              },
+              {
+                "_ref": "68f6016852f40",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c534f",
+                "slotTarget_ref": "68f60167c2f4c"
+              },
+              {
+                "_ref": "68f6016852f5e",
+                "portSource": "complete",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167bc404",
+                "slotTarget_ref": "68f60167c534f"
+              },
+              {
+                "_ref": "68f6016852f79",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167bf1fc",
+                "slotTarget_ref": "68f60167c5edb"
+              },
+              {
+                "_ref": "68f6016852f97",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c5edb",
+                "slotTarget_ref": "68f60167bc404"
+              },
+              {
+                "_ref": "68f6016852fb3",
+                "portSource": "true",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c69e4",
+                "slotTarget_ref": "68f60167bf1fc"
+              },
+              {
+                "_ref": "68f6016852fd2",
+                "portSource": "false",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c69e4",
+                "slotTarget_ref": "68f60167c6dee"
+              },
+              {
+                "_ref": "68f6016852ff4",
+                "portSource": "false",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c6dee",
+                "slotTarget_ref": "68f60167bc404"
+              },
+              {
+                "_ref": "68f6016853012",
+                "portSource": "true",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c6dee",
+                "slotTarget_ref": "68f60167c7201"
+              },
+              {
+                "_ref": "68f6016853035",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c7201",
+                "slotTarget_ref": "68f60167c8bb7"
+              },
+              {
+                "_ref": "68f6016853059",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c8bb7",
+                "slotTarget_ref": "68f60167bc404"
+              },
+              {
+                "_ref": "68f6016853079",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167bfcdb",
+                "slotTarget_ref": "68f60167c9711"
+              },
+              {
+                "_ref": "68f60168530c0",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c9711",
+                "slotTarget_ref": "68f60167c69e4"
+              },
+              {
+                "_ref": "68f6016853102",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60167c0bb1",
+                "slotTarget_ref": "68f60167b437b"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "68f601675dec6",
+          "scope": "default",
+          "title": "syrtis-sysadmin-2"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016760282",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "syrtis-sysadmin-2",
+      "project_secureId": "test_project"
+    },
+    "secureId": "syrtis-sysadmin-2",
+    "sessionGroup_name": "system",
+    "status": "opened",
+    "title": "syrtis-sysadmin-2"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

@@ -1,0 +1,239 @@
+{
+  "data": {
+    "_ref": "687b9ceac5ffa",
+    "scenario": {
+      "_ref": "687b9ceac63d3",
+      "card": [
+        {
+          "_ref": "687b9ceac6435",
+          "job": {
+            "_ref": "687b9ceae286e",
+            "slot": [
+              {
+                "_ref": "687b9ceae28c8",
+                "node_type": "model_reason",
+                "positionX": 310,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ceae2c3d",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9ceae28c8",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9ceae2ee1",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9ceae28c8",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "687b9ceae310f",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9ceae28c8",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ceaebe9b",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ceaec1a1",
+                        "name": "instruct",
+                        "slotMessage_ref": "687b9ceaebe9b"
+                      }
+                    ],
+                    "slot_ref": "687b9ceae28c8",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ceaec228",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ceaec422",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9ceaec228"
+                      }
+                    ],
+                    "slot_ref": "687b9ceae28c8",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ceaec4a5",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ceaec682",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9ceaec4a5"
+                      }
+                    ],
+                    "slot_ref": "687b9ceae28c8",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              },
+              {
+                "_ref": "687b9ceaec74a",
+                "node_type": "photo_analysis",
+                "positionX": -280,
+                "positionY": -40,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ceaec98c",
+                    "expression": false,
+                    "name": "image_input_type",
+                    "slot_ref": "687b9ceaec74a",
+                    "value": "url"
+                  },
+                  {
+                    "_ref": "687b9ceaeca1b",
+                    "expression": false,
+                    "name": "analysis_parameter",
+                    "slot_ref": "687b9ceaec74a",
+                    "value": "rule-of-thirds"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ceaf2169",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ceaf23f2",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9ceaf2169"
+                      }
+                    ],
+                    "slot_ref": "687b9ceaec74a",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ceaf247f",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "photo.analysis.rules.report",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ceaec74a",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Photo Analysis",
+                "type": "start"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ceaf2774",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ceaec74a",
+                "slotTarget_ref": "687b9ceae28c8"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "687b9ceaf29ad",
+              "content": "You are a friendly photo assistant. USER sent a photo URL that you analyzed.\nThe provided image URL has been analyzed. Please rephrase the analysis results below, which describe the image content.\n**DO NOT MENTION THAT YOU CANNOT SEE IMAGES, ACTUALLY YOU CAN.**\nAct as if you can see and understand the image content.\nThe user has given this URL for analysis and would appreciate a rephrased summary of the results.\n\nCriteria: {{ messages_bag.find_message_by_name(name='photo.analysis.rules.report').data_search('data.rule-of-thirds.title').to_str() }}\nAnalysis: {{ messages_bag.find_message_by_name(name='photo.analysis.rules.report').data_search('data.rule-of-thirds.message').to_str() }}\nAnalysis duration: {{ messages_bag.find_message_by_name(name='photo.analysis.rules.report').data_search('duration').to_int() }} seconds",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "687b9ceaf2d10",
+                  "message_ref": "687b9ceaf29ad",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": "",
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "687b9ceac63d3",
+          "scope": "default",
+          "title": "Image analysis single card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "687b9ceac6435",
+      "description": "Test Image Analysis provided by URL, example: https://shorturl.at/XdBpx\n> /!\\ Some of jpeg images analysis does not work. Seems to be as Jerris issue.",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Photo Analysis Url",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-photo-analysis-url",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-photo-analysis-url"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

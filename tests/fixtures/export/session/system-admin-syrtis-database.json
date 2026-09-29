@@ -1,0 +1,140 @@
+{
+  "data": {
+    "_ref": "68f601698e2fe",
+    "scenario": {
+      "_ref": "68f601698e9bb",
+      "card": [
+        {
+          "_ref": "68f601698ea34",
+          "job": {
+            "_ref": "68f601699c118",
+            "slot": [
+              {
+                "_ref": "68f601699c151",
+                "node_type": "null",
+                "positionX": 300,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "end"
+              },
+              {
+                "_ref": "68f601699c4e1",
+                "node_type": "sub_job",
+                "positionX": -30,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f601699c954",
+                    "expression": false,
+                    "name": "target_job",
+                    "slot_ref": "68f601699c4e1",
+                    "value": 296
+                  }
+                ],
+                "slotMessage": [],
+                "title": "SQL_REQUESTER",
+                "type": "start"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f601699cccb",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f601699c4e1",
+                "slotTarget_ref": "68f601699c151"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "68f601698e9bb",
+          "scope": "default",
+          "title": "Admin Syrtis Database"
+        },
+        {
+          "_ref": "68f601699ce2e",
+          "job": {
+            "_ref": "68f60169a9bae",
+            "slot": [
+              {
+                "_ref": "68f60169a9be7",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f60169a9fb0",
+                "node_type": "null",
+                "positionX": 300,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f60169aa453",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60169a9be7",
+                "slotTarget_ref": "68f60169a9fb0"
+              }
+            ],
+            "title": null
+          },
+          "message": [
+            {
+              "_ref": "68f60169aa6a5",
+              "content": "3",
+              "contentType": "default",
+              "format": "integer",
+              "messageStamp": [],
+              "metadata": null,
+              "name": "SQL_CREDENTIAL_ID",
+              "origin": "card"
+            },
+            {
+              "_ref": "68f60169aaa9f",
+              "content": "postgresql",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [],
+              "metadata": null,
+              "name": "SQL_DRIVER",
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f601698e9bb",
+          "scope": "global",
+          "title": "Admin Syrtis Database"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f601698ea34",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Admin Syrtis Database",
+      "project_secureId": "test_project"
+    },
+    "secureId": "system-admin-syrtis-database",
+    "sessionGroup_name": "system",
+    "status": "opened",
+    "title": "system-admin-syrtis-database"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

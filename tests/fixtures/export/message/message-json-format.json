@@ -1,0 +1,20 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "format": "json",
+    "origin": "core",
+    "contentType": "default",
+    "content": {
+      "key1": "value1",
+      "key2": "value2",
+      "nested": {
+        "subkey": "subvalue",
+        "_ref": "0ca76ad8ade44"
+      },
+      "_ref": "938b7ca552c84"
+    },
+    "_ref": "8688959e0b024"
+  },
+  "type": "single",
+  "entity": "message"
+}

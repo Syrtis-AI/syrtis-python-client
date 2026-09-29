@@ -1,0 +1,519 @@
+{
+  "data": {
+    "_ref": "687b9cebbbac7",
+    "scenario": {
+      "_ref": "687b9cebbc4b2",
+      "card": [
+        {
+          "_ref": "687b9cebbc564",
+          "job": {
+            "_ref": "687b9cebdab21",
+            "slot": [
+              {
+                "_ref": "687b9cebdab8f",
+                "node_type": "document_create",
+                "positionX": 30,
+                "positionY": -120,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cebdb0a1",
+                    "expression": false,
+                    "name": "title",
+                    "slot_ref": "687b9cebdab8f",
+                    "value": "Test Vector Storage and Search Example Document"
+                  },
+                  {
+                    "_ref": "687b9cebdb14c",
+                    "expression": false,
+                    "name": "type",
+                    "slot_ref": "687b9cebdab8f",
+                    "value": "chunks"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9cebde7f5",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "DEMO_DOC_SECURE_ID",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9cebdab8f",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "document_create",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9cebdeb6d",
+                "node_type": "navigate",
+                "positionX": 350,
+                "positionY": -120,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cebdee82",
+                    "expression": false,
+                    "name": "destination_card_shortcut",
+                    "slot_ref": "687b9cebdeb6d",
+                    "value": "next"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "navigate",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9cebdf2da",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cebdab8f",
+                "slotTarget_ref": "687b9cebdeb6d"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "687b9cebbc4b2",
+          "scope": "default",
+          "title": "Test Vector Storage and Search"
+        },
+        {
+          "_ref": "687b9cebbc58f",
+          "job": {
+            "_ref": "687b9cec4b7a0",
+            "slot": [
+              {
+                "_ref": "687b9cec4b8b2",
+                "node_type": "null",
+                "positionX": 440,
+                "positionY": -20,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "end"
+              },
+              {
+                "_ref": "687b9cec4bd3a",
+                "node_type": "null",
+                "positionX": -840,
+                "positionY": -30,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9cec4c110",
+                "node_type": "message_to_document",
+                "positionX": -330,
+                "positionY": -100,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cec4c5dc",
+                    "expression": false,
+                    "name": "merge_strategy",
+                    "slot_ref": "687b9cec4c110",
+                    "value": "append_chunk"
+                  },
+                  {
+                    "_ref": "687b9cec4c690",
+                    "expression": true,
+                    "name": "document_secure_id",
+                    "slot_ref": "687b9cec4c110",
+                    "value": "{{ history.find_message_by_name('DEMO_DOC_SECURE_ID').raw }}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9cec52257",
+                    "collection": "default",
+                    "contentType": "upload",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9cec4c110",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cec52862",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cec52c8a",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cec52862"
+                      }
+                    ],
+                    "slot_ref": "687b9cec4c110",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "message_to_document",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9cec52deb",
+                "node_type": "document_embedding",
+                "positionX": -10,
+                "positionY": -100,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cec53387",
+                    "expression": false,
+                    "name": "embed_strategy",
+                    "slot_ref": "687b9cec52deb",
+                    "value": "embed_missing"
+                  },
+                  {
+                    "_ref": "687b9cec53431",
+                    "expression": true,
+                    "name": "document_secure_id",
+                    "slot_ref": "687b9cec52deb",
+                    "value": "{{ history.find_message_by_name('DEMO_DOC_SECURE_ID').raw }}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9cec56f8d",
+                    "collection": "default",
+                    "contentType": "info",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9cec52deb",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "document_embedding",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9cec572be",
+                "node_type": "document_search_vector",
+                "positionX": -340,
+                "positionY": 50,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cec5759e",
+                    "expression": true,
+                    "name": "document_secure_id",
+                    "slot_ref": "687b9cec572be",
+                    "value": "{{ history.find_message_by_name('DEMO_DOC_SECURE_ID').raw }}"
+                  },
+                  {
+                    "_ref": "687b9cec5763b",
+                    "expression": false,
+                    "name": "max_results",
+                    "slot_ref": "687b9cec572be",
+                    "value": 3
+                  },
+                  {
+                    "_ref": "687b9cec576cd",
+                    "expression": false,
+                    "name": "similarity_threshold",
+                    "slot_ref": "687b9cec572be",
+                    "value": 0.8
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9cec5dbc0",
+                    "collection": "default",
+                    "contentType": "default",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cec5dfd6",
+                        "name": "search_result",
+                        "slotMessage_ref": "687b9cec5dbc0"
+                      }
+                    ],
+                    "slot_ref": "687b9cec572be",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cec5e106",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cec5e57a",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cec5e106"
+                      }
+                    ],
+                    "slot_ref": "687b9cec572be",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "document_search_vector",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9cec5e6a8",
+                "node_type": "chat",
+                "positionX": -10,
+                "positionY": 50,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cec5efd8",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9cec5e6a8",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "687b9cec5f1c1",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9cec5e6a8",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9cec5f2f7",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9cec5e6a8",
+                    "value": 256
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9cec7d0a7",
+                    "collection": "history",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 10,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cec7d4a8",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cec7d0a7"
+                      }
+                    ],
+                    "slot_ref": "687b9cec5e6a8",
+                    "source": "history",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cec7d6e4",
+                    "collection": "input",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cec7da42",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cec7d6e4"
+                      }
+                    ],
+                    "slot_ref": "687b9cec5e6a8",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cec7dbca",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cec7de6a",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cec7dbca"
+                      }
+                    ],
+                    "slot_ref": "687b9cec5e6a8",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cec7def6",
+                    "collection": "global_context",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "687b9cec7df70",
+                      "content": "## Your mission\nYou are a demonstration assistant for a tool able to store / search data into a vector database.\nYour mission is to chat with the USER about several subjects that will be stored into the database.\nAt the end of these instructions, you will see the last message of the USER.\nFocus on the conversation in order to keep the dialogue natural for the USER.\nDo not imagine any content or instruction that is not actually in this instruction or into the search result.\n\n## Scenario: {{ scenario.title }}\n> This is the scenario description for the USER\nThis scenario automatically archives every conversation message into a single document. Each message is vectorized, enabling instant vector-based search against the archive at any time. During the very first card, the scenario creates an empty document; all subsequent cards append their content to that document, which then serves as the session-wide knowledge store.\n\nTODO: add a cleanup step so that documents created on-the-fly are deleted when the session is reset. At present, these documents remain in the database even when they are no longer needed.\n\n## Search result\n> A search has been executed into the database. Here is the result. If empty, no result has been found into the database.\n\n{{ messages_bag.find_messages_by_stamp_name('search_result').render_all() }}\n--- END OF RESULTS\n",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9cec5e6a8",
+                    "source": "node",
+                    "type": "specific"
+                  }
+                ],
+                "title": "chat",
+                "type": "default"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9cecba412",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cec52deb",
+                "slotTarget_ref": "687b9cec4b8b2"
+              },
+              {
+                "_ref": "687b9cecba4c1",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cec5e6a8",
+                "slotTarget_ref": "687b9cec4b8b2"
+              },
+              {
+                "_ref": "687b9cecba55b",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cec4bd3a",
+                "slotTarget_ref": "687b9cec4c110"
+              },
+              {
+                "_ref": "687b9cecba61c",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cec4bd3a",
+                "slotTarget_ref": "687b9cec572be"
+              },
+              {
+                "_ref": "687b9cecba6d6",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cec4c110",
+                "slotTarget_ref": "687b9cec52deb"
+              },
+              {
+                "_ref": "687b9cecba76f",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cec572be",
+                "slotTarget_ref": "687b9cec5e6a8"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "687b9cebbc4b2",
+          "scope": "default",
+          "title": "New card"
+        }
+      ],
+      "cardRelation": [
+        {
+          "_ref": "687b9cebbc508",
+          "cardSource_ref": "687b9cebbc564",
+          "cardTarget_ref": "687b9cebbc58f"
+        }
+      ],
+      "defaultEntrypoint_ref": "687b9cebbc564",
+      "description": "This scenario automatically archives every conversation message into a single document. Each message is vectorized, enabling instant vector-based search against the archive at any time. During the very first card, the scenario creates an empty document; all subsequent cards append their content to that document, which then serves as the session-wide knowledge store.\n\nTODO: add a cleanup step so that documents created on-the-fly are deleted when the session is reset. At present, these documents remain in the database even when they are no longer needed.",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Vector Storage and Search",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-vetor-storage-and-search",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-vetor-storage-and-search"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

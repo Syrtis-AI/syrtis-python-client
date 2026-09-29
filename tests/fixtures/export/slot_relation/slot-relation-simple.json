@@ -1,0 +1,12 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "slotSource_id": 1,
+    "slotTarget_id": 2,
+    "portSource": "default",
+    "portTarget": "default",
+    "_ref": "7ce64af91f384"
+  },
+  "type": "single",
+  "entity": "slot_relation"
+}

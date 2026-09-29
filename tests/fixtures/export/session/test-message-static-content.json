@@ -1,0 +1,86 @@
+{
+  "data": {
+    "_ref": "68f6016b30bdd",
+    "scenario": {
+      "_ref": "68f6016b311c4",
+      "card": [
+        {
+          "_ref": "68f6016b31219",
+          "job": {
+            "_ref": "68f6016b45975",
+            "slot": [
+              {
+                "_ref": "68f6016b459dc",
+                "node_type": "null",
+                "positionX": 310,
+                "positionY": 10,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              },
+              {
+                "_ref": "68f6016b45d72",
+                "node_type": "null",
+                "positionX": -390,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016b4629b",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016b45d72",
+                "slotTarget_ref": "68f6016b459dc"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f6016b46497",
+              "content": "This is a static message.",
+              "contentType": "conversation",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016b468ae",
+                  "message_ref": "68f6016b46497",
+                  "name": "chat"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016b311c4",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016b31219",
+      "description": "Test scenario to display expression parameters in rendered contents",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Message Static Content",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-message-static-content",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-message-static-content"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

@@ -1,0 +1,181 @@
+{
+  "data": {
+    "_ref": "68f6016a63a01",
+    "scenario": {
+      "_ref": "68f6016a63fb4",
+      "card": [
+        {
+          "_ref": "68f6016a64039",
+          "job": {
+            "_ref": "68f6016a785f9",
+            "slot": [
+              {
+                "_ref": "68f6016a7864b",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016a78bc1",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016a79115",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f6016a78bc1",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f6016a792ea",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f6016a78bc1",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f6016a7947e",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f6016a78bc1",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016a79a5c",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a79cc7",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f6016a79a5c"
+                      }
+                    ],
+                    "slot_ref": "68f6016a78bc1",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016a79d30",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a79f3e",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016a79d30"
+                      }
+                    ],
+                    "slot_ref": "68f6016a78bc1",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016a79f9f",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a7a21f",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016a79f9f"
+                      }
+                    ],
+                    "slot_ref": "68f6016a78bc1",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016a7a4a0",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016a7864b",
+                "slotTarget_ref": "68f6016a78bc1"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f6016a7a6f5",
+              "content": "The current date is \"{{ date.now() }}\", and the current time is {{ time.now() }}",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016a7aaab",
+                  "message_ref": "68f6016a7a6f5",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016a63fb4",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016a64039",
+      "description": "Test scenario to display expression parameters in rendered contents",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Expression Parameter Time",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-expression-parameter-time",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-expression-parameter-time"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

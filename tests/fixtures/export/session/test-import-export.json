@@ -1,0 +1,170 @@
+{
+  "data": {
+    "_ref": "68f6016a7b5cc",
+    "scenario": {
+      "_ref": "68f6016a7bd05",
+      "card": [
+        {
+          "_ref": "68f6016a7bd42",
+          "job": {
+            "_ref": "68f6016a8f025",
+            "slot": [
+              {
+                "_ref": "68f6016a8f067",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "SIMPLE_NULL_ONE",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016a8f3ba",
+                "node_type": "sub_job",
+                "positionX": 300,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016a8f723",
+                    "expression": false,
+                    "name": "target_job",
+                    "slot_ref": "68f6016a8f3ba",
+                    "value": null,
+                    "value_ref": "68f6016a8f6e4"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "SCENARIO_LEVEL_SUB_JOB",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016a8fa4f",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016a8f067",
+                "slotTarget_ref": "68f6016a8f3ba"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "68f6016a7bd05",
+          "scope": "default",
+          "title": "Test Import Export"
+        },
+        {
+          "_ref": "68f6016a7bd56",
+          "job": {
+            "_ref": "68f6016aa4fa1",
+            "slot": [
+              {
+                "_ref": "68f6016aa4fe9",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "SIMPLE_NULL_TWO",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016aa5509",
+                "node_type": "sub_job",
+                "positionX": 230,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016aa590a",
+                    "expression": false,
+                    "name": "target_job",
+                    "slot_ref": "68f6016aa5509",
+                    "value": 999
+                  }
+                ],
+                "slotMessage": [],
+                "title": "GLOBAL_SUB_JOB",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016aa5c26",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016aa4fe9",
+                "slotTarget_ref": "68f6016aa5509"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "68f6016a7bd05",
+          "scope": "default",
+          "title": "New card"
+        }
+      ],
+      "cardRelation": [
+        {
+          "_ref": "68f6016a7bd27",
+          "cardSource_ref": "68f6016a7bd42",
+          "cardTarget_ref": "68f6016a7bd56"
+        }
+      ],
+      "defaultEntrypoint_ref": "68f6016a7bd42",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [
+        {
+          "_ref": "68f6016a8f6e4",
+          "slot": [
+            {
+              "_ref": "68f6016ab82f6",
+              "node_type": "null",
+              "positionX": 0,
+              "positionY": 0,
+              "slotConfig": [],
+              "slotMessage": [],
+              "title": "SCENARIO_LEVEL_NULL_ONE",
+              "type": "start"
+            },
+            {
+              "_ref": "68f6016ab8606",
+              "node_type": "null",
+              "positionX": 300,
+              "positionY": 0,
+              "slotConfig": [],
+              "slotMessage": [],
+              "title": "SCENARIO_LEVEL_NULL_TWO",
+              "type": "end"
+            }
+          ],
+          "slotRelation": [
+            {
+              "_ref": "68f6016ab89e0",
+              "portSource": "default",
+              "portTarget": "default",
+              "slotSource_ref": "68f6016ab82f6",
+              "slotTarget_ref": "68f6016ab8606"
+            }
+          ],
+          "title": "Scenario level job"
+        }
+      ],
+      "title": "Test Import Export",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-import-export",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-import-export"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

@@ -1,0 +1,12 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "slot_id": 1,
+    "name": "numeric-config",
+    "value": 123,
+    "expression": false,
+    "_ref": "9b341363dccd4"
+  },
+  "type": "single",
+  "entity": "slot_config"
+}

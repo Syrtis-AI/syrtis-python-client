@@ -1,0 +1,86 @@
+{
+  "data": {
+    "_ref": "68f6016b4726b",
+    "scenario": {
+      "_ref": "68f6016b477dc",
+      "card": [
+        {
+          "_ref": "68f6016b4782e",
+          "job": {
+            "_ref": "68f6016b63f30",
+            "slot": [
+              {
+                "_ref": "68f6016b63f8d",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016b644fd",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016b64abf",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016b63f8d",
+                "slotTarget_ref": "68f6016b644fd"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f6016b64d36",
+              "content": "{\"url\":\"https:\\/\\/shorturl.at\\/XdBpx\",\"alt\":\"Dogs\"}",
+              "contentType": "image",
+              "format": "json",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016b65161",
+                  "message_ref": "68f6016b64d36",
+                  "name": "chat"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016b477dc",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016b4782e",
+      "description": "Test scenario to display expression parameters in rendered contents",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Message Static Image",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-message-static-image",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-message-static-image"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

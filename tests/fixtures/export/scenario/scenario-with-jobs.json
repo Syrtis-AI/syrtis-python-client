@@ -1,0 +1,110 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "card": [
+      {
+        "_ref": "first_card",
+        "job": null,
+        "message": [],
+        "scope": "default",
+        "title": "Card 1"
+      },
+      {
+        "_ref": "last_card",
+        "job": null,
+        "message": [],
+        "scope": "default",
+        "title": "Card 2"
+      }
+    ],
+    "cardRelation": [
+      {
+        "cardSource_ref": "first_card",
+        "cardTarget_ref": "last_card",
+        "_ref": "e37485e816344"
+      }
+    ],
+    "description": "This is a test scenario with some scenario-level jobs",
+    "environment": {
+      "name": "production",
+      "_ref": "48a5a466686d4"
+    },
+    "job": [
+      {
+        "slot": [
+          {
+            "_ref": "5b40a03f",
+            "node_type": "null",
+            "positionX": 0,
+            "positionY": 0,
+            "slotConfig": [],
+            "slotMessage": [],
+            "title": "NULL",
+            "type": "end"
+          },
+          {
+            "_ref": "390bfbcb",
+            "node_type": "null",
+            "positionX": 0,
+            "positionY": 0,
+            "slotConfig": [],
+            "slotMessage": [],
+            "title": "NULL",
+            "type": "start"
+          }
+        ],
+        "slotRelation": [
+          {
+            "slotSource_ref": "5b40a03f",
+            "slotTarget_ref": "390bfbcb",
+            "portSource": "default",
+            "portTarget": "default",
+            "_ref": "76d5738fc64d4"
+          }
+        ],
+        "title": "This is a scenario level job",
+        "_ref": "190b1274c23f4"
+      },
+      {
+        "slot": [
+          {
+            "_ref": "6b40a03f",
+            "node_type": "null",
+            "positionX": 0,
+            "positionY": 0,
+            "slotConfig": [],
+            "slotMessage": [],
+            "title": "NULL",
+            "type": "end"
+          },
+          {
+            "_ref": "490bfbcb",
+            "node_type": "null",
+            "positionX": 0,
+            "positionY": 0,
+            "slotConfig": [],
+            "slotMessage": [],
+            "title": "NULL",
+            "type": "start"
+          }
+        ],
+        "slotRelation": [
+          {
+            "slotSource_ref": "6b40a03f",
+            "slotTarget_ref": "490bfbcb",
+            "portSource": "default",
+            "portTarget": "default",
+            "_ref": "d715c97031074"
+          }
+        ],
+        "title": "This is a second scenario level job",
+        "_ref": "5095d19efcb54"
+      }
+    ],
+    "title": "Test Scenario with jobs",
+    "_ref": "85ab401b91934",
+    "project_secureId": "test_project"
+  },
+  "type": "single",
+  "entity": "scenario"
+}

@@ -1,0 +1,737 @@
+{
+  "data": {
+    "_ref": "68f60168ecd68",
+    "scenario": {
+      "_ref": "68f60168ed54f",
+      "card": [
+        {
+          "_ref": "68f60168ed5a4",
+          "job": null,
+          "message": [],
+          "scenario_ref": "68f60168ed54f",
+          "scope": "global",
+          "title": "syrtis-sysadmin"
+        },
+        {
+          "_ref": "68f60168ed749",
+          "job": {
+            "_ref": "68f601692ff32",
+            "slot": [
+              {
+                "_ref": "68f601692ff75",
+                "node_type": "null",
+                "positionX": -700,
+                "positionY": -120,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f601693031e",
+                "node_type": "null",
+                "positionX": 1890,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "end"
+              },
+              {
+                "_ref": "68f60169306b1",
+                "node_type": "shell",
+                "positionX": 160,
+                "positionY": 270,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60169308d3",
+                    "expression": true,
+                    "name": "command",
+                    "slot_ref": "68f60169306b1",
+                    "value": "{{ full_history.find_message_by_name('SUGGESTED_SHELL_COMMAND').data_search('shell_command').get_str() }}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016930d17",
+                    "collection": "default",
+                    "contentType": "default",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "SHELL_RESPONSE",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016930eeb",
+                        "name": "shell_response",
+                        "slotMessage_ref": "68f6016930d17"
+                      }
+                    ],
+                    "slot_ref": "68f60169306b1",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016930f96",
+                    "collection": "error",
+                    "contentType": "default",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "SHELL_RESPONSE",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016931173",
+                        "name": "shell_response",
+                        "slotMessage_ref": "68f6016930f96"
+                      }
+                    ],
+                    "slot_ref": "68f60169306b1",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "shell",
+                "type": "default"
+              },
+              {
+                "_ref": "68f60169311ed",
+                "node_type": "model_structured",
+                "positionX": -30,
+                "positionY": -20,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016931501",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f60169311ed",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f6016931750",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f60169311ed",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f60169319c7",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f60169311ed",
+                    "value": 256
+                  },
+                  {
+                    "_ref": "68f6016931a72",
+                    "expression": true,
+                    "name": "instruction",
+                    "slot_ref": "68f60169311ed",
+                    "value": "Search about a conversation switch.\n{%- if messages_bag.find_message_by_name('TOPIC_SWITCH') is not none %}\nCurrent topic is: {{ messages_bag.find_message_by_name('TOPIC_SWITCH').data_search('topic').get_str_or_default(default=\"No topic\") }}\n{% endif -%}"
+                  },
+                  {
+                    "_ref": "68f6016931ba1",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60169311ed",
+                    "value": "{\n  \"name\": \"_reasoning\",\n  \"type\": \"string\",\n  \"description\": \"Provide a brief explanation of why you think the USER wants to talk about a new subject\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "68f6016931cbc",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60169311ed",
+                    "value": "{\n  \"name\": \"is_new_topic\",\n  \"type\": \"boolean\",\n  \"description\": \"Set to true if USER **explicitely** asked to change conversation subject. Set false if it is not clear. The message should be like `Lets talk about...` or `Now I want to....`\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "68f6016931e0f",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60169311ed",
+                    "value": "{\n  \"name\": \"topic\",\n  \"type\": \"string\",\n  \"description\": \"Provide a summary of the general topic as a single short title which will be used as the disscussion title\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "68f6016931f22",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f60169311ed",
+                    "value": "{\n  \"name\": \"needs_shell\",\n  \"type\": \"boolean\",\n  \"description\": \"Set to true if the assistant is invited to generate or execute a shell command, or if the answering of the question implies the execution of a shell command to accomplish the USER goal.\",\n  \"nullable\": false\n}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f601693237c",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "TOPIC_ANALYSIS",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f60169311ed",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f601693253b",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60169326f5",
+                        "name": "chat",
+                        "slotMessage_ref": "68f601693253b"
+                      }
+                    ],
+                    "slot_ref": "68f60169311ed",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f601693273b",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 3,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60169328cd",
+                        "name": "chat",
+                        "slotMessage_ref": "68f601693273b"
+                      }
+                    ],
+                    "slot_ref": "68f60169311ed",
+                    "source": "history",
+                    "type": "selector"
+                  }
+                ],
+                "title": "model_structured",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016932929",
+                "node_type": "condition",
+                "positionX": 320,
+                "positionY": -220,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016932af6",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f6016932929",
+                    "value": "{%- set analysis_msg = messages_bag.find_message_by_name('TOPIC_ANALYSIS') -%}\n{%- if analysis_msg is not none -%}\n  {%- set needs_shell = analysis_msg.data_search('needs_shell') -%}\n  {{- needs_shell is not none and needs_shell.is_true() -}}\n{%- endif -%}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "condition",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016932c87",
+                "node_type": "chat",
+                "positionX": 1150,
+                "positionY": 80,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016932f71",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f6016932c87",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f60169330bf",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f6016932c87",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f60169332a9",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f6016932c87",
+                    "value": 256
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016933726",
+                    "collection": "history",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": null,
+                    "max": 10,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60169338fe",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016933726"
+                      }
+                    ],
+                    "slot_ref": "68f6016932c87",
+                    "source": "history",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016933946",
+                    "collection": "input",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016933b02",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016933946"
+                      }
+                    ],
+                    "slot_ref": "68f6016932c87",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016933b49",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016933d0e",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016933b49"
+                      }
+                    ],
+                    "slot_ref": "68f6016932c87",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016933d86",
+                    "collection": "local_context",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "FORMATTED_COMMAND_RESPONSE",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016932c87",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "chat",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016933f11",
+                "node_type": "model_structured",
+                "positionX": 800,
+                "positionY": -350,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016934280",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f6016933f11",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f6016934366",
+                    "expression": true,
+                    "name": "temperature",
+                    "slot_ref": "68f6016933f11",
+                    "value": "1"
+                  },
+                  {
+                    "_ref": "68f60169344dd",
+                    "expression": true,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f6016933f11",
+                    "value": "10000"
+                  },
+                  {
+                    "_ref": "68f60169345f9",
+                    "expression": false,
+                    "name": "instruction",
+                    "slot_ref": "68f6016933f11",
+                    "value": "Reply to the user with a suggested shell command to execute.\nFollowing the convesation, you should generate a shell command that will be suggested to the USER to be executed.\nThe user will decide or not to execute it.\nSo your reply may looks like \"I suggest to execute...\" or \"Do you want I...\" or \"This is the next command...\", regarding on the conversation flow."
+                  },
+                  {
+                    "_ref": "68f6016934712",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f6016933f11",
+                    "value": "{\n  \"name\": \"_reasoning\",\n  \"type\": \"string\",\n  \"description\": \"Provide a brief explanation for why you chose to assign the values you did to the properties.\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "68f6016934829",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f6016933f11",
+                    "value": "{\n  \"name\": \"shell_command\",\n  \"type\": \"string\",\n  \"description\": \"Based on the conversation, write a shell command to suggest to the USER, it will validate it before execution. The command should be a one line command string.\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "68f6016934988",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "68f6016933f11",
+                    "value": "{\n  \"name\": \"reply\",\n  \"type\": \"string\",\n  \"description\": \"Provide the reply, in order to continue the discution. Be await to mantain the flow of a natural discussion.\",\n  \"nullable\": false\n}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016934dc7",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "SUGGESTED_SHELL_COMMAND",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016933f11",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016934f73",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 5,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016933f11",
+                    "source": "full-history",
+                    "type": "selector"
+                  }
+                ],
+                "title": "model_structured",
+                "type": "default"
+              },
+              {
+                "_ref": "68f601693514d",
+                "node_type": "message",
+                "positionX": 1490,
+                "positionY": -340,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016935658",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016935695",
+                      "content": "{\n  \"options\": {\n    \"accept_shell_execution\": \"Accept\"\n  },\n  \"name\":\"decide_shell_execution\"\n}",
+                      "contentType": "actions",
+                      "format": "json",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f6016935a55",
+                          "message_ref": "68f6016935695",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": "BUTTON_EXECUTE",
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f601693514d",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "BUTTON_NEXT",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016935c02",
+                "node_type": "condition",
+                "positionX": -430,
+                "positionY": 130,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016935deb",
+                    "expression": true,
+                    "name": "expression",
+                    "slot_ref": "68f6016935c02",
+                    "value": "{{ (request.find_message_by_name('decide_shell_execution') != None) and request.find_message_by_name('decide_shell_execution').data_search('action').get_str_or_none() == 'accept_shell_execution' }}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "HAS_CLICKED_NEXT",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016935f91",
+                "node_type": "message",
+                "positionX": 720,
+                "positionY": 190,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f601693653a",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f6016936575",
+                      "content": "The system executed a shell command following the USER confirmation.\nYou should produce a reply based on the shell response content below in order to help the user.\n\n```\n{{ messages_bag.find_message_by_name('SHELL_RESPONSE').get_message().content }}\n```\n",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": "FORMATTED_COMMAND_RESPONSE",
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016935f91",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "message",
+                "type": "default"
+              },
+              {
+                "_ref": "68f6016936ad7",
+                "node_type": "message",
+                "positionX": 1180,
+                "positionY": -150,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016937074",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "68f60169370b0",
+                      "content": "{{ messages_bag.find_message_by_name('SUGGESTED_SHELL_COMMAND').data_search('reply').get_str() }}\n\n```shell\n{{ messages_bag.find_message_by_name('SUGGESTED_SHELL_COMMAND').data_search('shell_command').get_str() }}\n```",
+                      "contentType": "default",
+                      "format": "text",
+                      "messageStamp": [
+                        {
+                          "_ref": "68f601693746c",
+                          "message_ref": "68f60169370b0",
+                          "name": "chat"
+                        }
+                      ],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f6016936ad7",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "message",
+                "type": "default"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f601698ced7",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60169311ed",
+                "slotTarget_ref": "68f6016932929"
+              },
+              {
+                "_ref": "68f601698cf1b",
+                "portSource": "false",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016932929",
+                "slotTarget_ref": "68f6016932c87"
+              },
+              {
+                "_ref": "68f601698cf62",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016932c87",
+                "slotTarget_ref": "68f601693031e"
+              },
+              {
+                "_ref": "68f601698cfa8",
+                "portSource": "true",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016932929",
+                "slotTarget_ref": "68f6016933f11"
+              },
+              {
+                "_ref": "68f601698cfe1",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f601693514d",
+                "slotTarget_ref": "68f601693031e"
+              },
+              {
+                "_ref": "68f601698d019",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f601692ff75",
+                "slotTarget_ref": "68f6016935c02"
+              },
+              {
+                "_ref": "68f601698d052",
+                "portSource": "false",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016935c02",
+                "slotTarget_ref": "68f60169311ed"
+              },
+              {
+                "_ref": "68f601698d08c",
+                "portSource": "true",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016935c02",
+                "slotTarget_ref": "68f60169306b1"
+              },
+              {
+                "_ref": "68f601698d0c7",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60169306b1",
+                "slotTarget_ref": "68f6016935f91"
+              },
+              {
+                "_ref": "68f601698d102",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016935f91",
+                "slotTarget_ref": "68f6016932c87"
+              },
+              {
+                "_ref": "68f601698d13e",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016933f11",
+                "slotTarget_ref": "68f6016936ad7"
+              },
+              {
+                "_ref": "68f601698d17b",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016936ad7",
+                "slotTarget_ref": "68f601693514d"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "68f60168ed54f",
+          "scope": "default",
+          "title": "syrtis-sysadmin"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f60168ed749",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "syrtis-sysadmin",
+      "project_secureId": "test_project"
+    },
+    "secureId": "syrtis-sysadmin",
+    "sessionGroup_name": "system",
+    "status": "opened",
+    "title": "syrtis-sysadmin"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

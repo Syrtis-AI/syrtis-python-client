@@ -1,0 +1,181 @@
+{
+  "data": {
+    "_ref": "68f6016a4f96f",
+    "scenario": {
+      "_ref": "68f6016a4fec9",
+      "card": [
+        {
+          "_ref": "68f6016a4ff13",
+          "job": {
+            "_ref": "68f6016a60de5",
+            "slot": [
+              {
+                "_ref": "68f6016a60e59",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016a613a4",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016a616d9",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f6016a613a4",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f6016a61852",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f6016a613a4",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f6016a619b3",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f6016a613a4",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016a61e34",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a62044",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f6016a61e34"
+                      }
+                    ],
+                    "slot_ref": "68f6016a613a4",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016a620a8",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a622a8",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016a620a8"
+                      }
+                    ],
+                    "slot_ref": "68f6016a613a4",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016a6234b",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a62513",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016a6234b"
+                      }
+                    ],
+                    "slot_ref": "68f6016a613a4",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016a6272f",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016a60e59",
+                "slotTarget_ref": "68f6016a613a4"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f6016a62912",
+              "content": "The scenario title is \"{{ scenario.title }}\" and its ID is \"{{ scenario.id }}\"",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016a62e49",
+                  "message_ref": "68f6016a62912",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016a4fec9",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016a4ff13",
+      "description": "Test scenario to display expression parameters of {{ scenario.xyz }}",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Expression Parameter Scenario",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-expression-parameter-scenario",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-expression-parameter-scenario"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

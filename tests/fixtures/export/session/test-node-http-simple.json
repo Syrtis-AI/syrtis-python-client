@@ -1,0 +1,102 @@
+{
+  "data": {
+    "_ref": "687b9ce7380a2",
+    "scenario": {
+      "_ref": "687b9ce738660",
+      "card": [
+        {
+          "_ref": "687b9ce7386ca",
+          "job": {
+            "_ref": "687b9ce751bc5",
+            "slot": [
+              {
+                "_ref": "687b9ce751c4e",
+                "node_type": "http_request",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce752199",
+                    "expression": false,
+                    "name": "url",
+                    "slot_ref": "687b9ce751c4e",
+                    "value": "https://syrtis.ai"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce755177",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce7555bb",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9ce755177"
+                      }
+                    ],
+                    "slot_ref": "687b9ce751c4e",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Http Request",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ce7556b4",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ce755d9f",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce751c4e",
+                "slotTarget_ref": "687b9ce7556b4"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [],
+          "scenario_ref": "687b9ce738660",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "687b9ce7386ca",
+      "description": "Test simple HTTP request. There is no model response at this time.",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Http Simple",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-http-simple",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-http-simple"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

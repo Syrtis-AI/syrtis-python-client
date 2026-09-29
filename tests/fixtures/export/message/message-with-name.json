@@ -1,0 +1,13 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "format": "text",
+    "origin": "user",
+    "contentType": "default",
+    "content": "This is a named message",
+    "name": "welcome_message",
+    "_ref": "82e97cb2f24e4"
+  },
+  "type": "single",
+  "entity": "message"
+}

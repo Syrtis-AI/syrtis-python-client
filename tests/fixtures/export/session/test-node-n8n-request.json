@@ -1,0 +1,105 @@
+{
+  "data": {
+    "_ref": "687b9ce8c27db",
+    "scenario": {
+      "_ref": "687b9ce8c2d50",
+      "card": [
+        {
+          "_ref": "687b9ce8c2e1a",
+          "job": {
+            "_ref": "687b9ce8dd103",
+            "slot": [
+              {
+                "_ref": "687b9ce8dd1bc",
+                "node_type": "null",
+                "positionX": 230,
+                "positionY": 30,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "end"
+              },
+              {
+                "_ref": "687b9ce8dd76f",
+                "node_type": "n8n",
+                "positionX": -260,
+                "positionY": 20,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce8dde28",
+                    "expression": false,
+                    "name": "method",
+                    "slot_ref": "687b9ce8dd76f",
+                    "value": "POST"
+                  },
+                  {
+                    "_ref": "687b9ce8ddef2",
+                    "expression": false,
+                    "name": "url",
+                    "slot_ref": "687b9ce8dd76f",
+                    "value": "https://n8n.syrtis.ai/"
+                  },
+                  {
+                    "_ref": "687b9ce8ddf68",
+                    "expression": false,
+                    "name": "n8n_webhook_id",
+                    "slot_ref": "687b9ce8dd76f",
+                    "value": ""
+                  },
+                  {
+                    "_ref": "687b9ce8ddfdd",
+                    "expression": false,
+                    "name": "env_request",
+                    "slot_ref": "687b9ce8dd76f",
+                    "value": "test"
+                  },
+                  {
+                    "_ref": "687b9ce8de077",
+                    "expression": true,
+                    "name": "payload",
+                    "slot_ref": "687b9ce8dd76f",
+                    "value": "{\n  \"static\": \"test\",\n  \"expression\": \"{{ request.find_message_by_stamp_name('chat').render() }}\"\n}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "n8n",
+                "type": "start"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ce8de5f8",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce8dd76f",
+                "slotTarget_ref": "687b9ce8dd1bc"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "687b9ce8c2d50",
+          "scope": "default",
+          "title": "[MF] n8n base"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "687b9ce8c2e1a",
+      "description": "Simple data exchange with Syrtis n8n",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node N8N",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-n8n-request",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-n8n-request"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

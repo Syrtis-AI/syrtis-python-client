@@ -1,0 +1,9 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "type": "model_reason",
+    "_ref": "af4eb8da7c174"
+  },
+  "type": "single",
+  "entity": "node"
+}

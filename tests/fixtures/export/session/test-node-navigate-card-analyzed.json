@@ -1,0 +1,596 @@
+{
+  "data": {
+    "_ref": "687b9ce8df30e",
+    "scenario": {
+      "_ref": "687b9ce8e03bc",
+      "card": [
+        {
+          "_ref": "687b9ce8e0436",
+          "job": {
+            "_ref": "687b9ce934b88",
+            "slot": [
+              {
+                "_ref": "687b9ce934be7",
+                "node_type": "model_structured",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce934fdb",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce934be7",
+                    "value": "{\n   \"type\":\"integer\",\n   \"description\":\"If explicitly mentioned in the message, return the id of the card the user wishes to go to from the provided list.\",\n   \"name\":\"analysed_card_id\",\n   \"nullable\":true\n}"
+                  },
+                  {
+                    "_ref": "687b9ce935109",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9ce934be7",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9ce9352bb",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9ce934be7",
+                    "value": 1024
+                  },
+                  {
+                    "_ref": "687b9ce935411",
+                    "expression": false,
+                    "name": "instruction",
+                    "slot_ref": "687b9ce934be7",
+                    "value": "User input message content analysis."
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce940f4b",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce9414be",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9ce940f4b"
+                      }
+                    ],
+                    "slot_ref": "687b9ce934be7",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce94162c",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "test.message.analysis",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce934be7",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce9419b3",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce941ccd",
+                        "name": "session",
+                        "slotMessage_ref": "687b9ce9419b3"
+                      }
+                    ],
+                    "slot_ref": "687b9ce934be7",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce941d57",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce941feb",
+                        "name": "instruct",
+                        "slotMessage_ref": "687b9ce941d57"
+                      }
+                    ],
+                    "slot_ref": "687b9ce934be7",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model Structured",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ce9421b8",
+                "node_type": "condition",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce9425ce",
+                    "expression": true,
+                    "name": "expression",
+                    "slot_ref": "687b9ce9421b8",
+                    "value": "{{ messages_bag.find_message_by_name(name='test.message.analysis').data_search('analysed_card_id').is_int() }}"
+                  },
+                  {
+                    "_ref": "687b9ce9427a9",
+                    "expression": false,
+                    "name": "operator",
+                    "slot_ref": "687b9ce9421b8",
+                    "value": "AND"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "Condition",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce942b92",
+                "node_type": "navigate",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce942ff1",
+                    "expression": false,
+                    "name": "destination_card_id_expression",
+                    "slot_ref": "687b9ce942b92",
+                    "value": "{{ messages_bag.find_message_by_name(name='test.message.analysis').data_search('analysed_card_id').get_int_or_none() }}"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "Navigate",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce9432b1",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce94367f",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9ce9432b1",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9ce9437f6",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9ce9432b1",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "687b9ce943959",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9ce9432b1",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce94cd1f",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce94d09d",
+                        "name": "instruct",
+                        "slotMessage_ref": "687b9ce94cd1f"
+                      }
+                    ],
+                    "slot_ref": "687b9ce9432b1",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce94d12d",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce94d500",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9ce94d12d"
+                      }
+                    ],
+                    "slot_ref": "687b9ce9432b1",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce94d631",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce94daec",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9ce94d631"
+                      }
+                    ],
+                    "slot_ref": "687b9ce9432b1",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce94dbb9",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ce989256",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce934be7",
+                "slotTarget_ref": "687b9ce9421b8"
+              },
+              {
+                "_ref": "687b9ce9892e0",
+                "portSource": "true",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce9421b8",
+                "slotTarget_ref": "687b9ce942b92"
+              },
+              {
+                "_ref": "687b9ce989359",
+                "portSource": "false",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce9421b8",
+                "slotTarget_ref": "687b9ce9432b1"
+              },
+              {
+                "_ref": "687b9ce9893d0",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce942b92",
+                "slotTarget_ref": "687b9ce94dbb9"
+              },
+              {
+                "_ref": "687b9ce989448",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce9432b1",
+                "slotTarget_ref": "687b9ce94dbb9"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "687b9ce989648",
+              "content": "Greet the user and ask if he want to navigate to one of these topics:\n{{ card.render_list_next_titles() }}",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "687b9ce989999",
+                  "message_ref": "687b9ce989648",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": "message.chat.instruction",
+              "origin": "card"
+            },
+            {
+              "_ref": "687b9ce9899ea",
+              "content": "Available topics, **ONLY THIS LIST IS TRUSTABLE, DO NOT USE EXTRA TOPIC OR IDS EXCEPT THESE ONES**:\n{{ card.render_list_next() }}",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "687b9ce989d8d",
+                  "message_ref": "687b9ce9899ea",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": "message.analysis.instruction",
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "687b9ce8e03bc",
+          "scope": "default",
+          "title": "First card"
+        },
+        {
+          "_ref": "687b9ce8e0455",
+          "job": {
+            "_ref": "687b9ce9a691f",
+            "slot": [
+              {
+                "_ref": "687b9ce9a697e",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ce9a6f35",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ce9a7584",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce9a697e",
+                "slotTarget_ref": "687b9ce9a6f35"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "687b9ce9a7ac7",
+              "content": "This is the subject A",
+              "contentType": "conversation",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "687b9ce9a7e73",
+                  "message_ref": "687b9ce9a7ac7",
+                  "name": "chat"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "687b9ce8e03bc",
+          "scope": "default",
+          "title": "Subject A"
+        },
+        {
+          "_ref": "687b9ce8e04a1",
+          "job": {
+            "_ref": "687b9ce9c1648",
+            "slot": [
+              {
+                "_ref": "687b9ce9c16a9",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ce9c19a1",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ce9c1d19",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce9c16a9",
+                "slotTarget_ref": "687b9ce9c19a1"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "687b9ce9c1ede",
+              "content": "This is the subject B",
+              "contentType": "conversation",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "687b9ce9c225a",
+                  "message_ref": "687b9ce9c1ede",
+                  "name": "chat"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "687b9ce8e03bc",
+          "scope": "default",
+          "title": "Subject B"
+        },
+        {
+          "_ref": "687b9ce8e04e6",
+          "job": {
+            "_ref": "687b9ce9dcad2",
+            "slot": [
+              {
+                "_ref": "687b9ce9dcb5c",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ce9dd04e",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ce9dd689",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce9dcb5c",
+                "slotTarget_ref": "687b9ce9dd04e"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "687b9ce9dd9eb",
+              "content": "This is the end of the scenario",
+              "contentType": "conversation",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "687b9ce9ddf09",
+                  "message_ref": "687b9ce9dd9eb",
+                  "name": "chat"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "687b9ce8e03bc",
+          "scope": "default",
+          "title": "Last card"
+        }
+      ],
+      "cardRelation": [
+        {
+          "_ref": "687b9ce8e0402",
+          "cardSource_ref": "687b9ce8e0436",
+          "cardTarget_ref": "687b9ce8e0455"
+        },
+        {
+          "_ref": "687b9ce8e0464",
+          "cardSource_ref": "687b9ce8e0436",
+          "cardTarget_ref": "687b9ce8e04a1"
+        },
+        {
+          "_ref": "687b9ce8e04af",
+          "cardSource_ref": "687b9ce8e0455",
+          "cardTarget_ref": "687b9ce8e04e6"
+        },
+        {
+          "_ref": "687b9ce8e04f4",
+          "cardSource_ref": "687b9ce8e04a1",
+          "cardTarget_ref": "687b9ce8e04e6"
+        }
+      ],
+      "defaultEntrypoint_ref": "687b9ce8e0436",
+      "description": "Test cards navigation based on the conversation with the user",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Navigate Card Analyzed",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-navigate-card-analyzed",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-navigate-card-analyzed"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

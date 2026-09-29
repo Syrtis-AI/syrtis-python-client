@@ -1,0 +1,86 @@
+{
+  "data": {
+    "_ref": "68f6016b65a72",
+    "scenario": {
+      "_ref": "68f6016b65f35",
+      "card": [
+        {
+          "_ref": "68f6016b65f85",
+          "job": {
+            "_ref": "68f6016b793ed",
+            "slot": [
+              {
+                "_ref": "68f6016b79431",
+                "node_type": "null",
+                "positionX": -300,
+                "positionY": 30,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016b797bc",
+                "node_type": "null",
+                "positionX": 30,
+                "positionY": 20,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016b79c89",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016b79431",
+                "slotTarget_ref": "68f6016b797bc"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f6016b79ebf",
+              "content": "{\"url\":\"https:\\/\\/www.youtube.com\\/watch?v=L7i7LtPiOZg\"}",
+              "contentType": "video",
+              "format": "json",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016b7a29d",
+                  "message_ref": "68f6016b79ebf",
+                  "name": "chat"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016b65f35",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016b65f85",
+      "description": "Test scenario to display expression parameters in rendered contents",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Message Static Video",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-message-static-video",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-message-static-video"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

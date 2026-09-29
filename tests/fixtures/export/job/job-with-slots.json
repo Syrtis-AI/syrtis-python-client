@@ -1,0 +1,40 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "title": "Job with Slots",
+    "slot": [
+      {
+        "_ref": "slot_start",
+        "title": "Slot 1",
+        "node_type": "null",
+        "slotConfig": [],
+        "slotMessage": [],
+        "positionX": 0,
+        "positionY": 0,
+        "type": "start"
+      },
+      {
+        "_ref": "slot_end",
+        "title": "Slot 2",
+        "node_type": "null",
+        "slotConfig": [],
+        "slotMessage": [],
+        "positionX": 0,
+        "positionY": 0,
+        "type": "end"
+      }
+    ],
+    "slotRelation": [
+      {
+        "slotSource_ref": "slot_start",
+        "slotTarget_ref": "slot_end",
+        "portSource": "default",
+        "portTarget": "default",
+        "_ref": "c4464a618c904"
+      }
+    ],
+    "_ref": "10592314ef594"
+  },
+  "type": "single",
+  "entity": "job"
+}

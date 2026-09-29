@@ -1,0 +1,239 @@
+{
+  "data": {
+    "_ref": "68f600bc9cd24",
+    "scenario": {
+      "_ref": "68f600bc9dd49",
+      "card": [
+        {
+          "_ref": "68f600bc9e13b",
+          "job": {
+            "_ref": "68f600bca7317",
+            "slot": [
+              {
+                "_ref": "68f600bca76ef",
+                "node_type": "photo_analysis",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f600bca9216",
+                    "expression": false,
+                    "name": "image_input_type",
+                    "slot_ref": "68f600bca76ef",
+                    "value": "document"
+                  },
+                  {
+                    "_ref": "68f600bca9238",
+                    "expression": false,
+                    "name": "analysis_parameter",
+                    "slot_ref": "68f600bca76ef",
+                    "value": "rule-of-thirds"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f600bca99de",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f600bca9de3",
+                        "name": "chat",
+                        "slotMessage_ref": "68f600bca99de"
+                      }
+                    ],
+                    "slot_ref": "68f600bca76ef",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f600bca9e07",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "photo.analysis.rules.report",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "68f600bca76ef",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Photo Analysis",
+                "type": "start"
+              },
+              {
+                "_ref": "68f600bca9fbd",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f600bcaa69a",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f600bca9fbd",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f600bcaa7ce",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f600bca9fbd",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f600bcaa8c5",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f600bca9fbd",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f600bcaacfa",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f600bcaaebc",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f600bcaacfa"
+                      }
+                    ],
+                    "slot_ref": "68f600bca9fbd",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f600bcaaef2",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f600bcab0ce",
+                        "name": "chat",
+                        "slotMessage_ref": "68f600bcaaef2"
+                      }
+                    ],
+                    "slot_ref": "68f600bca9fbd",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f600bcab0ed",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f600bcab271",
+                        "name": "chat",
+                        "slotMessage_ref": "68f600bcab0ed"
+                      }
+                    ],
+                    "slot_ref": "68f600bca9fbd",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f600bcab42e",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f600bca76ef",
+                "slotTarget_ref": "68f600bca9fbd"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f600bcabf29",
+              "content": "Criteria: {{ messages_bag.find_message_by_name(name='photo.analysis.rules.report').data_search('data.rule-of-thirds.title').to_str() }}\nAnalysis: {{ messages_bag.find_message_by_name(name='photo.analysis.rules.report').data_search('data.rule-of-thirds.message').to_str() }}\nAnalysis duration: {{ messages_bag.find_message_by_name(name='photo.analysis.rules.report').data_search('duration').to_int() }} seconds",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f600bcac9a9",
+                  "message_ref": "68f600bcabf29",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f600bc9dd49",
+          "scope": "default",
+          "title": "Image analysis single card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f600bc9e13b",
+      "description": "Test Image Analysis posted as a file",
+      "environment": {
+        "_ref": "68f600bcace9a",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Photo Analysis Binary",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-photo-analysis-binary",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-photo-analysis-binary"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

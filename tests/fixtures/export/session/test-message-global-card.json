@@ -1,0 +1,213 @@
+{
+  "data": {
+    "_ref": "68f6016b16ce2",
+    "scenario": {
+      "_ref": "68f6016b175a7",
+      "card": [
+        {
+          "_ref": "68f6016b175f6",
+          "job": null,
+          "message": [
+            {
+              "_ref": "68f6016b1779e",
+              "content": "Your name is Global Card Test Assistant.",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016b17d2b",
+                  "message_ref": "68f6016b1779e",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016b175a7",
+          "scope": "global",
+          "title": "General information"
+        },
+        {
+          "_ref": "68f6016b17dfc",
+          "job": {
+            "_ref": "68f6016b2e44c",
+            "slot": [
+              {
+                "_ref": "68f6016b2e492",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016b2e800",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016b2eb48",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f6016b2e800",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f6016b2ec83",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f6016b2e800",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f6016b2edd7",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f6016b2e800",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016b2f2f0",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016b2f4c9",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f6016b2f2f0"
+                      }
+                    ],
+                    "slot_ref": "68f6016b2e800",
+                    "source": "global-card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016b2f52f",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016b2f736",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016b2f52f"
+                      }
+                    ],
+                    "slot_ref": "68f6016b2e800",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016b2f79a",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016b2f94b",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f6016b2f79a"
+                      }
+                    ],
+                    "slot_ref": "68f6016b2e800",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016b2f9ad",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 2,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016b2fbba",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016b2f9ad"
+                      }
+                    ],
+                    "slot_ref": "68f6016b2e800",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016b2fd8c",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016b2e492",
+                "slotTarget_ref": "68f6016b2e800"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [],
+          "scenario_ref": "68f6016b175a7",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016b175f6",
+      "description": "Test message with a chat configured from the global scenario card",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test message with a chat configured from the global scenario card",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-message-global-card",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-message-global-card"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

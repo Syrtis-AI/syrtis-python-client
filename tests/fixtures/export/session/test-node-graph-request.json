@@ -1,0 +1,237 @@
+{
+  "data": {
+    "_ref": "687b9ce6b9f97",
+    "scenario": {
+      "_ref": "687b9ce6ba4c7",
+      "card": [
+        {
+          "_ref": "687b9ce6ba554",
+          "job": {
+            "_ref": "687b9ce6f1b5b",
+            "slot": [
+              {
+                "_ref": "687b9ce6f1bb6",
+                "node_type": "null",
+                "positionX": -600,
+                "positionY": -40,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ce6f213a",
+                "node_type": "null",
+                "positionX": 380,
+                "positionY": -40,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "end"
+              },
+              {
+                "_ref": "687b9ce6f2653",
+                "node_type": "graph_request",
+                "positionX": -150,
+                "positionY": -40,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce6f28ca",
+                    "expression": true,
+                    "name": "request_schema",
+                    "slot_ref": "687b9ce6f2653",
+                    "value": "{\n  \"upsert\": [\n    {\n      \"start_node\": {\n        \"var\": \"p\",\n        \"labels\": [\"Person\"],\n        \"props\": {\n          \"name\": \"{{ messages_bag.find_message_by_name('SENTENCE_SEGMENTS').data_search('subject').raw }}\"\n        }\n      }\n    }\n  ]\n}\n"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "graph_request",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce6f2ae7",
+                "node_type": "model_structured",
+                "positionX": -410,
+                "positionY": -40,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce6f2fc9",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce6f2ae7",
+                    "value": "{\n  \"name\": \"not_applicable\",\n  \"type\": \"boolean\",\n  \"description\": \"Set to TRUE if the sentence cannot be analyzed this way, because one of subject / verb / object is not present or clear.\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "687b9ce6f31fa",
+                    "expression": false,
+                    "name": "instruction",
+                    "slot_ref": "687b9ce6f2ae7",
+                    "value": "Extract information from the sentence in subject / verb / object, if applicable. Translate every word in English, except proper nouns. Change every plural to singular and add uppercase (ex: \"the castles\" to \"Castle\")"
+                  },
+                  {
+                    "_ref": "687b9ce6f334d",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9ce6f2ae7",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9ce6f346b",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9ce6f2ae7",
+                    "value": 256
+                  },
+                  {
+                    "_ref": "687b9ce6f3583",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9ce6f2ae7",
+                    "value": "open_ai/gpt-4.1"
+                  },
+                  {
+                    "_ref": "687b9ce6f3680",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce6f2ae7",
+                    "value": "{\n  \"name\": \"_reasoning\",\n  \"type\": \"string\",\n  \"description\": \"Provide a brief explanation for why you chose to assign the values you did to the properties.\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "687b9ce6f377d",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce6f2ae7",
+                    "value": "{\n  \"name\": \"object\",\n  \"type\": \"string\",\n  \"description\": \"Provide the main object of the sentence (the entity receiving the action).\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "687b9ce6f38a3",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce6f2ae7",
+                    "value": "{\n  \"name\": \"verb\",\n  \"type\": \"string\",\n  \"description\": \"Provide the sentence's main verb (the action performed by the subject).\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "687b9ce6f39a0",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce6f2ae7",
+                    "value": "{\n  \"name\": \"subject\",\n  \"type\": \"string\",\n  \"description\": \"Provide the sentence's main subject (the entity performing the action).\",\n  \"nullable\": false\n}\n"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce704c92",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "SENTENCE_SEGMENTS",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce6f2ae7",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce70501f",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 1,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce6f2ae7",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "model_structured",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce705319",
+                "node_type": "graph_request",
+                "positionX": 100,
+                "positionY": -40,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce705754",
+                    "expression": true,
+                    "name": "request_schema",
+                    "slot_ref": "687b9ce705319",
+                    "value": "{\n  \"connect\": {\n    \"match_node\": {\n      \"var\": \"p\",\n      \"labels\": [\"Person\"],\n      \"props\": {\n        \"name\": \"{{ messages_bag.find_message_by_name('SENTENCE_SEGMENTS').data_search('subject').raw }}\"\n      }\n    },\n    \"relationships\": [\n      {\n        \"type\": \"{{ messages_bag.find_message_by_name('SENTENCE_SEGMENTS').data_search('verb').raw }}\",\n        \"direction\": \"out\",\n        \"end_node\": {\n          \"var\": \"f\",\n          \"labels\": [\"Subject\"],\n          \"props\": {\n            \"name\": \"{{ messages_bag.find_message_by_name('SENTENCE_SEGMENTS').data_search('object').raw }}\"\n          }\n        }\n      }\n    ]\n  }\n}\n"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "graph_request",
+                "type": "default"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ce736b59",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce6f1bb6",
+                "slotTarget_ref": "687b9ce6f2ae7"
+              },
+              {
+                "_ref": "687b9ce736cbc",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce705319",
+                "slotTarget_ref": "687b9ce6f213a"
+              },
+              {
+                "_ref": "687b9ce736e2a",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce6f2653",
+                "slotTarget_ref": "687b9ce705319"
+              },
+              {
+                "_ref": "687b9ce736f28",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce6f2ae7",
+                "slotTarget_ref": "687b9ce6f2653"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "687b9ce6ba4c7",
+          "scope": "default",
+          "title": "Test Node Cypher Request"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "687b9ce6ba554",
+      "description": "Store a simple sentence in the graph database, e.g.: Joe likes apples. See https://graph.syrtis.ai/",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Graph Request",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-graph-request",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-graph-request"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

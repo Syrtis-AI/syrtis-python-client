@@ -1,0 +1,22 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "format": "text",
+    "origin": "node",
+    "contentType": "default",
+    "content": "This is a message with stamps",
+    "messageStamp": [
+      {
+        "name": "chat",
+        "_ref": "2cd4ab72b0354"
+      },
+      {
+        "name": "instruct",
+        "_ref": "ae6f824c9eb74"
+      }
+    ],
+    "_ref": "d82dc8f820274"
+  },
+  "type": "single",
+  "entity": "message"
+}

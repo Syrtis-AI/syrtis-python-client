@@ -1,0 +1,181 @@
+{
+  "data": {
+    "_ref": "68f60169e1fc2",
+    "scenario": {
+      "_ref": "68f60169e246f",
+      "card": [
+        {
+          "_ref": "68f60169e24b0",
+          "job": {
+            "_ref": "68f60169f07e7",
+            "slot": [
+              {
+                "_ref": "68f60169f0859",
+                "node_type": "null",
+                "positionX": 280,
+                "positionY": -20,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              },
+              {
+                "_ref": "68f60169f0b3b",
+                "node_type": "model_reason",
+                "positionX": -190,
+                "positionY": -20,
+                "slotConfig": [
+                  {
+                    "_ref": "68f60169f0e29",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f60169f0b3b",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f60169f0f59",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f60169f0b3b",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f60169f10c1",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f60169f0b3b",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f60169f1469",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60169f161a",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f60169f1469"
+                      }
+                    ],
+                    "slot_ref": "68f60169f0b3b",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60169f1675",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60169f1871",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60169f1675"
+                      }
+                    ],
+                    "slot_ref": "68f60169f0b3b",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f60169f18c8",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f60169f1a81",
+                        "name": "chat",
+                        "slotMessage_ref": "68f60169f18c8"
+                      }
+                    ],
+                    "slot_ref": "68f60169f0b3b",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "start"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f60169f1c95",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f60169f0b3b",
+                "slotTarget_ref": "68f60169f0859"
+              }
+            ],
+            "title": "Admin spell check job"
+          },
+          "message": [
+            {
+              "_ref": "68f60169f1ea0",
+              "content": "Return the USER message and correct spelling and grammar for international English. Translate the text if it is not in English; else, do not reword the text. Do not add any extra comments. Do not use formatting that is not already present in the text.",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f60169f22dc",
+                  "message_ref": "68f60169f1ea0",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f60169e246f",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f60169e24b0",
+      "description": "Admin scenario to correct grammar of sent message",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Admin scenario to correct grammar of sent message",
+      "project_secureId": "test_project"
+    },
+    "secureId": "system-english-spellcheck",
+    "sessionGroup_name": "system",
+    "status": "opened",
+    "title": "system-english-spellcheck"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

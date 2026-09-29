@@ -1,0 +1,10 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "cardSource_title": "First Card",
+    "cardTarget_title": "Second Card",
+    "_ref": "ef736f4e76294"
+  },
+  "type": "single",
+  "entity": "card_relation"
+}

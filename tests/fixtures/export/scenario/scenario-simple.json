@@ -1,0 +1,18 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "title": "Test Scenario",
+    "description": "This is a test scenario",
+    "environment": {
+      "name": "production",
+      "_ref": "9a33054efd894"
+    },
+    "card": [],
+    "cardRelation": [],
+    "job": [],
+    "_ref": "943b23229d334",
+    "project_secureId": "test_project"
+  },
+  "type": "single",
+  "entity": "scenario"
+}

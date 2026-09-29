@@ -1,0 +1,16 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": "password12345",
+    "firstName": "Test",
+    "lastName": "User",
+    "roles": [
+      "ROLE_USER"
+    ],
+    "_ref": "f04b5533b8214"
+  },
+  "type": "single",
+  "entity": "user"
+}

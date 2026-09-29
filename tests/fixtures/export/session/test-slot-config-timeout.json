@@ -1,0 +1,289 @@
+{
+  "data": {
+    "_ref": "687b9ceb5177a",
+    "scenario": {
+      "_ref": "687b9ceb51c7d",
+      "card": [
+        {
+          "_ref": "687b9ceb51d27",
+          "job": {
+            "_ref": "687b9cebaa92e",
+            "slot": [
+              {
+                "_ref": "687b9cebaa991",
+                "node_type": "null",
+                "positionX": -100,
+                "positionY": 10,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9cebaad3c",
+                "node_type": "null",
+                "positionX": 490,
+                "positionY": 30,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "end"
+              },
+              {
+                "_ref": "687b9cebab059",
+                "node_type": "code",
+                "positionX": 140,
+                "positionY": 20,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cebab3e9",
+                    "expression": false,
+                    "name": "code",
+                    "slot_ref": "687b9cebab059",
+                    "value": "sleep(10)"
+                  },
+                  {
+                    "_ref": "687b9cebab49a",
+                    "expression": false,
+                    "name": "timeout",
+                    "slot_ref": "687b9cebab059",
+                    "value": 3
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9cebae9ab",
+                    "collection": "default",
+                    "contentType": "default",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9cebab059",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "TOO_LONG_CODE",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9cebaece8",
+                "node_type": "http_request",
+                "positionX": 120,
+                "positionY": -100,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cebaf0b7",
+                    "expression": false,
+                    "name": "url",
+                    "slot_ref": "687b9cebaece8",
+                    "value": "https://httpbin.org/delay/10"
+                  },
+                  {
+                    "_ref": "687b9cebaf16c",
+                    "expression": false,
+                    "name": "method",
+                    "slot_ref": "687b9cebaece8",
+                    "value": "GET"
+                  },
+                  {
+                    "_ref": "687b9cebaf200",
+                    "expression": false,
+                    "name": "timeout",
+                    "slot_ref": "687b9cebaece8",
+                    "value": 2
+                  }
+                ],
+                "slotMessage": [],
+                "title": "TOO_LONG_HTTP_REQUEST",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9cebaf517",
+                "node_type": "model_reason",
+                "positionX": 130,
+                "positionY": 140,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cebaf950",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9cebaf517",
+                    "value": "open_ai/gpt-4.1"
+                  },
+                  {
+                    "_ref": "687b9cebafb71",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9cebaf517",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9cebafcac",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9cebaf517",
+                    "value": 256
+                  },
+                  {
+                    "_ref": "687b9cebafdfd",
+                    "expression": false,
+                    "name": "timeout",
+                    "slot_ref": "687b9cebaf517",
+                    "value": 1
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9cebb904f",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "687b9cebb90e2",
+                      "content": "You are a helpful assistant.",
+                      "contentType": "conversation",
+                      "format": "text",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": null,
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9cebaf517",
+                    "source": "request",
+                    "type": "specific"
+                  },
+                  {
+                    "_ref": "687b9cebb96cd",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cebb9896",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cebb96cd"
+                      }
+                    ],
+                    "slot_ref": "687b9cebaf517",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cebb99a6",
+                    "collection": "default",
+                    "contentType": "default",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9cebaf517",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "TOO_LONG_MODEL",
+                "type": "default"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9cebba500",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cebaa991",
+                "slotTarget_ref": "687b9cebaece8"
+              },
+              {
+                "_ref": "687b9cebba5b2",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cebaa991",
+                "slotTarget_ref": "687b9cebab059"
+              },
+              {
+                "_ref": "687b9cebba68c",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cebaa991",
+                "slotTarget_ref": "687b9cebaf517"
+              },
+              {
+                "_ref": "687b9cebba71e",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cebaece8",
+                "slotTarget_ref": "687b9cebaad3c"
+              },
+              {
+                "_ref": "687b9cebba7c7",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cebab059",
+                "slotTarget_ref": "687b9cebaad3c"
+              },
+              {
+                "_ref": "687b9cebba873",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cebaf517",
+                "slotTarget_ref": "687b9cebaad3c"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "687b9ceb51c7d",
+          "scope": "default",
+          "title": "Test Slot Config Timeout"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "687b9ceb51d27",
+      "description": null,
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Slot Config Timeout",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-slot-config-timeout",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-slot-config-timeout"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

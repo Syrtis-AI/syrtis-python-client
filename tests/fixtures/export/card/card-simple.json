@@ -1,0 +1,63 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "_ref": "cdscsdcdsdc",
+    "job": {
+      "_ref": "hgnghfgnhfngh",
+      "slot": [
+        {
+          "_ref": "fdsvsdfvfvsdvfvfd",
+          "node_type": "null",
+          "positionX": 0,
+          "positionY": 0,
+          "slotConfig": [],
+          "slotMessage": [],
+          "title": "NULL",
+          "type": "end"
+        },
+        {
+          "_ref": "vfsdbgfbdnhdgnfgn",
+          "node_type": "null",
+          "positionX": 0,
+          "positionY": 0,
+          "slotConfig": [],
+          "slotMessage": [],
+          "title": "NULL",
+          "type": "start"
+        }
+      ],
+      "slotRelation": [
+        {
+          "_ref": "njgfngkjnfkngjkf",
+          "slotSource_ref": "fdsvsdfvfvsdvfvfd",
+          "slotTarget_ref": "vfsdbgfbdnhdgnfgn",
+          "portSource": "default",
+          "portTarget": "default"
+        }
+      ],
+      "title": "This is a job related to an imported card"
+    },
+    "message": [
+      {
+        "_ref": "nhgnhghngn",
+        "content": "This is a prompt type message",
+        "contentType": "default",
+        "format": "text",
+        "messageStamp": [
+          {
+            "_ref": "njfksngjkds",
+            "name": "instruct"
+          }
+        ],
+        "metadata": null,
+        "name": null,
+        "origin": "card"
+      }
+    ],
+    "scenario_title": "TEST_SIMPLE_SCENARIO",
+    "scope": "default",
+    "title": "Single card import"
+  },
+  "type": "single",
+  "entity": "card"
+}

@@ -1,0 +1,10 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "card_id": 1,
+    "message_id": 1,
+    "_ref": "9435246d605a4"
+  },
+  "type": "single",
+  "entity": "card_message"
+}

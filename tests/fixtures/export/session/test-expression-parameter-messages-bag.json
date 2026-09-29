@@ -1,0 +1,191 @@
+{
+  "data": {
+    "_ref": "68f6016a288c5",
+    "scenario": {
+      "_ref": "68f6016a28db4",
+      "card": [
+        {
+          "_ref": "68f6016a28dfa",
+          "job": {
+            "_ref": "68f6016a398a2",
+            "slot": [
+              {
+                "_ref": "68f6016a398e4",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016a39cf8",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016a3a04d",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f6016a39cf8",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f6016a3a19e",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f6016a39cf8",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f6016a3a2fa",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f6016a39cf8",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016a3a6be",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a3a8d1",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f6016a3a6be"
+                      }
+                    ],
+                    "slot_ref": "68f6016a39cf8",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016a3a92e",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a3ab09",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016a3a92e"
+                      }
+                    ],
+                    "slot_ref": "68f6016a39cf8",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016a3ab62",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a3acff",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016a3ab62"
+                      }
+                    ],
+                    "slot_ref": "68f6016a39cf8",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016a3ae90",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016a398e4",
+                "slotTarget_ref": "68f6016a39cf8"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f6016a3b03c",
+              "content": "The current messages bag contains {{ messages_bag.count() }} messages. The test message is: \"{{ messages_bag.find_message_by_name(name='test.message.with.name').content }}\"",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016a3b379",
+                  "message_ref": "68f6016a3b03c",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            },
+            {
+              "_ref": "68f6016a3b3bc",
+              "content": "The carrot is optimistic",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [],
+              "metadata": null,
+              "name": "test.message.with.name",
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016a28db4",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016a28dfa",
+      "description": "Test scenario to display expression parameters in rendered contents",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Expression Parameter Messages Bag",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-expression-parameter-messages-bag",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-expression-parameter-messages-bag"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

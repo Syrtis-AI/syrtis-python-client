@@ -1,0 +1,619 @@
+{
+  "data": {
+    "_ref": "687b9ce517198",
+    "scenario": {
+      "_ref": "687b9ce5175aa",
+      "card": [
+        {
+          "_ref": "687b9ce51764b",
+          "job": {
+            "_ref": "687b9ce59f0cb",
+            "slot": [
+              {
+                "_ref": "687b9ce59f11c",
+                "node_type": "null",
+                "positionX": -780,
+                "positionY": 70,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ce59f597",
+                "node_type": "null",
+                "positionX": 750,
+                "positionY": -20,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "null",
+                "type": "end"
+              },
+              {
+                "_ref": "687b9ce59f8ef",
+                "node_type": "model_structured",
+                "positionX": -340,
+                "positionY": -10,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce59fe16",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9ce59f8ef",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9ce59ffcc",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9ce59f8ef",
+                    "value": "open_ai/gpt-4.1-mini"
+                  },
+                  {
+                    "_ref": "687b9ce5a011c",
+                    "expression": false,
+                    "name": "instruction",
+                    "slot_ref": "687b9ce59f8ef",
+                    "value": "Extract the list of people and actions from the given text on a `subject -> action -> object` form"
+                  },
+                  {
+                    "_ref": "687b9ce5a035d",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce59f8ef",
+                    "value": "{\n  \"name\": \"_reasoning\",\n  \"type\": \"string\",\n  \"description\": \"Provide a brief explanation for why you extrated the given data.\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "687b9ce5a0569",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce59f8ef",
+                    "value": "{\n  \"name\": \"subject_action_object\",\n  \"type\": \"object\",\n  \"description\": \"Provide a list of object defining the people actions from the ext, e.g. {\\\"subject\\\":\\\"Romain\\\", \\\"action\\\":\\\"eat\\\", \\\"object\\\":\\\"Cheese\\\"}. Every common nouns shoul be translated in English, singular, and first letter in uppercase. The same subject can be repeated for each action.\",\n  \"items\": {\n    \"$ref\": \"#/$defs/svo\"\n  },\n  \"minItems\": 0,\n  \"additionalItems\": false,\n  \"$defs\": {\n    \"svo\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"subject\": { \"type\": \"string\", \"description\": \"The human name performing the action.\" },\n        \"action\":  { \"type\": \"string\", \"description\": \"The verb that represents the action.\" },\n        \"object\":  { \"type\": \"string\", \"description\": \"The object that the action is performed on.\" }\n      },\n      \"required\": [\"subject\", \"action\", \"object\"],\n      \"additionalProperties\": false\n    }\n  },\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "687b9ce5a068a",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9ce59f8ef",
+                    "value": 2048
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce5a5594",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "SUBJECTS_OBJECTS_RELATIONS",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce59f8ef",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce5a596b",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce59f8ef",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "EXTRACT_ACTIONS",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5a5d51",
+                "node_type": "model_structured",
+                "positionX": -560,
+                "positionY": 210,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce5a6299",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9ce5a5d51",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9ce5a63ac",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9ce5a5d51",
+                    "value": "open_ai/gpt-4.1-mini"
+                  },
+                  {
+                    "_ref": "687b9ce5a64bc",
+                    "expression": false,
+                    "name": "instruction",
+                    "slot_ref": "687b9ce5a5d51",
+                    "value": "Extract the list of player and team from the given text in this format `player -> relation_type -> team`"
+                  },
+                  {
+                    "_ref": "687b9ce5a664d",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce5a5d51",
+                    "value": "{\n  \"name\": \"_reasoning\",\n  \"type\": \"string\",\n  \"description\": \"Provide a brief explanation for why you extrated the given data.\",\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "687b9ce5a6789",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce5a5d51",
+                    "value": "{\n  \"name\": \"players_and_teams\",\n  \"type\": \"object\",\n  \"description\": \"Provide a list of object defining each players team e.g. {\\\"subject\\\":\\\"Player Name\\\", \\\"action\\\":\\\"member\\\", \\\"object\\\":\\\"Team\\\"}. The same team name can be repeated for player entry.\",\n  \"items\": {\n    \"$ref\": \"#/$defs/svo\"\n  },\n  \"minItems\": 0,\n  \"additionalItems\": false,\n  \"$defs\": {\n    \"svo\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"player\": { \"type\": \"string\", \"description\": \"The name of the player, respecting first letter uppercase common convention.\" },\n        \"relation\":  { \"type\": \"string\", \"description\": \"The relation to the team, it can be member, or something else if explicitely defined.\" },\n        \"team\":  { \"type\": \"string\", \"description\": \"The team name\" }\n      },\n      \"required\": [\"player\", \"relation\", \"team\"],\n      \"additionalProperties\": false\n    }\n  },\n  \"nullable\": false\n}"
+                  },
+                  {
+                    "_ref": "687b9ce5a6a68",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9ce5a5d51",
+                    "value": 2048
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce5ac257",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "PLAYERS_RELATIONS",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce5a5d51",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce5ac70c",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": null,
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce5a5d51",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "EXTRACT_PLAYERS",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5accc7",
+                "node_type": "message",
+                "positionX": -990,
+                "positionY": -210,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce5af762",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "687b9ce5af7d2",
+                      "content": "{\n  \"_reasoning\": \"The text describes actions performed by players and a referee during a basketball game's opening quarter. Each sentence mentions who did what to whom or what, allowing extraction of subject-action-object triplets representing these interactions.\",\n  \"subject_action_object\": [\n    {\n      \"subject\": \"Jordan Hayes\",\n      \"action\": \"split\",\n      \"object\": \"Pick-and-roll\"\n    },\n    {\n      \"subject\": \"Jordan Hayes\",\n      \"action\": \"pass\",\n      \"object\": \"Malik Carter\"\n    },\n    {\n      \"subject\": \"Malik Carter\",\n      \"action\": \"dunk\",\n      \"object\": \"Basketball\"\n    },\n    {\n      \"subject\": \"Ethan Liu\",\n      \"action\": \"curl\",\n      \"object\": \"Stagger screen\"\n    },\n    {\n      \"subject\": \"Ethan Liu\",\n      \"action\": \"shoot\",\n      \"object\": \"Three-pointer\"\n    },\n    {\n      \"subject\": \"Malik Carter\",\n      \"action\": \"draw\",\n      \"object\": \"Slap on the wrist\"\n    },\n    {\n      \"subject\": \"Ethan Liu\",\n      \"action\": \"convert\",\n      \"object\": \"Bonus free throw\"\n    },\n    {\n      \"subject\": \"Jordan Hayes\",\n      \"action\": \"pass\",\n      \"object\": \"Diego Ram\u00edrez\"\n    },\n    {\n      \"subject\": \"Diego Ram\u00edrez\",\n      \"action\": \"shoot\",\n      \"object\": \"Hook shot\"\n    },\n    {\n      \"subject\": \"DeAndre Brooks\",\n      \"action\": \"steal\",\n      \"object\": \"Cross-court pass\"\n    },\n    {\n      \"subject\": \"DeAndre Brooks\",\n      \"action\": \"drive\",\n      \"object\": \"Coast-to-coast\"\n    },\n    {\n      \"subject\": \"DeAndre Brooks\",\n      \"action\": \"score\",\n      \"object\": \"Finger roll\"\n    },\n    {\n      \"subject\": \"Cassandra Holt\",\n      \"action\": \"signal\",\n      \"object\": \"Defensive three-second violation\"\n    },\n    {\n      \"subject\": \"Cassandra Holt\",\n      \"action\": \"issue\",\n      \"object\": \"Warning to DeAndre Brooks\"\n    },\n    {\n      \"subject\": \"Marcus O\u2019Neal\",\n      \"action\": \"take\",\n      \"object\": \"Charge call\"\n    },\n    {\n      \"subject\": \"Malik Carter\",\n      \"action\": \"block\",\n      \"object\": \"Floater\"\n    },\n    {\n      \"subject\": \"Jordan Hayes\",\n      \"action\": \"shoot\",\n      \"object\": \"Pull-up triple\"\n    },\n    {\n      \"subject\": \"Ethan Liu\",\n      \"action\": \"shoot\",\n      \"object\": \"Fadeaway\"\n    }\n  ]\n}",
+                      "contentType": "analysis",
+                      "format": "json",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": "SUBJECTS_OBJECTS_RELATIONS",
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce5accc7",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "FAKE_MESSAGE_ACTIONS",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5affb4",
+                "node_type": "message",
+                "positionX": -990,
+                "positionY": -100,
+                "slotConfig": [],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce5b227c",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": null,
+                    "max": 0,
+                    "message": {
+                      "_ref": "687b9ce5b22f5",
+                      "content": "{\n  \"_reasoning\": \"The text mentions multiple players associated with two specific teams: the Denver Falcons and the Brooklyn Comets. Each player is identified with their team based on the context in which they are mentioned performing actions or with explicit team references.\",\n  \"players_and_teams\": [\n    {\n      \"player\": \"Marcus Reed\",\n      \"relation\": \"member\",\n      \"team\": \"Denver Falcons\"\n    },\n    {\n      \"player\": \"Andre Parker\",\n      \"relation\": \"member\",\n      \"team\": \"Brooklyn Comets\"\n    },\n    {\n      \"player\": \"Victor Silva\",\n      \"relation\": \"member\",\n      \"team\": \"Brooklyn Comets\"\n    },\n    {\n      \"player\": \"Ethan Wright\",\n      \"relation\": \"member\",\n      \"team\": \"Brooklyn Comets\"\n    },\n    {\n      \"player\": \"Tyler Grant\",\n      \"relation\": \"member\",\n      \"team\": \"Denver Falcons\"\n    },\n    {\n      \"player\": \"Samir Patel\",\n      \"relation\": \"member\",\n      \"team\": \"Brooklyn Comets\"\n    },\n    {\n      \"player\": \"Leo Chen\",\n      \"relation\": \"member\",\n      \"team\": \"Denver Falcons\"\n    },\n    {\n      \"player\": \"Darryl Brooks\",\n      \"relation\": \"member\",\n      \"team\": \"Denver Falcons\"\n    },\n    {\n      \"player\": \"Malik Jones\",\n      \"relation\": \"member\",\n      \"team\": \"Brooklyn Comets\"\n    }\n  ]\n}",
+                      "contentType": "analysis",
+                      "format": "json",
+                      "messageStamp": [],
+                      "metadata": null,
+                      "name": "PLAYERS_RELATIONS",
+                      "origin": "node"
+                    },
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce5affb4",
+                    "source": "messages-bag",
+                    "type": "specific"
+                  }
+                ],
+                "title": "FAKE_MESSAGE_PLAYERS",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5b2a25",
+                "node_type": "graph_request",
+                "positionX": 220,
+                "positionY": 100,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce5b360c",
+                    "expression": true,
+                    "name": "request_schema",
+                    "slot_ref": "687b9ce5b2a25",
+                    "value": "{\n  \"connect\": {\n    \"match_node\": {\n      \"var\": \"p\",\n      \"labels\": [\"Player\"],\n      \"props\": {\n        \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_TEAM').data_search('player').get_str_or_default(default='Unknown Player') }}\"\n      }\n    },\n    \"relationships\": [\n      {\n        \"type\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_TEAM').data_search('relation').get_str_or_default(default='action') }}\",\n        \"direction\": \"out\",\n        \"end_node\": {\n          \"var\": \"f\",\n          \"labels\": [\"Team\"],\n          \"props\": {\n            \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_TEAM').data_search('team').get_str_or_default(default='Unknown Team') }}\"\n          }\n        }\n      }\n    ]\n  }\n}\n"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "CONNECT",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5b3a02",
+                "node_type": "iterator",
+                "positionX": -30,
+                "positionY": -10,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce5b3fe2",
+                    "expression": false,
+                    "name": "max_job_loop_iteration",
+                    "slot_ref": "687b9ce5b3a02",
+                    "value": 100
+                  },
+                  {
+                    "_ref": "687b9ce5b4170",
+                    "expression": false,
+                    "name": "iterate_on",
+                    "slot_ref": "687b9ce5b3a02",
+                    "value": "expression"
+                  },
+                  {
+                    "_ref": "687b9ce5b427a",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "687b9ce5b3a02",
+                    "value": "{{ messages_bag.find_message_by_name('SUBJECTS_OBJECTS_RELATIONS').data_search('subject_action_object').raw }}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce5b75a5",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "CURRENT_PLAYER_ACTION",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce5b3a02",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "ITERATE_ACTIONS",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5b7831",
+                "node_type": "iterator",
+                "positionX": -100,
+                "positionY": 270,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce5b7a4a",
+                    "expression": false,
+                    "name": "max_job_loop_iteration",
+                    "slot_ref": "687b9ce5b7831",
+                    "value": 100
+                  },
+                  {
+                    "_ref": "687b9ce5b7aaa",
+                    "expression": false,
+                    "name": "iterate_on",
+                    "slot_ref": "687b9ce5b7831",
+                    "value": "expression"
+                  },
+                  {
+                    "_ref": "687b9ce5b7b22",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "687b9ce5b7831",
+                    "value": "{{ messages_bag.find_message_by_name('PLAYERS_RELATIONS').data_search('players_and_teams').raw }}"
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce5b9f30",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "CURRENT_PLAYER_TEAM",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce5b7831",
+                    "source": "messages-bag",
+                    "type": "selector"
+                  }
+                ],
+                "title": "ITERATE_PLAYERS",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5ba1c3",
+                "node_type": "graph_request",
+                "positionX": 110,
+                "positionY": -180,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce5ba4c0",
+                    "expression": true,
+                    "name": "request_schema",
+                    "slot_ref": "687b9ce5ba1c3",
+                    "value": "{\n  \"connect\": {\n    \"match_node\": {\n      \"var\": \"p\",\n      \"labels\": [\"Player\"],\n      \"props\": {\n        \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_ACTION').data_search('subject').get_str_or_default(default='Player') }}\"\n      }\n    },\n    \"relationships\": [\n      {\n        \"type\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_ACTION').data_search('action').get_str_or_default(default='action') }}\",\n        \"direction\": \"out\",\n        \"end_node\": {\n          \"var\": \"f\",\n          \"labels\": [\"Subject\"],\n          \"props\": {\n            \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_ACTION').data_search('object').get_str_or_default(default='Something') }}\"\n          }\n        }\n      }\n    ]\n  }\n}\n"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "CONNECT",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5ba6e2",
+                "node_type": "graph_request",
+                "positionX": -280,
+                "positionY": 100,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce5ba8ce",
+                    "expression": true,
+                    "name": "request_schema",
+                    "slot_ref": "687b9ce5ba6e2",
+                    "value": "{\n  \"upsert\": [\n    {\n      \"start_node\": {\n        \"var\": \"p\",\n        \"labels\": [\"Player\"],\n        \"props\": {\n          \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_TEAM').data_search('player').get_str_or_default(default='Unknown Player') }}\"\n        }\n      }\n    }\n  ]\n}\n"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "UPSER_PLAYER",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5baa9a",
+                "node_type": "graph_request",
+                "positionX": -200,
+                "positionY": -180,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce5bac27",
+                    "expression": true,
+                    "name": "request_schema",
+                    "slot_ref": "687b9ce5baa9a",
+                    "value": "{\n  \"upsert\": [\n    {\n      \"start_node\": {\n        \"var\": \"s\",\n        \"labels\": [\"Subject\"],\n        \"props\": {\n          \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_ACTION').data_search('object').get_str_or_default(default='Something') }}\"\n        }\n      }\n    }\n  ]\n}\n"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "UPSER_SUBJET",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5bae05",
+                "node_type": "graph_request",
+                "positionX": -550,
+                "positionY": -150,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce5bafbd",
+                    "expression": true,
+                    "name": "request_schema",
+                    "slot_ref": "687b9ce5bae05",
+                    "value": "{\n  \"upsert\": [\n    {\n      \"start_node\": {\n        \"var\": \"p\",\n        \"labels\": [\"Person\"],\n        \"props\": {\n          \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_ACTION').data_search('subject').get_str_or_default(default='Someone') }}\"\n        }\n      }\n    }\n  ]\n}\n"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "UPSER_OBJECT",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9ce5bb0f0",
+                "node_type": "graph_request",
+                "positionX": -30,
+                "positionY": 100,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce5bb2d9",
+                    "expression": true,
+                    "name": "request_schema",
+                    "slot_ref": "687b9ce5bb0f0",
+                    "value": "{\n  \"upsert\": [\n    {\n      \"start_node\": {\n        \"var\": \"p\",\n        \"labels\": [\"Team\"],\n        \"props\": {\n          \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_TEAM').data_search('team').get_str_or_default(default='Unknown Team') }}\"\n        }\n      }\n    }\n  ]\n}\n"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "UPSER_TEAM",
+                "type": "default"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ce6b81ac",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce59f11c",
+                "slotTarget_ref": "687b9ce5a5d51"
+              },
+              {
+                "_ref": "687b9ce6b8253",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce59f11c",
+                "slotTarget_ref": "687b9ce59f8ef"
+              },
+              {
+                "_ref": "687b9ce6b8311",
+                "portSource": "complete",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce5b7831",
+                "slotTarget_ref": "687b9ce59f597"
+              },
+              {
+                "_ref": "687b9ce6b836c",
+                "portSource": "complete",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce5b3a02",
+                "slotTarget_ref": "687b9ce59f597"
+              },
+              {
+                "_ref": "687b9ce6b83d9",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce59f8ef",
+                "slotTarget_ref": "687b9ce5b3a02"
+              },
+              {
+                "_ref": "687b9ce6b8460",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce5a5d51",
+                "slotTarget_ref": "687b9ce5b7831"
+              },
+              {
+                "_ref": "687b9ce6b84eb",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce5b2a25",
+                "slotTarget_ref": "687b9ce5b7831"
+              },
+              {
+                "_ref": "687b9ce6b8548",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce5bb0f0",
+                "slotTarget_ref": "687b9ce5b2a25"
+              },
+              {
+                "_ref": "687b9ce6b85a6",
+                "portSource": "continue",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce5b3a02",
+                "slotTarget_ref": "687b9ce5baa9a"
+              },
+              {
+                "_ref": "687b9ce6b8618",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce5ba1c3",
+                "slotTarget_ref": "687b9ce5b3a02"
+              },
+              {
+                "_ref": "687b9ce6b8679",
+                "portSource": "continue",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce5b7831",
+                "slotTarget_ref": "687b9ce5ba6e2"
+              },
+              {
+                "_ref": "687b9ce6b86f6",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce5baa9a",
+                "slotTarget_ref": "687b9ce5ba1c3"
+              },
+              {
+                "_ref": "687b9ce6b875a",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce5ba6e2",
+                "slotTarget_ref": "687b9ce5bb0f0"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "687b9ce5175aa",
+          "scope": "default",
+          "title": "Test Node Graph Request Long Text"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "687b9ce51764b",
+      "description": "Extract batch data from a text to a graph database. See https://graph.syrtis.ai/",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Graph Request Long Text",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-graph-request-long-text",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-graph-request-long-text"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

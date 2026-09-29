@@ -1,0 +1,281 @@
+{
+  "data": {
+    "_ref": "687b9ce839167",
+    "scenario": {
+      "_ref": "687b9ce8396d8",
+      "card": [
+        {
+          "_ref": "687b9ce839789",
+          "job": {
+            "_ref": "687b9ce852e37",
+            "slot": [
+              {
+                "_ref": "687b9ce852ee2",
+                "node_type": "model_structured",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce853312",
+                    "expression": false,
+                    "name": "aggregate",
+                    "slot_ref": "687b9ce852ee2",
+                    "value": true
+                  },
+                  {
+                    "_ref": "687b9ce853434",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce852ee2",
+                    "value": "{\n   \"type\":\"number\",\n   \"description\":\"Fill it with the age of the USER if you find it in the message, only if USER explicitly gives it\",\n   \"name\":\"user_age_collected\",\n   \"nullable\":true\n}"
+                  },
+                  {
+                    "_ref": "687b9ce853547",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce852ee2",
+                    "value": "{\n   \"type\":\"string\",\n   \"description\":\"Fill it with the name of the USER if you find it in the message, only if USER explicitly gives it\",\n   \"name\":\"user_name_collected\",\n   \"nullable\":true\n}"
+                  },
+                  {
+                    "_ref": "687b9ce853686",
+                    "expression": false,
+                    "name": "property",
+                    "slot_ref": "687b9ce852ee2",
+                    "value": "{\n   \"type\":\"string\",\n   \"description\":\"Fill in with our observation regarding the quality level of the input message. Be verbose, as the final administrator will not have access to the original message.\",\n   \"name\":\"analysed_textual_quality\",\n   \"nullable\":true\n}"
+                  },
+                  {
+                    "_ref": "687b9ce853793",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9ce852ee2",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9ce8538a6",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9ce852ee2",
+                    "value": 1024
+                  },
+                  {
+                    "_ref": "687b9ce853a79",
+                    "expression": false,
+                    "name": "instruction",
+                    "slot_ref": "687b9ce852ee2",
+                    "value": "User input message content analysis."
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce85b014",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce85b3f0",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9ce85b014"
+                      }
+                    ],
+                    "slot_ref": "687b9ce852ee2",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce85b4e0",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": "test.message.analysis",
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [],
+                    "slot_ref": "687b9ce852ee2",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce85b7c8",
+                    "collection": "default",
+                    "contentType": "analysis",
+                    "direction": "output",
+                    "format": "json",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce85b9b1",
+                        "name": "session",
+                        "slotMessage_ref": "687b9ce85b7c8"
+                      }
+                    ],
+                    "slot_ref": "687b9ce852ee2",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model Structured",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ce85ba1e",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ce85bd78",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9ce85ba1e",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9ce85bed9",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9ce85ba1e",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "687b9ce85bffc",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9ce85ba1e",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9ce863191",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce863434",
+                        "name": "instruct",
+                        "slotMessage_ref": "687b9ce863191"
+                      }
+                    ],
+                    "slot_ref": "687b9ce85ba1e",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce8634ab",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce863699",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9ce8634ab"
+                      }
+                    ],
+                    "slot_ref": "687b9ce85ba1e",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9ce863706",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9ce863913",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9ce863706"
+                      }
+                    ],
+                    "slot_ref": "687b9ce85ba1e",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ce863ac7",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ce852ee2",
+                "slotTarget_ref": "687b9ce85ba1e"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [],
+          "scenario_ref": "687b9ce8396d8",
+          "scope": "default",
+          "title": "Message analysis single card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "687b9ce839789",
+      "description": "Test Message Analysis merging the collected data discussion into the session message",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Message Analysis Merge",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-message-analysis-merge",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-message-analysis-merge"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

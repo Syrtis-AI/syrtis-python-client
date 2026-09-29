@@ -1,0 +1,191 @@
+{
+  "data": {
+    "_ref": "68f6016a139ea",
+    "scenario": {
+      "_ref": "68f6016a13ecc",
+      "card": [
+        {
+          "_ref": "68f6016a13f0f",
+          "job": {
+            "_ref": "68f6016a25f63",
+            "slot": [
+              {
+                "_ref": "68f6016a25fa1",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016a26387",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016a26672",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f6016a26387",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f6016a267ef",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f6016a26387",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f6016a26918",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f6016a26387",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016a26d1c",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a26ed9",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f6016a26d1c"
+                      }
+                    ],
+                    "slot_ref": "68f6016a26387",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016a26f31",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a270c7",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016a26f31"
+                      }
+                    ],
+                    "slot_ref": "68f6016a26387",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016a2711f",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a27445",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016a2711f"
+                      }
+                    ],
+                    "slot_ref": "68f6016a26387",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016a2762b",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016a25fa1",
+                "slotTarget_ref": "68f6016a26387"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f6016a2782b",
+              "content": "The secret message is: \"{{ messages_bag.find_message_by_name(name='secret_message_name').rendered }}\"",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016a27be5",
+                  "message_ref": "68f6016a2782b",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            },
+            {
+              "_ref": "68f6016a27c39",
+              "content": "/* This message is not automatically converted by the chat node into a prompt */\nSecret message: The cucumber is skeptical",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [],
+              "metadata": null,
+              "name": "secret_message_name",
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016a13ecc",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "68f6016a13f0f",
+      "description": "Test scenario to display expression parameters in rendered contents\n> /!\\ This is an old scenario testing {{ message }} expression. The direct access to {{ message }} was removed as it is not clear which message we are talking about. You should use message_bag to access to messages instead. If this scenario seem redudant, we might remove it soon.",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Expression Parameter Message",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-expression-parameter-message",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-expression-parameter-message"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

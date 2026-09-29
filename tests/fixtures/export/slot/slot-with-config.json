@@ -1,0 +1,29 @@
+{
+  "version": "0.2.3",
+  "data": {
+    "node_type": "model_reason",
+    "positionX": 0,
+    "positionY": 0,
+    "job_title": "ANOTHER_TEST_SIMPLE_JOB",
+    "slotConfig": [
+      {
+        "expression": false,
+        "name": "model",
+        "value": "open_ai/gpt-4o-mini",
+        "_ref": "74f1a9bceb3c4"
+      },
+      {
+        "expression": false,
+        "name": "temperature",
+        "value": 0.7,
+        "_ref": "f13a8e1202424"
+      }
+    ],
+    "slotMessage": [],
+    "title": "Model slot",
+    "type": "end",
+    "_ref": "04316d70f6604"
+  },
+  "type": "single",
+  "entity": "slot"
+}

@@ -1,0 +1,226 @@
+{
+  "data": {
+    "_ref": "68f60169f36da",
+    "scenario": {
+      "_ref": "68f6016a0024f",
+      "card": [
+        {
+          "_ref": "68f6016a0028a",
+          "job": {
+            "_ref": "68f6016a10c95",
+            "slot": [
+              {
+                "_ref": "68f6016a10cf7",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "68f6016a1103a",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "68f6016a1134a",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "68f6016a1103a",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "68f6016a114a4",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "68f6016a1103a",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "68f6016a115e6",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "68f6016a1103a",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "68f6016a11a1b",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a11be3",
+                        "name": "instruct",
+                        "slotMessage_ref": "68f6016a11a1b"
+                      }
+                    ],
+                    "slot_ref": "68f6016a1103a",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016a11c69",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a11e68",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016a11c69"
+                      }
+                    ],
+                    "slot_ref": "68f6016a1103a",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "68f6016a11f32",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "68f6016a1218e",
+                        "name": "chat",
+                        "slotMessage_ref": "68f6016a11f32"
+                      }
+                    ],
+                    "slot_ref": "68f6016a1103a",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "68f6016a12375",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "68f6016a10cf7",
+                "slotTarget_ref": "68f6016a1103a"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "68f6016a12596",
+              "content": "The card title is \"{{ card.title }}\" and its ID is \"{{ card.id }}\"\nIf the USER picks a subject, don't pretend you've navigated to this section: this is a demonstration, you are not configured to actually navigate anywhere.\nThis is the next allow places USER can navigate to, ask him where to go:\n{{ card.render_list_next_titles() }}\n",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "68f6016a129ff",
+                  "message_ref": "68f6016a12596",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "68f6016a0024f",
+          "scope": "default",
+          "title": "First card"
+        },
+        {
+          "_ref": "68f6016a0029c",
+          "job": null,
+          "message": [],
+          "scenario_ref": "68f6016a0024f",
+          "scope": "default",
+          "title": "Subject A"
+        },
+        {
+          "_ref": "68f6016a002c2",
+          "job": null,
+          "message": [],
+          "scenario_ref": "68f6016a0024f",
+          "scope": "default",
+          "title": "Subject B"
+        },
+        {
+          "_ref": "68f6016a002e6",
+          "job": null,
+          "message": [],
+          "scenario_ref": "68f6016a0024f",
+          "scope": "default",
+          "title": "Last card"
+        }
+      ],
+      "cardRelation": [
+        {
+          "_ref": "68f6016a00272",
+          "cardSource_ref": "68f6016a0028a",
+          "cardTarget_ref": "68f6016a0029c"
+        },
+        {
+          "_ref": "68f6016a002a6",
+          "cardSource_ref": "68f6016a0028a",
+          "cardTarget_ref": "68f6016a002c2"
+        },
+        {
+          "_ref": "68f6016a002cc",
+          "cardSource_ref": "68f6016a0029c",
+          "cardTarget_ref": "68f6016a002e6"
+        },
+        {
+          "_ref": "68f6016a002f0",
+          "cardSource_ref": "68f6016a002c2",
+          "cardTarget_ref": "68f6016a002e6"
+        }
+      ],
+      "defaultEntrypoint_ref": "68f6016a0028a",
+      "description": "Test scenario to display card expression parameters in rendered contents.",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Expression Parameter Card",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-expression-parameter-card",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-expression-parameter-card"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.3.11"
+}

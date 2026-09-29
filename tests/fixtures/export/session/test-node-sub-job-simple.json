@@ -1,0 +1,216 @@
+{
+  "data": {
+    "_ref": "687b9ceaf39a9",
+    "scenario": {
+      "_ref": "687b9ceaf3e6a",
+      "card": [
+        {
+          "_ref": "687b9ceaf3f1a",
+          "job": {
+            "_ref": "687b9ceb1ced7",
+            "slot": [
+              {
+                "_ref": "687b9ceb1cf4d",
+                "node_type": "sub_job",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ceb1d40c",
+                    "expression": false,
+                    "name": "target_job",
+                    "slot_ref": "687b9ceb1cf4d",
+                    "value": 123
+                  },
+                  {
+                    "_ref": "687b9ceb1d7f7",
+                    "expression": false,
+                    "name": "target_job",
+                    "slot_ref": "687b9ceb1cf4d",
+                    "value": null,
+                    "value_ref": "687b9ceb1d689"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "Sub Job",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ceb1df18",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ceb1e7ad",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ceb1cf4d",
+                "slotTarget_ref": "687b9ceb1df18"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "687b9ceaf3e6a",
+          "scope": "default",
+          "title": "First card"
+        }
+      ],
+      "cardRelation": [],
+      "defaultEntrypoint_ref": "687b9ceaf3f1a",
+      "description": "Test simple call to a sub job",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [
+        {
+          "_ref": "687b9ceb1d689",
+          "slot": [
+            {
+              "_ref": "687b9ceb4534b",
+              "node_type": "null",
+              "positionX": 0,
+              "positionY": 0,
+              "slotConfig": [],
+              "slotMessage": [],
+              "title": "Null",
+              "type": "end"
+            },
+            {
+              "_ref": "687b9ceb45787",
+              "node_type": "model_reason",
+              "positionX": 0,
+              "positionY": 0,
+              "slotConfig": [
+                {
+                  "_ref": "687b9ceb45b82",
+                  "expression": false,
+                  "name": "temperature",
+                  "slot_ref": "687b9ceb45787",
+                  "value": 0.7
+                },
+                {
+                  "_ref": "687b9ceb45eef",
+                  "expression": false,
+                  "name": "model",
+                  "slot_ref": "687b9ceb45787",
+                  "value": "open_ai/gpt-4o-mini"
+                },
+                {
+                  "_ref": "687b9ceb462cf",
+                  "expression": false,
+                  "name": "max_output_tokens",
+                  "slot_ref": "687b9ceb45787",
+                  "value": 1024
+                }
+              ],
+              "slotMessage": [
+                {
+                  "_ref": "687b9ceb4f9e4",
+                  "collection": "default",
+                  "contentType": null,
+                  "direction": "input",
+                  "format": "text",
+                  "max": 0,
+                  "message": null,
+                  "metadata": null,
+                  "name": null,
+                  "orderBy": null,
+                  "orderDirection": null,
+                  "position": 0,
+                  "slotMessageStamp": [
+                    {
+                      "_ref": "687b9ceb4ff10",
+                      "name": "instruct",
+                      "slotMessage_ref": "687b9ceb4f9e4"
+                    }
+                  ],
+                  "slot_ref": "687b9ceb45787",
+                  "source": "card",
+                  "type": "selector"
+                },
+                {
+                  "_ref": "687b9ceb500c5",
+                  "collection": "default",
+                  "contentType": "conversation",
+                  "direction": "output",
+                  "format": "text",
+                  "max": 0,
+                  "message": null,
+                  "metadata": null,
+                  "name": null,
+                  "orderBy": null,
+                  "orderDirection": null,
+                  "position": 0,
+                  "slotMessageStamp": [
+                    {
+                      "_ref": "687b9ceb5044b",
+                      "name": "chat",
+                      "slotMessage_ref": "687b9ceb500c5"
+                    }
+                  ],
+                  "slot_ref": "687b9ceb45787",
+                  "source": "request",
+                  "type": "selector"
+                },
+                {
+                  "_ref": "687b9ceb505c4",
+                  "collection": "default",
+                  "contentType": null,
+                  "direction": "input",
+                  "format": "text",
+                  "max": 0,
+                  "message": null,
+                  "metadata": null,
+                  "name": null,
+                  "orderBy": null,
+                  "orderDirection": null,
+                  "position": 1,
+                  "slotMessageStamp": [
+                    {
+                      "_ref": "687b9ceb508c2",
+                      "name": "chat",
+                      "slotMessage_ref": "687b9ceb505c4"
+                    }
+                  ],
+                  "slot_ref": "687b9ceb45787",
+                  "source": "request",
+                  "type": "selector"
+                }
+              ],
+              "title": "Model",
+              "type": "start"
+            }
+          ],
+          "slotRelation": [
+            {
+              "_ref": "687b9ceb50ba0",
+              "portSource": "default",
+              "portTarget": "default",
+              "slotSource_ref": "687b9ceb45787",
+              "slotTarget_ref": "687b9ceb4534b"
+            }
+          ],
+          "title": "Test for sub jobs calls"
+        }
+      ],
+      "title": "Test Node Sub Job Simple",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-sub-job-simple",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-sub-job-simple"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}

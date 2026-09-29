@@ -1,0 +1,628 @@
+{
+  "data": {
+    "_ref": "687b9ce9df541",
+    "scenario": {
+      "_ref": "687b9ce9e00e0",
+      "card": [
+        {
+          "_ref": "687b9ce9e0181",
+          "job": {
+            "_ref": "687b9cea2589f",
+            "slot": [
+              {
+                "_ref": "687b9cea25901",
+                "node_type": "condition",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cea25cae",
+                    "expression": false,
+                    "name": "card_requests_count_consecutive_greater_than",
+                    "slot_ref": "687b9cea25901",
+                    "value": 1
+                  },
+                  {
+                    "_ref": "687b9cea25d3b",
+                    "expression": false,
+                    "name": "operator",
+                    "slot_ref": "687b9cea25901",
+                    "value": "AND"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "Condition",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9cea2601b",
+                "node_type": "navigate",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cea2630f",
+                    "expression": false,
+                    "name": "destination_card_shortcut",
+                    "slot_ref": "687b9cea2601b",
+                    "value": "last"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "Navigate",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9cea26526",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cea26843",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9cea26526",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9cea269c9",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9cea26526",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "687b9cea26c52",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9cea26526",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9cea2ed33",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cea2f058",
+                        "name": "instruct",
+                        "slotMessage_ref": "687b9cea2ed33"
+                      }
+                    ],
+                    "slot_ref": "687b9cea26526",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cea2f0f5",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cea2f4bc",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cea2f0f5"
+                      }
+                    ],
+                    "slot_ref": "687b9cea26526",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cea2f552",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cea2f7cb",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cea2f552"
+                      }
+                    ],
+                    "slot_ref": "687b9cea26526",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9cea2f8c4",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9cea303d6",
+                "portSource": "false",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cea25901",
+                "slotTarget_ref": "687b9cea26526"
+              },
+              {
+                "_ref": "687b9cea3046a",
+                "portSource": "true",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cea25901",
+                "slotTarget_ref": "687b9cea2601b"
+              },
+              {
+                "_ref": "687b9cea304fb",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cea2601b",
+                "slotTarget_ref": "687b9cea2f8c4"
+              },
+              {
+                "_ref": "687b9cea3057d",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cea26526",
+                "slotTarget_ref": "687b9cea2f8c4"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "687b9cea3082d",
+              "content": "Only say to USER that this is the first card, and you will move to the last card.",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "687b9cea30c90",
+                  "message_ref": "687b9cea3082d",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "687b9ce9e00e0",
+          "scope": "default",
+          "title": "First card"
+        },
+        {
+          "_ref": "687b9ce9e01c5",
+          "job": {
+            "_ref": "687b9cea4e1e7",
+            "slot": [
+              {
+                "_ref": "687b9cea4e286",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9cea4e751",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cea4eab5",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9cea4e751",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9cea4ec8e",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9cea4e751",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "687b9cea4ee13",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9cea4e751",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9cea56c98",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cea56fb6",
+                        "name": "instruct",
+                        "slotMessage_ref": "687b9cea56c98"
+                      }
+                    ],
+                    "slot_ref": "687b9cea4e751",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cea5706f",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cea5725e",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cea5706f"
+                      }
+                    ],
+                    "slot_ref": "687b9cea4e751",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cea572d1",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cea574d6",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cea572d1"
+                      }
+                    ],
+                    "slot_ref": "687b9cea4e751",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9cea57695",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cea4e286",
+                "slotTarget_ref": "687b9cea4e751"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "687b9cea5794f",
+              "content": "Only say to USER that this is the second card, and you should never be here!",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "687b9cea57d79",
+                  "message_ref": "687b9cea5794f",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "687b9ce9e00e0",
+          "scope": "default",
+          "title": "Second card"
+        },
+        {
+          "_ref": "687b9ce9e025d",
+          "job": {
+            "_ref": "687b9cea8dc36",
+            "slot": [
+              {
+                "_ref": "687b9cea8dceb",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              },
+              {
+                "_ref": "687b9cea8e32a",
+                "node_type": "condition",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cea8e692",
+                    "expression": false,
+                    "name": "card_requests_count_consecutive_greater_than",
+                    "slot_ref": "687b9cea8e32a",
+                    "value": 1
+                  },
+                  {
+                    "_ref": "687b9cea8e883",
+                    "expression": false,
+                    "name": "operator",
+                    "slot_ref": "687b9cea8e32a",
+                    "value": "AND"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "Condition",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9cea8eb1b",
+                "node_type": "navigate",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cea8ed72",
+                    "expression": false,
+                    "name": "destination_card_shortcut",
+                    "slot_ref": "687b9cea8eb1b",
+                    "value": "first"
+                  }
+                ],
+                "slotMessage": [],
+                "title": "Navigate",
+                "type": "default"
+              },
+              {
+                "_ref": "687b9cea8ef31",
+                "node_type": "model_reason",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9cea8f1ec",
+                    "expression": false,
+                    "name": "temperature",
+                    "slot_ref": "687b9cea8ef31",
+                    "value": 0.7
+                  },
+                  {
+                    "_ref": "687b9cea8f366",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9cea8ef31",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
+                    "_ref": "687b9cea8f481",
+                    "expression": false,
+                    "name": "max_output_tokens",
+                    "slot_ref": "687b9cea8ef31",
+                    "value": 1024
+                  }
+                ],
+                "slotMessage": [
+                  {
+                    "_ref": "687b9cea96285",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cea96558",
+                        "name": "instruct",
+                        "slotMessage_ref": "687b9cea96285"
+                      }
+                    ],
+                    "slot_ref": "687b9cea8ef31",
+                    "source": "card",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cea965d6",
+                    "collection": "default",
+                    "contentType": "conversation",
+                    "direction": "output",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 0,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cea967d2",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cea965d6"
+                      }
+                    ],
+                    "slot_ref": "687b9cea8ef31",
+                    "source": "request",
+                    "type": "selector"
+                  },
+                  {
+                    "_ref": "687b9cea9685a",
+                    "collection": "default",
+                    "contentType": null,
+                    "direction": "input",
+                    "format": "text",
+                    "max": 0,
+                    "message": null,
+                    "metadata": null,
+                    "name": null,
+                    "orderBy": null,
+                    "orderDirection": null,
+                    "position": 1,
+                    "slotMessageStamp": [
+                      {
+                        "_ref": "687b9cea96a74",
+                        "name": "chat",
+                        "slotMessage_ref": "687b9cea9685a"
+                      }
+                    ],
+                    "slot_ref": "687b9cea8ef31",
+                    "source": "request",
+                    "type": "selector"
+                  }
+                ],
+                "title": "Model",
+                "type": "default"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9cea97314",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cea8eb1b",
+                "slotTarget_ref": "687b9cea8dceb"
+              },
+              {
+                "_ref": "687b9cea973f0",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cea8ef31",
+                "slotTarget_ref": "687b9cea8dceb"
+              },
+              {
+                "_ref": "687b9cea9749f",
+                "portSource": "false",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cea8e32a",
+                "slotTarget_ref": "687b9cea8ef31"
+              },
+              {
+                "_ref": "687b9cea97594",
+                "portSource": "true",
+                "portTarget": "default",
+                "slotSource_ref": "687b9cea8e32a",
+                "slotTarget_ref": "687b9cea8eb1b"
+              }
+            ],
+            "title": "Condition Test Job"
+          },
+          "message": [
+            {
+              "_ref": "687b9cea978e7",
+              "content": "Only say to USER that this is the last card, and you will now move to the first card",
+              "contentType": "default",
+              "format": "text",
+              "messageStamp": [
+                {
+                  "_ref": "687b9cea97e7a",
+                  "message_ref": "687b9cea978e7",
+                  "name": "instruct"
+                }
+              ],
+              "metadata": null,
+              "name": null,
+              "origin": "card"
+            }
+          ],
+          "scenario_ref": "687b9ce9e00e0",
+          "scope": "default",
+          "title": "Third card"
+        }
+      ],
+      "cardRelation": [
+        {
+          "_ref": "687b9ce9e0126",
+          "cardSource_ref": "687b9ce9e0181",
+          "cardTarget_ref": "687b9ce9e01c5"
+        },
+        {
+          "_ref": "687b9ce9e01e5",
+          "cardSource_ref": "687b9ce9e01c5",
+          "cardTarget_ref": "687b9ce9e025d"
+        }
+      ],
+      "defaultEntrypoint_ref": "687b9ce9e0181",
+      "description": "Test node navigate on last and first cards",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Navigate Card First Last",
+      "project_secureId": "test_project"
+    },
+    "secureId": "test-node-navigate-card-first-last",
+    "sessionGroup_name": "test",
+    "status": "opened",
+    "title": "test-node-navigate-card-first-last"
+  },
+  "entity": "session",
+  "type": "single",
+  "version": "0.2.60"
+}
