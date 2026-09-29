@@ -3,6 +3,8 @@ from __future__ import annotations
 from syrtis_python_client.entity.card import Card
 from syrtis_python_client.entity.card_message import CardMessage
 from syrtis_python_client.entity.card_relation import CardRelation
+from syrtis_python_client.entity.chunk import Chunk
+from syrtis_python_client.entity.document import Document
 from syrtis_python_client.entity.environment import Environment
 from syrtis_python_client.entity.job import Job
 from syrtis_python_client.entity.message import Message
@@ -25,6 +27,8 @@ generated_entities = [
     Card,
     CardMessage,
     CardRelation,
+    Chunk,
+    Document,
     Environment,
     Job,
     Message,

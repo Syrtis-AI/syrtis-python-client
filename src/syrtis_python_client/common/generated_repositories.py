@@ -1,6 +1,8 @@
 from syrtis_python_client.repository.card_message_repository import CardMessageRepository
 from syrtis_python_client.repository.card_relation_repository import CardRelationRepository
 from syrtis_python_client.repository.card_repository import CardRepository
+from syrtis_python_client.repository.chunk_repository import ChunkRepository
+from syrtis_python_client.repository.document_repository import DocumentRepository
 from syrtis_python_client.repository.environment_repository import EnvironmentRepository
 from syrtis_python_client.repository.job_repository import JobRepository
 from syrtis_python_client.repository.message_repository import MessageRepository
@@ -23,6 +25,8 @@ generated_repositories = [
     CardMessageRepository,
     CardRelationRepository,
     CardRepository,
+    ChunkRepository,
+    DocumentRepository,
     EnvironmentRepository,
     JobRepository,
     MessageRepository,

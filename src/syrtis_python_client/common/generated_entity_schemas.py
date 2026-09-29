@@ -8,6 +8,8 @@ ENTITY_SCHEMA_FILES = [
     "card.json",
     "card_message.json",
     "card_relation.json",
+    "chunk.json",
+    "document.json",
     "environment.json",
     "job.json",
     "message.json",
