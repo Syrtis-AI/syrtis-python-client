@@ -1,4 +1,4 @@
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import DateTime, ForeignKey, String, Text, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -22,7 +22,7 @@ class TemplateGenerated:
 
     @declared_attr
     def scenario_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('scenario.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('scenario.id'), nullable=False)
     @declared_attr
     def scenario(cls) -> Mapped[object]:
         return relationship('Scenario', foreign_keys='Template.scenario_id', lazy='select')

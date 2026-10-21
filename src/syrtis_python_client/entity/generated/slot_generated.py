@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey, Integer, String
+from sqlalchemy import ForeignKey, Integer, String, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -25,13 +25,13 @@ class SlotGenerated:
 
     @declared_attr
     def job_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('job.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('job.id'), nullable=False)
     @declared_attr
     def job(cls) -> Mapped[object]:
         return relationship('Job', foreign_keys='Slot.job_id', back_populates='slots', lazy='select')
     @declared_attr
     def node_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('node.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('node.id'), nullable=False)
     @declared_attr
     def node(cls) -> Mapped[object]:
         return relationship('Node', foreign_keys='Slot.node_id', lazy='select')

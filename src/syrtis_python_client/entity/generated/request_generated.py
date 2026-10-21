@@ -1,4 +1,4 @@
-from sqlalchemy import DateTime, ForeignKey, Integer, String
+from sqlalchemy import DateTime, ForeignKey, String, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -27,11 +27,17 @@ class RequestGenerated:
         return mapped_column('last_event', String(60), nullable=True)
 
     @declared_attr
+    def parent_id(cls) -> Mapped[object]:
+        return mapped_column(Uuid, ForeignKey('request.id'), nullable=True)
+    @declared_attr
+    def parent(cls) -> Mapped[object]:
+        return relationship('Request', foreign_keys='Request.parent_id', back_populates='children', remote_side='Request.id', lazy='select')
+    @declared_attr
     def children(cls) -> Mapped[list['Request']]:
         return relationship('Request', foreign_keys='Request.parent_id', back_populates='parent', lazy='select')
     @declared_attr
     def timezone_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('timezone.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('timezone.id'), nullable=False)
     @declared_attr
     def timezone(cls) -> Mapped[object]:
         return relationship('Timezone', foreign_keys='Request.timezone_id', lazy='select')
@@ -40,22 +46,16 @@ class RequestGenerated:
         return relationship('Message', foreign_keys='Message.request_id', back_populates='request', lazy='select')
     @declared_attr
     def projection_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, nullable=True)
+        return mapped_column(Uuid, nullable=True)
     @declared_attr
     def session_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('session.id'), nullable=True)
+        return mapped_column(Uuid, ForeignKey('session.id'), nullable=True)
     @declared_attr
     def session(cls) -> Mapped[object]:
         return relationship('Session', foreign_keys='Request.session_id', back_populates='requests', lazy='select')
     @declared_attr
     def card_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('card.id'), nullable=True)
+        return mapped_column(Uuid, ForeignKey('card.id'), nullable=True)
     @declared_attr
     def card(cls) -> Mapped[object]:
         return relationship('Card', foreign_keys='Request.card_id', lazy='select')
-    @declared_attr
-    def parent_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('request.id'), nullable=True)
-    @declared_attr
-    def parent(cls) -> Mapped[object]:
-        return relationship('Request', foreign_keys='Request.parent_id', back_populates='children', remote_side='Request.id', lazy='select')

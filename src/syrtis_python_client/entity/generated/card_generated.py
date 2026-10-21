@@ -1,4 +1,4 @@
-from sqlalchemy import DateTime, ForeignKey, Integer, String
+from sqlalchemy import DateTime, ForeignKey, Integer, String, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -28,19 +28,19 @@ class CardGenerated:
 
     @declared_attr
     def user_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('user.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('user.id'), nullable=False)
     @declared_attr
     def user(cls) -> Mapped[object]:
         return relationship('User', foreign_keys='Card.user_id', lazy='select')
     @declared_attr
     def scenario_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('scenario.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('scenario.id'), nullable=False)
     @declared_attr
     def scenario(cls) -> Mapped[object]:
         return relationship('Scenario', foreign_keys='Card.scenario_id', back_populates='cards', lazy='select')
     @declared_attr
     def job_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('job.id'), nullable=True)
+        return mapped_column(Uuid, ForeignKey('job.id'), nullable=True)
     @declared_attr
     def job(cls) -> Mapped[object]:
         return relationship('Job', foreign_keys='Card.job_id', lazy='select')

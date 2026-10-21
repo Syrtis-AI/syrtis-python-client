@@ -1,4 +1,4 @@
-from sqlalchemy import DateTime, Float, ForeignKey, Integer, String, Text
+from sqlalchemy import DateTime, Float, ForeignKey, Integer, String, Text, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -31,16 +31,16 @@ class ScenarioGenerated:
 
     @declared_attr
     def user_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('user.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('user.id'), nullable=False)
     @declared_attr
     def user(cls) -> Mapped[object]:
         return relationship('User', foreign_keys='Scenario.user_id', lazy='select')
     @declared_attr
     def project_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, nullable=False)
+        return mapped_column(Uuid, nullable=False)
     @declared_attr
     def environment_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('environment.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('environment.id'), nullable=False)
     @declared_attr
     def environment(cls) -> Mapped[object]:
         return relationship('Environment', foreign_keys='Scenario.environment_id', lazy='select')
@@ -52,7 +52,7 @@ class ScenarioGenerated:
         return relationship('Job', foreign_keys='Job.scenario_id', back_populates='scenario', lazy='select')
     @declared_attr
     def default_entrypoint_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('card.id'), nullable=True)
+        return mapped_column(Uuid, ForeignKey('card.id'), nullable=True)
     @declared_attr
     def defaultEntrypoint(cls) -> Mapped[object]:
         return relationship('Card', foreign_keys='Scenario.default_entrypoint_id', back_populates='defaultEntrypointForScenarios', lazy='select')

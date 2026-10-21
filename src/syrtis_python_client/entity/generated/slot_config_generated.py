@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, ForeignKey, Integer, String, Text
+from sqlalchemy import Boolean, ForeignKey, String, Text, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -19,7 +19,7 @@ class SlotConfigGenerated:
 
     @declared_attr
     def slot_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('slot.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('slot.id'), nullable=False)
     @declared_attr
     def slot(cls) -> Mapped[object]:
         return relationship('Slot', foreign_keys='SlotConfig.slot_id', back_populates='slotConfigs', lazy='select')

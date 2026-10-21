@@ -1,4 +1,4 @@
-from sqlalchemy import DateTime, ForeignKey, Integer, Text
+from sqlalchemy import DateTime, ForeignKey, Text, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -16,13 +16,13 @@ class ChunkGenerated:
 
     @declared_attr
     def user_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('user.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('user.id'), nullable=False)
     @declared_attr
     def user(cls) -> Mapped[object]:
         return relationship('User', foreign_keys='Chunk.user_id', lazy='select')
     @declared_attr
     def document_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('document.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('document.id'), nullable=False)
     @declared_attr
     def document(cls) -> Mapped[object]:
         return relationship('Document', foreign_keys='Chunk.document_id', lazy='select')

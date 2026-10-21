@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey, Integer, String
+from sqlalchemy import ForeignKey, String, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -13,13 +13,13 @@ class CardRelationGenerated:
 
     @declared_attr
     def card_source_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('card.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('card.id'), nullable=False)
     @declared_attr
     def cardSource(cls) -> Mapped[object]:
         return relationship('Card', foreign_keys='CardRelation.card_source_id', back_populates='cardRelationsSources', lazy='select')
     @declared_attr
     def card_target_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('card.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('card.id'), nullable=False)
     @declared_attr
     def cardTarget(cls) -> Mapped[object]:
         return relationship('Card', foreign_keys='CardRelation.card_target_id', back_populates='cardRelationsTarget', lazy='select')

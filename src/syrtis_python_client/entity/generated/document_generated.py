@@ -1,4 +1,4 @@
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import DateTime, ForeignKey, String, Text, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -28,10 +28,10 @@ class DocumentGenerated:
 
     @declared_attr
     def user_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('user.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('user.id'), nullable=False)
     @declared_attr
     def user(cls) -> Mapped[object]:
         return relationship('User', foreign_keys='Document.user_id', lazy='select')
     @declared_attr
     def project_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, nullable=False)
+        return mapped_column(Uuid, nullable=False)

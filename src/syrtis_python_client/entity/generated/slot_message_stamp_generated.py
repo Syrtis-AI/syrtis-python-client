@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey, Integer, String
+from sqlalchemy import ForeignKey, String, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -13,7 +13,7 @@ class SlotMessageStampGenerated:
 
     @declared_attr
     def slot_message_id(cls) -> Mapped[object]:
-        return mapped_column(Integer, ForeignKey('slot_message.id'), nullable=False)
+        return mapped_column(Uuid, ForeignKey('slot_message.id'), nullable=False)
     @declared_attr
     def slotMessage(cls) -> Mapped[object]:
         return relationship('SlotMessage', foreign_keys='SlotMessageStamp.slot_message_id', back_populates='slotMessageStamps', lazy='select')
