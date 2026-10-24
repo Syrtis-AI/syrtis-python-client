@@ -16,8 +16,15 @@ FIXTURES = [
 ]
 
 
+def export_document(root) -> dict:
+    from wexample_orm.import_export.entity_exporter import EntityExporter
+
+    return EntityExporter(version="test").export_document(root)
+
+
 def get_entity_types() -> list:
     from sqlalchemy.orm import configure_mappers
+
     from syrtis_python_client.common.generated_entities import all_entities
 
     configure_mappers()
@@ -30,16 +37,6 @@ def import_document(document: dict):
     importer = EntityImporter(entity_types=get_entity_types(), assign_ids=True)
     [root] = importer.import_document(document)
     return importer, root
-
-
-def export_document(root) -> dict:
-    from wexample_orm.import_export.entity_exporter import EntityExporter
-
-    return EntityExporter(version="test").export_document(root)
-
-
-def test_fixtures_are_synced() -> None:
-    assert FIXTURES, "No fixture: run bin/sync-fixtures.py"
 
 
 @pytest.mark.parametrize("fixture", FIXTURES)
@@ -57,3 +54,7 @@ def test_fixture_imports_and_exports_back(fixture: Path) -> None:
 
     assert len(reimporter.get_entities()) == len(importer.get_entities())
     assert export_document(reimported) == exported
+
+
+def test_fixtures_are_synced() -> None:
+    assert FIXTURES, "No fixture: run bin/sync-fixtures.py"

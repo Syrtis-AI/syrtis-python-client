@@ -59,16 +59,6 @@ def import_scenario():
     return scenario
 
 
-def test_scenario_and_job_helpers() -> None:
-    scenario = import_scenario()
-    job = scenario.defaultEntrypoint.job
-
-    assert scenario.get_global_card().scope == "global"
-    assert job.get_start_slot().is_start()
-    assert job.get_end_slot().is_end()
-    assert [c.value for c in job.get_start_slot().get_configs_by_name("x")] == [1]
-
-
 def test_message_and_selector_helpers() -> None:
     scenario = import_scenario()
     [message] = scenario.get_global_card().get_messages()
@@ -78,3 +68,13 @@ def test_message_and_selector_helpers() -> None:
     assert message.has_stamps_name(["a", "b"])
     assert not message.has_stamps_name(["a", "c"])
     assert selector.matches(message)
+
+
+def test_scenario_and_job_helpers() -> None:
+    scenario = import_scenario()
+    job = scenario.defaultEntrypoint.job
+
+    assert scenario.get_global_card().scope == "global"
+    assert job.get_start_slot().is_start()
+    assert job.get_end_slot().is_end()
+    assert [c.value for c in job.get_start_slot().get_configs_by_name("x")] == [1]
