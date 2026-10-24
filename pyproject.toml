@@ -12,7 +12,7 @@ dependencies = [
     "pyyaml>=6",
     "sqlalchemy>=2,<3",
     "wexample-helpers",
-    "wexample-orm",
+    "wexample-orm>=2.1.0",
 ]
 
 [project.readme]
