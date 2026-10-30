@@ -28,6 +28,18 @@ class ScenarioGenerated:
     @declared_attr
     def zoom(cls) -> Mapped[object]:
         return mapped_column(Float, nullable=True)
+    @declared_attr
+    def versionMajor(cls) -> Mapped[object]:
+        return mapped_column('version_major', Integer, nullable=False)
+    @declared_attr
+    def versionMinor(cls) -> Mapped[object]:
+        return mapped_column('version_minor', Integer, nullable=False)
+    @declared_attr
+    def lineage(cls) -> Mapped[object]:
+        return mapped_column(Uuid, nullable=False)
+    @declared_attr
+    def datePublished(cls) -> Mapped[object]:
+        return mapped_column('date_published', String, nullable=True)
 
     @declared_attr
     def user_id(cls) -> Mapped[object]:
@@ -45,14 +57,23 @@ class ScenarioGenerated:
     def environment(cls) -> Mapped[object]:
         return relationship('Environment', foreign_keys='Scenario.environment_id', lazy='select')
     @declared_attr
-    def cards(cls) -> Mapped[list['Card']]:
-        return relationship('Card', foreign_keys='Card.scenario_id', back_populates='scenario', lazy='select')
+    def previous_version_id(cls) -> Mapped[object]:
+        return mapped_column(Uuid, ForeignKey('scenario.id'), nullable=True)
+    @declared_attr
+    def previousVersion(cls) -> Mapped[object]:
+        return relationship('Scenario', foreign_keys='Scenario.previous_version_id', lazy='select')
+    @declared_attr
+    def steps(cls) -> Mapped[list['Step']]:
+        return relationship('Step', foreign_keys='Step.scenario_id', back_populates='scenario', lazy='select')
+    @declared_attr
+    def scenarioMessages(cls) -> Mapped[list['ScenarioMessage']]:
+        return relationship('ScenarioMessage', foreign_keys='ScenarioMessage.scenario_id', back_populates='scenario', lazy='select')
     @declared_attr
     def jobs(cls) -> Mapped[list['Job']]:
         return relationship('Job', foreign_keys='Job.scenario_id', back_populates='scenario', lazy='select')
     @declared_attr
     def default_entrypoint_id(cls) -> Mapped[object]:
-        return mapped_column(Uuid, ForeignKey('card.id'), nullable=True)
+        return mapped_column(Uuid, ForeignKey('step.id'), nullable=True)
     @declared_attr
     def defaultEntrypoint(cls) -> Mapped[object]:
-        return relationship('Card', foreign_keys='Scenario.default_entrypoint_id', back_populates='defaultEntrypointForScenarios', lazy='select')
+        return relationship('Step', foreign_keys='Scenario.default_entrypoint_id', back_populates='defaultEntrypointForScenarios', lazy='select')

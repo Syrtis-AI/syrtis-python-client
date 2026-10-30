@@ -10,7 +10,8 @@ __all__ = ["Message", "MessageGenerated"]
 
 
 class Message(MessageGenerated, AbstractEntity):
-    ORIGIN_CARD = "card"
+    ORIGIN_STEP = "step"
+    ORIGIN_SCENARIO = "scenario"
     ORIGIN_CORE = "core"
     ORIGIN_NODE = "node"
     ORIGIN_USER = "user"

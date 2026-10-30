@@ -18,9 +18,9 @@ class SlotMessage(SlotMessageGenerated, AbstractEntity):
     DIRECTION_INPUT = "input"
     DIRECTION_OUTPUT = "output"
 
-    SOURCE_CARD = "card"
+    SOURCE_STEP = "step"
     SOURCE_FULL_HISTORY = "full-history"
-    SOURCE_GLOBAL_CARD = "global-card"
+    SOURCE_SCENARIO = "scenario"
     SOURCE_HISTORY = "history"
     SOURCE_MESSAGES_BAG = "messages-bag"
     SOURCE_NODE = "node"

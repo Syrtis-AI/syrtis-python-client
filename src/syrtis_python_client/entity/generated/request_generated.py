@@ -54,8 +54,8 @@ class RequestGenerated:
     def session(cls) -> Mapped[object]:
         return relationship('Session', foreign_keys='Request.session_id', back_populates='requests', lazy='select')
     @declared_attr
-    def card_id(cls) -> Mapped[object]:
-        return mapped_column(Uuid, ForeignKey('card.id'), nullable=True)
+    def step_id(cls) -> Mapped[object]:
+        return mapped_column(Uuid, ForeignKey('step.id'), nullable=True)
     @declared_attr
-    def card(cls) -> Mapped[object]:
-        return relationship('Card', foreign_keys='Request.card_id', lazy='select')
+    def step(cls) -> Mapped[object]:
+        return relationship('Step', foreign_keys='Request.step_id', lazy='select')

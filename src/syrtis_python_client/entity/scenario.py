@@ -8,35 +8,19 @@ __all__ = ["Scenario", "ScenarioGenerated"]
 
 
 class Scenario(ScenarioGenerated, AbstractEntity):
-    def get_global_card(self):
-        for card in self.cards:
-            if card.scope == card.SCOPE_GLOBAL:
-                return card
+    def get_messages(self) -> list:
+        """The messages every step of the scenario is given."""
+        return [relation.message for relation in self.scenarioMessages if relation.message is not None]
+
+    def find_step(self, step_id):
+        for step in self.steps:
+            if str(step.id) == str(step_id):
+                return step
         return None
 
-    def get_end_cards(self) -> list:
-        """Cards no relation leaves, by id."""
-        return sorted(
-            (card for card in self.cards if not card.cardRelationsSources),
-            key=lambda card: card.id,
-        )
-
-    def get_entrypoint_cards(self) -> list:
-        """Cards no relation reaches, by id."""
-        return sorted(
-            (card for card in self.cards if not card.cardRelationsTarget),
-            key=lambda card: card.id,
-        )
-
-    def find_card(self, card_id: int):
-        for card in self.cards:
-            if card.id == card_id:
-                return card
-        return None
-
-    def find_job(self, job_id: int):
-        """A job of the scenario, its own or one of its cards'."""
-        for job in [*self.jobs, *(card.job for card in self.cards if card.job is not None)]:
-            if job.id == job_id:
+    def find_job(self, job_id):
+        """A job of the scenario, its own or one of its steps'."""
+        for job in [*self.jobs, *(step.job for step in self.steps if step.job is not None)]:
+            if str(job.id) == str(job_id):
                 return job
         return None

@@ -21,12 +21,12 @@ class Session(SessionGenerated, AbstractEntity):
         previous = [other for other in self.requests if other.id < request.id]
         return max(previous, key=lambda other: other.id) if previous else None
 
-    def count_card_requests(self, card, consecutive: bool = False) -> int:
-        """Requests made on that card; `consecutive` counts back from the latest
-        request and stops at the first one made on another card."""
+    def count_step_requests(self, step, consecutive: bool = False) -> int:
+        """Requests made on that step; `consecutive` counts back from the latest
+        request and stops at the first one made on another step."""
         count = 0
         for request in sorted(self.requests, key=lambda request: request.id, reverse=True):
-            if request.card is card:
+            if request.step is step:
                 count += 1
             elif consecutive:
                 break

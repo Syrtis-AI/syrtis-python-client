@@ -5,9 +5,6 @@ from importlib.resources import files
 from typing import Any
 
 ENTITY_SCHEMA_FILES = [
-    "card.json",
-    "card_message.json",
-    "card_relation.json",
     "chunk.json",
     "document.json",
     "environment.json",
@@ -17,12 +14,15 @@ ENTITY_SCHEMA_FILES = [
     "node.json",
     "request.json",
     "scenario.json",
+    "scenario_message.json",
     "session.json",
     "slot.json",
     "slot_config.json",
     "slot_message.json",
     "slot_message_stamp.json",
     "slot_relation.json",
+    "step.json",
+    "step_message.json",
     "template.json",
     "timezone.json",
     "user.json",
