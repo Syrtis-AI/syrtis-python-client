@@ -16,27 +16,7 @@ class Message(MessageGenerated, AbstractEntity):
     ORIGIN_NODE = "node"
     ORIGIN_USER = "user"
 
-    FORMAT_BOOLEAN = "boolean"
-    FORMAT_FLOAT = "float"
-    FORMAT_HTML = "html"
-    FORMAT_INTEGER = "integer"
-    FORMAT_JSON = "json"
-    FORMAT_MARKDOWN = "markdown"
-    FORMAT_NULL = "null"
-    FORMAT_TEXT = "text"
-    FORMAT_YAML = "yaml"
     # filestate: python-iterable-sort
-    FORMATS = [
-        FORMAT_BOOLEAN,
-        FORMAT_FLOAT,
-        FORMAT_HTML,
-        FORMAT_INTEGER,
-        FORMAT_JSON,
-        FORMAT_MARKDOWN,
-        FORMAT_NULL,
-        FORMAT_TEXT,
-        FORMAT_YAML,
-    ]
 
     CONTENT_TYPE_ACTIONS = "core/actions"
     CONTENT_TYPE_ANALYSIS = "core/analysis"
@@ -62,7 +42,7 @@ class Message(MessageGenerated, AbstractEntity):
     CONTENT_TYPE_URL = "core/url"
     CONTENT_TYPE_VIDEO = "core/video"
     CONTENT_TYPE_WARNING = "core/warning"
-    # The types of a message's shape alone, one by format.
+    # The types of a message's shape alone: a text, a value as JSON.
     CONTENT_TYPE_TEXT = "core/text"
     CONTENT_TYPE_MARKDOWN = "core/markdown"
     CONTENT_TYPE_HTML = "core/html"
@@ -101,41 +81,23 @@ class Message(MessageGenerated, AbstractEntity):
         CONTENT_TYPE_JSON,
     ]
 
-    @classmethod
-    def get_content_type_for_format(cls, format: str | None) -> str:
-        """The type of a message nothing else names, by its format: a text as
-        its kind of text, a value as JSON."""
-        return {
-            cls.FORMAT_MARKDOWN: cls.CONTENT_TYPE_MARKDOWN,
-            cls.FORMAT_HTML: cls.CONTENT_TYPE_HTML,
-            cls.FORMAT_YAML: cls.CONTENT_TYPE_YAML,
-            cls.FORMAT_JSON: cls.CONTENT_TYPE_JSON,
-            cls.FORMAT_INTEGER: cls.CONTENT_TYPE_JSON,
-            cls.FORMAT_FLOAT: cls.CONTENT_TYPE_JSON,
-            cls.FORMAT_BOOLEAN: cls.CONTENT_TYPE_JSON,
-            cls.FORMAT_NULL: cls.CONTENT_TYPE_JSON,
-        }.get(format, cls.CONTENT_TYPE_TEXT)
+    def get_formatted_content(self) -> Any:
+        """The content as its type reads it: what the api read of it
+        (`formattedContent`) when it came with the message; the JSON it
+        encodes when it decodes, the text otherwise."""
+        formatted = getattr(self, "formattedContent", None)
+        if formatted is not None:
+            return formatted
 
-    def get_formatted_content(self, format: str | None = None) -> Any:
-        format = format or self.format
-
-        if format == self.FORMAT_JSON:
-            from wexample_helpers.helper.json import json_parse_if_valid
-
-            return json_parse_if_valid(self.content)
-        if format == self.FORMAT_INTEGER:
-            return int(self.content)
-        if format == self.FORMAT_FLOAT:
-            return float(self.content)
-        if format == self.FORMAT_BOOLEAN:
-            return (self.content or "").lower() in ["true", "1", "yes"]
-        if format == self.FORMAT_NULL:
+        if self.content is None:
             return None
-        if format == self.FORMAT_YAML:
-            import yaml
 
-            return yaml.safe_load(self.content)
-        return self.content
+        import json
+
+        try:
+            return json.loads(self.content)
+        except ValueError:
+            return self.content
 
     def get_stamps_names(self) -> list[str]:
         return [stamp.name for stamp in self.stamps]

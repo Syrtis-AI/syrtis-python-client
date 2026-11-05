@@ -34,11 +34,9 @@ class SlotMessage(SlotMessageGenerated, AbstractEntity):
         return [stamp.name for stamp in self.slotMessageStamps]
 
     def matches(self, message) -> bool:
-        """Whether a message passes this selector's name, format, content type
-        and stamps filters."""
+        """Whether a message passes this selector's name, content type and
+        stamps filters."""
         if self.name and message.name != self.name:
-            return False
-        if self.format and message.format != self.format:
             return False
         if self.contentType and message.contentType != self.contentType:
             return False
