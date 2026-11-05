@@ -42,7 +42,6 @@ class Message(MessageGenerated, AbstractEntity):
     CONTENT_TYPE_ANALYSIS = "core/analysis"
     CONTENT_TYPE_CONVERSATION = "core/conversation"
     CONTENT_TYPE_DEBUG = "core/debug"
-    CONTENT_TYPE_DEFAULT = "core/default"
     CONTENT_TYPE_DOWNLOAD = "core/download"
     CONTENT_TYPE_ERROR = "core/error"
     CONTENT_TYPE_FORM = "core/form"
@@ -54,7 +53,6 @@ class Message(MessageGenerated, AbstractEntity):
     CONTENT_TYPE_NAVIGATED = "core/navigated"
     CONTENT_TYPE_PROGRESS = "core/progress"
     CONTENT_TYPE_REFERENCE = "core/reference"
-    CONTENT_TYPE_SESSION = "core/session"
     CONTENT_TYPE_SESSION_EXPIRE = "core/session_expire"
     CONTENT_TYPE_SESSION_STATUS = "core/session_status"
     CONTENT_TYPE_SUCCESS = "core/success"
@@ -64,13 +62,18 @@ class Message(MessageGenerated, AbstractEntity):
     CONTENT_TYPE_URL = "core/url"
     CONTENT_TYPE_VIDEO = "core/video"
     CONTENT_TYPE_WARNING = "core/warning"
+    # The types of a message's shape alone, one by format.
+    CONTENT_TYPE_TEXT = "core/text"
+    CONTENT_TYPE_MARKDOWN = "core/markdown"
+    CONTENT_TYPE_HTML = "core/html"
+    CONTENT_TYPE_YAML = "core/yaml"
+    CONTENT_TYPE_JSON = "core/json"
     # filestate: python-iterable-sort
     CONTENT_TYPES = [
         CONTENT_TYPE_ACTIONS,
         CONTENT_TYPE_ANALYSIS,
         CONTENT_TYPE_CONVERSATION,
         CONTENT_TYPE_DEBUG,
-        CONTENT_TYPE_DEFAULT,
         CONTENT_TYPE_DOWNLOAD,
         CONTENT_TYPE_ERROR,
         CONTENT_TYPE_FORM,
@@ -82,7 +85,6 @@ class Message(MessageGenerated, AbstractEntity):
         CONTENT_TYPE_NAVIGATED,
         CONTENT_TYPE_PROGRESS,
         CONTENT_TYPE_REFERENCE,
-        CONTENT_TYPE_SESSION,
         CONTENT_TYPE_SESSION_EXPIRE,
         CONTENT_TYPE_SESSION_STATUS,
         CONTENT_TYPE_SUCCESS,
@@ -92,7 +94,27 @@ class Message(MessageGenerated, AbstractEntity):
         CONTENT_TYPE_URL,
         CONTENT_TYPE_VIDEO,
         CONTENT_TYPE_WARNING,
+        CONTENT_TYPE_TEXT,
+        CONTENT_TYPE_MARKDOWN,
+        CONTENT_TYPE_HTML,
+        CONTENT_TYPE_YAML,
+        CONTENT_TYPE_JSON,
     ]
+
+    @classmethod
+    def get_content_type_for_format(cls, format: str | None) -> str:
+        """The type of a message nothing else names, by its format: a text as
+        its kind of text, a value as JSON."""
+        return {
+            cls.FORMAT_MARKDOWN: cls.CONTENT_TYPE_MARKDOWN,
+            cls.FORMAT_HTML: cls.CONTENT_TYPE_HTML,
+            cls.FORMAT_YAML: cls.CONTENT_TYPE_YAML,
+            cls.FORMAT_JSON: cls.CONTENT_TYPE_JSON,
+            cls.FORMAT_INTEGER: cls.CONTENT_TYPE_JSON,
+            cls.FORMAT_FLOAT: cls.CONTENT_TYPE_JSON,
+            cls.FORMAT_BOOLEAN: cls.CONTENT_TYPE_JSON,
+            cls.FORMAT_NULL: cls.CONTENT_TYPE_JSON,
+        }.get(format, cls.CONTENT_TYPE_TEXT)
 
     def get_formatted_content(self, format: str | None = None) -> Any:
         format = format or self.format
