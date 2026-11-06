@@ -18,9 +18,9 @@ class Message(MessageGenerated, AbstractEntity):
 
     # filestate: python-iterable-sort
 
-    CONTENT_TYPE_ACTIONS = "core/actions"
+    CONTENT_TYPE_ACTIONS = "conversation/actions"
     CONTENT_TYPE_ANALYSIS = "core/analysis"
-    CONTENT_TYPE_CONVERSATION = "core/conversation"
+    CONTENT_TYPE_CONVERSATION_MESSAGE = "conversation/message"
     CONTENT_TYPE_DEBUG = "core/debug"
     CONTENT_TYPE_DOWNLOAD = "core/download"
     CONTENT_TYPE_ERROR = "core/error"
@@ -36,23 +36,23 @@ class Message(MessageGenerated, AbstractEntity):
     CONTENT_TYPE_SESSION_EXPIRE = "core/session_expire"
     CONTENT_TYPE_SESSION_STATUS = "core/session_status"
     CONTENT_TYPE_SUCCESS = "web/success"
-    CONTENT_TYPE_THOUGHT = "core/thought"
+    CONTENT_TYPE_THOUGHT = "conversation/thought"
     CONTENT_TYPE_TOOL_CALL = "core/tool_call"
     CONTENT_TYPE_UPLOAD = "core/upload"
     CONTENT_TYPE_URL = "core/url"
     CONTENT_TYPE_VIDEO = "core/video"
     CONTENT_TYPE_WARNING = "core/warning"
     # The types of a message's shape alone: a text, a value as JSON.
-    CONTENT_TYPE_TEXT = "core/text"
-    CONTENT_TYPE_MARKDOWN = "core/markdown"
-    CONTENT_TYPE_HTML = "core/html"
-    CONTENT_TYPE_YAML = "core/yaml"
-    CONTENT_TYPE_JSON = "core/json"
+    CONTENT_TYPE_TEXT = "content/text"
+    CONTENT_TYPE_MARKDOWN = "content/markdown"
+    CONTENT_TYPE_HTML = "content/html"
+    CONTENT_TYPE_YAML = "content/yaml"
+    CONTENT_TYPE_JSON = "content/json"
     # filestate: python-iterable-sort
     CONTENT_TYPES = [
         CONTENT_TYPE_ACTIONS,
         CONTENT_TYPE_ANALYSIS,
-        CONTENT_TYPE_CONVERSATION,
+        CONTENT_TYPE_CONVERSATION_MESSAGE,
         CONTENT_TYPE_DEBUG,
         CONTENT_TYPE_DOWNLOAD,
         CONTENT_TYPE_ERROR,
@@ -109,4 +109,9 @@ class Message(MessageGenerated, AbstractEntity):
         return all(name in names for name in required)
 
     def is_chat_message_from_assistant(self) -> bool:
-        return self.origin != self.ORIGIN_USER and self.has_stamps_name("chat")
+        """A turn of the conversation the agent said: what a chat shows as its reply,
+        as the other clients tell it (`isReply`)."""
+        return (
+            self.origin != self.ORIGIN_USER
+            and self.content_type == self.CONTENT_TYPE_CONVERSATION_MESSAGE
+        )
