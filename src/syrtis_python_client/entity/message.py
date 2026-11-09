@@ -19,7 +19,6 @@ class Message(MessageGenerated, AbstractEntity):
     # filestate: python-iterable-sort
 
     CONTENT_TYPE_ACTIONS = "conversation/actions"
-    CONTENT_TYPE_ANALYSIS = "core/analysis"
     CONTENT_TYPE_CONVERSATION_MESSAGE = "conversation/message"
     CONTENT_TYPE_DEBUG = "core/debug"
     CONTENT_TYPE_DOWNLOAD = "core/download"
@@ -48,10 +47,10 @@ class Message(MessageGenerated, AbstractEntity):
     CONTENT_TYPE_HTML = "content/html"
     CONTENT_TYPE_YAML = "content/yaml"
     CONTENT_TYPE_JSON = "content/json"
+    CONTENT_TYPE_OBJECT = "content/object"
     # filestate: python-iterable-sort
     CONTENT_TYPES = [
         CONTENT_TYPE_ACTIONS,
-        CONTENT_TYPE_ANALYSIS,
         CONTENT_TYPE_CONVERSATION_MESSAGE,
         CONTENT_TYPE_DEBUG,
         CONTENT_TYPE_DOWNLOAD,
@@ -79,6 +78,7 @@ class Message(MessageGenerated, AbstractEntity):
         CONTENT_TYPE_HTML,
         CONTENT_TYPE_YAML,
         CONTENT_TYPE_JSON,
+        CONTENT_TYPE_OBJECT,
     ]
 
     def get_formatted_content(self) -> Any:
