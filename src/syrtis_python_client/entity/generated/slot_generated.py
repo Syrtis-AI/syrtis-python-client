@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey, Integer, String, Uuid
+from sqlalchemy import ForeignKey, Integer, String, Text, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -14,6 +14,9 @@ class SlotGenerated:
     def title(cls) -> Mapped[object]:
         return mapped_column(String(255), nullable=False)
     @declared_attr
+    def description(cls) -> Mapped[object]:
+        return mapped_column(Text, nullable=True)
+    @declared_attr
     def secureId(cls) -> Mapped[object]:
         return mapped_column('secure_id', String(255), nullable=False)
     @declared_attr
@@ -22,6 +25,9 @@ class SlotGenerated:
     @declared_attr
     def positionY(cls) -> Mapped[object]:
         return mapped_column('position_y', Integer, nullable=False)
+    @declared_attr
+    def color(cls) -> Mapped[object]:
+        return mapped_column(String(7), nullable=True)
 
     @declared_attr
     def job_id(cls) -> Mapped[object]:

@@ -3,7 +3,16 @@
     "_ref": "687b9cebbbac7",
     "scenario": {
       "_ref": "687b9cebbc4b2",
-      "card": [
+      "defaultEntrypoint_ref": "687b9cebbc564",
+      "description": "This scenario automatically archives every conversation message into a single document. Each message is vectorized, enabling instant vector-based search against the archive at any time. During the very first card, the scenario creates an empty document; all subsequent cards append their content to that document, which then serves as the session-wide knowledge store.\n\nTODO: add a cleanup step so that documents created on-the-fly are deleted when the session is reset. At present, these documents remain in the database even when they are no longer needed.",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Vector Storage and Search",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "687b9cebbc564",
           "job": {
@@ -30,6 +39,7 @@
                     "value": "chunks"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "687b9cebde7f5",
@@ -62,11 +72,12 @@
                   {
                     "_ref": "687b9cebdee82",
                     "expression": false,
-                    "name": "destination_card_shortcut",
+                    "name": "destination_step_id",
                     "slot_ref": "687b9cebdeb6d",
-                    "value": "next"
+                    "value": "@step:New card"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "navigate",
                 "type": "end"
@@ -85,7 +96,6 @@
           },
           "message": [],
           "scenario_ref": "687b9cebbc4b2",
-          "scope": "default",
           "title": "Test Vector Storage and Search"
         },
         {
@@ -99,6 +109,7 @@
                 "positionX": 440,
                 "positionY": -20,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "end"
@@ -109,6 +120,7 @@
                 "positionX": -840,
                 "positionY": -30,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "start"
@@ -134,13 +146,30 @@
                     "value": "{{ history.find_message_by_name('DEMO_DOC_SECURE_ID').raw }}"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9cec52257",
                     "collection": "default",
-                    "contentType": "upload",
+                    "contentType": "core/upload",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -156,9 +185,8 @@
                   {
                     "_ref": "687b9cec52862",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -202,13 +230,13 @@
                     "value": "{{ history.find_message_by_name('DEMO_DOC_SECURE_ID').raw }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "687b9cec56f8d",
                     "collection": "default",
-                    "contentType": "info",
+                    "contentType": "web/info",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -253,13 +281,30 @@
                     "value": 0.8
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9cec5dbc0",
                     "collection": "default",
-                    "contentType": "default",
+                    "contentType": "content/text",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -281,9 +326,8 @@
                   {
                     "_ref": "687b9cec5e106",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -334,13 +378,55 @@
                     "value": 256
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "global_context",
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "content": "## Your mission\nYou are a demonstration assistant for a tool able to store / search data into a vector database.\nYour mission is to chat with the USER about several subjects that will be stored into the database.\nAt the end of these instructions, you will see the last message of the USER.\nFocus on the conversation in order to keep the dialogue natural for the USER.\nDo not imagine any content or instruction that is not actually in this instruction or into the search result.\n\n## Scenario: {{ scenario.title }}\n> This is the scenario description for the USER\nThis scenario automatically archives every conversation message into a single document. Each message is vectorized, enabling instant vector-based search against the archive at any time. During the very first card, the scenario creates an empty document; all subsequent cards append their content to that document, which then serves as the session-wide knowledge store.\n\nTODO: add a cleanup step so that documents created on-the-fly are deleted when the session is reset. At present, these documents remain in the database even when they are no longer needed.\n\n## Search result\n> A search has been executed into the database. Here is the result. If empty, no result has been found into the database.\n\n{{ messages_bag.find_messages_by_stamp_name('search_result').render_all() }}\n--- END OF RESULTS\n"
+                      }
+                    ]
+                  },
+                  {
+                    "part": "history",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "conversation_before",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": 10,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "input",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9cec7d0a7",
                     "collection": "history",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 10,
                     "message": null,
                     "metadata": null,
@@ -362,9 +448,8 @@
                   {
                     "_ref": "687b9cec7d6e4",
                     "collection": "input",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -386,9 +471,8 @@
                   {
                     "_ref": "687b9cec7dbca",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -417,8 +501,7 @@
                     "message": {
                       "_ref": "687b9cec7df70",
                       "content": "## Your mission\nYou are a demonstration assistant for a tool able to store / search data into a vector database.\nYour mission is to chat with the USER about several subjects that will be stored into the database.\nAt the end of these instructions, you will see the last message of the USER.\nFocus on the conversation in order to keep the dialogue natural for the USER.\nDo not imagine any content or instruction that is not actually in this instruction or into the search result.\n\n## Scenario: {{ scenario.title }}\n> This is the scenario description for the USER\nThis scenario automatically archives every conversation message into a single document. Each message is vectorized, enabling instant vector-based search against the archive at any time. During the very first card, the scenario creates an empty document; all subsequent cards append their content to that document, which then serves as the session-wide knowledge store.\n\nTODO: add a cleanup step so that documents created on-the-fly are deleted when the session is reset. At present, these documents remain in the database even when they are no longer needed.\n\n## Search result\n> A search has been executed into the database. Here is the result. If empty, no result has been found into the database.\n\n{{ messages_bag.find_messages_by_stamp_name('search_result').render_all() }}\n--- END OF RESULTS\n",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -487,26 +570,9 @@
           },
           "message": [],
           "scenario_ref": "687b9cebbc4b2",
-          "scope": "default",
           "title": "New card"
         }
-      ],
-      "cardRelation": [
-        {
-          "_ref": "687b9cebbc508",
-          "cardSource_ref": "687b9cebbc564",
-          "cardTarget_ref": "687b9cebbc58f"
-        }
-      ],
-      "defaultEntrypoint_ref": "687b9cebbc564",
-      "description": "This scenario automatically archives every conversation message into a single document. Each message is vectorized, enabling instant vector-based search against the archive at any time. During the very first card, the scenario creates an empty document; all subsequent cards append their content to that document, which then serves as the session-wide knowledge store.\n\nTODO: add a cleanup step so that documents created on-the-fly are deleted when the session is reset. At present, these documents remain in the database even when they are no longer needed.",
-      "environment": {
-        "_ref": "687b9ce278b01",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Vector Storage and Search",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-vetor-storage-and-search",
     "sessionGroup_name": "test",

@@ -3,15 +3,16 @@
     "_ref": "68f771e49cec1",
     "scenario": {
       "_ref": "68f771e49df9c",
-      "card": [
-        {
-          "_ref": "68f771e49e592",
-          "job": null,
-          "message": [],
-          "scenario_ref": "68f771e49df9c",
-          "scope": "global",
-          "title": "Test http request to embedded document"
-        },
+      "defaultEntrypoint_ref": "68f771e49eda0",
+      "description": null,
+      "environment": {
+        "_ref": "68f771e4ca147",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test http request to embedded document",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f771e49eda0",
           "job": {
@@ -23,6 +24,7 @@
                 "positionX": -290,
                 "positionY": -170,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "start",
                 "type": "start"
@@ -33,6 +35,7 @@
                 "positionX": 220,
                 "positionY": -170,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "end",
                 "type": "end"
@@ -72,6 +75,7 @@
                     "value": "doc_test_http_request_to_embedded_document"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "http_request",
                 "type": "default"
@@ -97,13 +101,13 @@
                     "value": "doc_test_http_request_to_embedded_document"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f771e4bd7b8",
                     "collection": "default",
-                    "contentType": "info",
+                    "contentType": "web/info",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -148,13 +152,13 @@
                     "value": "doc_test_http_request_to_embedded_document"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f771e4be3e3",
                     "collection": "default",
-                    "contentType": "info",
+                    "contentType": "web/info",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -206,20 +210,9 @@
           },
           "message": [],
           "scenario_ref": "68f771e49df9c",
-          "scope": "default",
           "title": "Test http request to embedded document"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f771e49eda0",
-      "description": null,
-      "environment": {
-        "_ref": "68f771e4ca147",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test http request to embedded document",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-http-request-to-embedded-document",
     "sessionGroup_name": "test",

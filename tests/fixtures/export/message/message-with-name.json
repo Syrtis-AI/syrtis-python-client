@@ -1,9 +1,8 @@
 {
   "version": "0.2.3",
   "data": {
-    "format": "text",
     "origin": "user",
-    "contentType": "default",
+    "contentType": "content/text",
     "content": "This is a named message",
     "name": "welcome_message",
     "_ref": "82e97cb2f24e4"

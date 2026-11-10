@@ -3,26 +3,16 @@
     "_ref": "68f601675ca7b",
     "scenario": {
       "_ref": "68f601675dec6",
-      "card": [
-        {
-          "_ref": "68f601675e311",
-          "job": null,
-          "message": [
-            {
-              "_ref": "68f601675edb0",
-              "content": "Your name is Syrtis SSH Test Agent.\n\n## Mission\nExecute the USER\u2019s requests on the current machine: run tasks, gather information, and perform system operations as needed.\n\n## Context\n- You are operating on a Linux-based system.",
-              "contentType": "default",
-              "format": "text",
-              "messageStamp": [],
-              "metadata": null,
-              "name": "AGENT_GLOBAL_CONTEXT",
-              "origin": "card"
-            }
-          ],
-          "scenario_ref": "68f601675dec6",
-          "scope": "global",
-          "title": "syrtis-sysadmin"
-        },
+      "defaultEntrypoint_ref": "68f6016760282",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "syrtis-sysadmin-2",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016760282",
           "job": {
@@ -34,6 +24,7 @@
                 "positionX": 1790,
                 "positionY": -1690,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "START",
                 "type": "start"
@@ -44,6 +35,7 @@
                 "positionX": 2880,
                 "positionY": -1690,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "END",
                 "type": "end"
@@ -104,13 +96,45 @@
                     "value": "{\n  \"name\": \"actions_plan_instruction\",\n  \"type\": \"string\",\n  \"description\": \"If you chose plan_actions, provide a clear 1\u20133 sentence instruction for the planner. The instruction must describe the USER\u2019s request in terms of what needs to be checked or done on the server. Do not give a full plan yourself, only the instruction.\",\n  \"nullable\": true\n}"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "content": "Your name is Syrtis SSH Test Agent.\nYour mission is to assist users in the administration of their servers using an SSH connection. \nYou utilize various tools to explore server content and execute changes. \nYou are not allowed to discuss anything unrelated to this current conversation: the data from this prompt, the server administration, technical subjects, but try to be flexible in your reactions to keep the interaction natural. While you can engage in technical discussions, if a user asks you something not related to computing, you should kindly inform them that they may have asked their question to the wrong agent.\n\n---\n\nAnalyze the USER\u2019s last message in the context of the full conversation.  \n- If the message requires checking, modifying, or interacting with the server via SSH, you must choose plan_actions.  \n- If the message only requires a clarification or a purely conversational/technical reply that does not involve server interaction, you may choose answer_directly.  \n- Never ignore the conversation context, but always base your decision on the USER\u2019s last message.\n- Consider that your role is to execute tasks for the USER.  \n- If the USER says they want something, and it is within the context of system administration, assume they expect **you** to perform the action on their behalf.\n- If the USER asks about the server\u2019s current state (e.g., disk usage, system type, running services), this always requires planning actions, because it can only be answered by checking the server.\n"
+                      },
+                      {
+                        "type": "selector",
+                        "source": "conversation_before",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": 3,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60167b7133",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -126,9 +150,8 @@
                   {
                     "_ref": "68f60167b75a9",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -150,9 +173,8 @@
                   {
                     "_ref": "68f60167b77df",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 3,
                     "message": null,
                     "metadata": null,
@@ -181,8 +203,7 @@
                     "message": {
                       "_ref": "68f60167b7a1f",
                       "content": "Your name is Syrtis SSH Test Agent.\nYour mission is to assist users in the administration of their servers using an SSH connection. \nYou utilize various tools to explore server content and execute changes. \nYou are not allowed to discuss anything unrelated to this current conversation: the data from this prompt, the server administration, technical subjects, but try to be flexible in your reactions to keep the interaction natural. While you can engage in technical discussions, if a user asks you something not related to computing, you should kindly inform them that they may have asked their question to the wrong agent.\n\n---\n\nAnalyze the USER\u2019s last message in the context of the full conversation.  \n- If the message requires checking, modifying, or interacting with the server via SSH, you must choose plan_actions.  \n- If the message only requires a clarification or a purely conversational/technical reply that does not involve server interaction, you may choose answer_directly.  \n- Never ignore the conversation context, but always base your decision on the USER\u2019s last message.\n- Consider that your role is to execute tasks for the USER.  \n- If the USER says they want something, and it is within the context of system administration, assume they expect **you** to perform the action on their behalf.\n- If the USER asks about the server\u2019s current state (e.g., disk usage, system type, running services), this always requires planning actions, because it can only be answered by checking the server.\n",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -216,6 +237,7 @@
                     "value": "{%- set analysis_msg = messages_bag.find_message_by_name('TOPIC_ANALYSIS') -%}\n{%- if analysis_msg is not none -%}\n  {%- set decision = analysis_msg.data_search('decision') -%}\n  {{- decision is not none and decision.get_str() == 'answer_directly' -}}\n{%- endif -%}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "DECIDED_ANSWER_DIRECTLY",
                 "type": "default"
@@ -276,13 +298,41 @@
                     "value": "{\n  \"name\": \"actions\",\n  \"type\": \"array\",\n  \"description\": \"An ordered list of simple, safe textual steps (e.g., do/check). Keep steps minimal. Never suggest unnecessary or extreme actions. One action is enough if sufficient. Maximum: 3 distinct actions, or up to 5 only if some are very similar.\",\n  \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"properties\": {\n      \"description\": {\n        \"type\": \"string\",\n        \"description\": \"Human-readable explanation of the step.\"\n      },\n      \"tool\": {\n        \"type\": \"string\",\n        \"enum\": [\"shell\", \"http_request\"],\n        \"description\": \"Tool to use for this action.\"\n      },\n      \"arguments\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"description\": \"Tool-specific arguments. Provide only the field required by the selected tool.\",\n        \"properties\": {\n          \"argv\": {\n            \"type\": \"array\",\n            \"description\": \"Only when tool = shell. Command as a list of tokens (e.g., [\\\"ls\\\",\\\"-la\\\"]). Executed in Python with subprocess.run(command, shell=False). Do NOT use shell metacharacters because no shell is involved.\",\n            \"items\": {\n              \"type\": \"string\",\n              \"pattern\": \"^[^|><;&\\\\s]+$\",\n              \"description\": \"Single token (no spaces). Forbidden characters: | > < ; &\"\n            },\n            \"minItems\": 1,\n            \"maxItems\": 256,\n            \"nullable\": true\n          },\n          \"url\": {\n            \"type\": \"string\",\n            \"format\": \"uri\",\n            \"description\": \"Only when tool = http_request. HTTP/HTTPS URL to fetch.\",\n            \"nullable\": true\n          }\n        }\n      }\n    },\n    \"required\": [\"description\", \"tool\", \"arguments\"]\n  },\n  \"minItems\": 1,\n  \"maxItems\": 5,\n  \"nullable\": false\n}\n"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "scenario",
+                        "name": "AGENT_GLOBAL_CONTEXT",
+                        "stamps": [],
+                        "contentType": null,
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "text",
+                        "content": "## Instructions for Action Planning\n\n{%- set iteration_count = messages_bag.find_message_by_name('ACTION_PLANS_COUNTER').data().to_int() -%}\n{% if iteration_count == 1 -%}\n- This is the first planning iteration\n{%- endif %}\n- You should decide the next actions to do as a iteration pass.\n- This is the planification number {{ iteration_count }}\n- Each planification is made from actions or termination decition\n\n## Decision process\n\n* If you can safely advance with a **self-contained one-pass plan** based on the current information, output an action plan (`actions`) and **do NOT set `termination_reason`**.\n* If, for any reason, execution should stop and a user-facing response must be produced, set `termination_reason` (choose the most appropriate value) and **do NOT output any actions**.\n\n### Valid termination reasons\n\n* **mission_complete**: the user\u2019s goal has been achieved.\n* **direct_reply**: the user\u2019s question can be answered with any planification.\n* **unexpected_error**: a blocking, unplanned error occurred; explain briefly in `_reasoning` why it blocks progress.\n* **need_clarification**: only the USER can answer a question or make a decision that changes planning.\n* **no_safe_action**: the next steps would be risky, destructive, or non-reversible without explicit approval.\n* **not_applicable**: the request is out of scope (not related to system administration or the defined mission).\n\n## Core rules for action plans\n\n- Each action plan must be **self-contained and fully executable in one pass**. Do not include conditional branches or steps that depend on unknown results.\n- After a plan has been executed, you will receive its results. At that point, you may create a new plan or end with a termination reason.\n- If the mission can be completed directly and safely with the information available, plan the full set of steps.\n- If the mission is too broad or lacks information, reduce the scope to a smaller, safe set of steps (\u201cscope down\u201d).\n- Keep actions progressive: when the task is complex, plan only safe incremental steps, then reassess after execution.\n\n### Illustrative examples (for understanding only \u2014 do not copy literally)\n\n* If the mission is to retrieve the content of `x.txt`, the plan should only check whether `x.txt` exists. After execution, depending on the result, the next plan could read the file or report that it does not exist.\n* If the mission is to address climate change, the plan should only identify key stakeholders or gather initial data, not attempt to solve the entire problem.\n\n{% set last_plan_report = messages_bag.find_message_by_name('PLAN_REPORT') %}\n{%- if last_plan_report -%}\n## Previous iteration report\n> This is the first iteration so no result is available.\n{{- last_plan_report.raw -}}\n{% endif %}"
+                      },
+                      {
+                        "type": "selector",
+                        "source": "conversation",
+                        "name": null,
+                        "stamps": [],
+                        "contentType": "conversation/message",
+                        "limit": 5,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60167b9772",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -298,9 +348,8 @@
                   {
                     "_ref": "68f60167b9938",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 5,
                     "message": null,
                     "metadata": null,
@@ -323,8 +372,7 @@
                     "message": {
                       "_ref": "68f60167b9b60",
                       "content": "## Instructions for Action Planning\n\n{%- set iteration_count = messages_bag.find_message_by_name('ACTION_PLANS_COUNTER').data().to_int() -%}\n{% if iteration_count == 1 -%}\n- This is the first planning iteration\n{%- endif %}\n- You should decide the next actions to do as a iteration pass.\n- This is the planification number {{ iteration_count }}\n- Each planification is made from actions or termination decition\n\n## Decision process\n\n* If you can safely advance with a **self-contained one-pass plan** based on the current information, output an action plan (`actions`) and **do NOT set `termination_reason`**.\n* If, for any reason, execution should stop and a user-facing response must be produced, set `termination_reason` (choose the most appropriate value) and **do NOT output any actions**.\n\n### Valid termination reasons\n\n* **mission_complete**: the user\u2019s goal has been achieved.\n* **direct_reply**: the user\u2019s question can be answered with any planification.\n* **unexpected_error**: a blocking, unplanned error occurred; explain briefly in `_reasoning` why it blocks progress.\n* **need_clarification**: only the USER can answer a question or make a decision that changes planning.\n* **no_safe_action**: the next steps would be risky, destructive, or non-reversible without explicit approval.\n* **not_applicable**: the request is out of scope (not related to system administration or the defined mission).\n\n## Core rules for action plans\n\n- Each action plan must be **self-contained and fully executable in one pass**. Do not include conditional branches or steps that depend on unknown results.\n- After a plan has been executed, you will receive its results. At that point, you may create a new plan or end with a termination reason.\n- If the mission can be completed directly and safely with the information available, plan the full set of steps.\n- If the mission is too broad or lacks information, reduce the scope to a smaller, safe set of steps (\u201cscope down\u201d).\n- Keep actions progressive: when the task is complex, plan only safe incremental steps, then reassess after execution.\n\n### Illustrative examples (for understanding only \u2014 do not copy literally)\n\n* If the mission is to retrieve the content of `x.txt`, the plan should only check whether `x.txt` exists. After execution, depending on the result, the next plan could read the file or report that it does not exist.\n* If the mission is to address climate change, the plan should only identify key stakeholders or gather initial data, not attempt to solve the entire problem.\n\n{% set last_plan_report = messages_bag.find_message_by_name('PLAN_REPORT') %}\n{%- if last_plan_report -%}\n## Previous iteration report\n> This is the first iteration so no result is available.\n{{- last_plan_report.raw -}}\n{% endif %}",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -355,7 +403,7 @@
                     "position": 0,
                     "slotMessageStamp": [],
                     "slot_ref": "68f60167b874f",
-                    "source": "global-card",
+                    "source": "scenario",
                     "type": "selector"
                   }
                 ],
@@ -368,6 +416,7 @@
                 "positionX": 1100,
                 "positionY": -290,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167baa18",
@@ -379,8 +428,7 @@
                     "message": {
                       "_ref": "68f60167baa42",
                       "content": "{\n  \"options\": {\n    \"accept_shell_execution\": \"Accept\"\n  },\n  \"name\":\"decide_shell_execution\"\n}",
-                      "contentType": "actions",
-                      "format": "json",
+                      "contentType": "conversation/actions",
                       "messageStamp": [
                         {
                           "_ref": "68f60167bae31",
@@ -420,6 +468,7 @@
                     "value": "{{ (request.find_message_by_name('decide_shell_execution') != None) and request.find_message_by_name('decide_shell_execution').data_search('action').get_str_or_none() == 'accept_shell_execution' }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "HAS_CLICKED_NEXT",
                 "type": "default"
@@ -430,6 +479,7 @@
                 "positionX": 1100,
                 "positionY": -110,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167bba11",
@@ -441,8 +491,7 @@
                     "message": {
                       "_ref": "68f60167bba60",
                       "content": "{{ messages_bag.find_message_by_name('TOPIC_ANALYSIS').data_search('direct_answer').to_str() }}",
-                      "contentType": "conversation",
-                      "format": "text",
+                      "contentType": "conversation/message",
                       "messageStamp": [
                         {
                           "_ref": "68f60167bbe8e",
@@ -482,6 +531,7 @@
                     "value": "{%- set analysis_msg = messages_bag.find_message_by_name('TOPIC_ANALYSIS') -%}\n{%- if analysis_msg is not none -%}\n  {%- set decision = analysis_msg.data_search('decision') -%}\n  {{- decision is not none and decision.get_str() == 'plan_actions' -}}\n{%- endif -%}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "DECIDED_PLAN_ACTIONS",
                 "type": "default"
@@ -514,13 +564,30 @@
                     "value": "{{ messages_bag.find_message_by_name('ACTIONS_PLAN').data_search('actions').get_list() }}"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "bag",
+                        "name": null,
+                        "stamps": [
+                          "action"
+                        ],
+                        "contentType": "content/json",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60167bcc64",
                     "collection": "default",
-                    "contentType": "reference",
+                    "contentType": "core/reference",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -538,7 +605,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -575,13 +641,13 @@
                     "value": "{{ messages_bag.find_message_by_name('ACTIONS_PLAN').data_search('actions').get_list() }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167bd5ed",
                     "collection": "default",
                     "contentType": null,
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -632,11 +698,70 @@
                     "value": 256
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "global_context",
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "content": "Your name is Syrtis SSH Test Agent.\nYour mission is to assist users in the administration of their servers using an SSH connection. \nYou utilize various tools to explore server content and execute changes. \nYou are not allowed to discuss anything unrelated to this current conversation: the data from this prompt, the server administration, technical subjects, but try to be flexible in your reactions to keep the interaction natural. While you can engage in technical discussions, if a user asks you something not related to computing, you should kindly inform them that they may have asked their question to the wrong agent.\n\n---\n\nYou are writing the final message to the USER.\n## Instructions\n- Start from the USER\u2019s original request that led to the execution of these commands.  \n- Do NOT blindly repeat all commands and outputs \u2014 the USER already saw them in the terminal.  \n  * Only mention a command or output if it helps explain the result or reasoning.  \n- Write a clear and concise summary of what was learned or achieved from the executed commands.  \n- Connect your summary back to the USER\u2019s goal, showing how the result relates to their initial request.  \n- Write your answer from your own perspective as the agent: explain what **you** did and what result you obtained for the USER.  \n- If useful, include a short interpretation or reasoning (e.g., what the result means).  \n- If the goal is not fully accomplished, politely ask the USER if they want you to continue with complementary actions.  \n- If the goal is fully achieved, simply provide the final result and close naturally. \n\n## Style guidelines\n- Write naturally, as if you are explaining to a colleague.  \n- Keep it short and fluid.  \n- Do not use unnecessary filler phrases.  "
+                      }
+                    ]
+                  },
+                  {
+                    "part": "history",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "conversation_before",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": 10,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "input",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "local_context",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "bag",
+                        "name": null,
+                        "stamps": [
+                          "shell_response"
+                        ],
+                        "contentType": null,
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60167be3d9",
                     "collection": "history",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
                     "format": null,
                     "max": 10,
@@ -660,7 +785,7 @@
                   {
                     "_ref": "68f60167be5f7",
                     "collection": "input",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
                     "format": null,
                     "max": 0,
@@ -684,9 +809,8 @@
                   {
                     "_ref": "68f60167be7d4",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -715,8 +839,7 @@
                     "message": {
                       "_ref": "68f60167bea61",
                       "content": "Your name is Syrtis SSH Test Agent.\nYour mission is to assist users in the administration of their servers using an SSH connection. \nYou utilize various tools to explore server content and execute changes. \nYou are not allowed to discuss anything unrelated to this current conversation: the data from this prompt, the server administration, technical subjects, but try to be flexible in your reactions to keep the interaction natural. While you can engage in technical discussions, if a user asks you something not related to computing, you should kindly inform them that they may have asked their question to the wrong agent.\n\n---\n\nYou are writing the final message to the USER.\n## Instructions\n- Start from the USER\u2019s original request that led to the execution of these commands.  \n- Do NOT blindly repeat all commands and outputs \u2014 the USER already saw them in the terminal.  \n  * Only mention a command or output if it helps explain the result or reasoning.  \n- Write a clear and concise summary of what was learned or achieved from the executed commands.  \n- Connect your summary back to the USER\u2019s goal, showing how the result relates to their initial request.  \n- Write your answer from your own perspective as the agent: explain what **you** did and what result you obtained for the USER.  \n- If useful, include a short interpretation or reasoning (e.g., what the result means).  \n- If the goal is not fully accomplished, politely ask the USER if they want you to continue with complementary actions.  \n- If the goal is fully achieved, simply provide the final result and close naturally. \n\n## Style guidelines\n- Write naturally, as if you are explaining to a colleague.  \n- Keep it short and fluid.  \n- Do not use unnecessary filler phrases.  ",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -774,13 +897,13 @@
                     "value": "{{- messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict()['arguments']['argv'] -}}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167bf98c",
                     "collection": "default",
-                    "contentType": "default",
+                    "contentType": "content/json",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -802,9 +925,8 @@
                   {
                     "_ref": "68f60167bfb5b",
                     "collection": "error",
-                    "contentType": "error",
+                    "contentType": "core/error",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -827,6 +949,7 @@
                 "positionX": 1780,
                 "positionY": -1230,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167c022a",
@@ -838,8 +961,7 @@
                     "message": {
                       "_ref": "68f60167c025c",
                       "content": "{%- set counter = messages_bag.find_message_by_name('ACTION_EXECUTION_COUNTER') -%}\n{{- counter.raw | int + 1 if counter else 1 -}}",
-                      "contentType": "default",
-                      "format": "integer",
+                      "contentType": "content/json",
                       "messageStamp": [],
                       "metadata": null,
                       "name": "ACTION_EXECUTION_COUNTER",
@@ -873,6 +995,7 @@
                     "value": "{{ messages_bag.find_message_by_name('ACTIONS_PLAN').data_search('actions').get_list() }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "MISSION_COMPLETED",
                 "type": "default"
@@ -905,11 +1028,68 @@
                     "value": 256
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "global_context",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "scenario",
+                        "name": "AGENT_GLOBAL_CONTEXT",
+                        "stamps": [],
+                        "contentType": null,
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "history",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "conversation_before",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": 10,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "input",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "local_context",
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "content": "{%- set iteration_count = messages_bag.find_message_by_name('ACTION_PLANS_COUNTER').data().to_int() -%}\n{%- set last_action_plan = messages_bag.find_message_by_name('ACTIONS_PLAN') -%}\n \nYou are now writing the final message to the USER.\n\n## Process reports\nThis is the end of the process of USER message analysis and execution.  \n\nLast reasoning that justified the termination:  \n{{ last_action_plan.data_search('_reasoning', default=\"No reason provided\").get_str_or_none() }}\n\nBelow are the executed commands and collected responses.  \n\u26a0\ufe0f These outputs were already shown to the USER in their terminal, so you don\u2019t need to reword or repeat them unless necessary for clarity.  \nThis trace is here only to help you provide an accurate reply.\n\n__EXECUTION_TRACE_BEGINS__\n{%- for plan_report in messages_bag.find_messages_by_stamp_name('plan_report').get_messages() -%}\n{{- plan_report.raw -}}\n{%- endfor -%}\n___EXECUTION_TRACE_ENDS___\n\n## Instructions\n- Start from the USER\u2019s original request that triggered this process.  \n- Do NOT blindly repeat all commands and outputs. Mention them only if they are useful for your explanation or reasoning.  \n- Write a clear and concise summary of what was learned or achieved from the executed commands.  \n- Connect your summary back to the USER\u2019s goal, showing how the results relate to their request.  \n- Write from your own perspective as the agent: explain what **you** did and what result you obtained for the USER.  \n- If useful, include short reasoning or interpretation (e.g., what the result means).  \n- If the USER\u2019s goal is not fully accomplished, politely ask if they want you to continue with complementary actions.  \n- If the goal is fully achieved, provide the final result and close naturally.  \n\n## Style guidelines\n- Write naturally, as if you are explaining to a colleague.  \n- Keep it short and fluid.  \n- Do not use unnecessary filler phrases.  \n- Only ask follow-up questions if they make sense.  \n"
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60167c16b6",
                     "collection": "history",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
                     "format": null,
                     "max": 10,
@@ -933,7 +1113,7 @@
                   {
                     "_ref": "68f60167c18e1",
                     "collection": "input",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
                     "format": null,
                     "max": 0,
@@ -957,9 +1137,8 @@
                   {
                     "_ref": "68f60167c1b01",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -988,8 +1167,7 @@
                     "message": {
                       "_ref": "68f60167c1de1",
                       "content": "{%- set iteration_count = messages_bag.find_message_by_name('ACTION_PLANS_COUNTER').data().to_int() -%}\n{%- set last_action_plan = messages_bag.find_message_by_name('ACTIONS_PLAN') -%}\n \nYou are now writing the final message to the USER.\n\n## Process reports\nThis is the end of the process of USER message analysis and execution.  \n\nLast reasoning that justified the termination:  \n{{ last_action_plan.data_search('_reasoning', default=\"No reason provided\").get_str_or_none() }}\n\nBelow are the executed commands and collected responses.  \n\u26a0\ufe0f These outputs were already shown to the USER in their terminal, so you don\u2019t need to reword or repeat them unless necessary for clarity.  \nThis trace is here only to help you provide an accurate reply.\n\n__EXECUTION_TRACE_BEGINS__\n{%- for plan_report in messages_bag.find_messages_by_stamp_name('plan_report').get_messages() -%}\n{{- plan_report.raw -}}\n{%- endfor -%}\n___EXECUTION_TRACE_ENDS___\n\n## Instructions\n- Start from the USER\u2019s original request that triggered this process.  \n- Do NOT blindly repeat all commands and outputs. Mention them only if they are useful for your explanation or reasoning.  \n- Write a clear and concise summary of what was learned or achieved from the executed commands.  \n- Connect your summary back to the USER\u2019s goal, showing how the results relate to their request.  \n- Write from your own perspective as the agent: explain what **you** did and what result you obtained for the USER.  \n- If useful, include short reasoning or interpretation (e.g., what the result means).  \n- If the USER\u2019s goal is not fully accomplished, politely ask if they want you to continue with complementary actions.  \n- If the goal is fully achieved, provide the final result and close naturally.  \n\n## Style guidelines\n- Write naturally, as if you are explaining to a colleague.  \n- Keep it short and fluid.  \n- Do not use unnecessary filler phrases.  \n- Only ask follow-up questions if they make sense.  \n",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -1020,7 +1198,7 @@
                     "position": 0,
                     "slotMessageStamp": [],
                     "slot_ref": "68f60167c0bb1",
-                    "source": "global-card",
+                    "source": "scenario",
                     "type": "selector"
                   }
                 ],
@@ -1041,13 +1219,28 @@
                     "value": "input_messages"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "bag",
+                        "name": null,
+                        "stamps": [],
+                        "contentType": null,
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60167c2bfe",
                     "collection": "default",
-                    "contentType": "reference",
+                    "contentType": "core/reference",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -1110,13 +1303,13 @@
                     "value": 10
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167c35a7",
                     "collection": "default",
-                    "contentType": "reference",
+                    "contentType": "core/reference",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -1139,6 +1332,7 @@
                 "positionX": 1810,
                 "positionY": -1490,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167c3d45",
@@ -1150,8 +1344,7 @@
                     "message": {
                       "_ref": "68f60167c3d7d",
                       "content": "{% set counter = messages_bag.find_message_by_name('ACTION_PLANS_COUNTER') %}\n{{ counter.raw | int + 1 if counter else 1 }}",
-                      "contentType": "default",
-                      "format": "integer",
+                      "contentType": "content/json",
                       "messageStamp": [],
                       "metadata": null,
                       "name": "ACTION_PLANS_COUNTER",
@@ -1199,11 +1392,45 @@
                     "value": 256
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "history",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "conversation_before",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": 10,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "input",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60167c4d44",
                     "collection": "history",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
                     "format": null,
                     "max": 10,
@@ -1227,7 +1454,7 @@
                   {
                     "_ref": "68f60167c4f61",
                     "collection": "input",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
                     "format": null,
                     "max": 0,
@@ -1251,9 +1478,8 @@
                   {
                     "_ref": "68f60167c5157",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -1282,6 +1508,7 @@
                 "positionX": 2590,
                 "positionY": -1540,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167c58f3",
@@ -1293,8 +1520,7 @@
                     "message": {
                       "_ref": "68f60167c5928",
                       "content": "{%- for message in messages_bag.find_messages_by_stamp_name('action_response_formatted').get_messages() -%}\n{{- message.raw -}}\n{%- endfor -%}",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [
                         {
                           "_ref": "68f60167c5d16",
@@ -1326,6 +1552,7 @@
                 "positionX": 2790,
                 "positionY": -810,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167c645f",
@@ -1337,8 +1564,7 @@
                     "message": {
                       "_ref": "68f60167c6497",
                       "content": "{%- set response = messages_bag.find_message_by_name('ACTION_RESPONSE').data().get_dict() -%}\n{%- set host = response.get('host') -%}\n{%- set rc = response.get('returncode') -%}\n{%- set status = 'SUCCESS' if rc == 0 else 'FAIL' -%}\n### \u25b6 Action Result {{ '- ' + host if host else '' }}\n**Status:** {{ status }}  \u00b7  **Return code:** {{ rc }}\n**Command:**\n```bash\n{{ response.get('command', '') }}\n```bash\n{{ response.get('command', '') }}\n````\n{% if response.get('stderr') %}\n**Stderr:**\n\n```text\n{{ response.get('stderr') }}\n```\n{% endif %}\n{% if response.get('stdout') %}\n**Stdout:**\n\n```text\n{{ response.get('stdout') }}\n```\n\n{%- elif rc == 0 %}\n**Stdout:** *(no output)*\n{% endif -%}\n---",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [
                         {
                           "_ref": "68f60167c682f",
@@ -1378,6 +1604,7 @@
                     "value": "{{ messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict()['tool'] == 'shell' }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "IS_SHELL",
                 "type": "default"
@@ -1396,6 +1623,7 @@
                     "value": "{{ messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict()['tool'] == 'http_request' }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "IS_HTTP",
                 "type": "default"
@@ -1421,6 +1649,7 @@
                     "value": "GET"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "http_request",
                 "type": "default"
@@ -1431,6 +1660,7 @@
                 "positionX": 2830,
                 "positionY": -1140,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167c917c",
@@ -1442,8 +1672,7 @@
                     "message": {
                       "_ref": "68f60167c91b0",
                       "content": "Http Request report\nURL: https://wexample.com\nResponse:\nYahah !",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [
                         {
                           "_ref": "68f60167c9561",
@@ -1475,6 +1704,7 @@
                 "positionX": 1630,
                 "positionY": -1050,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f60167c9c30",
@@ -1486,8 +1716,7 @@
                     "message": {
                       "_ref": "68f60167c9c64",
                       "content": "- {{ messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict() is none }}\n- {{ messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict()['tool'] }}\n- {{ messages_bag.find_message_by_name('ACTION_ITERATOR_MESSAGE').data().get_dict()['tool'] == 'http_request' }}",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -1647,20 +1876,20 @@
           },
           "message": [],
           "scenario_ref": "68f601675dec6",
-          "scope": "default",
           "title": "syrtis-sysadmin-2"
         }
       ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016760282",
-      "description": null,
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "syrtis-sysadmin-2",
-      "project_secureId": "test_project"
+      "message": [
+        {
+          "_ref": "68f601675edb0",
+          "content": "Your name is Syrtis SSH Test Agent.\n\n## Mission\nExecute the USER\u2019s requests on the current machine: run tasks, gather information, and perform system operations as needed.\n\n## Context\n- You are operating on a Linux-based system.",
+          "contentType": "content/text",
+          "messageStamp": [],
+          "metadata": null,
+          "name": "AGENT_GLOBAL_CONTEXT",
+          "origin": "scenario"
+        }
+      ]
     },
     "secureId": "syrtis-sysadmin-2",
     "sessionGroup_name": "system",

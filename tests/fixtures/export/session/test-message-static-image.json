@@ -3,7 +3,16 @@
     "_ref": "68f6016b4726b",
     "scenario": {
       "_ref": "68f6016b477dc",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016b4782e",
+      "description": "Test scenario to display expression parameters in rendered contents",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Message Static Image",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016b4782e",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -25,6 +35,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -45,8 +56,7 @@
             {
               "_ref": "68f6016b64d36",
               "content": "{\"url\":\"https:\\/\\/shorturl.at\\/XdBpx\",\"alt\":\"Dogs\"}",
-              "contentType": "image",
-              "format": "json",
+              "contentType": "core/image",
               "messageStamp": [
                 {
                   "_ref": "68f6016b65161",
@@ -56,24 +66,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016b477dc",
-          "scope": "default",
           "title": "First card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016b4782e",
-      "description": "Test scenario to display expression parameters in rendered contents",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Message Static Image",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-message-static-image",
     "sessionGroup_name": "test",

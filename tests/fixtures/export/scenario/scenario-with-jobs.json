@@ -1,29 +1,6 @@
 {
   "version": "0.2.3",
   "data": {
-    "card": [
-      {
-        "_ref": "first_card",
-        "job": null,
-        "message": [],
-        "scope": "default",
-        "title": "Card 1"
-      },
-      {
-        "_ref": "last_card",
-        "job": null,
-        "message": [],
-        "scope": "default",
-        "title": "Card 2"
-      }
-    ],
-    "cardRelation": [
-      {
-        "cardSource_ref": "first_card",
-        "cardTarget_ref": "last_card",
-        "_ref": "e37485e816344"
-      }
-    ],
     "description": "This is a test scenario with some scenario-level jobs",
     "environment": {
       "name": "production",
@@ -38,6 +15,7 @@
             "positionX": 0,
             "positionY": 0,
             "slotConfig": [],
+            "slotInput": [],
             "slotMessage": [],
             "title": "NULL",
             "type": "end"
@@ -48,6 +26,7 @@
             "positionX": 0,
             "positionY": 0,
             "slotConfig": [],
+            "slotInput": [],
             "slotMessage": [],
             "title": "NULL",
             "type": "start"
@@ -73,6 +52,7 @@
             "positionX": 0,
             "positionY": 0,
             "slotConfig": [],
+            "slotInput": [],
             "slotMessage": [],
             "title": "NULL",
             "type": "end"
@@ -83,6 +63,7 @@
             "positionX": 0,
             "positionY": 0,
             "slotConfig": [],
+            "slotInput": [],
             "slotMessage": [],
             "title": "NULL",
             "type": "start"
@@ -103,7 +84,21 @@
     ],
     "title": "Test Scenario with jobs",
     "_ref": "85ab401b91934",
-    "project_secureId": "test_project"
+    "project_secureId": "test_project",
+    "step": [
+      {
+        "_ref": "first_card",
+        "job": null,
+        "message": [],
+        "title": "Card 1"
+      },
+      {
+        "_ref": "last_card",
+        "job": null,
+        "message": [],
+        "title": "Card 2"
+      }
+    ]
   },
   "type": "single",
   "entity": "scenario"

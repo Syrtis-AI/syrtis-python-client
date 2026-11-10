@@ -3,7 +3,16 @@
     "_ref": "68f6016b65a72",
     "scenario": {
       "_ref": "68f6016b65f35",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016b65f85",
+      "description": "Test scenario to display expression parameters in rendered contents",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Message Static Video",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016b65f85",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": -300,
                 "positionY": 30,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -25,6 +35,7 @@
                 "positionX": 30,
                 "positionY": 20,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -45,8 +56,7 @@
             {
               "_ref": "68f6016b79ebf",
               "content": "{\"url\":\"https:\\/\\/www.youtube.com\\/watch?v=L7i7LtPiOZg\"}",
-              "contentType": "video",
-              "format": "json",
+              "contentType": "core/video",
               "messageStamp": [
                 {
                   "_ref": "68f6016b7a29d",
@@ -56,24 +66,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016b65f35",
-          "scope": "default",
           "title": "First card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016b65f85",
-      "description": "Test scenario to display expression parameters in rendered contents",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Message Static Video",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-message-static-video",
     "sessionGroup_name": "test",

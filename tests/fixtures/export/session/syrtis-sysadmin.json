@@ -3,15 +3,16 @@
     "_ref": "68f60168ecd68",
     "scenario": {
       "_ref": "68f60168ed54f",
-      "card": [
-        {
-          "_ref": "68f60168ed5a4",
-          "job": null,
-          "message": [],
-          "scenario_ref": "68f60168ed54f",
-          "scope": "global",
-          "title": "syrtis-sysadmin"
-        },
+      "defaultEntrypoint_ref": "68f60168ed749",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "syrtis-sysadmin",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f60168ed749",
           "job": {
@@ -23,6 +24,7 @@
                 "positionX": -700,
                 "positionY": -120,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "start"
@@ -33,6 +35,7 @@
                 "positionX": 1890,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "end"
@@ -51,13 +54,13 @@
                     "value": "{{ full_history.find_message_by_name('SUGGESTED_SHELL_COMMAND').data_search('shell_command').get_str() }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016930d17",
                     "collection": "default",
-                    "contentType": "default",
+                    "contentType": "content/text",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -79,9 +82,8 @@
                   {
                     "_ref": "68f6016930f96",
                     "collection": "error",
-                    "contentType": "default",
+                    "contentType": "content/text",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -167,13 +169,41 @@
                     "value": "{\n  \"name\": \"needs_shell\",\n  \"type\": \"boolean\",\n  \"description\": \"Set to true if the assistant is invited to generate or execute a shell command, or if the answering of the question implies the execution of a shell command to accomplish the USER goal.\",\n  \"nullable\": false\n}"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "conversation_before",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": 3,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f601693237c",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -189,9 +219,8 @@
                   {
                     "_ref": "68f601693253b",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -213,9 +242,8 @@
                   {
                     "_ref": "68f601693273b",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 3,
                     "message": null,
                     "metadata": null,
@@ -252,6 +280,7 @@
                     "value": "{%- set analysis_msg = messages_bag.find_message_by_name('TOPIC_ANALYSIS') -%}\n{%- if analysis_msg is not none -%}\n  {%- set needs_shell = analysis_msg.data_search('needs_shell') -%}\n  {{- needs_shell is not none and needs_shell.is_true() -}}\n{%- endif -%}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "condition",
                 "type": "default"
@@ -284,11 +313,59 @@
                     "value": 256
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "history",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "conversation_before",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": 10,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "input",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "local_context",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "bag",
+                        "name": "FORMATTED_COMMAND_RESPONSE",
+                        "stamps": [],
+                        "contentType": null,
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016933726",
                     "collection": "history",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
                     "format": null,
                     "max": 10,
@@ -312,7 +389,7 @@
                   {
                     "_ref": "68f6016933946",
                     "collection": "input",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
                     "format": null,
                     "max": 0,
@@ -336,9 +413,8 @@
                   {
                     "_ref": "68f6016933b49",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -435,13 +511,28 @@
                     "value": "{\n  \"name\": \"reply\",\n  \"type\": \"string\",\n  \"description\": \"Provide the reply, in order to continue the discution. Be await to mantain the flow of a natural discussion.\",\n  \"nullable\": false\n}"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "conversation",
+                        "name": null,
+                        "stamps": [],
+                        "contentType": "conversation/message",
+                        "limit": 5,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016934dc7",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -457,9 +548,8 @@
                   {
                     "_ref": "68f6016934f73",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 5,
                     "message": null,
                     "metadata": null,
@@ -482,6 +572,7 @@
                 "positionX": 1490,
                 "positionY": -340,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016935658",
@@ -493,8 +584,7 @@
                     "message": {
                       "_ref": "68f6016935695",
                       "content": "{\n  \"options\": {\n    \"accept_shell_execution\": \"Accept\"\n  },\n  \"name\":\"decide_shell_execution\"\n}",
-                      "contentType": "actions",
-                      "format": "json",
+                      "contentType": "conversation/actions",
                       "messageStamp": [
                         {
                           "_ref": "68f6016935a55",
@@ -534,6 +624,7 @@
                     "value": "{{ (request.find_message_by_name('decide_shell_execution') != None) and request.find_message_by_name('decide_shell_execution').data_search('action').get_str_or_none() == 'accept_shell_execution' }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "HAS_CLICKED_NEXT",
                 "type": "default"
@@ -544,6 +635,7 @@
                 "positionX": 720,
                 "positionY": 190,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f601693653a",
@@ -555,8 +647,7 @@
                     "message": {
                       "_ref": "68f6016936575",
                       "content": "The system executed a shell command following the USER confirmation.\nYou should produce a reply based on the shell response content below in order to help the user.\n\n```\n{{ messages_bag.find_message_by_name('SHELL_RESPONSE').get_message().content }}\n```\n",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": "FORMATTED_COMMAND_RESPONSE",
@@ -582,6 +673,7 @@
                 "positionX": 1180,
                 "positionY": -150,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016937074",
@@ -593,8 +685,7 @@
                     "message": {
                       "_ref": "68f60169370b0",
                       "content": "{{ messages_bag.find_message_by_name('SUGGESTED_SHELL_COMMAND').data_search('reply').get_str() }}\n\n```shell\n{{ messages_bag.find_message_by_name('SUGGESTED_SHELL_COMMAND').data_search('shell_command').get_str() }}\n```",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [
                         {
                           "_ref": "68f601693746c",
@@ -711,20 +802,9 @@
           },
           "message": [],
           "scenario_ref": "68f60168ed54f",
-          "scope": "default",
           "title": "syrtis-sysadmin"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f60168ed749",
-      "description": null,
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "syrtis-sysadmin",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "syrtis-sysadmin",
     "sessionGroup_name": "system",

@@ -3,7 +3,16 @@
     "_ref": "687b9ce839167",
     "scenario": {
       "_ref": "687b9ce8396d8",
-      "card": [
+      "defaultEntrypoint_ref": "687b9ce839789",
+      "description": "Test Message Analysis merging the collected data discussion into the session message",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Message Analysis Merge",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "687b9ce839789",
           "job": {
@@ -65,13 +74,30 @@
                     "value": "User input message content analysis."
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce85b014",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -93,9 +119,8 @@
                   {
                     "_ref": "687b9ce85b4e0",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -111,9 +136,8 @@
                   {
                     "_ref": "687b9ce85b7c8",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -164,13 +188,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce863191",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -186,15 +238,14 @@
                       }
                     ],
                     "slot_ref": "687b9ce85ba1e",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "687b9ce8634ab",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -218,7 +269,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -255,20 +305,9 @@
           },
           "message": [],
           "scenario_ref": "687b9ce8396d8",
-          "scope": "default",
           "title": "Message analysis single card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "687b9ce839789",
-      "description": "Test Message Analysis merging the collected data discussion into the session message",
-      "environment": {
-        "_ref": "687b9ce278b01",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Message Analysis Merge",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-message-analysis-merge",
     "sessionGroup_name": "test",

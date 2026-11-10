@@ -3,7 +3,16 @@
     "_ref": "68f60169e1fc2",
     "scenario": {
       "_ref": "68f60169e246f",
-      "card": [
+      "defaultEntrypoint_ref": "68f60169e24b0",
+      "description": "Admin scenario to correct grammar of sent message",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Admin scenario to correct grammar of sent message",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f60169e24b0",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": 280,
                 "positionY": -20,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -47,13 +57,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60169f1469",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -69,15 +107,14 @@
                       }
                     ],
                     "slot_ref": "68f60169f0b3b",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f60169f1675",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -101,7 +138,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -140,8 +176,7 @@
             {
               "_ref": "68f60169f1ea0",
               "content": "Return the USER message and correct spelling and grammar for international English. Translate the text if it is not in English; else, do not reword the text. Do not add any extra comments. Do not use formatting that is not already present in the text.",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "68f60169f22dc",
@@ -151,24 +186,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f60169e246f",
-          "scope": "default",
           "title": "First card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f60169e24b0",
-      "description": "Admin scenario to correct grammar of sent message",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Admin scenario to correct grammar of sent message",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "system-english-spellcheck",
     "sessionGroup_name": "system",

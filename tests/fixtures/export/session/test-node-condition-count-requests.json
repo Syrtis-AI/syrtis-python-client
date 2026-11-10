@@ -3,7 +3,16 @@
     "_ref": "68f6016ded960",
     "scenario": {
       "_ref": "68f6016dee218",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016dee26f",
+      "description": "Test scenario to check basic condition. The model will reply 3 times the pass to the next card.\nNot that the model does not have memory configured, so it will reply each time like it was its first response.",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Condition Count Requests",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016dee26f",
           "job": {
@@ -18,7 +27,7 @@
                   {
                     "_ref": "68f6016e2a660",
                     "expression": false,
-                    "name": "card_requests_count_consecutive_greater_than",
+                    "name": "step_requests_count_consecutive_greater_than",
                     "slot_ref": "68f6016e2a37b",
                     "value": 3
                   },
@@ -30,6 +39,7 @@
                     "value": "AND"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Condition",
                 "type": "start"
@@ -62,13 +72,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016e2b36e",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -84,15 +122,14 @@
                       }
                     ],
                     "slot_ref": "68f6016e2a922",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016e2b602",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -116,7 +153,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -148,11 +184,12 @@
                   {
                     "_ref": "68f6016e2bcbb",
                     "expression": false,
-                    "name": "destination_card_shortcut",
+                    "name": "destination_step_id",
                     "slot_ref": "68f6016e2bacb",
-                    "value": "next"
+                    "value": "@step:Final card"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Navigate",
                 "type": "default"
@@ -163,13 +200,13 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016e2c4ee",
                     "collection": "default",
                     "contentType": null,
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -228,9 +265,8 @@
           "message": [
             {
               "_ref": "68f6016e2d383",
-              "content": "You will reply 3 times to the user, this current one is the request number {{ request.count_on_this_card() }}. You should warn the user about this. On the last request USER will navigate and you will not be able to write a response.",
-              "contentType": "default",
-              "format": "text",
+              "content": "You will reply 3 times to the user, this current one is the request number {{ request.count_on_this_step() }}. You should warn the user about this. On the last request USER will navigate and you will not be able to write a response.",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "68f6016e2d761",
@@ -240,11 +276,10 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016dee218",
-          "scope": "default",
           "title": "First card"
         },
         {
@@ -258,6 +293,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -268,6 +304,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -288,8 +325,7 @@
             {
               "_ref": "68f6016e46423",
               "content": "This is the end of this scenario",
-              "contentType": "conversation",
-              "format": "text",
+              "contentType": "conversation/message",
               "messageStamp": [
                 {
                   "_ref": "68f6016e4692a",
@@ -299,30 +335,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016dee218",
-          "scope": "default",
           "title": "Final card"
         }
-      ],
-      "cardRelation": [
-        {
-          "_ref": "68f6016dee246",
-          "cardSource_ref": "68f6016dee26f",
-          "cardTarget_ref": "68f6016dee28c"
-        }
-      ],
-      "defaultEntrypoint_ref": "68f6016dee26f",
-      "description": "Test scenario to check basic condition. The model will reply 3 times the pass to the next card.\nNot that the model does not have memory configured, so it will reply each time like it was its first response.",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Condition Count Requests",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-condition-count-requests",
     "sessionGroup_name": "test",

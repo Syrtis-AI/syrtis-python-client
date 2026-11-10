@@ -3,7 +3,16 @@
     "_ref": "687b9ce8df30e",
     "scenario": {
       "_ref": "687b9ce8e03bc",
-      "card": [
+      "defaultEntrypoint_ref": "687b9ce8e0436",
+      "description": "Test cards navigation based on the conversation with the user",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Navigate Card Analyzed",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "687b9ce8e0436",
           "job": {
@@ -44,13 +53,41 @@
                     "value": "User input message content analysis."
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce940f4b",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -72,9 +109,8 @@
                   {
                     "_ref": "687b9ce94162c",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -90,9 +126,8 @@
                   {
                     "_ref": "687b9ce9419b3",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -116,7 +151,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -160,6 +194,7 @@
                     "value": "AND"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Condition",
                 "type": "default"
@@ -172,12 +207,13 @@
                 "slotConfig": [
                   {
                     "_ref": "687b9ce942ff1",
-                    "expression": false,
-                    "name": "destination_card_id_expression",
+                    "expression": true,
+                    "name": "destination_step_id",
                     "slot_ref": "687b9ce942b92",
                     "value": "{{ messages_bag.find_message_by_name(name='test.message.analysis').data_search('analysed_card_id').get_int_or_none() }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Navigate",
                 "type": "default"
@@ -210,13 +246,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce94cd1f",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -232,15 +296,14 @@
                       }
                     ],
                     "slot_ref": "687b9ce9432b1",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "687b9ce94d12d",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -264,7 +327,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -293,6 +355,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -340,9 +403,8 @@
           "message": [
             {
               "_ref": "687b9ce989648",
-              "content": "Greet the user and ask if he want to navigate to one of these topics:\n{{ card.render_list_next_titles() }}",
-              "contentType": "default",
-              "format": "text",
+              "content": "Greet the user and ask if he want to navigate to one of these topics:\n{{ step.title }}",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "687b9ce989999",
@@ -352,13 +414,12 @@
               ],
               "metadata": null,
               "name": "message.chat.instruction",
-              "origin": "card"
+              "origin": "step"
             },
             {
               "_ref": "687b9ce9899ea",
               "content": "Available topics, **ONLY THIS LIST IS TRUSTABLE, DO NOT USE EXTRA TOPIC OR IDS EXCEPT THESE ONES**:\n{{ card.render_list_next() }}",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "687b9ce989d8d",
@@ -368,11 +429,10 @@
               ],
               "metadata": null,
               "name": "message.analysis.instruction",
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "687b9ce8e03bc",
-          "scope": "default",
           "title": "First card"
         },
         {
@@ -386,6 +446,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -396,6 +457,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -416,8 +478,7 @@
             {
               "_ref": "687b9ce9a7ac7",
               "content": "This is the subject A",
-              "contentType": "conversation",
-              "format": "text",
+              "contentType": "conversation/message",
               "messageStamp": [
                 {
                   "_ref": "687b9ce9a7e73",
@@ -427,11 +488,10 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "687b9ce8e03bc",
-          "scope": "default",
           "title": "Subject A"
         },
         {
@@ -445,6 +505,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -455,6 +516,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -475,8 +537,7 @@
             {
               "_ref": "687b9ce9c1ede",
               "content": "This is the subject B",
-              "contentType": "conversation",
-              "format": "text",
+              "contentType": "conversation/message",
               "messageStamp": [
                 {
                   "_ref": "687b9ce9c225a",
@@ -486,11 +547,10 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "687b9ce8e03bc",
-          "scope": "default",
           "title": "Subject B"
         },
         {
@@ -504,6 +564,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -514,6 +575,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -534,8 +596,7 @@
             {
               "_ref": "687b9ce9dd9eb",
               "content": "This is the end of the scenario",
-              "contentType": "conversation",
-              "format": "text",
+              "contentType": "conversation/message",
               "messageStamp": [
                 {
                   "_ref": "687b9ce9ddf09",
@@ -545,45 +606,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "687b9ce8e03bc",
-          "scope": "default",
           "title": "Last card"
         }
-      ],
-      "cardRelation": [
-        {
-          "_ref": "687b9ce8e0402",
-          "cardSource_ref": "687b9ce8e0436",
-          "cardTarget_ref": "687b9ce8e0455"
-        },
-        {
-          "_ref": "687b9ce8e0464",
-          "cardSource_ref": "687b9ce8e0436",
-          "cardTarget_ref": "687b9ce8e04a1"
-        },
-        {
-          "_ref": "687b9ce8e04af",
-          "cardSource_ref": "687b9ce8e0455",
-          "cardTarget_ref": "687b9ce8e04e6"
-        },
-        {
-          "_ref": "687b9ce8e04f4",
-          "cardSource_ref": "687b9ce8e04a1",
-          "cardTarget_ref": "687b9ce8e04e6"
-        }
-      ],
-      "defaultEntrypoint_ref": "687b9ce8e0436",
-      "description": "Test cards navigation based on the conversation with the user",
-      "environment": {
-        "_ref": "687b9ce278b01",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Navigate Card Analyzed",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-navigate-card-analyzed",
     "sessionGroup_name": "test",

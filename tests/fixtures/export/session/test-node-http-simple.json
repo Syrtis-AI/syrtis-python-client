@@ -3,7 +3,16 @@
     "_ref": "687b9ce7380a2",
     "scenario": {
       "_ref": "687b9ce738660",
-      "card": [
+      "defaultEntrypoint_ref": "687b9ce7386ca",
+      "description": "Test simple HTTP request. There is no model response at this time.",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Http Simple",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "687b9ce7386ca",
           "job": {
@@ -23,13 +32,13 @@
                     "value": "https://syrtis.ai"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce755177",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -58,6 +67,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -76,20 +86,9 @@
           },
           "message": [],
           "scenario_ref": "687b9ce738660",
-          "scope": "default",
           "title": "First card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "687b9ce7386ca",
-      "description": "Test simple HTTP request. There is no model response at this time.",
-      "environment": {
-        "_ref": "687b9ce278b01",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Http Simple",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-http-simple",
     "sessionGroup_name": "test",

@@ -16,21 +16,19 @@ def import_scenario():
             "data": {
                 "_ref": "scenario",
                 "defaultEntrypoint_ref": "entry",
-                "card": [
+                "scenarioMessage": [
                     {
-                        "_ref": "global",
-                        "scope": "global",
-                        "message": [
-                            {
-                                "content": '{"mode": "edit"}',
-                                "format": "json",
-                                "messageStamp": [{"name": "a"}, {"name": "b"}],
-                            }
-                        ],
-                    },
+                        "message": {
+                            "content": '{"mode": "edit"}',
+                            "format": "json",
+                            "messageStamp": [{"name": "a"}, {"name": "b"}],
+                        }
+                    }
+                ],
+                "step": [
                     {
                         "_ref": "entry",
-                        "scope": "default",
+                        "title": "default",
                         "job": {
                             "slot": [
                                 {"_ref": "end", "type": "end", "node_type": "null"},
@@ -61,7 +59,7 @@ def import_scenario():
 
 def test_message_and_selector_helpers() -> None:
     scenario = import_scenario()
-    [message] = scenario.get_global_card().get_messages()
+    [message] = scenario.get_messages()
     [selector] = scenario.defaultEntrypoint.job.get_start_slot().slotMessages
 
     assert message.get_formatted_content() == {"mode": "edit"}
@@ -74,7 +72,8 @@ def test_scenario_and_job_helpers() -> None:
     scenario = import_scenario()
     job = scenario.defaultEntrypoint.job
 
-    assert scenario.get_global_card().scope == "global"
+    assert scenario.find_step(scenario.defaultEntrypoint.id) is scenario.defaultEntrypoint
+    assert scenario.find_job(job.id) is job
     assert job.get_start_slot().is_start()
     assert job.get_end_slot().is_end()
     assert [c.value for c in job.get_start_slot().get_configs_by_name("x")] == [1]

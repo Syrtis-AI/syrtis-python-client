@@ -3,7 +3,16 @@
     "_ref": "68f6016a139ea",
     "scenario": {
       "_ref": "68f6016a13ecc",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016a13f0f",
+      "description": "Test scenario to display expression parameters in rendered contents\n> /!\\ This is an old scenario testing {{ message }} expression. The direct access to {{ message }} was removed as it is not clear which message we are talking about. You should use message_bag to access to messages instead. If this scenario seem redudant, we might remove it soon.",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Expression Parameter Message",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016a13f0f",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -47,13 +57,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016a26d1c",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -69,15 +107,14 @@
                       }
                     ],
                     "slot_ref": "68f6016a26387",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016a26f31",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -101,7 +138,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -140,8 +176,7 @@
             {
               "_ref": "68f6016a2782b",
               "content": "The secret message is: \"{{ messages_bag.find_message_by_name(name='secret_message_name').rendered }}\"",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "68f6016a27be5",
@@ -151,34 +186,22 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             },
             {
               "_ref": "68f6016a27c39",
               "content": "/* This message is not automatically converted by the chat node into a prompt */\nSecret message: The cucumber is skeptical",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [],
               "metadata": null,
               "name": "secret_message_name",
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016a13ecc",
-          "scope": "default",
           "title": "First card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016a13f0f",
-      "description": "Test scenario to display expression parameters in rendered contents\n> /!\\ This is an old scenario testing {{ message }} expression. The direct access to {{ message }} was removed as it is not clear which message we are talking about. You should use message_bag to access to messages instead. If this scenario seem redudant, we might remove it soon.",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Expression Parameter Message",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-expression-parameter-message",
     "sessionGroup_name": "test",

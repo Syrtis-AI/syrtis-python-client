@@ -12,13 +12,10 @@ class MessageGenerated:
         return mapped_column(Text, nullable=True)
     @declared_attr
     def contentType(cls) -> Mapped[object]:
-        return mapped_column('content_type', String(30), nullable=False)
+        return mapped_column('content_type', String(100), nullable=False)
     @declared_attr
     def dateCreated(cls) -> Mapped[object]:
         return mapped_column('date_created', DateTime, nullable=False)
-    @declared_attr
-    def format(cls) -> Mapped[object]:
-        return mapped_column(String(120), nullable=False)
     @declared_attr
     def name(cls) -> Mapped[object]:
         return mapped_column(String(255), nullable=True)

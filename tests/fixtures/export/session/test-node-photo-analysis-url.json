@@ -3,7 +3,16 @@
     "_ref": "687b9ceac5ffa",
     "scenario": {
       "_ref": "687b9ceac63d3",
-      "card": [
+      "defaultEntrypoint_ref": "687b9ceac6435",
+      "description": "Test Image Analysis provided by URL, example: https://shorturl.at/XdBpx\n> /!\\ Some of jpeg images analysis does not work. Seems to be as Jerris issue.",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Photo Analysis Url",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "687b9ceac6435",
           "job": {
@@ -37,13 +46,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ceaebe9b",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -59,15 +96,14 @@
                       }
                     ],
                     "slot_ref": "687b9ceae28c8",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "687b9ceaec228",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -91,7 +127,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -135,13 +170,30 @@
                     "value": "rule-of-thirds"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ceaf2169",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -165,7 +217,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -198,8 +249,7 @@
             {
               "_ref": "687b9ceaf29ad",
               "content": "You are a friendly photo assistant. USER sent a photo URL that you analyzed.\nThe provided image URL has been analyzed. Please rephrase the analysis results below, which describe the image content.\n**DO NOT MENTION THAT YOU CANNOT SEE IMAGES, ACTUALLY YOU CAN.**\nAct as if you can see and understand the image content.\nThe user has given this URL for analysis and would appreciate a rephrased summary of the results.\n\nCriteria: {{ messages_bag.find_message_by_name(name='photo.analysis.rules.report').data_search('data.rule-of-thirds.title').to_str() }}\nAnalysis: {{ messages_bag.find_message_by_name(name='photo.analysis.rules.report').data_search('data.rule-of-thirds.message').to_str() }}\nAnalysis duration: {{ messages_bag.find_message_by_name(name='photo.analysis.rules.report').data_search('duration').to_int() }} seconds",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "687b9ceaf2d10",
@@ -209,24 +259,13 @@
               ],
               "metadata": null,
               "name": "",
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "687b9ceac63d3",
-          "scope": "default",
           "title": "Image analysis single card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "687b9ceac6435",
-      "description": "Test Image Analysis provided by URL, example: https://shorturl.at/XdBpx\n> /!\\ Some of jpeg images analysis does not work. Seems to be as Jerris issue.",
-      "environment": {
-        "_ref": "687b9ce278b01",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Photo Analysis Url",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-photo-analysis-url",
     "sessionGroup_name": "test",

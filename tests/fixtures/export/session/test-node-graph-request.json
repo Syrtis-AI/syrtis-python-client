@@ -3,7 +3,16 @@
     "_ref": "687b9ce6b9f97",
     "scenario": {
       "_ref": "687b9ce6ba4c7",
-      "card": [
+      "defaultEntrypoint_ref": "687b9ce6ba554",
+      "description": "Store a simple sentence in the graph database, e.g.: Joe likes apples. See https://graph.syrtis.ai/",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Graph Request",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "687b9ce6ba554",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": -600,
                 "positionY": -40,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "start"
@@ -25,6 +35,7 @@
                 "positionX": 380,
                 "positionY": -40,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "end"
@@ -43,6 +54,7 @@
                     "value": "{\n  \"upsert\": [\n    {\n      \"start_node\": {\n        \"var\": \"p\",\n        \"labels\": [\"Person\"],\n        \"props\": {\n          \"name\": \"{{ messages_bag.find_message_by_name('SENTENCE_SEGMENTS').data_search('subject').raw }}\"\n        }\n      }\n    }\n  ]\n}\n"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "graph_request",
                 "type": "default"
@@ -117,13 +129,28 @@
                     "value": "{\n  \"name\": \"subject\",\n  \"type\": \"string\",\n  \"description\": \"Provide the sentence's main subject (the entity performing the action).\",\n  \"nullable\": false\n}\n"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [],
+                        "contentType": "conversation/message",
+                        "limit": 1,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce704c92",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -139,9 +166,8 @@
                   {
                     "_ref": "687b9ce70501f",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 1,
                     "message": null,
                     "metadata": null,
@@ -172,6 +198,7 @@
                     "value": "{\n  \"connect\": {\n    \"match_node\": {\n      \"var\": \"p\",\n      \"labels\": [\"Person\"],\n      \"props\": {\n        \"name\": \"{{ messages_bag.find_message_by_name('SENTENCE_SEGMENTS').data_search('subject').raw }}\"\n      }\n    },\n    \"relationships\": [\n      {\n        \"type\": \"{{ messages_bag.find_message_by_name('SENTENCE_SEGMENTS').data_search('verb').raw }}\",\n        \"direction\": \"out\",\n        \"end_node\": {\n          \"var\": \"f\",\n          \"labels\": [\"Subject\"],\n          \"props\": {\n            \"name\": \"{{ messages_bag.find_message_by_name('SENTENCE_SEGMENTS').data_search('object').raw }}\"\n          }\n        }\n      }\n    ]\n  }\n}\n"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "graph_request",
                 "type": "default"
@@ -211,20 +238,9 @@
           },
           "message": [],
           "scenario_ref": "687b9ce6ba4c7",
-          "scope": "default",
           "title": "Test Node Cypher Request"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "687b9ce6ba554",
-      "description": "Store a simple sentence in the graph database, e.g.: Joe likes apples. See https://graph.syrtis.ai/",
-      "environment": {
-        "_ref": "687b9ce278b01",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Graph Request",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-graph-request",
     "sessionGroup_name": "test",

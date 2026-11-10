@@ -3,32 +3,16 @@
     "_ref": "68f6016b16ce2",
     "scenario": {
       "_ref": "68f6016b175a7",
-      "card": [
-        {
-          "_ref": "68f6016b175f6",
-          "job": null,
-          "message": [
-            {
-              "_ref": "68f6016b1779e",
-              "content": "Your name is Global Card Test Assistant.",
-              "contentType": "default",
-              "format": "text",
-              "messageStamp": [
-                {
-                  "_ref": "68f6016b17d2b",
-                  "message_ref": "68f6016b1779e",
-                  "name": "instruct"
-                }
-              ],
-              "metadata": null,
-              "name": null,
-              "origin": "card"
-            }
-          ],
-          "scenario_ref": "68f6016b175a7",
-          "scope": "global",
-          "title": "General information"
-        },
+      "defaultEntrypoint_ref": "68f6016b17dfc",
+      "description": "Test message with a chat configured from the global scenario card",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test message with a chat configured from the global scenario card",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016b17dfc",
           "job": {
@@ -40,6 +24,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -72,13 +57,52 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "scenario",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016b2f2f0",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -94,15 +118,14 @@
                       }
                     ],
                     "slot_ref": "68f6016b2e800",
-                    "source": "global-card",
+                    "source": "scenario",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016b2f52f",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -126,7 +149,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -142,7 +164,7 @@
                       }
                     ],
                     "slot_ref": "68f6016b2e800",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
@@ -150,7 +172,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -187,20 +208,26 @@
           },
           "message": [],
           "scenario_ref": "68f6016b175a7",
-          "scope": "default",
           "title": "First card"
         }
       ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016b175f6",
-      "description": "Test message with a chat configured from the global scenario card",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test message with a chat configured from the global scenario card",
-      "project_secureId": "test_project"
+      "message": [
+        {
+          "_ref": "68f6016b1779e",
+          "content": "Your name is Global Card Test Assistant.",
+          "contentType": "content/text",
+          "messageStamp": [
+            {
+              "_ref": "68f6016b17d2b",
+              "message_ref": "68f6016b1779e",
+              "name": "instruct"
+            }
+          ],
+          "metadata": null,
+          "name": null,
+          "origin": "scenario"
+        }
+      ]
     },
     "secureId": "test-message-global-card",
     "sessionGroup_name": "test",

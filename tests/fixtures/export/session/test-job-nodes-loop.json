@@ -3,7 +3,16 @@
     "_ref": "68f6016ab9251",
     "scenario": {
       "_ref": "68f6016ab9703",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016ab978f",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Job Nodes Loop",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016ab978f",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": 70,
                 "positionY": -10,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016ae1033",
@@ -26,8 +36,7 @@
                     "message": {
                       "_ref": "68f6016ae1094",
                       "content": "{%- if messages_bag.find_message_by_name('COUNTER') -%}\n  {{ (messages_bag.find_message_by_name('COUNTER').raw | int) + 1 }}\n{%- else -%}\n1\n{%- endif -%}",
-                      "contentType": "default",
-                      "format": "integer",
+                      "contentType": "content/json",
                       "messageStamp": [],
                       "metadata": null,
                       "name": "COUNTER",
@@ -61,6 +70,7 @@
                     "value": "{{ (messages_bag.find_message_by_name('COUNTER').raw | int) >= 3 }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "condition",
                 "type": "default"
@@ -71,6 +81,7 @@
                 "positionX": 280,
                 "positionY": -200,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "END",
                 "type": "end"
@@ -81,6 +92,7 @@
                 "positionX": -100,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "START",
                 "type": "start"
@@ -120,20 +132,9 @@
           },
           "message": [],
           "scenario_ref": "68f6016ab9703",
-          "scope": "default",
           "title": "Test Job Loop"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016ab978f",
-      "description": null,
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Job Nodes Loop",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-job-nodes-loop",
     "sessionGroup_name": "test",

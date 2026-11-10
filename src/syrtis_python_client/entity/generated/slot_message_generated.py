@@ -26,11 +26,8 @@ class SlotMessageGenerated:
     def orderDirection(cls) -> Mapped[object]:
         return mapped_column('order_direction', String(4), nullable=True)
     @declared_attr
-    def format(cls) -> Mapped[object]:
-        return mapped_column(String(120), nullable=True)
-    @declared_attr
     def contentType(cls) -> Mapped[object]:
-        return mapped_column('content_type', String(30), nullable=True)
+        return mapped_column('content_type', String(100), nullable=True)
     @declared_attr
     def name(cls) -> Mapped[object]:
         return mapped_column(String(255), nullable=True)

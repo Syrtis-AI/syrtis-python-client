@@ -3,7 +3,16 @@
     "_ref": "687b9ce86490d",
     "scenario": {
       "_ref": "687b9ce865038",
-      "card": [
+      "defaultEntrypoint_ref": "687b9ce8650d3",
+      "description": "Test Message Analysis returning numeric report",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Message Analysis Numeric",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "687b9ce8650d3",
           "job": {
@@ -44,13 +53,30 @@
                     "value": "User input message content analysis."
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce88510f",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -72,9 +98,8 @@
                   {
                     "_ref": "687b9ce885617",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -90,9 +115,8 @@
                   {
                     "_ref": "687b9ce885987",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -143,13 +167,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce89129b",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -165,15 +217,14 @@
                       }
                     ],
                     "slot_ref": "687b9ce885de9",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "687b9ce891776",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -197,7 +248,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -234,20 +284,9 @@
           },
           "message": [],
           "scenario_ref": "687b9ce865038",
-          "scope": "default",
           "title": "Message analysis single card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "687b9ce8650d3",
-      "description": "Test Message Analysis returning numeric report",
-      "environment": {
-        "_ref": "687b9ce278b01",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Message Analysis Numeric",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-message-analysis-numeric",
     "sessionGroup_name": "test",

@@ -3,7 +3,16 @@
     "_ref": "687b9ce517198",
     "scenario": {
       "_ref": "687b9ce5175aa",
-      "card": [
+      "defaultEntrypoint_ref": "687b9ce51764b",
+      "description": "Extract batch data from a text to a graph database. See https://graph.syrtis.ai/",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Graph Request Long Text",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "687b9ce51764b",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": -780,
                 "positionY": 70,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "start"
@@ -25,6 +35,7 @@
                 "positionX": 750,
                 "positionY": -20,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "end"
@@ -78,13 +89,28 @@
                     "value": 2048
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [],
+                        "contentType": null,
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce5a5594",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -168,13 +194,28 @@
                     "value": 2048
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [],
+                        "contentType": null,
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce5ac257",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -215,6 +256,7 @@
                 "positionX": -990,
                 "positionY": -210,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce5af762",
@@ -226,8 +268,7 @@
                     "message": {
                       "_ref": "687b9ce5af7d2",
                       "content": "{\n  \"_reasoning\": \"The text describes actions performed by players and a referee during a basketball game's opening quarter. Each sentence mentions who did what to whom or what, allowing extraction of subject-action-object triplets representing these interactions.\",\n  \"subject_action_object\": [\n    {\n      \"subject\": \"Jordan Hayes\",\n      \"action\": \"split\",\n      \"object\": \"Pick-and-roll\"\n    },\n    {\n      \"subject\": \"Jordan Hayes\",\n      \"action\": \"pass\",\n      \"object\": \"Malik Carter\"\n    },\n    {\n      \"subject\": \"Malik Carter\",\n      \"action\": \"dunk\",\n      \"object\": \"Basketball\"\n    },\n    {\n      \"subject\": \"Ethan Liu\",\n      \"action\": \"curl\",\n      \"object\": \"Stagger screen\"\n    },\n    {\n      \"subject\": \"Ethan Liu\",\n      \"action\": \"shoot\",\n      \"object\": \"Three-pointer\"\n    },\n    {\n      \"subject\": \"Malik Carter\",\n      \"action\": \"draw\",\n      \"object\": \"Slap on the wrist\"\n    },\n    {\n      \"subject\": \"Ethan Liu\",\n      \"action\": \"convert\",\n      \"object\": \"Bonus free throw\"\n    },\n    {\n      \"subject\": \"Jordan Hayes\",\n      \"action\": \"pass\",\n      \"object\": \"Diego Ram\u00edrez\"\n    },\n    {\n      \"subject\": \"Diego Ram\u00edrez\",\n      \"action\": \"shoot\",\n      \"object\": \"Hook shot\"\n    },\n    {\n      \"subject\": \"DeAndre Brooks\",\n      \"action\": \"steal\",\n      \"object\": \"Cross-court pass\"\n    },\n    {\n      \"subject\": \"DeAndre Brooks\",\n      \"action\": \"drive\",\n      \"object\": \"Coast-to-coast\"\n    },\n    {\n      \"subject\": \"DeAndre Brooks\",\n      \"action\": \"score\",\n      \"object\": \"Finger roll\"\n    },\n    {\n      \"subject\": \"Cassandra Holt\",\n      \"action\": \"signal\",\n      \"object\": \"Defensive three-second violation\"\n    },\n    {\n      \"subject\": \"Cassandra Holt\",\n      \"action\": \"issue\",\n      \"object\": \"Warning to DeAndre Brooks\"\n    },\n    {\n      \"subject\": \"Marcus O\u2019Neal\",\n      \"action\": \"take\",\n      \"object\": \"Charge call\"\n    },\n    {\n      \"subject\": \"Malik Carter\",\n      \"action\": \"block\",\n      \"object\": \"Floater\"\n    },\n    {\n      \"subject\": \"Jordan Hayes\",\n      \"action\": \"shoot\",\n      \"object\": \"Pull-up triple\"\n    },\n    {\n      \"subject\": \"Ethan Liu\",\n      \"action\": \"shoot\",\n      \"object\": \"Fadeaway\"\n    }\n  ]\n}",
-                      "contentType": "analysis",
-                      "format": "json",
+                      "contentType": "content/object",
                       "messageStamp": [],
                       "metadata": null,
                       "name": "SUBJECTS_OBJECTS_RELATIONS",
@@ -253,6 +294,7 @@
                 "positionX": -990,
                 "positionY": -100,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce5b227c",
@@ -264,8 +306,7 @@
                     "message": {
                       "_ref": "687b9ce5b22f5",
                       "content": "{\n  \"_reasoning\": \"The text mentions multiple players associated with two specific teams: the Denver Falcons and the Brooklyn Comets. Each player is identified with their team based on the context in which they are mentioned performing actions or with explicit team references.\",\n  \"players_and_teams\": [\n    {\n      \"player\": \"Marcus Reed\",\n      \"relation\": \"member\",\n      \"team\": \"Denver Falcons\"\n    },\n    {\n      \"player\": \"Andre Parker\",\n      \"relation\": \"member\",\n      \"team\": \"Brooklyn Comets\"\n    },\n    {\n      \"player\": \"Victor Silva\",\n      \"relation\": \"member\",\n      \"team\": \"Brooklyn Comets\"\n    },\n    {\n      \"player\": \"Ethan Wright\",\n      \"relation\": \"member\",\n      \"team\": \"Brooklyn Comets\"\n    },\n    {\n      \"player\": \"Tyler Grant\",\n      \"relation\": \"member\",\n      \"team\": \"Denver Falcons\"\n    },\n    {\n      \"player\": \"Samir Patel\",\n      \"relation\": \"member\",\n      \"team\": \"Brooklyn Comets\"\n    },\n    {\n      \"player\": \"Leo Chen\",\n      \"relation\": \"member\",\n      \"team\": \"Denver Falcons\"\n    },\n    {\n      \"player\": \"Darryl Brooks\",\n      \"relation\": \"member\",\n      \"team\": \"Denver Falcons\"\n    },\n    {\n      \"player\": \"Malik Jones\",\n      \"relation\": \"member\",\n      \"team\": \"Brooklyn Comets\"\n    }\n  ]\n}",
-                      "contentType": "analysis",
-                      "format": "json",
+                      "contentType": "content/object",
                       "messageStamp": [],
                       "metadata": null,
                       "name": "PLAYERS_RELATIONS",
@@ -299,6 +340,7 @@
                     "value": "{\n  \"connect\": {\n    \"match_node\": {\n      \"var\": \"p\",\n      \"labels\": [\"Player\"],\n      \"props\": {\n        \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_TEAM').data_search('player').get_str_or_default(default='Unknown Player') }}\"\n      }\n    },\n    \"relationships\": [\n      {\n        \"type\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_TEAM').data_search('relation').get_str_or_default(default='action') }}\",\n        \"direction\": \"out\",\n        \"end_node\": {\n          \"var\": \"f\",\n          \"labels\": [\"Team\"],\n          \"props\": {\n            \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_TEAM').data_search('team').get_str_or_default(default='Unknown Team') }}\"\n          }\n        }\n      }\n    ]\n  }\n}\n"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "CONNECT",
                 "type": "default"
@@ -331,13 +373,13 @@
                     "value": "{{ messages_bag.find_message_by_name('SUBJECTS_OBJECTS_RELATIONS').data_search('subject_action_object').raw }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce5b75a5",
                     "collection": "default",
                     "contentType": null,
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -382,13 +424,13 @@
                     "value": "{{ messages_bag.find_message_by_name('PLAYERS_RELATIONS').data_search('players_and_teams').raw }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "687b9ce5b9f30",
                     "collection": "default",
                     "contentType": null,
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -419,6 +461,7 @@
                     "value": "{\n  \"connect\": {\n    \"match_node\": {\n      \"var\": \"p\",\n      \"labels\": [\"Player\"],\n      \"props\": {\n        \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_ACTION').data_search('subject').get_str_or_default(default='Player') }}\"\n      }\n    },\n    \"relationships\": [\n      {\n        \"type\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_ACTION').data_search('action').get_str_or_default(default='action') }}\",\n        \"direction\": \"out\",\n        \"end_node\": {\n          \"var\": \"f\",\n          \"labels\": [\"Subject\"],\n          \"props\": {\n            \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_ACTION').data_search('object').get_str_or_default(default='Something') }}\"\n          }\n        }\n      }\n    ]\n  }\n}\n"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "CONNECT",
                 "type": "default"
@@ -437,6 +480,7 @@
                     "value": "{\n  \"upsert\": [\n    {\n      \"start_node\": {\n        \"var\": \"p\",\n        \"labels\": [\"Player\"],\n        \"props\": {\n          \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_TEAM').data_search('player').get_str_or_default(default='Unknown Player') }}\"\n        }\n      }\n    }\n  ]\n}\n"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "UPSER_PLAYER",
                 "type": "default"
@@ -455,6 +499,7 @@
                     "value": "{\n  \"upsert\": [\n    {\n      \"start_node\": {\n        \"var\": \"s\",\n        \"labels\": [\"Subject\"],\n        \"props\": {\n          \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_ACTION').data_search('object').get_str_or_default(default='Something') }}\"\n        }\n      }\n    }\n  ]\n}\n"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "UPSER_SUBJET",
                 "type": "default"
@@ -473,6 +518,7 @@
                     "value": "{\n  \"upsert\": [\n    {\n      \"start_node\": {\n        \"var\": \"p\",\n        \"labels\": [\"Person\"],\n        \"props\": {\n          \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_ACTION').data_search('subject').get_str_or_default(default='Someone') }}\"\n        }\n      }\n    }\n  ]\n}\n"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "UPSER_OBJECT",
                 "type": "default"
@@ -491,6 +537,7 @@
                     "value": "{\n  \"upsert\": [\n    {\n      \"start_node\": {\n        \"var\": \"p\",\n        \"labels\": [\"Team\"],\n        \"props\": {\n          \"name\": \"{{ messages_bag.find_message_by_name('CURRENT_PLAYER_TEAM').data_search('team').get_str_or_default(default='Unknown Team') }}\"\n        }\n      }\n    }\n  ]\n}\n"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "UPSER_TEAM",
                 "type": "default"
@@ -593,20 +640,9 @@
           },
           "message": [],
           "scenario_ref": "687b9ce5175aa",
-          "scope": "default",
           "title": "Test Node Graph Request Long Text"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "687b9ce51764b",
-      "description": "Extract batch data from a text to a graph database. See https://graph.syrtis.ai/",
-      "environment": {
-        "_ref": "687b9ce278b01",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Graph Request Long Text",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-graph-request-long-text",
     "sessionGroup_name": "test",

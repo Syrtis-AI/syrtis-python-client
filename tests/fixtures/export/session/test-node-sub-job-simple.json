@@ -3,67 +3,6 @@
     "_ref": "687b9ceaf39a9",
     "scenario": {
       "_ref": "687b9ceaf3e6a",
-      "card": [
-        {
-          "_ref": "687b9ceaf3f1a",
-          "job": {
-            "_ref": "687b9ceb1ced7",
-            "slot": [
-              {
-                "_ref": "687b9ceb1cf4d",
-                "node_type": "sub_job",
-                "positionX": 0,
-                "positionY": 0,
-                "slotConfig": [
-                  {
-                    "_ref": "687b9ceb1d40c",
-                    "expression": false,
-                    "name": "target_job",
-                    "slot_ref": "687b9ceb1cf4d",
-                    "value": 123
-                  },
-                  {
-                    "_ref": "687b9ceb1d7f7",
-                    "expression": false,
-                    "name": "target_job",
-                    "slot_ref": "687b9ceb1cf4d",
-                    "value": null,
-                    "value_ref": "687b9ceb1d689"
-                  }
-                ],
-                "slotMessage": [],
-                "title": "Sub Job",
-                "type": "start"
-              },
-              {
-                "_ref": "687b9ceb1df18",
-                "node_type": "null",
-                "positionX": 0,
-                "positionY": 0,
-                "slotConfig": [],
-                "slotMessage": [],
-                "title": "Null",
-                "type": "end"
-              }
-            ],
-            "slotRelation": [
-              {
-                "_ref": "687b9ceb1e7ad",
-                "portSource": "default",
-                "portTarget": "default",
-                "slotSource_ref": "687b9ceb1cf4d",
-                "slotTarget_ref": "687b9ceb1df18"
-              }
-            ],
-            "title": null
-          },
-          "message": [],
-          "scenario_ref": "687b9ceaf3e6a",
-          "scope": "default",
-          "title": "First card"
-        }
-      ],
-      "cardRelation": [],
       "defaultEntrypoint_ref": "687b9ceaf3f1a",
       "description": "Test simple call to a sub job",
       "environment": {
@@ -80,6 +19,7 @@
               "positionX": 0,
               "positionY": 0,
               "slotConfig": [],
+              "slotInput": [],
               "slotMessage": [],
               "title": "Null",
               "type": "end"
@@ -112,13 +52,41 @@
                   "value": 1024
                 }
               ],
+              "slotInput": [
+                {
+                  "part": "default",
+                  "blocks": [
+                    {
+                      "type": "selector",
+                      "source": "step",
+                      "name": null,
+                      "stamps": [
+                        "instruct"
+                      ],
+                      "contentType": "content/text",
+                      "limit": null,
+                      "template": null
+                    },
+                    {
+                      "type": "selector",
+                      "source": "request",
+                      "name": null,
+                      "stamps": [
+                        "chat"
+                      ],
+                      "contentType": "conversation/message",
+                      "limit": null,
+                      "template": null
+                    }
+                  ]
+                }
+              ],
               "slotMessage": [
                 {
                   "_ref": "687b9ceb4f9e4",
                   "collection": "default",
                   "contentType": null,
                   "direction": "input",
-                  "format": "text",
                   "max": 0,
                   "message": null,
                   "metadata": null,
@@ -134,15 +102,14 @@
                     }
                   ],
                   "slot_ref": "687b9ceb45787",
-                  "source": "card",
+                  "source": "step",
                   "type": "selector"
                 },
                 {
                   "_ref": "687b9ceb500c5",
                   "collection": "default",
-                  "contentType": "conversation",
+                  "contentType": "conversation/message",
                   "direction": "output",
-                  "format": "text",
                   "max": 0,
                   "message": null,
                   "metadata": null,
@@ -166,7 +133,6 @@
                   "collection": "default",
                   "contentType": null,
                   "direction": "input",
-                  "format": "text",
                   "max": 0,
                   "message": null,
                   "metadata": null,
@@ -203,7 +169,68 @@
         }
       ],
       "title": "Test Node Sub Job Simple",
-      "project_secureId": "test_project"
+      "project_secureId": "test_project",
+      "step": [
+        {
+          "_ref": "687b9ceaf3f1a",
+          "job": {
+            "_ref": "687b9ceb1ced7",
+            "slot": [
+              {
+                "_ref": "687b9ceb1cf4d",
+                "node_type": "sub_job",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [
+                  {
+                    "_ref": "687b9ceb1d40c",
+                    "expression": false,
+                    "name": "target_job",
+                    "slot_ref": "687b9ceb1cf4d",
+                    "value": "00000000-0000-7000-8000-000000000123"
+                  },
+                  {
+                    "_ref": "687b9ceb1d7f7",
+                    "expression": false,
+                    "name": "target_job",
+                    "slot_ref": "687b9ceb1cf4d",
+                    "value": null,
+                    "value_ref": "687b9ceb1d689"
+                  }
+                ],
+                "slotInput": [],
+                "slotMessage": [],
+                "title": "Sub Job",
+                "type": "start"
+              },
+              {
+                "_ref": "687b9ceb1df18",
+                "node_type": "null",
+                "positionX": 0,
+                "positionY": 0,
+                "slotConfig": [],
+                "slotInput": [],
+                "slotMessage": [],
+                "title": "Null",
+                "type": "end"
+              }
+            ],
+            "slotRelation": [
+              {
+                "_ref": "687b9ceb1e7ad",
+                "portSource": "default",
+                "portTarget": "default",
+                "slotSource_ref": "687b9ceb1cf4d",
+                "slotTarget_ref": "687b9ceb1df18"
+              }
+            ],
+            "title": null
+          },
+          "message": [],
+          "scenario_ref": "687b9ceaf3e6a",
+          "title": "First card"
+        }
+      ]
     },
     "secureId": "test-node-sub-job-simple",
     "sessionGroup_name": "test",

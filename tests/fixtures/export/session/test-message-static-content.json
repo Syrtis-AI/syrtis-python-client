@@ -3,7 +3,16 @@
     "_ref": "68f6016b30bdd",
     "scenario": {
       "_ref": "68f6016b311c4",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016b31219",
+      "description": "Test scenario to display expression parameters in rendered contents",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Message Static Content",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016b31219",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": 310,
                 "positionY": 10,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -25,6 +35,7 @@
                 "positionX": -390,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -45,8 +56,7 @@
             {
               "_ref": "68f6016b46497",
               "content": "This is a static message.",
-              "contentType": "conversation",
-              "format": "text",
+              "contentType": "conversation/message",
               "messageStamp": [
                 {
                   "_ref": "68f6016b468ae",
@@ -56,24 +66,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016b311c4",
-          "scope": "default",
           "title": "First card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016b31219",
-      "description": "Test scenario to display expression parameters in rendered contents",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Message Static Content",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-message-static-content",
     "sessionGroup_name": "test",

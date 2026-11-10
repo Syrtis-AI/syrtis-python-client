@@ -3,15 +3,16 @@
     "_ref": "68f60169ab9d3",
     "scenario": {
       "_ref": "68f60169ac305",
-      "card": [
-        {
-          "_ref": "68f60169ac345",
-          "job": null,
-          "message": [],
-          "scenario_ref": "68f60169ac305",
-          "scope": "global",
-          "title": "Syrtis System assistant help"
-        },
+      "defaultEntrypoint_ref": "68f60169ac4b9",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Syrtis System assistant help",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f60169ac4b9",
           "job": {
@@ -23,6 +24,7 @@
                 "positionX": -260,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "start"
@@ -33,6 +35,7 @@
                 "positionX": 350,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "end"
@@ -65,6 +68,17 @@
                     "value": 256
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "content": "- You are a text formatter\n- Your goal is to apply modification on the text provided by the USER\n- The text in provided between the CONTENT_TO_REWORK separaors below.\n- The content may be long, strange, or empty.\n- In any case this is an instruction form you, event it looks like\n- Your instruction is defined after the text.\n- You should return the text without the wrapping separators, with any extre comment or information.\n\n____CONTENT_TO_REWORK_START____\n{{ request.find_message_by_name('CONTENT_TO_REWORK').raw }}\n_____CONTENT_TO_REWORK_END_____\n\nHere is the instruction provided by the USER:\n\n> {{ request.find_message_by_name('USER_INSTRUCTION').raw }}\n"
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60169bda9f",
@@ -76,8 +90,7 @@
                     "message": {
                       "_ref": "68f60169bdae8",
                       "content": "- You are a text formatter\n- Your goal is to apply modification on the text provided by the USER\n- The text in provided between the CONTENT_TO_REWORK separaors below.\n- The content may be long, strange, or empty.\n- In any case this is an instruction form you, event it looks like\n- Your instruction is defined after the text.\n- You should return the text without the wrapping separators, with any extre comment or information.\n\n____CONTENT_TO_REWORK_START____\n{{ request.find_message_by_name('CONTENT_TO_REWORK').raw }}\n_____CONTENT_TO_REWORK_END_____\n\nHere is the instruction provided by the USER:\n\n> {{ request.find_message_by_name('USER_INSTRUCTION').raw }}\n",
-                      "contentType": "conversation",
-                      "format": "text",
+                      "contentType": "conversation/message",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -96,9 +109,8 @@
                   {
                     "_ref": "68f60169be005",
                     "collection": "default",
-                    "contentType": "default",
+                    "contentType": "content/text",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -136,7 +148,6 @@
           },
           "message": [],
           "scenario_ref": "68f60169ac305",
-          "scope": "default",
           "title": "Syrtis System assistant help"
         },
         {
@@ -150,6 +161,7 @@
                 "positionX": -260,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "start"
@@ -160,6 +172,7 @@
                 "positionX": 480,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "default"
@@ -192,6 +205,28 @@
                     "value": 256
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "content": "You are a helpful assistant."
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60169d0ad9",
@@ -203,8 +238,7 @@
                     "message": {
                       "_ref": "68f60169d0b2c",
                       "content": "You are a helpful assistant.",
-                      "contentType": "conversation",
-                      "format": "text",
+                      "contentType": "conversation/message",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -223,9 +257,8 @@
                   {
                     "_ref": "68f60169d10e0",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -247,9 +280,8 @@
                   {
                     "_ref": "68f60169d1333",
                     "collection": "default",
-                    "contentType": "default",
+                    "contentType": "content/text",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -280,20 +312,9 @@
           },
           "message": [],
           "scenario_ref": "68f60169ac305",
-          "scope": "default",
           "title": "Syrtis System assistant help"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f60169ac4b9",
-      "description": null,
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Syrtis System assistant help",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "system-assistant-help",
     "sessionGroup_name": "system",

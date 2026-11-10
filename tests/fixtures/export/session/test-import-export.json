@@ -3,7 +3,54 @@
     "_ref": "68f6016a7b5cc",
     "scenario": {
       "_ref": "68f6016a7bd05",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016a7bd42",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [
+        {
+          "_ref": "68f6016a8f6e4",
+          "slot": [
+            {
+              "_ref": "68f6016ab82f6",
+              "node_type": "null",
+              "positionX": 0,
+              "positionY": 0,
+              "slotConfig": [],
+              "slotInput": [],
+              "slotMessage": [],
+              "title": "SCENARIO_LEVEL_NULL_ONE",
+              "type": "start"
+            },
+            {
+              "_ref": "68f6016ab8606",
+              "node_type": "null",
+              "positionX": 300,
+              "positionY": 0,
+              "slotConfig": [],
+              "slotInput": [],
+              "slotMessage": [],
+              "title": "SCENARIO_LEVEL_NULL_TWO",
+              "type": "end"
+            }
+          ],
+          "slotRelation": [
+            {
+              "_ref": "68f6016ab89e0",
+              "portSource": "default",
+              "portTarget": "default",
+              "slotSource_ref": "68f6016ab82f6",
+              "slotTarget_ref": "68f6016ab8606"
+            }
+          ],
+          "title": "Scenario level job"
+        }
+      ],
+      "title": "Test Import Export",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016a7bd42",
           "job": {
@@ -15,6 +62,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "SIMPLE_NULL_ONE",
                 "type": "start"
@@ -34,6 +82,7 @@
                     "value_ref": "68f6016a8f6e4"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "SCENARIO_LEVEL_SUB_JOB",
                 "type": "end"
@@ -52,7 +101,6 @@
           },
           "message": [],
           "scenario_ref": "68f6016a7bd05",
-          "scope": "default",
           "title": "Test Import Export"
         },
         {
@@ -66,6 +114,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "SIMPLE_NULL_TWO",
                 "type": "start"
@@ -81,9 +130,10 @@
                     "expression": false,
                     "name": "target_job",
                     "slot_ref": "68f6016aa5509",
-                    "value": 999
+                    "value": "00000000-0000-7000-8000-000000000999"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "GLOBAL_SUB_JOB",
                 "type": "end"
@@ -102,62 +152,9 @@
           },
           "message": [],
           "scenario_ref": "68f6016a7bd05",
-          "scope": "default",
           "title": "New card"
         }
-      ],
-      "cardRelation": [
-        {
-          "_ref": "68f6016a7bd27",
-          "cardSource_ref": "68f6016a7bd42",
-          "cardTarget_ref": "68f6016a7bd56"
-        }
-      ],
-      "defaultEntrypoint_ref": "68f6016a7bd42",
-      "description": null,
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [
-        {
-          "_ref": "68f6016a8f6e4",
-          "slot": [
-            {
-              "_ref": "68f6016ab82f6",
-              "node_type": "null",
-              "positionX": 0,
-              "positionY": 0,
-              "slotConfig": [],
-              "slotMessage": [],
-              "title": "SCENARIO_LEVEL_NULL_ONE",
-              "type": "start"
-            },
-            {
-              "_ref": "68f6016ab8606",
-              "node_type": "null",
-              "positionX": 300,
-              "positionY": 0,
-              "slotConfig": [],
-              "slotMessage": [],
-              "title": "SCENARIO_LEVEL_NULL_TWO",
-              "type": "end"
-            }
-          ],
-          "slotRelation": [
-            {
-              "_ref": "68f6016ab89e0",
-              "portSource": "default",
-              "portTarget": "default",
-              "slotSource_ref": "68f6016ab82f6",
-              "slotTarget_ref": "68f6016ab8606"
-            }
-          ],
-          "title": "Scenario level job"
-        }
-      ],
-      "title": "Test Import Export",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-import-export",
     "sessionGroup_name": "test",

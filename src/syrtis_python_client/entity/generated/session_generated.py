@@ -14,6 +14,9 @@ class SessionGenerated:
     def dateLastAccess(cls) -> Mapped[object]:
         return mapped_column('date_last_access', DateTime, nullable=True)
     @declared_attr
+    def origin(cls) -> Mapped[object]:
+        return mapped_column(String(30), nullable=False)
+    @declared_attr
     def secureId(cls) -> Mapped[object]:
         return mapped_column('secure_id', String(255), nullable=False)
     @declared_attr
@@ -21,7 +24,16 @@ class SessionGenerated:
         return mapped_column(String(30), nullable=False)
     @declared_attr
     def title(cls) -> Mapped[object]:
-        return mapped_column(String(255), nullable=False)
+        return mapped_column(String(255), nullable=True)
+    @declared_attr
+    def ip(cls) -> Mapped[object]:
+        return mapped_column(String(45), nullable=True)
+    @declared_attr
+    def userAgent(cls) -> Mapped[object]:
+        return mapped_column('user_agent', String(512), nullable=True)
+    @declared_attr
+    def locale(cls) -> Mapped[object]:
+        return mapped_column(String(35), nullable=True)
 
     @declared_attr
     def user_id(cls) -> Mapped[object]:
@@ -44,3 +56,9 @@ class SessionGenerated:
     @declared_attr
     def session_group_id(cls) -> Mapped[object]:
         return mapped_column(Uuid, nullable=False)
+    @declared_attr
+    def token_id(cls) -> Mapped[object]:
+        return mapped_column(Uuid, nullable=True)
+    @declared_attr
+    def country_id(cls) -> Mapped[object]:
+        return mapped_column(Uuid, nullable=True)

@@ -1,4 +1,4 @@
-from sqlalchemy import DateTime, Float, ForeignKey, Integer, String, Text, Uuid
+from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, String, Text, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -40,6 +40,9 @@ class ScenarioGenerated:
     @declared_attr
     def datePublished(cls) -> Mapped[object]:
         return mapped_column('date_published', String, nullable=True)
+    @declared_attr
+    def archived(cls) -> Mapped[object]:
+        return mapped_column(Boolean, nullable=False)
 
     @declared_attr
     def user_id(cls) -> Mapped[object]:
@@ -50,12 +53,6 @@ class ScenarioGenerated:
     @declared_attr
     def project_id(cls) -> Mapped[object]:
         return mapped_column(Uuid, nullable=False)
-    @declared_attr
-    def environment_id(cls) -> Mapped[object]:
-        return mapped_column(Uuid, ForeignKey('environment.id'), nullable=False)
-    @declared_attr
-    def environment(cls) -> Mapped[object]:
-        return relationship('Environment', foreign_keys='Scenario.environment_id', lazy='select')
     @declared_attr
     def previous_version_id(cls) -> Mapped[object]:
         return mapped_column(Uuid, ForeignKey('scenario.id'), nullable=True)

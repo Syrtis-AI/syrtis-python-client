@@ -7,11 +7,10 @@
       "name": "production",
       "_ref": "9a33054efd894"
     },
-    "card": [],
-    "cardRelation": [],
     "job": [],
     "_ref": "943b23229d334",
-    "project_secureId": "test_project"
+    "project_secureId": "test_project",
+    "step": []
   },
   "type": "single",
   "entity": "scenario"

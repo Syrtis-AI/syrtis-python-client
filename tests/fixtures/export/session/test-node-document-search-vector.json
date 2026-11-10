@@ -3,7 +3,16 @@
     "_ref": "68f6016f80587",
     "scenario": {
       "_ref": "68f6016f809b6",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016f80a4e",
+      "description": "Test scenario to search document using vector search",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Document Search Vector",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016f80a4e",
           "job": {
@@ -37,13 +46,52 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "data"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016f9e0cf",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -59,15 +107,14 @@
                       }
                     ],
                     "slot_ref": "68f6016f9d59a",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016f9e386",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -91,7 +138,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -107,7 +153,7 @@
                       }
                     ],
                     "slot_ref": "68f6016f9d59a",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
@@ -115,7 +161,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -152,13 +197,30 @@
                     "value": "doc_test_banana"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016f9f3a9",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -182,7 +244,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -221,8 +282,7 @@
             {
               "_ref": "68f6016fa025a",
               "content": "Reply with the data retrieved from the database. Do not invent any information that is not from it, and do not draw on your personal knowledge.",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "68f6016fa06e4",
@@ -232,24 +292,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016f809b6",
-          "scope": "default",
           "title": "First card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016f80a4e",
-      "description": "Test scenario to search document using vector search",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Document Search Vector",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-document-search-vector",
     "sessionGroup_name": "test",

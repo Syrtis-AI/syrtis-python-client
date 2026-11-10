@@ -3,7 +3,16 @@
     "_ref": "68f6016d98aba",
     "scenario": {
       "_ref": "68f6016d992f6",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016d99344",
+      "description": "Test scenario to verify message in bag has given content type. To pass the second card, you should upload a file using  \ud83d\udcce .",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Condition Content Type",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016d99344",
           "job": {
@@ -18,11 +27,12 @@
                   {
                     "_ref": "68f6016dc88c0",
                     "expression": false,
-                    "name": "destination_card_shortcut",
+                    "name": "destination_step_id",
                     "slot_ref": "68f6016dc8612",
-                    "value": "next"
+                    "value": "@step:Final card"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Navigate",
                 "type": "default"
@@ -55,13 +65,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016dc9630",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -77,15 +115,14 @@
                       }
                     ],
                     "slot_ref": "68f6016dc8ae7",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016dc98c8",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -109,7 +146,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -160,13 +196,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016dca930",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -182,15 +246,14 @@
                       }
                     ],
                     "slot_ref": "68f6016dc9de3",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016dcabac",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -214,7 +277,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -258,13 +320,28 @@
                     "value": "AND"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [],
+                        "contentType": "core/upload",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016dcb7d4",
                     "collection": "default",
-                    "contentType": "upload",
+                    "contentType": "core/upload",
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -318,8 +395,7 @@
             {
               "_ref": "68f6016dcc640",
               "content": "This card will test if a message with the given content type",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "68f6016dcca92",
@@ -329,11 +405,10 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016d992f6",
-          "scope": "default",
           "title": "First card"
         },
         {
@@ -347,6 +422,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -357,6 +433,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -377,8 +454,7 @@
             {
               "_ref": "68f6016dec304",
               "content": "This is the end of this scenario",
-              "contentType": "conversation",
-              "format": "text",
+              "contentType": "conversation/message",
               "messageStamp": [
                 {
                   "_ref": "68f6016dec6f4",
@@ -388,30 +464,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016d992f6",
-          "scope": "default",
           "title": "Final card"
         }
-      ],
-      "cardRelation": [
-        {
-          "_ref": "68f6016d9931e",
-          "cardSource_ref": "68f6016d99344",
-          "cardTarget_ref": "68f6016d9935e"
-        }
-      ],
-      "defaultEntrypoint_ref": "68f6016d99344",
-      "description": "Test scenario to verify message in bag has given content type. To pass the second card, you should upload a file using  \ud83d\udcce .",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Condition Content Type",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-condition-content-type",
     "sessionGroup_name": "test",

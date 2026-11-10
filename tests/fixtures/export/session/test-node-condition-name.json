@@ -3,7 +3,16 @@
     "_ref": "68f6016e978b1",
     "scenario": {
       "_ref": "68f6016e983d7",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016e9846e",
+      "description": "Test scenario to verify message in bag has given name. You should send a message named \"end.session.message\" to terminate this scenario",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Condition Name",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016e9846e",
           "job": {
@@ -30,13 +39,28 @@
                     "value": "AND"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": "end.session.message",
+                        "stamps": [],
+                        "contentType": null,
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016eda130",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -81,13 +105,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016edaecd",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -103,15 +155,14 @@
                       }
                     ],
                     "slot_ref": "68f6016eda349",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016edb179",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -135,7 +186,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -167,11 +217,12 @@
                   {
                     "_ref": "68f6016edb918",
                     "expression": false,
-                    "name": "destination_card_shortcut",
+                    "name": "destination_step_id",
                     "slot_ref": "68f6016edb6ca",
-                    "value": "next"
+                    "value": "@step:Final card"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Navigate",
                 "type": "default"
@@ -204,13 +255,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016edc763",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -226,15 +305,14 @@
                       }
                     ],
                     "slot_ref": "68f6016edbb63",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016edca34",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -258,7 +336,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -318,8 +395,7 @@
             {
               "_ref": "68f6016eddbe9",
               "content": "This card will test if a message with a specific name.\nAsk the user to send a message named \"end.session.message\" using the \u2699\ufe0f icon below to terminate this scenario",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "68f6016ede12c",
@@ -329,11 +405,10 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016e983d7",
-          "scope": "default",
           "title": "First card"
         },
         {
@@ -347,6 +422,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -357,6 +433,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -377,8 +454,7 @@
             {
               "_ref": "68f6016f04ef9",
               "content": "This is the end of this scenario",
-              "contentType": "conversation",
-              "format": "text",
+              "contentType": "conversation/message",
               "messageStamp": [
                 {
                   "_ref": "68f6016f05419",
@@ -388,30 +464,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016e983d7",
-          "scope": "default",
           "title": "Final card"
         }
-      ],
-      "cardRelation": [
-        {
-          "_ref": "68f6016e98424",
-          "cardSource_ref": "68f6016e9846e",
-          "cardTarget_ref": "68f6016e984b0"
-        }
-      ],
-      "defaultEntrypoint_ref": "68f6016e9846e",
-      "description": "Test scenario to verify message in bag has given name. You should send a message named \"end.session.message\" to terminate this scenario",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Condition Name",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-condition-name",
     "sessionGroup_name": "test",

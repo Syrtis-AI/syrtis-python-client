@@ -1,10 +1,13 @@
 {
   "version": "0.2.3",
   "data": {
+    "_ref": "04316d70f6604",
+    "color": null,
+    "description": null,
+    "job_title": "ANOTHER_TEST_SIMPLE_JOB",
     "node_type": "model_reason",
     "positionX": 0,
     "positionY": 0,
-    "job_title": "ANOTHER_TEST_SIMPLE_JOB",
     "slotConfig": [
       {
         "expression": false,
@@ -19,10 +22,12 @@
         "_ref": "f13a8e1202424"
       }
     ],
+    "slotInput": [],
+    "slotMarking": [],
     "slotMessage": [],
+    "slotOutputMessage": [],
     "title": "Model slot",
-    "type": "end",
-    "_ref": "04316d70f6604"
+    "type": "default"
   },
   "type": "single",
   "entity": "slot"

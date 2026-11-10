@@ -1,9 +1,8 @@
 {
   "version": "0.2.3",
   "data": {
-    "format": "text",
     "origin": "node",
-    "contentType": "default",
+    "contentType": "content/text",
     "content": "This is a message with stamps",
     "messageStamp": [
       {

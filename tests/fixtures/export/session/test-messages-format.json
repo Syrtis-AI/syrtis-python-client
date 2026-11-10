@@ -3,15 +3,16 @@
     "_ref": "68f6016b7ac20",
     "scenario": {
       "_ref": "68f6016b7b32a",
-      "card": [
-        {
-          "_ref": "68f6016b7b39e",
-          "job": null,
-          "message": [],
-          "scenario_ref": "68f6016b7b32a",
-          "scope": "global",
-          "title": "Test messages format"
-        },
+      "defaultEntrypoint_ref": "68f6016b7b531",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test messages format",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016b7b531",
           "job": {
@@ -23,6 +24,7 @@
                 "positionX": -640,
                 "positionY": -30,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "start"
@@ -33,6 +35,7 @@
                 "positionX": 2290,
                 "positionY": -20,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "default"
@@ -43,6 +46,7 @@
                 "positionX": -350,
                 "positionY": -90,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c3583d",
@@ -54,8 +58,7 @@
                     "message": {
                       "_ref": "68f6016c358ab",
                       "content": "This is a simple message",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -81,6 +84,7 @@
                 "positionX": -330,
                 "positionY": 30,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c365e5",
@@ -92,8 +96,7 @@
                     "message": {
                       "_ref": "68f6016c366b3",
                       "content": "This is a chat message",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c36b02",
@@ -125,6 +128,7 @@
                 "positionX": 330,
                 "positionY": -190,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c372f7",
@@ -136,8 +140,7 @@
                     "message": {
                       "_ref": "68f6016c3739d",
                       "content": "{\n  \"message\": \"This is an info notification.\"\n}",
-                      "contentType": "info",
-                      "format": "json",
+                      "contentType": "web/info",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c37820",
@@ -169,6 +172,7 @@
                 "positionX": 330,
                 "positionY": -90,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c3812c",
@@ -180,8 +184,7 @@
                     "message": {
                       "_ref": "68f6016c381a3",
                       "content": "{\n\"message\": \"This is a warning message\"\n}",
-                      "contentType": "warning",
-                      "format": "json",
+                      "contentType": "core/warning",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c385c6",
@@ -213,6 +216,7 @@
                 "positionX": 330,
                 "positionY": 20,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c38df0",
@@ -224,8 +228,7 @@
                     "message": {
                       "_ref": "68f6016c38ec4",
                       "content": "{\n\"message\": \"This is an error message\"\n}",
-                      "contentType": "error",
-                      "format": "json",
+                      "contentType": "core/error",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c39380",
@@ -257,6 +260,7 @@
                 "positionX": 660,
                 "positionY": -120,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c39b6e",
@@ -268,8 +272,7 @@
                     "message": {
                       "_ref": "68f6016c39bf0",
                       "content": "{\n  \"options\": {\n    \"choice_1\": \"First choice\",\n    \"choice_2\": \"Second choice\",\n    \"choice_3\": \"Third choice\"\n  },\n  \"name\":\"chosen_action\"\n}",
-                      "contentType": "actions",
-                      "format": "json",
+                      "contentType": "conversation/actions",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3a12c",
@@ -301,6 +304,7 @@
                 "positionX": 990,
                 "positionY": -120,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c3a9c6",
@@ -312,8 +316,7 @@
                     "message": {
                       "_ref": "68f6016c3aae0",
                       "content": "{\n  \"total\": 100,\n  \"current\": 0,\n  \"label\": \"Progress starts...\"\n}",
-                      "contentType": "progress",
-                      "format": "json",
+                      "contentType": "core/progress",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3aed9",
@@ -345,6 +348,7 @@
                 "positionX": 990,
                 "positionY": -20,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c3b675",
@@ -356,8 +360,7 @@
                     "message": {
                       "_ref": "68f6016c3b6dd",
                       "content": "{\n  \"total\": 100,\n  \"current\": 50,\n  \"label\": \"Half Progress\"\n}",
-                      "contentType": "progress",
-                      "format": "json",
+                      "contentType": "core/progress",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3babf",
@@ -389,6 +392,7 @@
                 "positionX": 990,
                 "positionY": 80,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c3c219",
@@ -400,8 +404,7 @@
                     "message": {
                       "_ref": "68f6016c3c27e",
                       "content": "{\n  \"total\": 100,\n  \"current\": 100,\n  \"label\": \"Progress completed!\"\n}",
-                      "contentType": "progress",
-                      "format": "json",
+                      "contentType": "core/progress",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3c634",
@@ -433,6 +436,7 @@
                 "positionX": 660,
                 "positionY": -20,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c3ce40",
@@ -444,8 +448,7 @@
                     "message": {
                       "_ref": "68f6016c3cec1",
                       "content": "{\n  \"data\": [\n    {\n      \"label\": \"Server status is healthy\",\n      \"icon\": \"\ud83d\udfe2\"\n    },\n    {\n      \"label\": \"Database connection established\", \n      \"icon\": \"\u2705\"\n    },\n    {\n      \"label\": \"Cache service unavailable\",\n      \"icon\": \"\ud83d\udd34\"\n    },\n    {\n      \"label\": \"Backup completed successfully\",\n      \"icon\": \"\ud83d\udcbe\"\n    },\n    {\n      \"label\": \"Security scan in progress\",\n      \"icon\": \"\ud83d\udd0d\"\n    },\n    {\n      \"label\": \"User authentication active\",\n      \"icon\": \"\ud83d\udd10\"\n    }\n  ]\n}",
-                      "contentType": "list",
-                      "format": "json",
+                      "contentType": "core/list",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3d219",
@@ -477,6 +480,7 @@
                 "positionX": 660,
                 "positionY": 80,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c3d8ff",
@@ -488,8 +492,7 @@
                     "message": {
                       "_ref": "68f6016c3d969",
                       "content": "{\n  \"data\": [\n    {\n      \"label\": \"Deploy application to production server\",\n      \"icon\": \"\u2713\",\n      \"type\": \"success\"\n    },\n    {\n      \"label\": \"Update database schema migration\", \n      \"icon\": \"\u2713\",\n      \"type\": \"success\"\n    },\n    {\n      \"label\": \"Configure SSL certificates for domain\",\n      \"icon\": \"\u2717\"\n    },\n    {\n      \"label\": \"Set up automated backup system\",\n      \"icon\": \"\u2717\"\n    }\n  ]\n}",
-                      "contentType": "list",
-                      "format": "json",
+                      "contentType": "core/list",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3dd0e",
@@ -521,6 +524,7 @@
                 "positionX": 1310,
                 "positionY": -40,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c3e31a",
@@ -532,8 +536,7 @@
                     "message": {
                       "_ref": "68f6016c3e381",
                       "content": "{\n  \"fields\": [\n    {\n      \"name\": \"username\",\n      \"type\": \"text\",\n      \"label\": \"Username\",\n      \"placeholder\": \"Enter your username\",\n      \"required\": true,\n      \"value\": \"\"\n    },\n    {\n      \"name\": \"email\",\n      \"type\": \"email\", \n      \"label\": \"Email Address\",\n      \"placeholder\": \"your@email.com\",\n      \"required\": true\n    },\n    {\n      \"name\": \"message\",\n      \"type\": \"textarea\",\n      \"label\": \"Message\",\n      \"placeholder\": \"Your message here...\",\n      \"required\": false\n    },\n    {\n      \"name\": \"category\",\n      \"type\": \"select\",\n      \"label\": \"Category\",\n      \"placeholder\": \"Choose a category\",\n      \"options\": [\n        {\"value\": \"bug\", \"label\": \"Bug Report\"},\n        {\"value\": \"feature\", \"label\": \"Feature Request\"}\n      ]\n    },\n    {\n      \"name\": \"newsletter\",\n      \"type\": \"checkbox\",\n      \"label\": \"Subscribe\",\n      \"description\": \"Subscribe to newsletter\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"name\": \"submit\",\n      \"label\": \"Submit Form\",\n      \"type\": \"primary\"\n    },\n    {\n      \"name\": \"cancel\", \n      \"label\": \"Cancel\",\n      \"type\": \"secondary\"\n    }\n  ]\n}",
-                      "contentType": "form",
-                      "format": "json",
+                      "contentType": "core/form",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3e6e4",
@@ -565,6 +568,7 @@
                 "positionX": 1620,
                 "positionY": -40,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c3ed99",
@@ -576,8 +580,7 @@
                     "message": {
                       "_ref": "68f6016c3ee03",
                       "content": "This is a success message! Congratulations!",
-                      "contentType": "success",
-                      "format": "text",
+                      "contentType": "web/success",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3f1c1",
@@ -609,6 +612,7 @@
                 "positionX": -10,
                 "positionY": -90,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c3f95e",
@@ -620,8 +624,7 @@
                     "message": {
                       "_ref": "68f6016c3f9cf",
                       "content": "{\n  \"url\": \"https://picsum.photos/id/237/300/100\",\n  \"alt\": \"A dog\"\n}",
-                      "contentType": "image",
-                      "format": "json",
+                      "contentType": "core/image",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3fd8d",
@@ -653,6 +656,7 @@
                 "positionX": -10,
                 "positionY": 20,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016c4046b",
@@ -664,8 +668,7 @@
                     "message": {
                       "_ref": "68f6016c404e1",
                       "content": "{\"url\" : \"https://www.youtube.com/watch?v=L7i7LtPiOZg\"}",
-                      "contentType": "video",
-                      "format": "json",
+                      "contentType": "core/video",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c408c3",
@@ -700,11 +703,12 @@
                   {
                     "_ref": "68f6016c40dae",
                     "expression": false,
-                    "name": "destination_card_shortcut",
+                    "name": "destination_step_id",
                     "slot_ref": "68f6016c40aa7",
-                    "value": "first"
+                    "value": "@step:Test messages format"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "NAVIGATE",
                 "type": "default"
@@ -828,20 +832,9 @@
           },
           "message": [],
           "scenario_ref": "68f6016b7b32a",
-          "scope": "default",
           "title": "Test messages format"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016b7b531",
-      "description": null,
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test messages format",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-messages-format",
     "sessionGroup_name": "test",

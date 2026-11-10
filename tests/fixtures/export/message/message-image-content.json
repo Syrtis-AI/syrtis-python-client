@@ -1,9 +1,8 @@
 {
   "version": "0.2.3",
   "data": {
-    "format": "text",
     "origin": "user",
-    "contentType": "image",
+    "contentType": "core/image",
     "content": "https://example.com/image.jpg",
     "_ref": "0d9e643e27244"
   },

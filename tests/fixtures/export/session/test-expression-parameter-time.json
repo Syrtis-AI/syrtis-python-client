@@ -3,7 +3,16 @@
     "_ref": "68f6016a63a01",
     "scenario": {
       "_ref": "68f6016a63fb4",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016a64039",
+      "description": "Test scenario to display expression parameters in rendered contents",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Expression Parameter Time",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016a64039",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -47,13 +57,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016a79a5c",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -69,15 +107,14 @@
                       }
                     ],
                     "slot_ref": "68f6016a78bc1",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016a79d30",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -101,7 +138,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -140,8 +176,7 @@
             {
               "_ref": "68f6016a7a6f5",
               "content": "The current date is \"{{ date.now() }}\", and the current time is {{ time.now() }}",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "68f6016a7aaab",
@@ -151,24 +186,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016a63fb4",
-          "scope": "default",
           "title": "First card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016a64039",
-      "description": "Test scenario to display expression parameters in rendered contents",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Expression Parameter Time",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-expression-parameter-time",
     "sessionGroup_name": "test",

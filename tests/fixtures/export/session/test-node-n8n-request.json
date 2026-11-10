@@ -3,7 +3,16 @@
     "_ref": "687b9ce8c27db",
     "scenario": {
       "_ref": "687b9ce8c2d50",
-      "card": [
+      "defaultEntrypoint_ref": "687b9ce8c2e1a",
+      "description": "Simple data exchange with Syrtis n8n",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node N8N",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "687b9ce8c2e1a",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": 230,
                 "positionY": 30,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "end"
@@ -61,6 +71,7 @@
                     "value": "{\n  \"static\": \"test\",\n  \"expression\": \"{{ request.find_message_by_stamp_name('chat').render() }}\"\n}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "n8n",
                 "type": "start"
@@ -79,20 +90,9 @@
           },
           "message": [],
           "scenario_ref": "687b9ce8c2d50",
-          "scope": "default",
           "title": "[MF] n8n base"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "687b9ce8c2e1a",
-      "description": "Simple data exchange with Syrtis n8n",
-      "environment": {
-        "_ref": "687b9ce278b01",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node N8N",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-n8n-request",
     "sessionGroup_name": "test",

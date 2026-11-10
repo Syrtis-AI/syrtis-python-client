@@ -3,7 +3,16 @@
     "_ref": "68f6016a288c5",
     "scenario": {
       "_ref": "68f6016a28db4",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016a28dfa",
+      "description": "Test scenario to display expression parameters in rendered contents",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Expression Parameter Messages Bag",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016a28dfa",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -47,13 +57,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016a3a6be",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -69,15 +107,14 @@
                       }
                     ],
                     "slot_ref": "68f6016a39cf8",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016a3a92e",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -101,7 +138,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -140,8 +176,7 @@
             {
               "_ref": "68f6016a3b03c",
               "content": "The current messages bag contains {{ messages_bag.count() }} messages. The test message is: \"{{ messages_bag.find_message_by_name(name='test.message.with.name').content }}\"",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "68f6016a3b379",
@@ -151,34 +186,22 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             },
             {
               "_ref": "68f6016a3b3bc",
               "content": "The carrot is optimistic",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [],
               "metadata": null,
               "name": "test.message.with.name",
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016a28db4",
-          "scope": "default",
           "title": "First card"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016a28dfa",
-      "description": "Test scenario to display expression parameters in rendered contents",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Expression Parameter Messages Bag",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-expression-parameter-messages-bag",
     "sessionGroup_name": "test",

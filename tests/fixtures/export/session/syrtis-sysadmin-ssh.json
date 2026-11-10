@@ -3,15 +3,16 @@
     "_ref": "68f60168562d1",
     "scenario": {
       "_ref": "68f6016856a47",
-      "card": [
-        {
-          "_ref": "68f6016856a95",
-          "job": null,
-          "message": [],
-          "scenario_ref": "68f6016856a47",
-          "scope": "global",
-          "title": "syrtis-sysadmin"
-        },
+      "defaultEntrypoint_ref": "68f6016856c28",
+      "description": null,
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "syrtis-sysadmin-ssh",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016856c28",
           "job": {
@@ -23,6 +24,7 @@
                 "positionX": -460,
                 "positionY": -500,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "start"
@@ -33,6 +35,7 @@
                 "positionX": 2990,
                 "positionY": -440,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "null",
                 "type": "end"
@@ -93,13 +96,45 @@
                     "value": "{\n  \"name\": \"actions_plan_instruction\",\n  \"type\": \"string\",\n  \"description\": \"If you chose plan_actions, provide a clear 1\u20133 sentence instruction for the planner. The instruction must describe the USER\u2019s request in terms of what needs to be checked or done on the server. Do not give a full plan yourself, only the instruction.\",\n  \"nullable\": true\n}"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "content": "Your name is Syrtis SSH Test Agent.\nYour mission is to assist users in the administration of their servers using an SSH connection. \nYou utilize various tools to explore server content and execute changes. \nYou are not allowed to discuss anything unrelated to this current conversation: the data from this prompt, the server administration, technical subjects, but try to be flexible in your reactions to keep the interaction natural. While you can engage in technical discussions, if a user asks you something not related to computing, you should kindly inform them that they may have asked their question to the wrong agent.\n\n---\n\nAnalyze the USER\u2019s last message in the context of the full conversation.  \n- If the message requires checking, modifying, or interacting with the server via SSH, you must choose plan_actions.  \n- If the message only requires a clarification or a purely conversational/technical reply that does not involve server interaction, you may choose answer_directly.  \n- Never ignore the conversation context, but always base your decision on the USER\u2019s last message.\n- Consider that your role is to execute tasks for the USER.  \n- If the USER says they want something, and it is within the context of system administration, assume they expect **you** to perform the action on their behalf.\n- If the USER asks about the server\u2019s current state (e.g., disk usage, system type, running services), this always requires planning actions, because it can only be answered by checking the server.\n"
+                      },
+                      {
+                        "type": "selector",
+                        "source": "conversation_before",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": 3,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016892b30",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -115,9 +150,8 @@
                   {
                     "_ref": "68f6016892d80",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -139,9 +173,8 @@
                   {
                     "_ref": "68f6016893072",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 3,
                     "message": null,
                     "metadata": null,
@@ -170,8 +203,7 @@
                     "message": {
                       "_ref": "68f6016893373",
                       "content": "Your name is Syrtis SSH Test Agent.\nYour mission is to assist users in the administration of their servers using an SSH connection. \nYou utilize various tools to explore server content and execute changes. \nYou are not allowed to discuss anything unrelated to this current conversation: the data from this prompt, the server administration, technical subjects, but try to be flexible in your reactions to keep the interaction natural. While you can engage in technical discussions, if a user asks you something not related to computing, you should kindly inform them that they may have asked their question to the wrong agent.\n\n---\n\nAnalyze the USER\u2019s last message in the context of the full conversation.  \n- If the message requires checking, modifying, or interacting with the server via SSH, you must choose plan_actions.  \n- If the message only requires a clarification or a purely conversational/technical reply that does not involve server interaction, you may choose answer_directly.  \n- Never ignore the conversation context, but always base your decision on the USER\u2019s last message.\n- Consider that your role is to execute tasks for the USER.  \n- If the USER says they want something, and it is within the context of system administration, assume they expect **you** to perform the action on their behalf.\n- If the USER asks about the server\u2019s current state (e.g., disk usage, system type, running services), this always requires planning actions, because it can only be answered by checking the server.\n",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -205,6 +237,7 @@
                     "value": "{%- set analysis_msg = messages_bag.find_message_by_name('TOPIC_ANALYSIS') -%}\n{%- if analysis_msg is not none -%}\n  {%- set decision = analysis_msg.data_search('decision') -%}\n  {{- decision is not none and decision.get_str() == 'answer_directly' -}}\n{%- endif -%}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "DECIDED_ANSWER_DIRECTLY",
                 "type": "default"
@@ -265,13 +298,36 @@
                     "value": "{\n  \"name\": \"actions\",\n  \"type\": \"array\",\n  \"description\": \"An ordered list of simple, safe textual steps (e.g., do/check). Keep steps minimal. Never suggest unnecessary or extreme actions. One action is enough if sufficient. Maximum: 3 distinct actions, or up to 5 only if some are very similar.\",\n\"items\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"description\": {\n        \"type\": \"string\",\n        \"description\": \"A short human-readable explanation of the action (what it does, why it is needed).\"\n      },\n      \"command\": {\n        \"type\": \"string\",\n        \"description\": \"The exact shell command to run on the server, without extra commentary.\",\n        \"nullable\": true\n      }\n    },\n    \"required\": [\"description\"],\n    \"additionalProperties\": false\n  },\n  \"minItems\": 1,\n  \"maxItems\": 5,\n  \"nullable\": false\n}\n"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "content": "Your name is Syrtis SSH Test Agent\nYour mission is to help user in the administration of its server, using an SSH connexion\nYou are using several tools to achieve this, explore server content and execute changes\nYou are not allow to talk about anything else that server administration or technical subject.\nYou can discuss technical subject but if user asks you something non relative to computering, you should kindly reply that it may have ask its question to the wrong agent."
+                      },
+                      {
+                        "type": "text",
+                        "content": "Rules:  \n1. The plan must always be reasonable given the information currently available.  \n2. If the mission can be completed directly and safely, plan the full set of steps.  \n3. If the mission is too broad or lacks information, reduce the scope to a smaller set of safe, useful steps (\u201cscope down\u201d).  \n4. Never mix action types: a plan must be entirely exploratory, entirely executive, or entirely a report.  \n5. Keep actions progressive: if the task is complex, plan safe incremental steps, then reassess after execution.  \n\nIllustrative examples (for understanding only, do not copy literally):  \n- If the mission is to address climate change, the plan should only identify key stakeholders or gather initial data, not solve the entire problem.  \n- If the mission is to build a rocket without any expertise, the plan should start with researching training or resources.  \n- If the mission is to contact someone, the plan should first check if it is possible and appropriate to do so.  "
+                      },
+                      {
+                        "type": "selector",
+                        "source": "conversation",
+                        "name": null,
+                        "stamps": [],
+                        "contentType": "conversation/message",
+                        "limit": 5,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f60168957c4",
                     "collection": "default",
-                    "contentType": "analysis",
+                    "contentType": "content/object",
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -287,9 +343,8 @@
                   {
                     "_ref": "68f6016895a3a",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
-                    "format": "text",
                     "max": 5,
                     "message": null,
                     "metadata": null,
@@ -312,8 +367,7 @@
                     "message": {
                       "_ref": "68f6016895d07",
                       "content": "Your name is Syrtis SSH Test Agent\nYour mission is to help user in the administration of its server, using an SSH connexion\nYou are using several tools to achieve this, explore server content and execute changes\nYou are not allow to talk about anything else that server administration or technical subject.\nYou can discuss technical subject but if user asks you something non relative to computering, you should kindly reply that it may have ask its question to the wrong agent.",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -339,8 +393,7 @@
                     "message": {
                       "_ref": "68f6016896499",
                       "content": "Rules:  \n1. The plan must always be reasonable given the information currently available.  \n2. If the mission can be completed directly and safely, plan the full set of steps.  \n3. If the mission is too broad or lacks information, reduce the scope to a smaller set of safe, useful steps (\u201cscope down\u201d).  \n4. Never mix action types: a plan must be entirely exploratory, entirely executive, or entirely a report.  \n5. Keep actions progressive: if the task is complex, plan safe incremental steps, then reassess after execution.  \n\nIllustrative examples (for understanding only, do not copy literally):  \n- If the mission is to address climate change, the plan should only identify key stakeholders or gather initial data, not solve the entire problem.  \n- If the mission is to build a rocket without any expertise, the plan should start with researching training or resources.  \n- If the mission is to contact someone, the plan should first check if it is possible and appropriate to do so.  ",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -366,6 +419,7 @@
                 "positionX": 1100,
                 "positionY": -290,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f601689733b",
@@ -377,8 +431,7 @@
                     "message": {
                       "_ref": "68f601689738c",
                       "content": "{\n  \"options\": {\n    \"accept_shell_execution\": \"Accept\"\n  },\n  \"name\":\"decide_shell_execution\"\n}",
-                      "contentType": "actions",
-                      "format": "json",
+                      "contentType": "conversation/actions",
                       "messageStamp": [
                         {
                           "_ref": "68f60168978b8",
@@ -418,6 +471,7 @@
                     "value": "{{ (request.find_message_by_name('decide_shell_execution') != None) and request.find_message_by_name('decide_shell_execution').data_search('action').get_str_or_none() == 'accept_shell_execution' }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "HAS_CLICKED_NEXT",
                 "type": "default"
@@ -428,6 +482,7 @@
                 "positionX": 760,
                 "positionY": -440,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016898804",
@@ -439,8 +494,7 @@
                     "message": {
                       "_ref": "68f6016898854",
                       "content": "{{ messages_bag.find_message_by_name('TOPIC_ANALYSIS').data_search('direct_answer').to_str() }}",
-                      "contentType": "conversation",
-                      "format": "text",
+                      "contentType": "conversation/message",
                       "messageStamp": [
                         {
                           "_ref": "68f6016898e36",
@@ -484,16 +538,16 @@
                     "expression": false,
                     "name": "credential_id",
                     "slot_ref": "68f601689909c",
-                    "value": 4
+                    "value": "0199bf3d-2700-7000-8000-000000000004"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f6016899bd8",
                     "collection": "default",
-                    "contentType": "default",
+                    "contentType": "content/text",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -515,9 +569,8 @@
                   {
                     "_ref": "68f6016899eec",
                     "collection": "error",
-                    "contentType": "error",
+                    "contentType": "core/error",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -554,6 +607,7 @@
                     "value": "{%- set analysis_msg = messages_bag.find_message_by_name('TOPIC_ANALYSIS') -%}\n{%- if analysis_msg is not none -%}\n  {%- set decision = analysis_msg.data_search('decision') -%}\n  {{- decision is not none and decision.get_str() == 'plan_actions' -}}\n{%- endif -%}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "DECIDED_PLAN_ACTIONS",
                 "type": "default"
@@ -572,13 +626,30 @@
                     "value": "input_messages"
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "bag",
+                        "name": null,
+                        "stamps": [
+                          "action"
+                        ],
+                        "contentType": "content/json",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f601689af90",
                     "collection": "default",
-                    "contentType": "reference",
+                    "contentType": "core/reference",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -596,7 +667,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -633,13 +703,13 @@
                     "value": "{{ messages_bag.find_message_by_name('ACTIONS_PLAN').data_search('actions').get_list() }}"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [
                   {
                     "_ref": "68f601689bd48",
                     "collection": "default",
                     "contentType": null,
                     "direction": "output",
-                    "format": "json",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -690,11 +760,70 @@
                     "value": 256
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "global_context",
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "content": "Your name is Syrtis SSH Test Agent.\nYour mission is to assist users in the administration of their servers using an SSH connection. \nYou utilize various tools to explore server content and execute changes. \nYou are not allowed to discuss anything unrelated to this current conversation: the data from this prompt, the server administration, technical subjects, but try to be flexible in your reactions to keep the interaction natural. While you can engage in technical discussions, if a user asks you something not related to computing, you should kindly inform them that they may have asked their question to the wrong agent.\n\n---\n\nYou are writing the final message to the USER.\n## Instructions\n- Start from the USER\u2019s original request that led to the execution of these commands.  \n- Do NOT blindly repeat all commands and outputs \u2014 the USER already saw them in the terminal.  \n  * Only mention a command or output if it helps explain the result or reasoning.  \n- Write a clear and concise summary of what was learned or achieved from the executed commands.  \n- Connect your summary back to the USER\u2019s goal, showing how the result relates to their initial request.  \n- Write your answer from your own perspective as the agent: explain what **you** did and what result you obtained for the USER.  \n- If useful, include a short interpretation or reasoning (e.g., what the result means).  \n- If the goal is not fully accomplished, politely ask the USER if they want you to continue with complementary actions.  \n- If the goal is fully achieved, simply provide the final result and close naturally. \n\n## Style guidelines\n- Write naturally, as if you are explaining to a colleague.  \n- Keep it short and fluid.  \n- Do not use unnecessary filler phrases.  "
+                      }
+                    ]
+                  },
+                  {
+                    "part": "history",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "conversation_before",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": 10,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "input",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  },
+                  {
+                    "part": "local_context",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "bag",
+                        "name": null,
+                        "stamps": [
+                          "shell_response"
+                        ],
+                        "contentType": null,
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f601689cdfd",
                     "collection": "history",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
                     "format": null,
                     "max": 10,
@@ -718,7 +847,7 @@
                   {
                     "_ref": "68f601689d0b2",
                     "collection": "input",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "input",
                     "format": null,
                     "max": 0,
@@ -742,9 +871,8 @@
                   {
                     "_ref": "68f601689d330",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -773,8 +901,7 @@
                     "message": {
                       "_ref": "68f601689d603",
                       "content": "Your name is Syrtis SSH Test Agent.\nYour mission is to assist users in the administration of their servers using an SSH connection. \nYou utilize various tools to explore server content and execute changes. \nYou are not allowed to discuss anything unrelated to this current conversation: the data from this prompt, the server administration, technical subjects, but try to be flexible in your reactions to keep the interaction natural. While you can engage in technical discussions, if a user asks you something not related to computing, you should kindly inform them that they may have asked their question to the wrong agent.\n\n---\n\nYou are writing the final message to the USER.\n## Instructions\n- Start from the USER\u2019s original request that led to the execution of these commands.  \n- Do NOT blindly repeat all commands and outputs \u2014 the USER already saw them in the terminal.  \n  * Only mention a command or output if it helps explain the result or reasoning.  \n- Write a clear and concise summary of what was learned or achieved from the executed commands.  \n- Connect your summary back to the USER\u2019s goal, showing how the result relates to their initial request.  \n- Write your answer from your own perspective as the agent: explain what **you** did and what result you obtained for the USER.  \n- If useful, include a short interpretation or reasoning (e.g., what the result means).  \n- If the goal is not fully accomplished, politely ask the USER if they want you to continue with complementary actions.  \n- If the goal is fully achieved, simply provide the final result and close naturally. \n\n## Style guidelines\n- Write naturally, as if you are explaining to a colleague.  \n- Keep it short and fluid.  \n- Do not use unnecessary filler phrases.  ",
-                      "contentType": "default",
-                      "format": "text",
+                      "contentType": "content/text",
                       "messageStamp": [],
                       "metadata": null,
                       "name": null,
@@ -916,20 +1043,9 @@
           },
           "message": [],
           "scenario_ref": "68f6016856a47",
-          "scope": "default",
           "title": "syrtis-sysadmin-ssh"
         }
-      ],
-      "cardRelation": [],
-      "defaultEntrypoint_ref": "68f6016856c28",
-      "description": null,
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "syrtis-sysadmin-ssh",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "syrtis-sysadmin-ssh",
     "sessionGroup_name": "system",

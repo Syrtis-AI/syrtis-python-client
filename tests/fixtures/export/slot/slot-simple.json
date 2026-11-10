@@ -1,15 +1,20 @@
 {
   "version": "0.2.3",
   "data": {
+    "_ref": "7a2c3dc4bcb44",
+    "color": null,
+    "description": null,
     "job_title": "TEST_SIMPLE_JOB",
-    "node_type": "null",
+    "node_type": "end",
     "positionX": 0,
     "positionY": 0,
     "slotConfig": [],
+    "slotInput": [],
+    "slotMarking": [],
     "slotMessage": [],
+    "slotOutputMessage": [],
     "title": "Simple slot",
-    "type": "end",
-    "_ref": "7a2c3dc4bcb44"
+    "type": "end"
   },
   "type": "single",
   "entity": "slot"

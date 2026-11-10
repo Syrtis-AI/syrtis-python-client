@@ -39,6 +39,11 @@ def import_document(document: dict):
     return importer, root
 
 
+# What the API's fixtures still carry from before a change, and its import
+# reads aside: a scenario's environment, gone since its state says it.
+LEGACY_FIELDS = {"scenario.environment"}
+
+
 @pytest.mark.parametrize("fixture", FIXTURES)
 def test_fixture_imports_and_exports_back(fixture: Path) -> None:
     importer, root = import_document(json.loads(fixture.read_text(encoding="utf-8")))
@@ -46,6 +51,8 @@ def test_fixture_imports_and_exports_back(fixture: Path) -> None:
 
     # Only references to entities this client does not carry may be left aside.
     for warning in importer.warnings:
+        if warning in LEGACY_FIELDS:
+            continue
         relation = warning.split(".", 1)[1].split("_", 1)[0]
         assert re.sub(r"(?<!^)(?=[A-Z])", "_", relation).lower() not in known, warning
 

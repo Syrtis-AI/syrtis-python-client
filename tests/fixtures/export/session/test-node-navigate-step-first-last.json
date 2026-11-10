@@ -3,7 +3,16 @@
     "_ref": "687b9ce9df541",
     "scenario": {
       "_ref": "687b9ce9e00e0",
-      "card": [
+      "defaultEntrypoint_ref": "687b9ce9e0181",
+      "description": "Test node navigate on last and first cards",
+      "environment": {
+        "_ref": "687b9ce278b01",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Node Navigate Card First Last",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "687b9ce9e0181",
           "job": {
@@ -18,7 +27,7 @@
                   {
                     "_ref": "687b9cea25cae",
                     "expression": false,
-                    "name": "card_requests_count_consecutive_greater_than",
+                    "name": "step_requests_count_consecutive_greater_than",
                     "slot_ref": "687b9cea25901",
                     "value": 1
                   },
@@ -30,6 +39,7 @@
                     "value": "AND"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Condition",
                 "type": "start"
@@ -43,11 +53,12 @@
                   {
                     "_ref": "687b9cea2630f",
                     "expression": false,
-                    "name": "destination_card_shortcut",
+                    "name": "destination_step_id",
                     "slot_ref": "687b9cea2601b",
-                    "value": "last"
+                    "value": "@step:Third card"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Navigate",
                 "type": "default"
@@ -80,13 +91,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9cea2ed33",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -102,15 +141,14 @@
                       }
                     ],
                     "slot_ref": "687b9cea26526",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "687b9cea2f0f5",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -134,7 +172,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -163,6 +200,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -204,8 +242,7 @@
             {
               "_ref": "687b9cea3082d",
               "content": "Only say to USER that this is the first card, and you will move to the last card.",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "687b9cea30c90",
@@ -215,11 +252,10 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "687b9ce9e00e0",
-          "scope": "default",
           "title": "First card"
         },
         {
@@ -233,6 +269,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -265,13 +302,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9cea56c98",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -287,15 +352,14 @@
                       }
                     ],
                     "slot_ref": "687b9cea4e751",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "687b9cea5706f",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -319,7 +383,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -358,8 +421,7 @@
             {
               "_ref": "687b9cea5794f",
               "content": "Only say to USER that this is the second card, and you should never be here!",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "687b9cea57d79",
@@ -369,11 +431,10 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "687b9ce9e00e0",
-          "scope": "default",
           "title": "Second card"
         },
         {
@@ -387,6 +448,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "end"
@@ -400,7 +462,7 @@
                   {
                     "_ref": "687b9cea8e692",
                     "expression": false,
-                    "name": "card_requests_count_consecutive_greater_than",
+                    "name": "step_requests_count_consecutive_greater_than",
                     "slot_ref": "687b9cea8e32a",
                     "value": 1
                   },
@@ -412,6 +474,7 @@
                     "value": "AND"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Condition",
                 "type": "start"
@@ -425,11 +488,12 @@
                   {
                     "_ref": "687b9cea8ed72",
                     "expression": false,
-                    "name": "destination_card_shortcut",
+                    "name": "destination_step_id",
                     "slot_ref": "687b9cea8eb1b",
-                    "value": "first"
+                    "value": "@step:First card"
                   }
                 ],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Navigate",
                 "type": "default"
@@ -462,13 +526,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "687b9cea96285",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -484,15 +576,14 @@
                       }
                     ],
                     "slot_ref": "687b9cea8ef31",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "687b9cea965d6",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -516,7 +607,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -576,8 +666,7 @@
             {
               "_ref": "687b9cea978e7",
               "content": "Only say to USER that this is the last card, and you will now move to the first card",
-              "contentType": "default",
-              "format": "text",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "687b9cea97e7a",
@@ -587,35 +676,13 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "687b9ce9e00e0",
-          "scope": "default",
           "title": "Third card"
         }
-      ],
-      "cardRelation": [
-        {
-          "_ref": "687b9ce9e0126",
-          "cardSource_ref": "687b9ce9e0181",
-          "cardTarget_ref": "687b9ce9e01c5"
-        },
-        {
-          "_ref": "687b9ce9e01e5",
-          "cardSource_ref": "687b9ce9e01c5",
-          "cardTarget_ref": "687b9ce9e025d"
-        }
-      ],
-      "defaultEntrypoint_ref": "687b9ce9e0181",
-      "description": "Test node navigate on last and first cards",
-      "environment": {
-        "_ref": "687b9ce278b01",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Node Navigate Card First Last",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-node-navigate-card-first-last",
     "sessionGroup_name": "test",

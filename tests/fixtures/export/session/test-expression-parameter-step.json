@@ -3,7 +3,16 @@
     "_ref": "68f60169f36da",
     "scenario": {
       "_ref": "68f6016a0024f",
-      "card": [
+      "defaultEntrypoint_ref": "68f6016a0028a",
+      "description": "Test scenario to display card expression parameters in rendered contents.",
+      "environment": {
+        "_ref": "68f601685374b",
+        "name": "production"
+      },
+      "job": [],
+      "title": "Test Expression Parameter Card",
+      "project_secureId": "test_project",
+      "step": [
         {
           "_ref": "68f6016a0028a",
           "job": {
@@ -15,6 +24,7 @@
                 "positionX": 0,
                 "positionY": 0,
                 "slotConfig": [],
+                "slotInput": [],
                 "slotMessage": [],
                 "title": "Null",
                 "type": "start"
@@ -47,13 +57,41 @@
                     "value": 1024
                   }
                 ],
+                "slotInput": [
+                  {
+                    "part": "default",
+                    "blocks": [
+                      {
+                        "type": "selector",
+                        "source": "step",
+                        "name": null,
+                        "stamps": [
+                          "instruct"
+                        ],
+                        "contentType": "content/text",
+                        "limit": null,
+                        "template": null
+                      },
+                      {
+                        "type": "selector",
+                        "source": "request",
+                        "name": null,
+                        "stamps": [
+                          "chat"
+                        ],
+                        "contentType": "conversation/message",
+                        "limit": null,
+                        "template": null
+                      }
+                    ]
+                  }
+                ],
                 "slotMessage": [
                   {
                     "_ref": "68f6016a11a1b",
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -69,15 +107,14 @@
                       }
                     ],
                     "slot_ref": "68f6016a1103a",
-                    "source": "card",
+                    "source": "step",
                     "type": "selector"
                   },
                   {
                     "_ref": "68f6016a11c69",
                     "collection": "default",
-                    "contentType": "conversation",
+                    "contentType": "conversation/message",
                     "direction": "output",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -101,7 +138,6 @@
                     "collection": "default",
                     "contentType": null,
                     "direction": "input",
-                    "format": "text",
                     "max": 0,
                     "message": null,
                     "metadata": null,
@@ -139,9 +175,8 @@
           "message": [
             {
               "_ref": "68f6016a12596",
-              "content": "The card title is \"{{ card.title }}\" and its ID is \"{{ card.id }}\"\nIf the USER picks a subject, don't pretend you've navigated to this section: this is a demonstration, you are not configured to actually navigate anywhere.\nThis is the next allow places USER can navigate to, ask him where to go:\n{{ card.render_list_next_titles() }}\n",
-              "contentType": "default",
-              "format": "text",
+              "content": "The card title is \"{{ step.title }}\" and its ID is \"{{ step.id }}\"\nIf the USER picks a subject, don't pretend you've navigated to this section: this is a demonstration, you are not configured to actually navigate anywhere.\nThis is the next allow places USER can navigate to, ask him where to go:\n{{ step.title }}\n",
+              "contentType": "content/text",
               "messageStamp": [
                 {
                   "_ref": "68f6016a129ff",
@@ -151,11 +186,10 @@
               ],
               "metadata": null,
               "name": null,
-              "origin": "card"
+              "origin": "step"
             }
           ],
           "scenario_ref": "68f6016a0024f",
-          "scope": "default",
           "title": "First card"
         },
         {
@@ -163,7 +197,6 @@
           "job": null,
           "message": [],
           "scenario_ref": "68f6016a0024f",
-          "scope": "default",
           "title": "Subject A"
         },
         {
@@ -171,7 +204,6 @@
           "job": null,
           "message": [],
           "scenario_ref": "68f6016a0024f",
-          "scope": "default",
           "title": "Subject B"
         },
         {
@@ -179,41 +211,9 @@
           "job": null,
           "message": [],
           "scenario_ref": "68f6016a0024f",
-          "scope": "default",
           "title": "Last card"
         }
-      ],
-      "cardRelation": [
-        {
-          "_ref": "68f6016a00272",
-          "cardSource_ref": "68f6016a0028a",
-          "cardTarget_ref": "68f6016a0029c"
-        },
-        {
-          "_ref": "68f6016a002a6",
-          "cardSource_ref": "68f6016a0028a",
-          "cardTarget_ref": "68f6016a002c2"
-        },
-        {
-          "_ref": "68f6016a002cc",
-          "cardSource_ref": "68f6016a0029c",
-          "cardTarget_ref": "68f6016a002e6"
-        },
-        {
-          "_ref": "68f6016a002f0",
-          "cardSource_ref": "68f6016a002c2",
-          "cardTarget_ref": "68f6016a002e6"
-        }
-      ],
-      "defaultEntrypoint_ref": "68f6016a0028a",
-      "description": "Test scenario to display card expression parameters in rendered contents.",
-      "environment": {
-        "_ref": "68f601685374b",
-        "name": "production"
-      },
-      "job": [],
-      "title": "Test Expression Parameter Card",
-      "project_secureId": "test_project"
+      ]
     },
     "secureId": "test-expression-parameter-card",
     "sessionGroup_name": "test",

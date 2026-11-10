@@ -1,9 +1,8 @@
 {
   "version": "0.2.3",
   "data": {
-    "format": "json",
     "origin": "core",
-    "contentType": "default",
+    "contentType": "content/json",
     "content": {
       "key1": "value1",
       "key2": "value2",
