@@ -27,10 +27,15 @@ def main() -> int:
     entity_names = {path.stem for path in (package_dir / "data" / "entity").glob("*.json")}
     target_dir = root_dir / "tests" / "fixtures" / "export"
     shutil.rmtree(target_dir, ignore_errors=True)
+    # Each directory a package, as the code rules want it: dropped with the
+    # tree, the rectify recreated them, a change at every publication.
+    target_dir.mkdir(parents=True)
+    (target_dir / "__init__.py").touch()
 
     copied = 0
     for entity_dir in sorted(path for path in source_dir.iterdir() if path.name in entity_names):
         (target_dir / entity_dir.name).mkdir(parents=True)
+        (target_dir / entity_dir.name / "__init__.py").touch()
         for fixture in sorted(entity_dir.glob("*.json")):
             shutil.copy2(fixture, target_dir / entity_dir.name / fixture.name)
             copied += 1
