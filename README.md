@@ -1,6 +1,6 @@
 # python_client
 
-Version: 10.0.0
+Version: 10.0.1
 
 ## Table of Contents
 
