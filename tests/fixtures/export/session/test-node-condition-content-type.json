@@ -4,7 +4,7 @@
     "scenario": {
       "_ref": "68f6016d992f6",
       "defaultEntrypoint_ref": "68f6016d99344",
-      "description": "Test scenario to verify message in bag has given content type. To pass the second card, you should upload a file using  \ud83d\udcce .",
+      "description": "Test scenario to verify message in bag has given content type. To pass the second card, you should upload a file using  📎 .",
       "environment": {
         "_ref": "68f601685374b",
         "name": "production"
@@ -306,18 +306,18 @@
                 "positionY": -40,
                 "slotConfig": [
                   {
-                    "_ref": "68f6016dcb33f",
-                    "expression": false,
-                    "name": "input_message_matches",
-                    "slot_ref": "68f6016dcb136",
-                    "value": 1
-                  },
-                  {
                     "_ref": "68f6016dcb3b0",
                     "expression": false,
                     "name": "operator",
                     "slot_ref": "68f6016dcb136",
                     "value": "AND"
+                  },
+                  {
+                    "_ref": "68f6016dcb33f",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f6016dcb136",
+                    "value": "{{ input.count() >= 1 }}"
                   }
                 ],
                 "slotInput": [

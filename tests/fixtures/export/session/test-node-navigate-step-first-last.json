@@ -25,18 +25,18 @@
                 "positionY": 0,
                 "slotConfig": [
                   {
-                    "_ref": "687b9cea25cae",
-                    "expression": false,
-                    "name": "step_requests_count_consecutive_greater_than",
-                    "slot_ref": "687b9cea25901",
-                    "value": 1
-                  },
-                  {
                     "_ref": "687b9cea25d3b",
                     "expression": false,
                     "name": "operator",
                     "slot_ref": "687b9cea25901",
                     "value": "AND"
+                  },
+                  {
+                    "_ref": "687b9cea25cae",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "687b9cea25901",
+                    "value": "{{ request.count_consecutive_on_this_step() > 1 }}"
                   }
                 ],
                 "slotInput": [],
@@ -460,18 +460,18 @@
                 "positionY": 0,
                 "slotConfig": [
                   {
-                    "_ref": "687b9cea8e692",
-                    "expression": false,
-                    "name": "step_requests_count_consecutive_greater_than",
-                    "slot_ref": "687b9cea8e32a",
-                    "value": 1
-                  },
-                  {
                     "_ref": "687b9cea8e883",
                     "expression": false,
                     "name": "operator",
                     "slot_ref": "687b9cea8e32a",
                     "value": "AND"
+                  },
+                  {
+                    "_ref": "687b9cea8e692",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "687b9cea8e32a",
+                    "value": "{{ request.count_consecutive_on_this_step() > 1 }}"
                   }
                 ],
                 "slotInput": [],

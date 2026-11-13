@@ -25,18 +25,18 @@
                 "positionY": 0,
                 "slotConfig": [
                   {
-                    "_ref": "68f6016ed9b11",
-                    "expression": false,
-                    "name": "input_message_matches",
-                    "slot_ref": "68f6016ed984a",
-                    "value": 1
-                  },
-                  {
                     "_ref": "68f6016ed9b98",
                     "expression": false,
                     "name": "operator",
                     "slot_ref": "68f6016ed984a",
                     "value": "AND"
+                  },
+                  {
+                    "_ref": "68f6016ed9b11",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f6016ed984a",
+                    "value": "{{ input.count() >= 1 }}"
                   }
                 ],
                 "slotInput": [
@@ -394,7 +394,7 @@
           "message": [
             {
               "_ref": "68f6016eddbe9",
-              "content": "This card will test if a message with a specific name.\nAsk the user to send a message named \"end.session.message\" using the \u2699\ufe0f icon below to terminate this scenario",
+              "content": "This card will test if a message with a specific name.\nAsk the user to send a message named \"end.session.message\" using the ⚙️ icon below to terminate this scenario",
               "contentType": "content/text",
               "messageStamp": [
                 {

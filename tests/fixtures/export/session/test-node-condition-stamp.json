@@ -25,13 +25,6 @@
                 "positionY": 0,
                 "slotConfig": [
                   {
-                    "_ref": "68f6016f3d7e5",
-                    "expression": false,
-                    "name": "input_message_matches",
-                    "slot_ref": "68f6016f3d55b",
-                    "value": 1
-                  },
-                  {
                     "_ref": "68f6016f3d872",
                     "expression": false,
                     "name": "operator",
@@ -39,11 +32,11 @@
                     "value": "AND"
                   },
                   {
-                    "_ref": "68f6016f3d932",
-                    "expression": true,
+                    "_ref": "68f6016f3d7e5",
+                    "expression": false,
                     "name": "expression",
                     "slot_ref": "68f6016f3d55b",
-                    "value": "test"
+                    "value": "{{ input.count() >= 1 }}"
                   }
                 ],
                 "slotInput": [
@@ -409,7 +402,7 @@
           "message": [
             {
               "_ref": "68f6016f4161e",
-              "content": "This card will test if a message has a given stamp.\nAsk the user to send a message with the \"reword\" stamp, using the \u2699\ufe0f icon below, to terminate this scenario",
+              "content": "This card will test if a message has a given stamp.\nAsk the user to send a message with the \"reword\" stamp, using the ⚙️ icon below, to terminate this scenario",
               "contentType": "content/text",
               "messageStamp": [
                 {

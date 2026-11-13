@@ -25,18 +25,18 @@
                 "positionY": 0,
                 "slotConfig": [
                   {
-                    "_ref": "68f6016e7981b",
-                    "expression": false,
-                    "name": "input_message_matches",
-                    "slot_ref": "68f6016e7947b",
-                    "value": 1
-                  },
-                  {
                     "_ref": "68f6016e798a5",
                     "expression": false,
                     "name": "operator",
                     "slot_ref": "68f6016e7947b",
                     "value": "AND"
+                  },
+                  {
+                    "_ref": "68f6016e7981b",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f6016e7947b",
+                    "value": "{{ input.count() >= 1 }}"
                   }
                 ],
                 "slotInput": [
@@ -394,7 +394,7 @@
           "message": [
             {
               "_ref": "68f6016e7d5d1",
-              "content": "Ask the user to send a \"json format message\" using the \u2699\ufe0f icon below, in order to pass to the next card.",
+              "content": "Ask the user to send a \"json format message\" using the ⚙️ icon below, in order to pass to the next card.",
               "contentType": "content/text",
               "messageStamp": [
                 {

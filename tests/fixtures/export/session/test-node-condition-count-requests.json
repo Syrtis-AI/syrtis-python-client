@@ -25,18 +25,18 @@
                 "positionY": 0,
                 "slotConfig": [
                   {
-                    "_ref": "68f6016e2a660",
-                    "expression": false,
-                    "name": "step_requests_count_consecutive_greater_than",
-                    "slot_ref": "68f6016e2a37b",
-                    "value": 3
-                  },
-                  {
                     "_ref": "68f6016e2a6de",
                     "expression": false,
                     "name": "operator",
                     "slot_ref": "68f6016e2a37b",
                     "value": "AND"
+                  },
+                  {
+                    "_ref": "68f6016e2a660",
+                    "expression": false,
+                    "name": "expression",
+                    "slot_ref": "68f6016e2a37b",
+                    "value": "{{ request.count_consecutive_on_this_step() > 3 }}"
                   }
                 ],
                 "slotInput": [],
