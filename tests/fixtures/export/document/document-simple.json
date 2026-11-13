@@ -1,9 +1,9 @@
 {
   "version": "0.2.3",
   "data": {
+    "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
     "title": "Test Document",
     "type": "text",
-    "secureId": "doc_123456",
     "mimeType": "text/plain",
     "content": "This is a test document content",
     "_ref": "63b8f7baefe44"

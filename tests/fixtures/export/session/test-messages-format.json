@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Test messages format",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "68f6016b7b531",
@@ -836,7 +836,6 @@
         }
       ]
     },
-    "secureId": "test-messages-format",
     "sessionGroup_name": "test",
     "status": "opened",
     "title": "test-messages-format"

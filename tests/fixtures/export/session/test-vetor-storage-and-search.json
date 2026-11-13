@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Test Vector Storage and Search",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "687b9cebbc564",
@@ -574,7 +574,6 @@
         }
       ]
     },
-    "secureId": "test-vetor-storage-and-search",
     "sessionGroup_name": "test",
     "status": "opened",
     "title": "test-vetor-storage-and-search"

@@ -17,9 +17,6 @@ class SlotGenerated:
     def description(cls) -> Mapped[object]:
         return mapped_column(Text, nullable=True)
     @declared_attr
-    def secureId(cls) -> Mapped[object]:
-        return mapped_column('secure_id', String(255), nullable=False)
-    @declared_attr
     def positionX(cls) -> Mapped[object]:
         return mapped_column('position_x', Integer, nullable=False)
     @declared_attr

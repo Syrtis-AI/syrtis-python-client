@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Test Node Graph Request Long Text",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "687b9ce51764b",
@@ -644,7 +644,6 @@
         }
       ]
     },
-    "secureId": "test-node-graph-request-long-text",
     "sessionGroup_name": "test",
     "status": "opened",
     "title": "test-node-graph-request-long-text"

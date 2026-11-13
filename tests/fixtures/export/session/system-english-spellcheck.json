@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Admin scenario to correct grammar of sent message",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "68f60169e24b0",
@@ -194,7 +194,6 @@
         }
       ]
     },
-    "secureId": "system-english-spellcheck",
     "sessionGroup_name": "system",
     "status": "opened",
     "title": "system-english-spellcheck"

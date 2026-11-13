@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Test Node Message Analysis Merge",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "687b9ce839789",
@@ -309,7 +309,6 @@
         }
       ]
     },
-    "secureId": "test-node-message-analysis-merge",
     "sessionGroup_name": "test",
     "status": "opened",
     "title": "test-node-message-analysis-merge"

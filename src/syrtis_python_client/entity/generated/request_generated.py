@@ -14,9 +14,6 @@ class RequestGenerated:
     def dateCreated(cls) -> Mapped[object]:
         return mapped_column('date_created', DateTime, nullable=False)
     @declared_attr
-    def secureId(cls) -> Mapped[object]:
-        return mapped_column('secure_id', String(255), nullable=False)
-    @declared_attr
     def type(cls) -> Mapped[object]:
         return mapped_column(String(120), nullable=False)
     @declared_attr
@@ -44,9 +41,6 @@ class RequestGenerated:
     @declared_attr
     def messages(cls) -> Mapped[list['Message']]:
         return relationship('Message', foreign_keys='Message.request_id', back_populates='request', lazy='select')
-    @declared_attr
-    def projection_id(cls) -> Mapped[object]:
-        return mapped_column(Uuid, nullable=True)
     @declared_attr
     def session_id(cls) -> Mapped[object]:
         return mapped_column(Uuid, ForeignKey('session.id'), nullable=True)

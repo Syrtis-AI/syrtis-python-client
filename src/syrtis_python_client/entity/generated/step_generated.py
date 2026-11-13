@@ -13,9 +13,6 @@ class StepGenerated:
     @declared_attr
     def dateCreated(cls) -> Mapped[object]:
         return mapped_column('date_created', DateTime, nullable=False)
-    @declared_attr
-    def secureId(cls) -> Mapped[object]:
-        return mapped_column('secure_id', String(255), nullable=False)
 
     @declared_attr
     def user_id(cls) -> Mapped[object]:

@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Test Node Message Analysis Literal",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "687b9ce80c6a0",
@@ -288,7 +288,6 @@
         }
       ]
     },
-    "secureId": "test-node-message-analysis-literal",
     "sessionGroup_name": "test",
     "status": "opened",
     "title": "test-node-message-analysis-literal"

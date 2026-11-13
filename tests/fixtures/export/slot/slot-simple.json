@@ -9,6 +9,14 @@
     "positionX": 0,
     "positionY": 0,
     "slotConfig": [],
+    "slotFilter": [
+      {
+        "contentType": "conversation/message",
+        "name": null,
+        "position": 0,
+        "stamps": []
+      }
+    ],
     "slotInput": [],
     "slotMarking": [],
     "slotMessage": [],

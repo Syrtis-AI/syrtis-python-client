@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Test Node Document Search Vector",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "68f6016f80a4e",
@@ -194,7 +194,7 @@
                     "expression": false,
                     "name": "document_secure_id",
                     "slot_ref": "68f6016f9eba0",
-                    "value": "doc_test_banana"
+                    "value": "01a1c121-defc-770f-b5a5-dc7eb1e516ee"
                   }
                 ],
                 "slotInput": [
@@ -300,7 +300,6 @@
         }
       ]
     },
-    "secureId": "test-node-document-search-vector",
     "sessionGroup_name": "test",
     "status": "opened",
     "title": "test-node-document-search-vector"

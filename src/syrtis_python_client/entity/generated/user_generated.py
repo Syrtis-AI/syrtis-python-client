@@ -8,9 +8,6 @@ class UserGenerated:
         return 'user'
 
     @declared_attr
-    def secureId(cls) -> Mapped[object]:
-        return mapped_column('secure_id', String(255), nullable=False)
-    @declared_attr
     def firstName(cls) -> Mapped[object]:
         return mapped_column('first_name', String(100), nullable=True)
     @declared_attr

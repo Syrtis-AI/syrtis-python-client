@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Admin scenario to rephrase sent message in proper English",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "68f60169d2a91",
@@ -156,7 +156,6 @@
         }
       ]
     },
-    "secureId": "system-english-rephrase",
     "sessionGroup_name": "system",
     "status": "opened",
     "title": "system-english-rephrase"

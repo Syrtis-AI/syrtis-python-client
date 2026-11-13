@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Test http request to embedded document",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "68f771e49eda0",
@@ -72,7 +72,7 @@
                     "expression": false,
                     "name": "output_document_secure_id",
                     "slot_ref": "68f771e4b97f7",
-                    "value": "doc_test_http_request_to_embedded_document"
+                    "value": "01900000-0000-7000-8000-0000000000e1"
                   }
                 ],
                 "slotInput": [],
@@ -98,7 +98,7 @@
                     "expression": false,
                     "name": "document_secure_id",
                     "slot_ref": "68f771e4bce6f",
-                    "value": "doc_test_http_request_to_embedded_document"
+                    "value": "01900000-0000-7000-8000-0000000000e1"
                   }
                 ],
                 "slotInput": [],
@@ -149,7 +149,7 @@
                     "expression": false,
                     "name": "document_secure_id",
                     "slot_ref": "68f771e4bdc0a",
-                    "value": "doc_test_http_request_to_embedded_document"
+                    "value": "01900000-0000-7000-8000-0000000000e1"
                   }
                 ],
                 "slotInput": [],
@@ -214,7 +214,6 @@
         }
       ]
     },
-    "secureId": "test-http-request-to-embedded-document",
     "sessionGroup_name": "test",
     "status": "opened",
     "title": "fbc28d52a891cf9ab8f8f63b2a3c33461b3f08ab"

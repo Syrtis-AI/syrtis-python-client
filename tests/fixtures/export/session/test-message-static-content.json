@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Test Message Static Content",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "68f6016b31219",
@@ -74,7 +74,6 @@
         }
       ]
     },
-    "secureId": "test-message-static-content",
     "sessionGroup_name": "test",
     "status": "opened",
     "title": "test-message-static-content"

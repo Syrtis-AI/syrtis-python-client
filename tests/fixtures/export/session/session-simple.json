@@ -17,7 +17,7 @@
       ],
       "title": "ENTITY_IMPORT_SCENARIO",
       "_ref": "7d13d78990f34",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "job": null,
@@ -34,7 +34,6 @@
       ]
     },
     "_ref": "514f7aa6f23c4",
-    "secureId": "session_secureId_123456789",
     "title": "session_secureId_123456789",
     "sessionGroup_name": "default",
     "status": "opened"

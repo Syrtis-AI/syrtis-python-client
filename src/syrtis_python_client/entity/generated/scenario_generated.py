@@ -17,9 +17,6 @@ class ScenarioGenerated:
     def description(cls) -> Mapped[object]:
         return mapped_column(Text, nullable=True)
     @declared_attr
-    def secureId(cls) -> Mapped[object]:
-        return mapped_column('secure_id', String(255), nullable=False)
-    @declared_attr
     def positionX(cls) -> Mapped[object]:
         return mapped_column('position_x', Integer, nullable=True)
     @declared_attr
@@ -29,12 +26,6 @@ class ScenarioGenerated:
     def zoom(cls) -> Mapped[object]:
         return mapped_column(Float, nullable=True)
     @declared_attr
-    def versionMajor(cls) -> Mapped[object]:
-        return mapped_column('version_major', Integer, nullable=False)
-    @declared_attr
-    def versionMinor(cls) -> Mapped[object]:
-        return mapped_column('version_minor', Integer, nullable=False)
-    @declared_attr
     def lineage(cls) -> Mapped[object]:
         return mapped_column(Uuid, nullable=False)
     @declared_attr
@@ -42,6 +33,15 @@ class ScenarioGenerated:
         return mapped_column('date_published', String, nullable=True)
     @declared_attr
     def archived(cls) -> Mapped[object]:
+        return mapped_column(Boolean, nullable=False)
+    @declared_attr
+    def versionMajor(cls) -> Mapped[object]:
+        return mapped_column('version_major', Integer, nullable=False)
+    @declared_attr
+    def versionMinor(cls) -> Mapped[object]:
+        return mapped_column('version_minor', Integer, nullable=False)
+    @declared_attr
+    def evaluator(cls) -> Mapped[object]:
         return mapped_column(Boolean, nullable=False)
 
     @declared_attr

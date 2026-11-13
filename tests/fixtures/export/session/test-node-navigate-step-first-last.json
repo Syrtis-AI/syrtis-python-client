@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Test Node Navigate Card First Last",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "687b9ce9e0181",
@@ -684,7 +684,6 @@
         }
       ]
     },
-    "secureId": "test-node-navigate-card-first-last",
     "sessionGroup_name": "test",
     "status": "opened",
     "title": "test-node-navigate-card-first-last"

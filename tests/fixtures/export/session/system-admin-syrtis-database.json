@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "Admin Syrtis Database",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "68f601698ea34",
@@ -86,7 +86,6 @@
         }
       ]
     },
-    "secureId": "system-admin-syrtis-database",
     "sessionGroup_name": "system",
     "status": "opened",
     "title": "system-admin-syrtis-database"

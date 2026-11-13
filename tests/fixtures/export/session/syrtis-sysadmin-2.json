@@ -11,7 +11,7 @@
       },
       "job": [],
       "title": "syrtis-sysadmin-2",
-      "project_secureId": "test_project",
+      "project_id": "01a1c121-defb-7dc8-addd-bc23068905e3",
       "step": [
         {
           "_ref": "68f6016760282",
@@ -1891,7 +1891,6 @@
         }
       ]
     },
-    "secureId": "syrtis-sysadmin-2",
     "sessionGroup_name": "system",
     "status": "opened",
     "title": "syrtis-sysadmin-2"
