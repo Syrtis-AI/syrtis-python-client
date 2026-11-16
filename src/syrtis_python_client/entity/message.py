@@ -19,10 +19,12 @@ class Message(MessageGenerated, AbstractEntity):
     # filestate: python-iterable-sort
 
     CONTENT_TYPE_ACTIONS = "conversation/actions"
+    CONTENT_TYPE_ARTIFACT = "core/artifact"
     CONTENT_TYPE_CONVERSATION_MESSAGE = "conversation/message"
     CONTENT_TYPE_DEBUG = "core/debug"
     CONTENT_TYPE_DOWNLOAD = "core/download"
     CONTENT_TYPE_ERROR = "core/error"
+    CONTENT_TYPE_FILE = "core/file"
     CONTENT_TYPE_FORM = "core/form"
     CONTENT_TYPE_HTTP_RESPONSE = "core/http_response"
     CONTENT_TYPE_IMAGE = "core/image"
@@ -37,7 +39,6 @@ class Message(MessageGenerated, AbstractEntity):
     CONTENT_TYPE_SUCCESS = "web/success"
     CONTENT_TYPE_THOUGHT = "conversation/thought"
     CONTENT_TYPE_TOOL_CALL = "core/tool_call"
-    CONTENT_TYPE_UPLOAD = "core/upload"
     CONTENT_TYPE_URL = "core/url"
     CONTENT_TYPE_VIDEO = "core/video"
     CONTENT_TYPE_WARNING = "core/warning"
@@ -55,6 +56,7 @@ class Message(MessageGenerated, AbstractEntity):
         CONTENT_TYPE_DEBUG,
         CONTENT_TYPE_DOWNLOAD,
         CONTENT_TYPE_ERROR,
+        CONTENT_TYPE_FILE,
         CONTENT_TYPE_FORM,
         CONTENT_TYPE_HTTP_RESPONSE,
         CONTENT_TYPE_IMAGE,
@@ -69,7 +71,7 @@ class Message(MessageGenerated, AbstractEntity):
         CONTENT_TYPE_SUCCESS,
         CONTENT_TYPE_THOUGHT,
         CONTENT_TYPE_TOOL_CALL,
-        CONTENT_TYPE_UPLOAD,
+        CONTENT_TYPE_ARTIFACT,
         CONTENT_TYPE_URL,
         CONTENT_TYPE_VIDEO,
         CONTENT_TYPE_WARNING,

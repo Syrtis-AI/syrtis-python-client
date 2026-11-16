@@ -329,7 +329,7 @@
                         "source": "request",
                         "name": null,
                         "stamps": [],
-                        "contentType": "core/upload",
+                        "contentType": "core/artifact",
                         "limit": null,
                         "template": null
                       }
@@ -340,7 +340,7 @@
                   {
                     "_ref": "68f6016dcb7d4",
                     "collection": "default",
-                    "contentType": "core/upload",
+                    "contentType": "core/artifact",
                     "direction": "input",
                     "max": 0,
                     "message": null,

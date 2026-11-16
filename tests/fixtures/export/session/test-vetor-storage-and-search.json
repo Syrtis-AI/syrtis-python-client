@@ -168,7 +168,7 @@
                   {
                     "_ref": "687b9cec52257",
                     "collection": "default",
-                    "contentType": "core/upload",
+                    "contentType": "core/artifact",
                     "direction": "output",
                     "max": 0,
                     "message": null,
