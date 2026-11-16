@@ -29,7 +29,7 @@
                     "expression": false,
                     "name": "image_input_type",
                     "slot_ref": "68f600bca76ef",
-                    "value": "document"
+                    "value": "artifact"
                   },
                   {
                     "_ref": "68f600bca9238",
