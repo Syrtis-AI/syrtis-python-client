@@ -23,7 +23,7 @@ class Message(MessageGenerated, AbstractEntity):
     CONTENT_TYPE_CONVERSATION_MESSAGE = "conversation/message"
     CONTENT_TYPE_DEBUG = "core/debug"
     CONTENT_TYPE_DOWNLOAD = "core/download"
-    CONTENT_TYPE_ERROR = "core/error"
+    CONTENT_TYPE_ERROR = "process/error"
     CONTENT_TYPE_FILE = "content/file"
     CONTENT_TYPE_FORM = "core/form"
     CONTENT_TYPE_HTTP_RESPONSE = "http/response"
@@ -41,7 +41,7 @@ class Message(MessageGenerated, AbstractEntity):
     CONTENT_TYPE_TOOL_CALL = "ai/tool_call"
     CONTENT_TYPE_URL = "core/url"
     CONTENT_TYPE_VIDEO = "core/video"
-    CONTENT_TYPE_WARNING = "core/warning"
+    CONTENT_TYPE_WARNING = "process/warning"
     # The types of a message's shape alone: a text, a value as JSON.
     CONTENT_TYPE_TEXT = "content/text"
     CONTENT_TYPE_MARKDOWN = "content/markdown"
