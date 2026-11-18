@@ -25,6 +25,13 @@
                 "positionY": 0,
                 "slotConfig": [
                   {
+                    "_ref": "2cee097ea781d",
+                    "expression": false,
+                    "name": "model",
+                    "slot_ref": "687b9ce828f8b",
+                    "value": "open_ai/gpt-4o-mini"
+                  },
+                  {
                     "_ref": "687b9ce8292e6",
                     "expression": false,
                     "name": "property",

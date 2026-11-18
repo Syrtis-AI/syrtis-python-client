@@ -925,7 +925,7 @@
                   {
                     "_ref": "68f60167bfb5b",
                     "collection": "error",
-                    "contentType": "core/error",
+                    "contentType": "process/error",
                     "direction": "output",
                     "max": 0,
                     "message": null,

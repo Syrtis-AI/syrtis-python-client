@@ -55,8 +55,8 @@
           "message": [
             {
               "_ref": "68f6016b64d36",
-              "content": "{\"url\":\"https:\\/\\/shorturl.at\\/XdBpx\",\"alt\":\"Dogs\"}",
-              "contentType": "core/image",
+              "content": "{\"src\":\"https://shorturl.at/XdBpx\",\"alt\":\"Dogs\"}",
+              "contentType": "web/image",
               "messageStamp": [
                 {
                   "_ref": "68f6016b65161",

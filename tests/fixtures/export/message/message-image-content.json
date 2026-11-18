@@ -2,8 +2,8 @@
   "version": "0.2.3",
   "data": {
     "origin": "user",
-    "contentType": "core/image",
-    "content": "https://example.com/image.jpg",
+    "contentType": "web/image",
+    "content": "{\"src\":\"https://example.com/image.jpg\",\"alt\":\"\"}",
     "_ref": "0d9e643e27244"
   },
   "type": "single",

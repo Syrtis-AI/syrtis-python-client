@@ -184,7 +184,7 @@
                     "message": {
                       "_ref": "68f6016c381a3",
                       "content": "{\n\"message\": \"This is a warning message\"\n}",
-                      "contentType": "core/warning",
+                      "contentType": "process/warning",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c385c6",
@@ -228,7 +228,7 @@
                     "message": {
                       "_ref": "68f6016c38ec4",
                       "content": "{\n\"message\": \"This is an error message\"\n}",
-                      "contentType": "core/error",
+                      "contentType": "process/error",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c39380",
@@ -316,7 +316,7 @@
                     "message": {
                       "_ref": "68f6016c3aae0",
                       "content": "{\n  \"total\": 100,\n  \"current\": 0,\n  \"label\": \"Progress starts...\"\n}",
-                      "contentType": "core/progress",
+                      "contentType": "web/progress",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3aed9",
@@ -360,7 +360,7 @@
                     "message": {
                       "_ref": "68f6016c3b6dd",
                       "content": "{\n  \"total\": 100,\n  \"current\": 50,\n  \"label\": \"Half Progress\"\n}",
-                      "contentType": "core/progress",
+                      "contentType": "web/progress",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3babf",
@@ -404,7 +404,7 @@
                     "message": {
                       "_ref": "68f6016c3c27e",
                       "content": "{\n  \"total\": 100,\n  \"current\": 100,\n  \"label\": \"Progress completed!\"\n}",
-                      "contentType": "core/progress",
+                      "contentType": "web/progress",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3c634",
@@ -447,8 +447,8 @@
                     "max": 0,
                     "message": {
                       "_ref": "68f6016c3cec1",
-                      "content": "{\n  \"data\": [\n    {\n      \"label\": \"Server status is healthy\",\n      \"icon\": \"\ud83d\udfe2\"\n    },\n    {\n      \"label\": \"Database connection established\", \n      \"icon\": \"\u2705\"\n    },\n    {\n      \"label\": \"Cache service unavailable\",\n      \"icon\": \"\ud83d\udd34\"\n    },\n    {\n      \"label\": \"Backup completed successfully\",\n      \"icon\": \"\ud83d\udcbe\"\n    },\n    {\n      \"label\": \"Security scan in progress\",\n      \"icon\": \"\ud83d\udd0d\"\n    },\n    {\n      \"label\": \"User authentication active\",\n      \"icon\": \"\ud83d\udd10\"\n    }\n  ]\n}",
-                      "contentType": "core/list",
+                      "content": "{\"items\":[{\"label\":\"Server status is healthy\",\"icon\":\"🟢\",\"tone\":null},{\"label\":\"Database connection established\",\"icon\":\"✅\",\"tone\":null},{\"label\":\"Cache service unavailable\",\"icon\":\"🔴\",\"tone\":null},{\"label\":\"Backup completed successfully\",\"icon\":\"💾\",\"tone\":null},{\"label\":\"Security scan in progress\",\"icon\":\"🔍\",\"tone\":null},{\"label\":\"User authentication active\",\"icon\":\"🔐\",\"tone\":null}]}",
+                      "contentType": "web/item_list",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3d219",
@@ -491,8 +491,8 @@
                     "max": 0,
                     "message": {
                       "_ref": "68f6016c3d969",
-                      "content": "{\n  \"data\": [\n    {\n      \"label\": \"Deploy application to production server\",\n      \"icon\": \"\u2713\",\n      \"type\": \"success\"\n    },\n    {\n      \"label\": \"Update database schema migration\", \n      \"icon\": \"\u2713\",\n      \"type\": \"success\"\n    },\n    {\n      \"label\": \"Configure SSL certificates for domain\",\n      \"icon\": \"\u2717\"\n    },\n    {\n      \"label\": \"Set up automated backup system\",\n      \"icon\": \"\u2717\"\n    }\n  ]\n}",
-                      "contentType": "core/list",
+                      "content": "{\"items\":[{\"label\":\"Deploy application to production server\",\"icon\":\"✓\",\"tone\":\"success\"},{\"label\":\"Update database schema migration\",\"icon\":\"✓\",\"tone\":\"success\"},{\"label\":\"Configure SSL certificates for domain\",\"icon\":\"✗\",\"tone\":null},{\"label\":\"Set up automated backup system\",\"icon\":\"✗\",\"tone\":null}]}",
+                      "contentType": "web/item_list",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3dd0e",
@@ -536,7 +536,7 @@
                     "message": {
                       "_ref": "68f6016c3e381",
                       "content": "{\n  \"fields\": [\n    {\n      \"name\": \"username\",\n      \"type\": \"text\",\n      \"label\": \"Username\",\n      \"placeholder\": \"Enter your username\",\n      \"required\": true,\n      \"value\": \"\"\n    },\n    {\n      \"name\": \"email\",\n      \"type\": \"email\", \n      \"label\": \"Email Address\",\n      \"placeholder\": \"your@email.com\",\n      \"required\": true\n    },\n    {\n      \"name\": \"message\",\n      \"type\": \"textarea\",\n      \"label\": \"Message\",\n      \"placeholder\": \"Your message here...\",\n      \"required\": false\n    },\n    {\n      \"name\": \"category\",\n      \"type\": \"select\",\n      \"label\": \"Category\",\n      \"placeholder\": \"Choose a category\",\n      \"options\": [\n        {\"value\": \"bug\", \"label\": \"Bug Report\"},\n        {\"value\": \"feature\", \"label\": \"Feature Request\"}\n      ]\n    },\n    {\n      \"name\": \"newsletter\",\n      \"type\": \"checkbox\",\n      \"label\": \"Subscribe\",\n      \"description\": \"Subscribe to newsletter\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"name\": \"submit\",\n      \"label\": \"Submit Form\",\n      \"type\": \"primary\"\n    },\n    {\n      \"name\": \"cancel\", \n      \"label\": \"Cancel\",\n      \"type\": \"secondary\"\n    }\n  ]\n}",
-                      "contentType": "core/form",
+                      "contentType": "web/form",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3e6e4",
@@ -623,8 +623,8 @@
                     "max": 0,
                     "message": {
                       "_ref": "68f6016c3f9cf",
-                      "content": "{\n  \"url\": \"https://picsum.photos/id/237/300/100\",\n  \"alt\": \"A dog\"\n}",
-                      "contentType": "core/image",
+                      "content": "{\"src\":\"https://picsum.photos/id/237/300/100\",\"alt\":\"A dog\"}",
+                      "contentType": "web/image",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c3fd8d",
@@ -667,8 +667,8 @@
                     "max": 0,
                     "message": {
                       "_ref": "68f6016c404e1",
-                      "content": "{\"url\" : \"https://www.youtube.com/watch?v=L7i7LtPiOZg\"}",
-                      "contentType": "core/video",
+                      "content": "{\"src\":\"https://www.youtube.com/watch?v=L7i7LtPiOZg\"}",
+                      "contentType": "web/video",
                       "messageStamp": [
                         {
                           "_ref": "68f6016c408c3",

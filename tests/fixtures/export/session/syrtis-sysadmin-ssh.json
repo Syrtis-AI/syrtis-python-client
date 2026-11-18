@@ -569,7 +569,7 @@
                   {
                     "_ref": "68f6016899eec",
                     "collection": "error",
-                    "contentType": "core/error",
+                    "contentType": "process/error",
                     "direction": "output",
                     "max": 0,
                     "message": null,

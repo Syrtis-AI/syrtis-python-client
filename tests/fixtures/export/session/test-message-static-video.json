@@ -55,8 +55,8 @@
           "message": [
             {
               "_ref": "68f6016b79ebf",
-              "content": "{\"url\":\"https:\\/\\/www.youtube.com\\/watch?v=L7i7LtPiOZg\"}",
-              "contentType": "core/video",
+              "content": "{\"src\":\"https://www.youtube.com/watch?v=L7i7LtPiOZg\"}",
+              "contentType": "web/video",
               "messageStamp": [
                 {
                   "_ref": "68f6016b7a29d",
