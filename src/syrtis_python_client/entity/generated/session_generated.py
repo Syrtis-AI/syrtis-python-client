@@ -1,4 +1,4 @@
-from sqlalchemy import DateTime, ForeignKey, String, Uuid
+from sqlalchemy import DateTime, ForeignKey, JSON, String, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -31,6 +31,9 @@ class SessionGenerated:
     @declared_attr
     def locale(cls) -> Mapped[object]:
         return mapped_column(String(35), nullable=True)
+    @declared_attr
+    def testValues(cls) -> Mapped[object]:
+        return mapped_column('test_values', JSON, nullable=True)
 
     @declared_attr
     def user_id(cls) -> Mapped[object]:
