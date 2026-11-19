@@ -1,4 +1,4 @@
-from sqlalchemy import DateTime, ForeignKey, String, Uuid
+from sqlalchemy import ForeignKey, String, Uuid
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column, relationship
 
 
@@ -11,14 +11,14 @@ class RequestGenerated:
     def status(cls) -> Mapped[object]:
         return mapped_column(String(30), nullable=False)
     @declared_attr
-    def dateCreated(cls) -> Mapped[object]:
-        return mapped_column('date_created', DateTime, nullable=False)
-    @declared_attr
     def type(cls) -> Mapped[object]:
         return mapped_column(String(120), nullable=False)
     @declared_attr
+    def dateCreated(cls) -> Mapped[object]:
+        return mapped_column('date_created', String, nullable=False)
+    @declared_attr
     def dateCompleted(cls) -> Mapped[object]:
-        return mapped_column('date_completed', DateTime, nullable=True)
+        return mapped_column('date_completed', String, nullable=True)
     @declared_attr
     def lastEvent(cls) -> Mapped[object]:
         return mapped_column('last_event', String(60), nullable=True)
