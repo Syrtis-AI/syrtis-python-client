@@ -1,6 +1,6 @@
 # python_client
 
-Version: 11.1.0
+Version: 11.2.0
 
 ## Table of Contents
 
