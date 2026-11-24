@@ -2,6 +2,22 @@
   "name": "slot_config",
   "properties": [
     {
+      "name": "testVariable",
+      "type": "string",
+      "nullable": true,
+      "default": null,
+      "orm": {
+        "kind": "field",
+        "column": "test_variable",
+        "type": "string",
+        "nullable": true,
+        "unique": false,
+        "id": false,
+        "generated": false,
+        "length": 64
+      }
+    },
+    {
       "name": "value",
       "type": "string",
       "nullable": true,
@@ -60,22 +76,6 @@
         "generated": false
       },
       "default": null
-    },
-    {
-      "name": "testVariable",
-      "type": "string",
-      "nullable": true,
-      "default": null,
-      "orm": {
-        "kind": "field",
-        "column": "test_variable",
-        "type": "string",
-        "nullable": true,
-        "unique": false,
-        "id": false,
-        "generated": false,
-        "length": 64
-      }
     },
     {
       "name": "slot",

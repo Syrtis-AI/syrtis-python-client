@@ -8,6 +8,9 @@ class TemplateGenerated:
         return 'template'
 
     @declared_attr
+    def testVariable(cls) -> Mapped[object]:
+        return mapped_column('test_variable', String(64), nullable=True)
+    @declared_attr
     def dateCreated(cls) -> Mapped[object]:
         return mapped_column('date_created', DateTime, nullable=False)
     @declared_attr
