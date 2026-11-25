@@ -23,6 +23,9 @@ class MessageGenerated:
     def origin(cls) -> Mapped[object]:
         return mapped_column(String(30), nullable=False)
     @declared_attr
+    def testVariable(cls) -> Mapped[object]:
+        return mapped_column('test_variable', String(64), nullable=True)
+    @declared_attr
     def versionMajor(cls) -> Mapped[object]:
         return mapped_column('version_major', Integer, nullable=False)
     @declared_attr
